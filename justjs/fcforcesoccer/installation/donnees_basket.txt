@@ -1,0 +1,90 @@
+INSERT INTO `action` VALUES (1, '{tir_2_points}', NULL);
+INSERT INTO `action` VALUES (2, '{tir_3_points}', NULL);
+INSERT INTO `action` VALUES (3, '{lancer_francs}', NULL);
+INSERT INTO `action` VALUES (4, '{rebond}', NULL);
+INSERT INTO `action` VALUES (5, '{passe}', NULL);
+INSERT INTO `action` VALUES (6, '{interception}', NULL);
+INSERT INTO `action` VALUES (7, '{contre}', NULL);
+
+INSERT INTO `field_state` VALUES (1, '{parquet}');
+INSERT INTO `field_state` VALUES (2, '{goudron}');
+
+INSERT INTO `job` VALUES (1, '{president}');
+INSERT INTO `job` VALUES (2, '{secretaire}');
+INSERT INTO `job` VALUES (3, '{tresorier}');
+INSERT INTO `job` VALUES (4, '{president_adjoint}');
+
+INSERT INTO `weather` VALUES (1, '{temps_sec}');
+INSERT INTO `weather` VALUES (2, '{pluie}');
+INSERT INTO `weather` VALUES (3, '{temps_nuageux}');
+INSERT INTO `weather` VALUES (4, '{neige}');
+
+INSERT INTO `level` VALUES (1, '{departemental}');
+INSERT INTO `level` VALUES (2, '{regional}');
+INSERT INTO `level` VALUES (3, '{national}');
+INSERT INTO `level` VALUES (4, '{international}');
+
+INSERT INTO `team_name` VALUES (1, '{poussin}',1);
+INSERT INTO `team_name` VALUES (2, '{benjamin}',2);
+INSERT INTO `team_name` VALUES (3, '{minime}',3);
+INSERT INTO `team_name` VALUES (5, '{cadet}',4);
+INSERT INTO `team_name` VALUES (6, '{junior}',5);
+INSERT INTO `team_name` VALUES (7, '{senior1}',6);
+INSERT INTO `team_name` VALUES (8, '{senior2}',7);
+INSERT INTO `team_name` VALUES (9, '{senior3}',8);
+
+INSERT INTO `country` VALUES (1, '{france}');
+INSERT INTO `country` VALUES (2, '{germany}');
+INSERT INTO `country` VALUES (3, '{england}');
+INSERT INTO `country` VALUES (4, '{spain}');
+INSERT INTO `country` VALUES (5, '{italy}');
+
+INSERT INTO `period` VALUES (1, '{quart_temps1}', '1', '10', 1);
+INSERT INTO `period` VALUES (2, '{quart_temps2}', '2', '10', 1);
+INSERT INTO `period` VALUES (3, '{quart_temps3}', '3', '10', 1);
+INSERT INTO `period` VALUES (4, '{quart_temps4}', '4', '10', 1);
+
+INSERT INTO `position` VALUES (1, '{pivot}','1');
+INSERT INTO `position` VALUES (2, '{petit_ailier}','2');
+INSERT INTO `position` VALUES (3, '{arriere}','3');
+INSERT INTO `position` VALUES (4, '{ailier_fort}','4');
+INSERT INTO `position` VALUES (5, '{meneur}','5');
+
+INSERT INTO `sex` VALUES (1, '{masculin}', 'M');
+INSERT INTO `sex` VALUES (2, '{feminin}', 'F');
+
+INSERT INTO `stats` VALUES (1, '{play}', '{play_ab}', '{play_ab}', 'PLAY', '1');
+INSERT INTO `stats` VALUES (2, '{win}', '{win_ab}', '{win_ab}', 'WIN', '2');
+INSERT INTO `stats` VALUES (3, '{percent_win}', '{percent_win_ab}', '{percent_win_ab}', '(WIN/PLAY)*100', '3');
+INSERT INTO `stats` VALUES (4, '{tie}', '{tie_ab}', '{tie_ab}', 'TIE', '4');
+INSERT INTO `stats` VALUES (5, '{percent_tie}', '{percent_tie_ab}', '{percent_tie_ab}', '(TIE/PLAY)*100', '5');
+INSERT INTO `stats` VALUES (6, '{defeat}', '{defeat_ab}', '{defeat_ab}', 'DEFEAT', '6');
+INSERT INTO `stats` VALUES (7, '{percent_defeat}', '{percent_defeat_ab}', '{percent_defeat_ab}', '(DEFEAT/PLAY)*100', '7');
+INSERT INTO `stats` VALUES (8, '{point_for}', '{point_for_ab}', '{point_for_ab}', 'POINT_FOR', '8');
+INSERT INTO `stats` VALUES (9, '{point_against}', '{point_against_ab}', '{point_against_ab}', 'POINT_AGAINST', '9');
+INSERT INTO `stats` VALUES (10, '{goal_average}', '{goal_average_ab}', '{goal_average_ab}', 'GOAL_AVERAGE', '10');
+INSERT INTO `stats` VALUES (11, '{2_points_marked}', '{2_points_marked_ab}', '{2_points_marked_ab}', '', '11');
+INSERT INTO `stats` VALUES (12, '{3_points_marked}', '{3_points_marked_ab}', '{3_points_marked_ab}', '', '12');
+INSERT INTO `stats` VALUES (13, '{free_throw_marked}', '{free_throw_marked_ab}', '{free_throw_marked_ab}', '', '13');
+
+
+INSERT INTO `stats_player` VALUES (1, '{play}', '{play_ab}', '{play_ab}', 'PLAY', '1');
+INSERT INTO `stats_player` VALUES (2, '{2_points_try}', '{2_points_try_ab}', '{2_points_try_ab}', '', '2');
+INSERT INTO `stats_player` VALUES (3, '{2_points_marked}', '{2_points_marked_ab}', '{2_points_marked_ab}', '', '3');
+INSERT INTO `stats_player` VALUES (4, '{percent_2_points}', '{percent_2_points_ab}', '{percent_2_points_ab}', '({2_points_marked_ab}/{2_points_try_ab})*100', '4');
+INSERT INTO `stats_player` VALUES (5, '{3_points_try}', '{3_points_try_ab}', '{3_points_try_ab}', '', '5');
+INSERT INTO `stats_player` VALUES (6, '{3_points_marked}', '{3_points_marked_ab}', '{3_points_marked_ab}', '', '6');
+INSERT INTO `stats_player` VALUES (7, '{percent_3_points}', '{percent_3_points_ab}', '{percent_3_points_ab}', '({3_points_marked_ab}/{3_points_try_ab})*100', '7');
+INSERT INTO `stats_player` VALUES (8, '{free_throw_try}', '{free_throw_try_ab}', '{free_throw_try_ab}', '', '8');
+INSERT INTO `stats_player` VALUES (9, '{free_throw_marked}', '{free_throw_marked_ab}', '{free_throw_marked_ab}', '', '9');
+INSERT INTO `stats_player` VALUES (10, '{percent_free_throw}', '{percent_free_throw_ab}', '{percent_free_throw_ab}', '({free_throw_marked_ab}/{free_throw_try_ab})*100', '10');
+INSERT INTO `stats_player` VALUES (11, '{decisive_pass}', '{decisive_pass_ab}', '{decisive_pass_ab}', '', '11');
+INSERT INTO `stats_player` VALUES (12, '{ball_lose}', '{ball_lose_ab}', '{ball_lose_ab}', '', '12');
+INSERT INTO `stats_player` VALUES (13, '{rebound_off}', '{rebound_off_ab}', '{rebound_off_ab}', '', '13');
+INSERT INTO `stats_player` VALUES (14, '{rebound_def}', '{rebound_def_ab}', '{rebound_def_ab}', '', '14');
+INSERT INTO `stats_player` VALUES (15, '{interception}', '{interception_ab}', '{interception_ab}', '', '15');
+INSERT INTO `stats_player` VALUES (16, '{block}', '{block_ab}', '{block_ab}', '', '16');
+INSERT INTO `stats_player` VALUES (17, '{foul_anti}', '{foul_anti_ab}', '{foul_anti_ab}', '', '17');
+INSERT INTO `stats_player` VALUES (18, '{foul_tech}', '{foul_tech_ab}', '{foul_tech_ab}', '', '18');
+INSERT INTO `stats_player` VALUES (19, '{foul_exp}', '{foul_exp_ab}', '{foul_exp_ab}', '', '19');
+INSERT INTO `stats_player` VALUES (20, '{time_play}', '{time_play_ab}', '{time_play_ab}', '', '20');

@@ -1,0 +1,25 @@
+ALTER TABLE `field` ADD `field_size` TINYTEXT;
+ALTER TABLE `field` ADD `field_photo` TINYTEXT;
+
+ALTER TABLE `member` ADD `member_place_birth` TINYTEXT AFTER `member_date_birth` ;
+
+ALTER TABLE `position` ADD `position_order` TINYINT NOT NULL ;
+UPDATE `position` SET position_order=position_id;
+
+CREATE TABLE `team_photo` (
+  `team_id` int(11) NOT NULL default '0',
+  `season_id` int(11) NOT NULL default '0',
+  `photo` TINYTEXT NOT NULL,
+  `description` TEXT,
+  PRIMARY KEY  (`team_id`,`season_id`)
+) ;
+
+ALTER TABLE `member` CHANGE `member_size` `member_size` TINYTEXT DEFAULT NULL ;
+ALTER TABLE `member` CHANGE `member_weight` `member_weight` TINYTEXT DEFAULT NULL ;
+
+ALTER TABLE `club` CHANGE `club_creation_year` `club_creation_year` INT( 4 ) DEFAULT NULL ;
+
+ALTER TABLE `forum` ADD `forum_order` TINYINT NOT NULL AFTER `forum_description` ;
+UPDATE `forum` SET forum_order=forum_id;
+
+ALTER TABLE `member` ADD `member_date_registration` DATETIME NOT NULL AFTER `member_date_connection` ;

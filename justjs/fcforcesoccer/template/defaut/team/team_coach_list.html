@@ -1,0 +1,79 @@
+<h1>{L_title}</h1>
+<div id="tri"><span class="trier">{L_order} :</span> <a href="javascript:trier('team_coach','name','{ordre}');" title="{L_order} {L_name}">{L_name}</a>
+<!-- OPTION aff_club -->
+ | <a href="javascript:trier('team_coach','club','{ordre}');" title="{L_order} {L_club}">{L_club}</a> 
+<!-- END OPTION aff_club -->
+</div>
+
+<!-- OPTION link_add -->
+<p><a href="{link_add}" class="add">{L_add}</a></p>
+<!-- END OPTION link_add -->
+
+<!-- OPTION season -->
+<form name="team_coach" method="post" action="{form_action}">
+<p>{L_choose_season} : <select name="season" onchange="submit();">
+<!-- LOOP season -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP season -->
+</select>
+<input name="page" type="hidden" value="" />
+	  <input name="tri" type="hidden" value="{value_tri}" />
+	  <input name="ordre" type="hidden" value="{value_ordre}" />	  	  
+	  <input name="valider" type="button" value="{L_valider}" onclick="javascript:this.form.submit();" />
+</p>
+</form>
+<!-- END OPTION season -->
+
+<!-- OPTION L_message_team_coach -->
+<p class="message">{L_message_team_coach}</p>
+<!-- END OPTION L_message_team_coach -->
+
+<!-- OPTION team_coach -->
+<table border="0">
+  <thead>
+  <tr>
+    <th>{L_coach}</th>
+    <!-- OPTION aff_club -->
+	<th>{L_club}</th>
+	<!-- END OPTION aff_club -->
+    <th>{L_team}</th>
+    <th>&nbsp;</th>
+   </tr>
+  </thead>
+  <tbody>
+    <!-- LOOP team_coach -->
+  <tr class="ligne{mod}">
+    <td><h2>{member_firstname} {member_lastname}</h2></td>
+    <!-- OPTION aff_club_liste -->
+	<td><a href="{link_club}">{club}</a></td>
+	<!-- END OPTION aff_club_liste -->
+    <td><a href="{link_team}">{team_name}</a></td>
+    <td><a href="{link_member}" class="details">{L_show_view}</a></td>
+  </tr>
+  <!-- END LOOP team_coach -->
+  </tbody>
+</table>
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="javascript:changer_page('team_coach','{first_page}');">{L_first_page}</a> |
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="javascript:changer_page('team_coach','{previous_page}');">{L_previous_page}</a> |
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="javascript:changer_page('team_coach','{page}');">
+  <!-- END OPTION link_page -->
+    {page}</a> |
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="javascript:changer_page('team_coach','{next_page}');">{L_next_page}</a>
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="javascript:changer_page('team_coach','{last_page}');">{L_last_page}</a>
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>
+<!-- END OPTION team_coach -->

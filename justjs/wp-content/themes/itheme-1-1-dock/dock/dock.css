@@ -1,0 +1,34 @@
+/* dock - bottom */
+#dock {
+	width: 100%;
+	position: absolute;
+	right: 130px;
+}
+#dock a, #dock a:visited, #dock a:hover {
+	text-decoration: none;
+	color: #000000;
+}
+.dock-container {
+	position: absolute;
+	height: 45px;
+	background: url(images/dock-bg.gif);
+	padding-left: 20px;
+}
+a.dock-item {
+	display: block; 
+	font: bold 12px Arial, Helvetica, sans-serif;
+	width: 40px; 
+	color: #000; 
+	bottom: 0px; 
+	position: absolute;
+	text-align: center;
+}
+.dock-item span {
+	display: none;
+	padding-left: 20px;
+}
+.dock-item img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}

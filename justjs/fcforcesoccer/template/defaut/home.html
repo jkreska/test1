@@ -1,0 +1,141 @@
+<div id="home">
+<div id="news">
+<h1>{L_news}</h1>
+<!-- OPTION L_message_last_news -->
+<p class="message">{L_message_last_news}</p>
+<!-- END OPTION L_message_last_news --> 
+
+<!-- LOOP last_news -->
+<div class="news_list">
+<!-- OPTION aff_status -->
+<img src="../tpl_image/status_{status}.png" border="0" align="absmiddle" />
+<!-- END OPTION aff_status -->
+<a href="{link_news}" class="title" title="{news}">{news}</a><br />
+<p class="date">{release} {release_time}</p>
+<span class="description">{summary}</span><br />
+<img src="../tpl_image/fleche_noire.gif" alt="{lire}" width="9" height="9" border="0" align="absmiddle" /> <a href="{link_news}" class="details" title="{lire} : {news}">{lire}</a>
+</div>
+<!-- END LOOP last_news -->
+
+<div class="view_list"><a href="{link_news}" title="{L_view_news_list}">{L_view_news_list}</a></div>	
+</div>
+		
+<div id="information">
+<h1>{L_information}</h1>
+
+<!-- OPTION L_message_information -->
+<p class="message">{L_message_information}</p>
+<!-- END OPTION L_message_information -->
+
+<!-- OPTION information -->
+<ul>
+<!-- LOOP information -->
+<li><a href="{link}" title="{title}">{title}</a></li>
+<!-- END LOOP information -->
+</ul>
+<!-- END OPTION information -->
+
+</div>
+
+<div id="match">
+	<h1>{L_match}</h1>
+     <h2>{L_next_matches}</h2>
+<!-- OPTION L_message_next_matches -->
+<div class="message">{L_message_next_matches}</div>
+<!-- END OPTION L_message_next_matches -->
+<!-- OPTION next_matches -->
+<table border="0">
+ <thead>
+  <tr>
+    <th>{L_date}</th>
+    <th>{L_home}</th>
+    <th>{L_visitor}</th>
+	<th>&nbsp;</th>
+    </tr>
+ </thead> 
+ <tbody>
+ <!-- LOOP next_matches --> 
+  <tr class="ligne{mod}">
+    <td>{date}</td>
+    <td align="right"><a href="{link_club_home}" class="title">{club_home}</a>
+	<!-- OPTION team_home -->
+	[ <a href="{link_team_home}">{team_home}</a>
+<!-- OPTION sex_home -->
+ <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+<!-- END OPTION sex_home -->	
+]	
+	<!-- END OPTION team_home -->
+	</td>
+    <td align="left"><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+	<!-- OPTION team_visitor -->
+	[<a href="{link_team_visitor}">{team_visitor}</a>
+<!-- OPTION sex_visitor -->
+ <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+<!-- END OPTION sex_visitor -->	
+]
+	<!-- END OPTION team_visitor -->
+	</td>
+	<td><a href="{link_view}" class="details">{L_details}</a></td>
+    </tr>
+  <!-- END LOOP next_matches -->
+  </tbody>
+</table>
+<!-- END OPTION next_matches -->
+
+<h2>{L_last_matches}</h2>
+<!-- OPTION L_message_last_matches -->
+<div class="message">{L_message_last_matches}</div>
+<!-- END OPTION L_message_last_matches -->
+<!-- OPTION last_matches -->
+<table border="0">
+ <thead>
+  <tr>
+    <th>{L_date}</th>
+    <th>{L_home}</th>
+    <th>{L_score}</th>
+    <th>{L_visitor}</th>
+	<th>&nbsp;</th>
+    </tr>
+ </thead> 
+ <tbody>
+ <!-- LOOP last_matches --> 
+  <tr class="ligne{mod}">
+    <td>{date}</td>
+    <td align="right" class="gagnant{home_gagnant}"><a href="{link_club_home}" class="title">{club_home}</a>
+	<!-- OPTION team_home -->
+	[ <a href="{link_team_home}">{team_home}</a>
+<!-- OPTION sex_home -->
+ <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+<!-- END OPTION sex_home -->	
+]
+	<!-- END OPTION team_home -->
+	</td>
+    <td align="center">{score_home} -
+      {score_visitor}</td>
+    <td align="left"  class="gagnant{visitor_gagnant}"><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+	<!-- OPTION team_visitor -->
+	[<a href="{link_team_visitor}">{team_visitor}</a>
+<!-- OPTION sex_visitor -->
+ <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+<!-- END OPTION sex_visitor -->	
+]
+	<!-- END OPTION team_visitor -->
+	</td>
+	<td><a href="{link_view}" class="details">{L_details}</a></td>
+    </tr>
+  <!-- END LOOP last_matches -->
+  </tbody>
+</table>
+<!-- END OPTION last_matches -->
+
+<div class="view_list"><a href="{link_match}" title="{L_view_match_list}">{L_view_match_list}</a></div>
+
+</div>
+
+
+<!-- OPTION mini_standings -->
+<div id="mini_standings">{mini_standings}</div>
+<!-- END OPTION mini_standings -->
+
+<div class="spacer">&nbsp;</div>
+</div>

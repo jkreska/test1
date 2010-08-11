@@ -1,0 +1,136 @@
+<!-- tinyMCE -->
+<script language="javascript" type="text/javascript" src="{meta_url}/tiny_mce/tiny_mce.js"></script>
+<script language="javascript" type="text/javascript">
+   tinyMCE.init({
+	    mode : "specific_textareas",
+		relative_urls : false,
+		remove_script_host : false,  		  
+	    theme : "advanced",
+	    plugins : "table,emotions,preview,flash,advimage,advlink,fullscreen",
+		theme_advanced_buttons1_add : "fontselect,fontsizeselect",
+		theme_advanced_buttons2_add_before : "forecolor,backcolor,separator",
+		theme_advanced_buttons3_add_before : "tablecontrols,separator",
+		theme_advanced_buttons2_add : "emotions,flash",
+		theme_advanced_buttons3_add : "separator,fullscreen,preview",
+	    theme_advanced_toolbar_location : "top",
+	    theme_advanced_toolbar_align : "left",
+		extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",			  
+		language : "{lang}",
+		theme_advanced_resize_horizontal : false,
+		theme_advanced_resizing : true,
+		apply_source_formatting : true,
+		file_browser_callback : "fileBrowserCallBack"	  
+   });
+</script>
+<!-- /tinyMCE -->
+
+
+<h1>{L_title}
+<!-- OPTION value_title -->
+: {value_title}
+<!-- END OPTION value_title -->
+</h1>
+
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a> 
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+<!-- END OPTION link_delete -->
+</div>
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<p class="field_required">* {L_field_required}</p>
+<form name="form_news" method="post" action="{form_action}">
+  <table border="0" cellpadding="2" cellspacing="1">
+    <tr>
+      <th class="field_required">{L_status}*</th>
+      <td><select name="status">
+          <option value="">{L_choose_status}</option>
+          <!-- LOOP status -->
+          <option value="{id}" {selected}>{name}</option>
+          <!-- END LOOP status -->
+      </select></td>
+    </tr>
+    <tr>
+      <th class="field_required">{L_release}*</th>
+      <td valign="top"><input name="release" type="text" value="{value_release}" size="10" maxlength="10" />
+        ({L_format_date})</td>
+    </tr>
+    <tr>
+      <th>{L_release_time}</th>
+      <td valign="top"><input name="release_time" type="text" value="{value_release_time}" size="5" maxlength="5" />
+        ({L_format_time})</td>
+    </tr>  
+    <tr> 
+      <th>{L_subhead}</th>
+	  <td><input name="subhead" type="text" value="{value_subhead}" size="40" /></td>
+    </tr>
+    <tr> 
+      <th class="field_required">{L_title_news}*</th>
+	  <td><input name="title" type="text" value="{value_title}" size="60" /></td>
+    </tr>
+    <tr> 
+      <th>{L_subtitle}</th>
+	  <td><input name="subtitle" type="text" value="{value_subtitle}" size="40" /></td>
+    </tr>
+    <tr> 
+      <th class="field_required">{L_idurl}*</th>
+	  <td><a href="#" onclick="document.form_news.idurl.value=str2url(document.form_news.release.value+'_'+document.form_news.title.value,'{meta_charset}'); return false;">{L_idurl_auto}</a> 
+        <br /> <input name="idurl" type="text" value="{value_idurl}" size="40" />      </td>
+    </tr>
+    <tr> 
+      <th>{L_keyword}</th>
+	  <td><input name="keyword" type="text" id="keyword" value="{value_keyword}" size="40" /></td>
+    </tr>
+</table>
+<table>	
+<thead>
+    <tr> 
+      <th class="field_required">{L_summary}*</th>
+    </tr>
+	</thead>
+	  <tr>
+	  <td><textarea name="summary" cols="50" rows="10" id="summary" mce_editable="true">{value_summary}</textarea>      </td>
+    </tr>
+</table>
+<table>
+<thead>
+    <tr> 
+      <th class="field_required">{L_text}*</th>
+    </tr>
+	</thead>
+	  <tr>
+	  <td><textarea name="text" cols="50" rows="30" id="text" mce_editable="true">{value_text}</textarea></td>
+    </tr>
+</table>
+<table>	
+<thead>
+    <tr> 
+      <th>{L_ps}</th>
+    </tr>
+	</thead>
+	  <tr>
+	  <td><textarea name="ps" cols="50" rows="8" id="ps"  mce_editable="true">{value_ps}</textarea></td>
+    </tr>
+</table>	
+<div class="button">
+<input type="hidden" name="id" value="{value_id}" />
+<input type="submit" name="submit" value="{L_valider}" />
+</div>
+</form>
+<!-- END OPTION show_form -->

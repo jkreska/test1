@@ -1,0 +1,264 @@
+<h1>{L_title}</h1>
+
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a>
+</div>
+
+<!-- OPTION num_step -->
+<h2>{L_step} {num_step}/4 : {L_current_step}</h2>
+<p>{L_current_step_info}</p>
+<!-- END OPTION num_step -->
+
+
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<form name="import_match" action="{form_action}" method="post" enctype="multipart/form-data">
+
+<!-- OPTION show_step_1 -->
+<p class="field_required">* {L_field_required}</p>
+  <table>
+    <tr> 
+      <th class="field_required">{L_csv_file} *</th>
+      <td><input name="file" type="file" /></td>
+    </tr>
+    <tr> 
+      <th class="field_required">{L_separator} *</th>
+      <td><input name="separator" type="text" value="{value_separator}" size="3" /></td>
+    </tr>		
+    <tr> 
+      <th>&nbsp;</th>
+      <td><input type="checkbox" name="first_line" value="1" {first_line_checked} /> {L_first_line}</td>
+    </tr>	
+  </table>
+<!-- END OPTION show_step_1 -->
+
+<!-- OPTION show_step_2 -->
+<p class="field_required">* {L_field_required}</p>
+<div style="overflow:auto">
+<table>
+  	<thead>
+		<tr>
+			<th>{L_file_column}</th>
+			<!-- LOOP column -->
+			<th>{name}</th>
+			<!-- END LOOP column -->
+		</tr>
+		<tr>
+			<th>{L_associated_field}</th>
+			<!-- LOOP column -->
+			<td>
+				<select name="match_field[{i}]">
+				<option value="">{L_choose_field}</option>
+				<!-- LOOP match_field -->
+				<option value="{id}" {selected}>{name}</option>
+				<!-- END LOOP match_field -->
+				</select>
+			</td>
+			<!-- END LOOP column -->			
+		</tr>		
+  	</thead>
+	<tbody>
+		<!-- LOOP line -->
+  		<tr class="ligne{mod}">
+			<td>&nbsp;</td>
+			<!-- LOOP column -->
+			<td><input type="hidden" name="data[{i}][{j}]" value="{value}" />{example}</td>
+			<!-- END LOOP column -->
+		</tr>
+		<!-- END LOOP line -->
+	</tbody>  
+  </table>
+</div>
+<!-- END OPTION show_step_2 -->
+
+<!-- OPTION show_step_3 -->
+
+<!-- LOOP match_field -->
+<input type="hidden" name="match_field[{i}]" value="{value}" />
+<!-- END LOOP match_field -->
+
+<!-- LOOP data_hidden -->		
+<!-- LOOP column -->			
+<input type="hidden" name="data[{i}][{j}]" value="{value}" />
+<!-- END LOOP column -->
+<!-- END LOOP data_hidden -->	
+	
+<!-- OPTION weather -->
+<h2>{L_weather}</h2>
+<table>
+<!-- LOOP weather -->
+<tr><td>
+<input type="hidden" name="value[{i}]" value="{value}" />
+<input type="hidden" name="value_type[{i}]" value="weather" />
+{value}</td>
+<td><select name="value_associate[{i}]">
+<option value="">{L_choose_weather}</option>
+<!-- LOOP weather_list -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP weather_list -->
+<option value="-1" {new_selected}>{L_add_new_value}</option>
+</select>
+</td></tr>
+<!-- END LOOP weather -->
+</table>
+<!-- END OPTION weather -->
+
+<!-- OPTION field_state -->
+<h2>{L_field_state}</h2>
+<table>
+<!-- LOOP field_state -->
+<tr><td>
+<input type="hidden" name="value[{i}]" value="{value}" />
+<input type="hidden" name="value_type[{i}]" value="field_state" />
+{value}</td>
+<td><select name="value_associate[{i}]">
+<option value="">{L_choose_field_state}</option>
+<!-- LOOP field_state_list -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP field_state_list -->
+<option value="-1" {new_selected}>{L_add_new_value}</option>
+</select>
+</td></tr>
+<!-- END LOOP field_state -->
+</table>
+<!-- END OPTION field_state -->
+
+<!-- OPTION field -->
+<h2>{L_field}</h2>
+<table>
+<!-- LOOP field -->
+<tr><td>
+<input type="hidden" name="value[{i}]" value="{value}" />
+<input type="hidden" name="value_type[{i}]" value="field" />
+{value}</td>
+<td><select name="value_associate[{i}]">
+<option value="">{L_choose_field}</option>
+<!-- LOOP field_list -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP field_list -->
+<option value="-1" {new_selected}>{L_add_new_value}</option>
+</select>
+</td></tr>
+<!-- END LOOP field -->
+</table>
+<!-- END OPTION field -->
+
+<!-- OPTION club -->
+<h2>{L_club}</h2>
+<table>
+<!-- LOOP club -->
+<tr><td>
+<input type="hidden" name="value[{i}]" value="{value}" />
+<input type="hidden" name="value_type[{i}]" value="club" />
+{value}</td>
+<td><select name="value_associate[{i}]">
+<option value="">{L_choose_club}</option>
+<!-- LOOP club_list -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP club_list -->
+<option value="-1" {new_selected}>{L_add_new_value}</option>
+</select>
+</td></tr>
+<!-- END LOOP club -->
+</table>
+<!-- END OPTION club -->
+
+<!-- OPTION competition -->
+<h2>{L_competition}</h2>
+<table>
+<!-- LOOP competition -->
+<tr><td>
+<input type="hidden" name="value[{i}]" value="{value}" />
+<input type="hidden" name="value_type[{i}]" value="competition" />
+{value}</td>
+<td><select name="value_associate[{i}]">
+<option value="">{L_choose_competition}</option>
+<!-- LOOP competition_list -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP competition_list -->
+<option value="-1" {new_selected}>{L_add_new_value}</option>
+</select>
+</td></tr>
+<!-- END LOOP competition -->
+</table>
+<!-- END OPTION competition -->
+
+<!-- END OPTION show_step_3 -->
+
+
+<!-- OPTION show_step_4 -->
+<p class="field_required">* {L_field_required}</p>
+
+<div style="overflow:auto; height:500px;">
+<!-- LOOP new_value -->
+<input type="hidden" name="new_value[{i}]" value="{value}" />
+<input type="hidden" name="new_value_type[{i}]" value="{type}" />
+<!-- END LOOP new_value -->
+
+  <table>
+  	<thead>
+  		<tr>
+			<th>#</th>			
+			<!-- LOOP match_field -->
+			<th><input type="hidden" name="match_field[{i}]" value="{value}" />
+			{name}</th>
+			<!-- END LOOP match_field -->
+			<th>{L_action}</th>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- LOOP data -->		
+  		<tr class="ligne{mod}">
+			<td>{cpt}</td>
+			<!-- LOOP column -->			
+			<td>
+			<!-- OPTION show_value -->
+			<input type="text" name="data[{i}][{j}]" value="{value}" />
+			<!-- END OPTION show_value -->
+			
+			<!-- OPTION value_list -->
+			<select name="data[{i}][{j}]">
+			<option value="">{L_choose}</option>
+			<!-- LOOP value_list -->
+			<option value="{id}" {selected}>{value}</option>
+			<!-- END LOOP value_list -->
+			</select>
+			<!-- END OPTION value_list -->
+			</td>
+			<!-- END LOOP column -->
+		<td><input type="radio" name="action[{i}]" value="import" {checked_import} /> {L_import}<br />
+		<input type="radio" name="action[{i}]" value="merge" {checked_merge} /> {L_merge}
+		<select name="match[{i}]">
+			<option value="">{L_choose_match}</option>
+			<!-- LOOP match_list -->
+			<option value="{id}" {selected}>{name}</option>
+			<!-- END LOOP match_list -->		
+		</select>
+		<br />
+		<input type="radio" name="action[{i}]" value="dont_import" {checked_dont_import} /> {L_dont_import}</td>
+		</tr>
+	<!-- END LOOP data -->
+	</tbody>  
+  </table>
+</div>
+<!-- END OPTION show_step_4 -->
+
+<div class="button">
+<input type="hidden" name="step" value="{value_step}" />
+<input type="submit" name="submit" value="{L_valider}" />
+</div>  
+</form>

@@ -1,0 +1,67 @@
+<h1>{L_installation} &gt; {L_step} {nb_step}</h1>
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+<!-- OPTION aff_erreur -->
+<form name="erreur" action="{form_action}" method="post">
+<input type="hidden" name="erreur" value="{value_erreur}" />
+<input type="hidden" name="action" value="0" />
+<div id="boutons"><input name="ignore" type="button" value="{L_ignore}" onclick="this.form.action.value=1; this.form.submit();" />
+<input name="Submit" type="submit" value="{L_try_again}" /></div>
+</form>
+<!-- END OPTION aff_erreur -->
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION message -->
+<div id="message">
+<ol class="message">  
+<!-- LOOP message -->
+<li>{message}</li>
+<!-- END LOOP message -->
+</ol>
+</div>
+<!-- END OPTION message -->
+
+<!-- OPTION L_create_base -->
+<form id="step3" name="step3" method="post" action="{form_action}">
+{L_create_base} 
+<input name="create_base" type="hidden" value="1" />
+<div id="boutons"><input name="Submit" type="submit" value="{L_continue}" class="continue" /></div>
+</form>
+<!-- END OPTION L_create_base -->
+
+<!-- OPTION L_delete_table -->
+<form id="step3" name="step3" method="post" action="{form_action}">
+{L_delete_table} 
+<input name="delete_table" type="radio" value="1" /> {L_yes} 
+<input name="delete_table" type="radio" value="0" /> {L_no} 
+<div id="boutons"><input name="Submit" type="submit" value="{L_continue}" class="continue" /></div>
+</form>
+<!-- END OPTION L_delete_table -->
+
+<!-- OPTION L_installation_terminee -->
+<p>{L_installation_terminee}</p>
+<form id="connection" name="connection" method="post" action="{form_action_connection}">
+  <h2>{L_connection}
+  </h2>
+  <table border="0" cellpadding="1" cellspacing="0">
+    <tr>
+      <th>{L_login}</th>
+	  <td><input name="login" type="text" value="" size="10" /></td>
+	</tr>
+      <th>{L_pass}</th>
+       <td><input name="pass" type="password" value="" size="10" /></td></tr>
+	  <tr> 
+	  <td>&nbsp;</td>
+      <td><input type="submit" name="submit" value="{L_connecter}" /></td>
+    </tr>
+  </table>
+</form>
+<!-- END OPTION L_installation_terminee -->
+

@@ -1,0 +1,51 @@
+<h1>{L_title}</h1>
+<div id="tri"><span class="trier">{L_order} :</span> <a href="{link_tri_name}" title="{L_order} {L_name}">{L_name}</a></div>
+
+<!-- OPTION link_add -->
+<p class="add"><a href="{link_add}">{L_add}</a></p>
+<!-- END OPTION link_add -->
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+
+<!-- OPTION link -->
+<!-- LOOP link -->
+<div class="ligne{mod}">
+<h2>{name}
+<!-- OPTION link_edit -->
+<a href="{link_edit}"><img src="../tpl_image/button_edit.png" border="0"></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');"><img src="../tpl_image/button_drop.png" border="0"></a> 
+<!-- END OPTION link_delete -->
+</h2>
+<p>{description}<br />
+<a href="{url}" target="_blank">{url}</a>
+</p>
+</div>
+<!-- END LOOP link -->
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="{link_first_page}">{L_first_page}</a> |
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="{link_previous_page}">{L_previous_page}</a> |
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="{link_page}">
+  <!-- END OPTION link_page -->
+    {page}</a> |
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="{link_next_page}">{L_next_page}</a>
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="{link_last_page}">{L_last_page}</a>
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>
+<!-- END OPTION link -->

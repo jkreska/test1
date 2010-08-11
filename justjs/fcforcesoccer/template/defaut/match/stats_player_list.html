@@ -1,0 +1,79 @@
+<h1>{L_title}</h1>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<h2>{L_add}</h2>
+<form action="{form_action}" method="post" id="formulaire">
+  <table>
+  <thead>
+    <tr>
+      <th>{L_name}</th>
+	  <th>{L_abbreviation}</th>
+      <th>{L_code}</th>
+	  <th>{L_type}</th>
+      <th>&nbsp;</th>
+    </tr>
+	</thead>
+    <tr>
+      <td><input type="text" name="name" value="{value_name}" /></td>
+	  <td><input name="abbreviation" type="text" value="{value_abbreviation}" size="5" /></td> 
+	  <td><input name="code" type="text" value="{value_code}" size="8" maxlength="8" /></td>
+	  <td><input type="radio" name="type" value="0" onclick="afficher_elt('formula','');" checked="checked" /> {L_value} 
+	      <input type="radio" name="type" value="1" onclick="afficher_elt('formula','');" /> {L_formula}*<br />
+		  <input name="formula" type="text" id="formula" value="{value_formula}" style="display:none" /></td>
+      <td><input type="hidden" name="id" value="" />
+        <input type="submit" name="submit" value="{L_submit}" /></td>
+    </tr>
+  </table>
+<span class="details">*{L_explication_formula}</span>
+</form>
+<!-- OPTION stats_player -->
+<h2>{L_liste}</h2>
+<table>
+<thead>
+  <tr>
+    <td></td>
+	<td></td>
+	<th>{L_name}</th>
+	<th>{L_abbreviation}</th>
+	<th>{L_code} </th>
+    <th>{L_formula} </th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+<!-- LOOP stats_player -->
+<form action="{form_action}" method="post">  
+  <tr>
+    <td width="15"> 
+      <!-- OPTION link_up -->
+      <a href="{link_up}"><img src="../tpl_image/arrow_up.png" alt="{L_up}" width="13" height="13" border="0"></a> 
+      <!-- END OPTION link_up -->
+    </td>
+    <td width="15"> 
+      <!-- OPTION link_down -->
+      <a href="{link_down}"><img src="../tpl_image/arrow_down.png" alt="{L_down}" width="13" height="13" border="0"></a> 
+      <!-- END OPTION link_down -->
+    </td>  
+    <td><input type="text" name="name" value="{name}" /></td>
+	<td><input name="abbreviation" type="text" value="{abbreviation}" size="5" /></td>
+    <td><input name="code" type="text" value="{code}" size="8" maxlength="8" /></td>
+    <td><input name="formula" type="text" id="formula" value="{formula}" size="40" /></td>
+    <td><input type="hidden" name="id" value="{id}" />
+      <input type="image" name="{L_edit}" src="../tpl_image/button_edit.png" onclick="submit()" alt="{L_edit}" />
+      <a href="javascript:confirmation('{link_suppression}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+  </tr>
+</form>
+<!-- END LOOP stats_player -->
+</table>
+<!-- END OPTION stats_player -->

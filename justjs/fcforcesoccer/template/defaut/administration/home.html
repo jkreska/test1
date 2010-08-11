@@ -1,0 +1,98 @@
+<h1>{L_title}</h1>
+
+<p>{L_welcome}</p>
+
+<!-- OPTION show_configuration -->
+<h2>{L_configuration}</h2>
+<p>{L_configuration_text}</p>
+
+<ol>
+<!-- OPTION show_end_installation -->
+<li>{L_end_installation}</li>
+<!-- END OPTION show_end_installation -->
+<!-- OPTION show_maj -->
+<li>{L_maj} <a href="{link_maj}">{L_mettre_a_day}</a></li>
+<!-- END OPTION show_maj -->
+<!-- OPTION show_website_status -->
+<li>{L_site_closed} <a href="{link_configuration}">{L_change_configuration}</a></li>
+<!-- END OPTION show_website_status -->
+<!-- OPTION show_season -->
+<li>{L_depassee_season} <a href="{link_season}">{L_add_season}</a></li>
+<!-- END OPTION show_season -->
+<!-- OPTION show_club_admin -->
+<li>{L_club_absent} <a href="{link_club}">{L_add_club}</a></li>
+<!-- END OPTION show_club_admin -->
+<!-- OPTION show_competition -->
+<li>{L_competition_absent}. <a href="{link_competition}">{L_add_competition}</a></li>
+<!-- END OPTION show_competition -->
+<!-- OPTION show_team -->
+<li>{L_team_absent}. <a href="{link_team}">{L_add_team}</a></li>
+<!-- END OPTION show_team -->
+<!-- OPTION show_news -->
+<li>{L_news_absent}. <a href="{link_news}">{L_add_news}</a></li>
+<!-- END OPTION show_news -->
+</ol>
+<!-- END OPTION show_configuration -->
+
+<!-- OPTION show_match -->
+<h2>{L_match}</h2>
+<p>{L_match_sans_score}</p>
+
+<table border="0">
+  <thead>
+    <tr>
+      <th>{L_date}</th>
+      <th>{L_home}</th>
+      <th>{L_visitor}</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- LOOP match -->
+    <tr class="ligne{mod}">
+      <td>{date}</td>
+      <td align="right"><a href="{link_club_home}" class="title">{club_home}</a>
+	<!-- OPTION team_home -->
+	[ <a href="{link_team_home}">{team_home}</a>
+<!-- OPTION sex_home -->
+ <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+<!-- END OPTION sex_home -->	
+]
+	<!-- END OPTION team_home -->
+      </td>
+      <td align="left"><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+	<!-- OPTION team_visitor -->
+	[<a href="{link_team_visitor}">{team_visitor}</a>
+<!-- OPTION sex_visitor -->
+ <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+<!-- END OPTION sex_visitor -->	
+]
+	<!-- END OPTION team_visitor -->
+      </td>
+      <td>
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}"></a> 
+<!-- END OPTION link_edit -->	  
+	  </td>
+    </tr>
+    <!-- END LOOP match -->
+  </tbody>
+</table>
+<!-- END OPTION show_match -->
+
+<!-- OPTION show_member -->
+<br />
+<h2>{L_registration_list}</h2>
+<p><a href="{link_registration_list}">{nb_registration} {L_registration_list_info}</a></p>
+<!-- END OPTION show_member -->
+
+<!-- OPTION show_plugin -->
+<br />
+<h2>{L_plugin}</h2>
+<p>{L_plugin_to_install}</p>
+<ul>
+<!-- LOOP plugin -->
+<li>{name} : <a href="{link_install}">{L_install}</a></li>
+<!-- END LOOP plugin -->
+</ul>
+<!-- END OPTION show_plugin -->

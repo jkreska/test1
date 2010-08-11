@@ -1,0 +1,85 @@
+
+ALTER TABLE `club` ADD `club_logo` TEXT AFTER `club_abbreviation` ;
+
+ALTER TABLE `member` ADD `member_avatar` TEXT AFTER `member_description` ;
+ALTER TABLE `member` ADD `member_photo` TEXT AFTER `member_description` ;
+
+ALTER TABLE `match` ADD `round_id` INT NOT NULL AFTER `competition_id` ;
+ALTER TABLE `match` ADD `match_group` TEXT NOT NULL AFTER `match_date` ;
+ALTER TABLE `match` ADD `match_day` TINYINT NOT NULL AFTER `match_group` ;
+ALTER TABLE `match` ADD `match_penality_home` TINYINT NOT NULL AFTER `match_day` ;
+ALTER TABLE `match` ADD `match_penality_visitor` TINYINT NOT NULL AFTER `match_penality_home` ;
+
+
+CREATE TABLE `match_stats` (
+  `match_id` int(11) NOT NULL default '0',
+  `stats_id` int(11) NOT NULL default '0',
+  `value_home` int(11) NOT NULL default '0',
+  `value_visitor` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`match_id`,`stats_id`)
+) ;
+
+
+CREATE TABLE `match_stats_player` (
+  `match_id` int(11) NOT NULL default '0',
+  `stats_player_id` int(11) NOT NULL default '0',
+  `member_id` int(11) NOT NULL default '0',
+  `value` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`match_id`,`stats_player_id`,`member_id`)
+) ;
+
+CREATE TABLE `stats` (
+  `stats_id` int(11) NOT NULL auto_increment,
+  `stats_name` text NOT NULL,
+  `stats_abbreviation` tinytext NOT NULL,
+  `stats_code` text NOT NULL default '',
+  `stats_formula` text NOT NULL,
+  `stats_order` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`stats_id`)
+) ;
+
+
+
+CREATE TABLE `stats_player` (
+  `stats_player_id` int(11) NOT NULL auto_increment,
+  `stats_player_name` text NOT NULL,
+  `stats_player_abbreviation` tinytext NOT NULL,
+  `stats_player_code` text NOT NULL default '',
+  `stats_player_formula` text NOT NULL,
+  `stats_player_order` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`stats_player_id`)
+) ;
+
+
+CREATE TABLE `round` (
+  `round_id` int(11) NOT NULL auto_increment,
+  `competition_id` int(11) NOT NULL default '0',
+  `round_name` text NOT NULL,
+  `round_order` tinyint(4) NOT NULL default '0',
+  `round_standings` tinyint(1) default NULL,
+  `point_win_at_home` tinyint(4) default NULL,
+  `point_win_away` tinyint(4) default NULL,
+  `point_tie_at_home` tinyint(4) default NULL,
+  `point_tie_away` tinyint(4) default NULL,
+  `point_defeat_at_home` tinyint(4) default NULL,
+  `point_defeat_away` tinyint(4) default NULL,
+  `order_team` tinyint(4) default NULL,
+  `order_team_egality` tinyint(4) default NULL,
+  `round_group` tinyint(4) default NULL,
+  `round_day` tinyint(4) default NULL,
+  PRIMARY KEY  (`round_id`)
+) ;
+
+INSERT INTO `stats` VALUES (1, '{play}', '{play_ab}', '{play_ab}', 'PLAY', '1');
+INSERT INTO `stats` VALUES (2, '{win}', '{win_ab}', '{win_ab}', 'WIN', '2');
+INSERT INTO `stats` VALUES (3, '{percent_win}', '{percent_win_ab}', '{percent_win_ab}', '(WIN/PLAY)*100', '3');
+INSERT INTO `stats` VALUES (4, '{tie}', '{tie_ab}', '{tie_ab}', 'TIE', '4');
+INSERT INTO `stats` VALUES (5, '{percent_tie}', '{percent_tie_ab}', '{percent_tie_ab}', '(TIE/PLAY)*100', '5');
+INSERT INTO `stats` VALUES (6, '{defeat}', '{defeat_ab}', '{defeat_ab}', 'DEFEAT', '6');
+INSERT INTO `stats` VALUES (7, '{percent_defeat}', '{percent_defeat_ab}', '{percent_defeat_ab}', '(DEFEAT/PLAY)*100', '7');
+INSERT INTO `stats` VALUES (8, '{point_for}', '{point_for_ab}', '{point_for_ab}', 'POINT_FOR', '8');
+INSERT INTO `stats` VALUES (9, '{point_against}', '{point_against_ab}', '{point_against_ab}', 'POINT_AGAINST', '9');
+INSERT INTO `stats` VALUES (10, '{goal_average}', '{goal_average_ab}', '{goal_average_ab}', 'GOAL_AVERAGE', '10');
+
+INSERT INTO `stats_player` VALUES (1, '{play}', '{play_ab}', '{play_ab}', 'PLAY', '1');
+INSERT INTO `stats_player` VALUES (2, '{time_play}', '{time_play_ab}', '{time_play_ab}', '', '2');

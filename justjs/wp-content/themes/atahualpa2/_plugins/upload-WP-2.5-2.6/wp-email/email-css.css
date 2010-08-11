@@ -1,0 +1,34 @@
+/*
++----------------------------------------------------------------+
+|																							|
+|	WordPress 2.5 Plugin: WP-EMail 2.31										|
+|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|																							|
+|	File Written By:																	|
+|	- Lester "GaMerZ" Chan															|
+|	- http://lesterchan.net															|
+|																							|
+|	File Information:																	|
+|	- E-Mail CSS Style																|
+|	- wp-content/plugins/wp-email/email-css.css							|
+|																							|
++----------------------------------------------------------------+
+*/
+
+
+.wp-email P {
+	text-align: left;
+}
+.wp-email-loading {
+	display: none;
+	text-align: center;
+	height: 16px;
+}
+.wp-email-image {
+	border: 0px;
+}
+.TextField {
+}
+.Button {
+
+}

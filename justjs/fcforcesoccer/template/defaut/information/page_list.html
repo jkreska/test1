@@ -1,0 +1,65 @@
+<h1>{L_title}</h1>
+
+<!-- OPTION link_add -->
+<p><a href="{link_add}" class="add">{L_add}</a></p>
+<!-- END OPTION link_add -->
+	  
+<!-- OPTION L_message_information -->
+<p class="message">{L_message_information}</p>
+<!-- END OPTION L_message_information -->
+	  
+<!-- OPTION page -->      
+      <table width="100%" border="0" cellpadding="2" cellspacing="0">
+        <!-- LOOP page -->
+        <tr> 
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td colspan="2"> 
+            <!-- OPTION link_up -->
+            <a href="{link_up}"><img src="../tpl_image/arrow_up.png" alt="{L_up}" width="13" height="13" border="0"></a> 
+            <!-- END OPTION link_up -->
+            <!-- OPTION link_down -->
+            <a href="{link_down}"><img src="../tpl_image/arrow_down.png" alt="{L_down}" width="13" height="13" border="0"></a> 
+            <!-- END OPTION link_down -->
+            <a href="{link}" class="title">{title}</a>
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->			
+			</td>
+        </tr>
+        <tr> 
+          <td colspan="2" valign="top"> 
+           <span class="description">{summary}</span></td>
+        </tr>
+        <!-- LOOP souspage -->
+        <tr> 
+          <td width="10" align="center" valign="top">&nbsp;</td>
+          <td> 
+            <!-- OPTION link_up -->
+            <a href="{link_up}"><img src="../tpl_image/arrow_up.png" alt="{L_up}" width="13" height="13" border="0"></a> 
+            <!-- END OPTION link_up -->
+            <!-- OPTION link_down -->
+            <a href="{link_down}"><img src="../tpl_image/arrow_down.png" alt="{L_down}" width="13" height="13" border="0"></a> 
+            <!-- END OPTION link_down -->
+            - <a href="{link}" class="title">{title}</a>
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->			
+			</td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top">&nbsp;</td>
+          <td>
+            <span class="description">{summary}</span></td>
+        </tr>
+        <!-- END LOOP souspage -->
+        <!-- END LOOP page -->
+      </table>
+<!-- END OPTION page -->

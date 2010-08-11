@@ -1,0 +1,792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | Event namespace</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../dom_section.html">DOM</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title namespace">
+  <span class="type">namespace </span>Event
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p>The namespace for Prototype's event system.</p>
+
+<h4>Events: a fine mess</h4>
+
+<p>Event management is one of the really sore spots of cross-browser
+scripting.</p>
+
+<p>True, the prevalent issue is: everybody does it the W3C way, and MSIE
+does it another way altogether. But there are quite a few subtler,
+sneakier issues here and there waiting to bite your ankle &mdash; such as the
+<code>keypress</code>/<code>keydown</code> issue with KHTML-based browsers (Konqueror and
+Safari). Also, MSIE has a tendency to leak memory when it comes to
+discarding event handlers.</p>
+
+<h4>Prototype to the rescue</h4>
+
+<p>Of course, Prototype smooths it over so well you'll forget these
+troubles even exist. Enter the <code>Event</code> namespace. It is replete with
+methods that help to normalize the information reported by events across
+browsers.</p>
+
+<p><code>Event</code> also provides a standardized list of key codes you can use with
+keyboard-related events.</p>
+
+<p>The functions you're most likely to use a lot are <code><a title="Event.observe (class method)" href="../dom/event.html#observe-class_method">Event.observe</a></code>,
+<code><a title="Event#element (instance method)" href="../dom/event.html#element-instance_method">Event#element</a></code> and <code><a title="Event#stop (instance method)" href="../dom/event.html#stop-instance_method">Event#stop</a></code>. If your web app uses custom events,
+you'll also get a lot of mileage out of <code><a title="Event.fire (class method)" href="../dom/event.html#fire-class_method">Event.fire</a></code>.</p>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+
+
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="Event#element (instance method)" href="../dom/event.html#element-instance_method">element</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#findElement (instance method)" href="../dom/event.html#findelement-instance_method">findElement</a></code></li>
+      
+        <li><code><a class="class-method" title="Event.fire (class method)" href="../dom/event.html#fire-class_method">fire</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#isLeftClick (instance method)" href="../dom/event.html#isleftclick-instance_method">isLeftClick</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#isMiddleClick (instance method)" href="../dom/event.html#ismiddleclick-instance_method">isMiddleClick</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#isRightClick (instance method)" href="../dom/event.html#isrightclick-instance_method">isRightClick</a></code></li>
+      
+        <li><code><a class="class-method" title="Event.observe (class method)" href="../dom/event.html#observe-class_method">observe</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#pointer (instance method)" href="../dom/event.html#pointer-instance_method">pointer</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#pointerX (instance method)" href="../dom/event.html#pointerx-instance_method">pointerX</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#pointerY (instance method)" href="../dom/event.html#pointery-instance_method">pointerY</a></code></li>
+      
+        <li><code><a class="instance-method" title="Event#stop (instance method)" href="../dom/event.html#stop-instance_method">stop</a></code></li>
+      
+        <li><code><a class="class-method" title="Event.stopObserving (class method)" href="../dom/event.html#stopobserving-class_method">stopObserving</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="element-instance_method">element
+    <span class="method-permalink"><a href="../dom/event.html#element-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Event#element() -&gt; <a title="Element (class)" href="../dom/element.html">Element</a>
+Event.element(event) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the DOM element on which the event occurred.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="findelement-instance_method">findElement
+    <span class="method-permalink"><a href="../dom/event.html#findelement-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Event#findElement(expression) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a>
+Event.findElement(event, expression) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the first DOM element that matches a given CSS selector &mdash;
+starting with the element on which the event occurred, then moving up
+its ancestor chain.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="isleftclick-instance_method">isLeftClick
+    <span class="method-permalink"><a href="../dom/event.html#isleftclick-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Event#isLeftClick() -&gt; Boolean
+Event.isLeftClick(event) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Determines whether a button-related mouse event involved the left
+mouse button.</p>
+
+<p>Keep in mind that the "left" mouse button is actually the "primary" mouse
+button. When a mouse is in left-handed mode, the browser will report
+clicks of the <em>right</em> button as "left-clicks."</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="ismiddleclick-instance_method">isMiddleClick
+    <span class="method-permalink"><a href="../dom/event.html#ismiddleclick-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Event#isMiddleClick() -&gt; Boolean
+Event.isMiddleClick(event) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Determines whether a button-related mouse event involved the middle
+mouse button.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="isrightclick-instance_method">isRightClick
+    <span class="method-permalink"><a href="../dom/event.html#isrightclick-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Event#isRightClick() -&gt; Boolean
+Event.isRightClick(event) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Determines whether a button-related mouse event involved the right
+mouse button.</p>
+
+<p>Keep in mind that the "left" mouse button is actually the "secondary"
+mouse button. When a mouse is in left-handed mode, the browser will
+report clicks of the <em>left</em> button as "left-clicks."</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="pointer-instance_method">pointer
+    <span class="method-permalink"><a href="../dom/event.html#pointer-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Event#pointer() -&gt; <a title="Object (class)" href="../language/object.html">Object</a>
+Event.pointer(event) -&gt; <a title="Object (class)" href="../language/object.html">Object</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the absolute position of the pointer for a mouse event.</p>
+
+<p>Returns an object in the form <code>{ x: Number, y: Number}</code>.</p>
+
+<p>Note that this position is absolute on the <em>page</em>, not on the
+<em>viewport</em>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="pointerx-instance_method">pointerX
+    <span class="method-permalink"><a href="../dom/event.html#pointerx-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Event#pointerX(event) -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the absolute horizontal position of the pointer for a mouse
+event.</p>
+
+<p>Note that this position is absolute on the <em>page</em>, not on the
+<em>viewport</em>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="pointery-instance_method">pointerY
+    <span class="method-permalink"><a href="../dom/event.html#pointery-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Event#pointerY(event) -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the absolute vertical position of the pointer for a mouse
+event.</p>
+
+<p>Note that this position is absolute on the <em>page</em>, not on the
+<em>viewport</em>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="stop-instance_method">stop
+    <span class="method-permalink"><a href="../dom/event.html#stop-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Event#stop() -&gt; undefined
+Event.stop(event) -&gt; undefined</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Stops the event's propagation and prevents its eventual default action
+from being triggered.</p>
+
+<p>Stopping an event also sets a <code>stopped</code> property on that event for
+future inspection.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+    <div class="section section-klass_methods">
+      
+      <div class="section-title">
+        <h3>Class methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="fire-class_method">fire
+    <span class="method-permalink"><a href="../dom/event.html#fire-class_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Event.fire(element, eventName[, memo[, bubble = true]]) -&gt; <a title="Event (namespace)" href="../dom/event.html">Event</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>memo</code>
+            
+              (<code>?</code>)
+            
+             &ndash; Metadata for the event. Will be accessible through the event's <code>memo</code> property.
+          </li>
+        
+          <li>
+            <code>bubble</code>
+            
+              (<code>Boolean</code>)
+            
+             &ndash; Whether the event will bubble.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Fires a custom event of name <code>eventName</code> with <code>element</code> as its target.</p>
+
+<p>Custom events must include a colon (<code>:</code>) in their names.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="observe-class_method">observe
+    <span class="method-permalink"><a href="../dom/event.html#observe-class_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Event.observe(element, eventName, handler) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Registers an event handler on a DOM element.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="stopobserving-class_method">stopObserving
+    <span class="method-permalink"><a href="../dom/event.html#stopobserving-class_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Event.stopObserving(element[, eventName[, handler]]) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Unregisters one or more event handlers.</p>
+
+<p>If <code>handler</code> is omitted, unregisters all event handlers on <code>element</code>
+for that <code>eventName</code>. If <code>eventName</code> is also omitted, unregisters <em>all</em>
+event handlers on <code>element</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

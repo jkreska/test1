@@ -1,0 +1,19 @@
+/* 
+ Theme Name: Justjs
+ Theme URI: http://justjs.org
+ Description: Custom theme for use by justjs.org
+ Version: 1.0 
+ Author: Jeff Kreska
+ Author URI: http://justjs.org
+ Tags: Child Theme 
+ Template: blocks2
+
+Copyright 2009 Jeff Kreska
+*/  
+
+@import url('../blocks2/style.css');
+
+blockquote, pre {
+font-weight: bold;
+color: #222;
+}

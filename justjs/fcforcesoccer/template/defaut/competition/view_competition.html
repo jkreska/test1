@@ -1,0 +1,222 @@
+<div id="view_competition">
+<h1>{L_title}</h1>
+<div id="action">
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->
+</div>	
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+	
+<!-- OPTION show_view-->
+
+<ul id="tab_inv">
+<!-- LOOP round -->
+<li class="{class}"><a href="{link_view}">{name}</a></li>
+<!-- END LOOP round -->
+</ul>
+
+
+<div id="season">
+<form method="post" action="{form_action}">
+<select name="season" onchange="this.form.submit();">
+  <option value="">{L_choose_season}</option>
+  <!-- LOOP season -->
+  <option value="{id}" {selected}>{name}</option>
+  <!-- END LOOP season -->
+</select>
+</form>
+</div>
+
+<!-- OPTION day -->
+<div id="day">
+<ul class="list">
+<li class="entete">{L_day}</li>
+<li class="{class_day_all}"><a href="{link_view_day_all}">{L_all}</a></li>
+<!-- LOOP day -->
+<li class="{class}"><a href="{link_view}">{name}</a></li>
+<!-- END LOOP day -->
+</ul>
+</div>
+<!-- END OPTION day -->
+
+<!-- OPTION group -->
+<div id="group">
+<ul class="list">
+<li class="entete">{L_group}</li>
+<li class="{class_group_all}"><a href="{link_view_group_all}">{L_all}</a></li>
+<!-- LOOP group -->
+<li class="{class}"><a href="{link_view}">{name}</a></li>
+<!-- END LOOP group -->
+</ul>
+</div>
+<!-- END OPTION group -->
+
+
+<script language="javascript">
+// list of the tabs
+var tablist = new Array("match","standings","stats_player");
+</script>
+
+<ul id="tab">
+<li class="on" id="tab_match"><a href="javascript:show_tab('match',tablist);">{L_match}</a></li>
+<li id="tab_standings"><a href="javascript:show_tab('standings',tablist);">{L_standings}</a></li>
+<li id="tab_stats_player"><a href="javascript:show_tab('stats_player',tablist);">{L_stats_player}</a></li>
+</ul>
+
+<div id="match">
+<h2>{L_match}</h2>
+<!-- OPTION L_message_match -->
+<div class="message">{L_message_match}</div>
+<!-- END OPTION L_message_match -->
+<!-- OPTION match -->
+<table border="0">
+ <thead>
+  <tr>
+    <th>{L_date}</th>
+    <th>{L_home}</th>
+	<th>{L_score}</th>
+    <th>{L_visitor}</th>
+	<th>&nbsp;</th>
+    </tr>
+ </thead> 
+ <tbody>
+ <!-- LOOP match --> 
+  <tr class="ligne{mod}">
+    <td>{date} {hour}</td>
+    <td align="right" class="gagnant{home_gagnant}"><a href="{link_club_home}" class="title">{club_home}</a>
+        <!-- OPTION team_home -->
+      [ <a href="{link_team_home}">{team_home}</a>
+  <!-- OPTION sex_home -->
+  <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+  <!-- END OPTION sex_home -->
+      ]
+  <!-- END OPTION team_home -->    
+  </td>
+    <td align="center">{score_home} -
+      {score_visitor}</td>
+    <td align="left"  class="gagnant{visitor_gagnant}"><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+        <!-- OPTION team_visitor -->
+      [<a href="{link_team_visitor}">{team_visitor}</a>
+  <!-- OPTION sex_visitor -->
+  <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+  <!-- END OPTION sex_visitor -->
+      ]
+  <!-- END OPTION team_visitor -->    
+  </td>
+    <td><a href="{link_view}" class="details">{L_details}</a></td>
+    </tr>
+  <!-- END LOOP match -->
+  </tbody>
+</table>
+<!-- END OPTION match -->
+</div>
+
+<div id="standings" style="display:none">
+<h2>{L_standings}</h2>
+<!-- OPTION L_message_standings -->
+<p class="message">{L_message_standings}</p>
+<!-- END OPTION L_message_standings -->
+
+<!-- OPTION show_standings -->
+<p><a href="{link_standings}" class="details">{L_show_standings}</a></p>
+
+<table>
+<thead>
+	<tr> 
+		<th>{L_place}</th>
+		<th>{L_club}</th>
+		<!-- OPTION show_point -->
+		<th>{L_point}</th>
+		<!-- END OPTION show_point -->
+		<!-- LOOP stats -->
+		<th>{abbreviation}</th>
+		<!-- END LOOP stats -->		
+	</tr>
+	</thead>
+	<tbody>
+		<!-- LOOP standings -->
+		<tr class="ligne{mod}">
+			<td>{place}</td>
+			<td>{club}      
+      	  <!-- OPTION show_team -->
+		  ({team}		  
+		  <!-- OPTION sex -->
+		  <img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+		  <!-- END OPTION sex -->
+		  )
+		  <!-- END OPTION show_team -->		  
+			</td>
+			<!-- OPTION show_point -->
+			<td>{point}</td>
+			<!-- END OPTION show_point -->
+			<!-- LOOP stats -->
+			<td>{value}</td>
+			<!-- END LOOP stats --> 
+		</tr>
+		<!-- END LOOP standings -->
+	</tbody>
+</table>
+
+<br />
+<table>
+<!-- LOOP stats -->
+<tr><td class="details">{abbreviation}</td><td class="details">: {name}</td></tr>
+<!-- END LOOP stats -->	
+</table>
+
+<!-- END OPTION show_standings -->
+</div>
+
+<div id="stats_player" style="display:none">
+<h2>{L_stats_player}</h2>
+
+<!-- OPTION L_message_stats_player -->
+<p class="message">{L_message_stats_player}</p>
+<!-- END OPTION L_message_stats_player -->
+
+<!-- OPTION show_stats_player -->
+<p><a href="{link_stats_player}" class="details">{L_show_stats_player}</a></p>
+
+
+<table>
+	<thead>
+	 <tr> 
+		<th>{L_place}</th>
+		<th>{L_player}</th>
+		<th>{L_club}</th>
+		<!-- LOOP stats_player -->
+		<th>{abbreviation}</th>
+		<!-- END LOOP stats_player -->		
+	 </tr>
+	</thead>
+	<tbody>
+		<!-- LOOP match_stats_player -->
+		<tr class="ligne{mod}">
+			<td>{place}</td>
+			<td>{firstname} {lastname}</td>
+			<td>{club}</td>
+			<!-- LOOP stats -->
+			<td>{value}</td>
+			<!-- END LOOP stats --> 
+		</tr>
+		<!-- END LOOP match_stats_player -->
+	</tbody>
+</table>
+
+<br />
+<table>
+<!-- LOOP stats_player -->
+<tr><td class="details">{abbreviation}</td><td class="details">: {name}</td></tr>
+<!-- END LOOP stats_player -->	
+</table>
+
+<!-- END OPTION show_stats_player -->
+</div>
+
+<!-- END OPTION show_view-->
+</div>

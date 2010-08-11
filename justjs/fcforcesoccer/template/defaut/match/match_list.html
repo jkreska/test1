@@ -1,0 +1,217 @@
+<h1>{L_title}</h1>
+
+<div id="tri"><span class="trier">{L_order} :</span> <a href="javascript:trier('form_match','date','{ordre}');" title="{L_order} {L_date}">{L_date}</a>
+</div>
+
+<p>
+<!-- OPTION link_add -->
+<a href="{link_add}" class="add">{L_add}</a>
+<!-- END OPTION link_add -->
+<!-- OPTION link_import_match -->
+<a href="{link_import_match}" class="import">{L_import_match}</a>
+<!-- END OPTION link_import_match -->
+</p>
+
+<script type="text/javascript">
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+function sendData(param, page, div)
+{	
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//déendition de l'endroit d'affichage:
+	var content = document.getElementById(div);
+	
+	if(isset(this.document.form_match.team)) {
+	 param=param+'&team='+this.document.form_match.team.value;
+	}
+	if(isset(this.document.form_match.season)) {
+	 param=param+'&season='+this.document.form_match.season.value;
+	}	
+	param=param+"&div="+div;
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			content.innerHTML = XhrObj.responseText ;
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end position SendData
+</script>
+
+<form name="form_match" method="post" action="{form_action}">
+<table border="0">
+  <tr>
+   <th>{L_season}</th>
+    <td><select name="season">
+      <option value="">{L_choose_season}</option>
+      <!-- LOOP season -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP season -->
+    </select></td>
+	</tr>
+	<!-- OPTION aff_club_team -->
+	<tr>	
+	 <th>{L_club}</th>
+      <td>
+	  <!-- OPTION aff_club -->
+	  <select name="club" onChange="sendData('id='+this.value+'&select=team','{link_select_team}','team');" onkeyup="sendData('id='+this.value+'&select=team','{link_select_team}','team');">
+	  <option value="">{L_choose_club}</option>
+	  <!-- LOOP club -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP club -->
+	  </select>
+	  <!-- END OPTION aff_club -->
+	  <div id="team">
+	  <!-- OPTION team -->
+	  <select name="team">
+	  <option value="">{L_choose_team}</option>
+	  <!-- LOOP team -->
+	  <option value="{id}" {selected}>{team_name}</option>
+	  <!-- END LOOP team -->
+	  </select>
+	  <!-- END OPTION team -->
+	  </div>
+	  </td>
+	  </tr>	
+	  <!-- END OPTION aff_club_team -->  	
+	  <tr>
+	  <th>{L_competition}</th>
+    <td><select name="competition" id="competition" onchange="document.getElementById('round_details').innerHTML=''; sendData('competition='+this.form.competition.value+'&select=round&type=all','{link_select_round}','round');">
+      <option value="">{L_choose_competition}</option>
+      <!-- LOOP competition -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP competition -->
+    </select>
+<div id="round" style="display:{display_round}">
+<!-- LOOP round -->
+<input name="round" type="radio" value="{id}" onclick="sendData('competition='+this.form.competition.value+'&round='+this.value,'{link_select_round_details}','round_details');" {checked} />{name} 
+<!-- END LOOP round -->
+	</div>
+		<div id="round_details">
+<table>
+<!-- OPTION show_group -->
+<tr><td>{L_group}</td><td>
+<!-- LOOP group -->
+<input type="checkbox" name="group[]" value="{name}" {checked} /> {name}
+<!-- END LOOP group -->
+</td>
+</tr>
+<!-- END OPTION show_group -->
+
+<!-- OPTION show_day -->
+<tr><td>{L_day}</td><td>
+<select name="day">
+<!-- LOOP day -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP day -->
+</select>
+</td>
+</tr>
+<!-- END OPTION show_day -->
+</table></div>	
+	</td>
+    </tr>
+<tr>
+ <td></td>	
+
+    <td><input name="page" type="hidden" value="" />
+	  <input name="tri" type="hidden" value="{value_tri}" />
+	  <input name="ordre" type="hidden" value="{value_ordre}" />
+	  <input name="valider" type="button" id="valider" onclick="javascript:this.form.submit();" value="{L_submit}" /></td>
+  </tr>
+</table>
+</form>
+
+<!-- OPTION L_message_match -->
+<p class="message">{L_message_match}</p>
+<!-- END OPTION L_message_match -->
+
+<!-- OPTION match -->
+<table border="0">
+ <thead>
+  <tr>
+    <th>{L_hour}</th>
+    <th>{L_home}</th>
+    <th>{L_score}</th>
+    <th>{L_visitor}</th>
+    <th>&nbsp;</th>
+  </tr>
+ </thead> 
+ <tbody>
+ <!-- LOOP match -->
+   <!-- OPTION show_date -->
+   <thead><tr><th colspan="5">{date}</th></tr></thead>
+   <!-- END OPTION show_date --> 
+  <tr class="ligne{mod}">
+    <td>{hour}</td>
+    <td align="right" class="gagnant{home_gagnant}"><a href="{link_club_home}" class="title">{club_home}</a>
+        <!-- OPTION team_home -->
+      ( <a href="{link_team_home}">{team_home}</a>
+  <!-- OPTION sex_home -->
+  <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+  <!-- END OPTION sex_home -->
+      )
+  <!-- END OPTION team_home -->  
+   </td>
+    <td align="center">{score_home} -
+      {score_visitor}</td>
+    <td align="left"  class="gagnant{visitor_gagnant}"><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+        <!-- OPTION team_visitor -->
+      ( <a href="{link_team_visitor}">{team_visitor}</a>
+  <!-- OPTION sex_visitor -->
+  <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+  <!-- END OPTION sex_visitor -->
+      )
+  <!-- END OPTION team_visitor -->
+  </td>
+    <td><a href="{link_view}" class="details" title="{L_details}">{L_details}</a>
+          <!-- OPTION link_edit -->
+          <a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a>
+          <!-- END OPTION link_edit -->
+          <!-- OPTION link_delete -->
+          <a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+          <!-- END OPTION link_delete -->	
+		  </td>
+  </tr>
+  <!-- END LOOP match -->
+  </tbody>
+</table>
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="javascript:changer_page('form_match','{first_page}');">{L_first_page}</a> |
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="javascript:changer_page('form_match','{previous_page}');">{L_previous_page}</a> |
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="javascript:changer_page('form_match','{page}');">
+  <!-- END OPTION link_page -->
+    {page}</a> |
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="javascript:changer_page('form_match','{next_page}');">{L_next_page}</a>
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="javascript:changer_page('form_match','{last_page}');">{L_last_page}</a>
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>
+
+<!-- END OPTION match -->

@@ -1,0 +1,25 @@
+<h1>{L_installation} &gt; {L_verification}</h1>
+
+<p>{L_verification_info}</p>
+<form id="verification" name="verification" method="post" action="{form_action}">
+<h2>{L_php_configuration}</h2>
+<table>
+<tr><th>{L_php_version} :</th><td class="{php_version_class}">{php_version}</td><td class="info">{L_php_version_info}</td></tr>
+<tr><th>{L_disable_functions} :</th><td class="{disable_functions_class}">{disable_functions}</td><td class="info">{L_disable_functions_info}</td></tr>
+<tr><th>{L_file_uploads} :</th><td class="{file_uploads_class}">{file_uploads}</td><td class="info">{L_file_uploads_info}</td></tr>
+<tr><th>{L_mysql} :</th><td class="{mysql_class}">{mysql}</td><td class="info">{L_mysql_info}</td></tr>
+</table>
+
+<h2>{L_folder_permission}</h2>
+<table>
+<tr><th>upload/</th><td class="{upload_folder_class}">{upload_folder}</td><td class="info">{L_upload_folder_info}</td></tr>
+<tr><th>include/</th><td class="{include_folder_class}">{include_folder}</td><td class="info">{L_include_folder_info}</td></tr>
+</table>
+
+
+
+
+<div id="boutons"><input name="retour" type="button" value="{L_retour}" class="retour" onclick="javascript:self.location='{link_retour}'" />
+<input name="Submit" type="submit" value="{L_continue}" class="continue" />
+</div>
+</form>

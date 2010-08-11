@@ -1,0 +1,145 @@
+<script type="text/javascript">
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+function sendData(param, page, div)
+{
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//déendition de l'endroit d'affichage:
+	var content = document.getElementById(div);
+	
+	// sex
+	if(isset(document.search_member.elements['sex[]'])) {	
+      var LS = document.search_member.elements['sex[]']; 
+	  var sex = "";  
+	  for(var i = 0; i < LS.length; i++) {
+		if(LS[i].checked==true) { 
+		 if(sex!="" && i!=0) { sex=sex+","; }
+		 sex = sex+LS[i].value; 
+		}		
+	  }
+	 param=param+'&sex='+sex;
+	}
+	
+	param=param+'&fen=ajax';
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			content.innerHTML = XhrObj.responseText ;
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end job SendData
+
+</script>
+
+<h1>{L_title}</h1>
+<div id="tri"><span class="trier">{L_order} :</span> <a href="javascript:trier('search_member','name','{ordre}');" title="{L_order} {L_name}">{L_name}</a> | <a href="javascript:trier('search_member','firstname','{ordre}');" title="{L_order} {L_firstname}">{L_firstname}</a> | <a href="javascript:trier('search_member','sex','{ordre}');" title="{L_order} {L_sex}">{L_sex}</a> | <a href="javascript:trier('search_member','date','{ordre}');" title="{L_order} {L_date_birth}">{L_date_birth}</a>
+</div>
+
+<!-- OPTION link_add -->
+<p><a href="{link_add}" class="add">{L_add}</a>
+<a href="{link_import_member}" class="import">{L_import_member}</a></p>
+<!-- END OPTION link_add -->
+
+<form name="search_member" action="{form_action}" method="post">
+{L_search} : <input type="text" name="name" value="{value_member_lastname}" />
+	  <!-- LOOP sex -->
+	  <input name="sex[]" type="checkbox" value="{id}" {checked} /> <img src="../tpl_image/sex_{abbreviation}.gif" alt="{name}" />
+	  <!-- END LOOP sex -->
+      
+      <!-- OPTION group -->
+      <select name="group">
+      <option value="">{L_group}</option>
+	  <!-- LOOP group -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP group -->
+      </select>
+      <!-- END OPTION group -->
+            
+	  <input name="page" type="hidden" value="" />
+	  <input name="tri" type="hidden" value="{value_tri}" />
+	  <input name="ordre" type="hidden" value="{value_ordre}" />	  	  
+	  <input name="valider" type="button" value="{L_valider}" onclick="javascript:this.form.submit();" />
+</form>
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+
+<!-- OPTION member -->
+<div id="member">
+<table border="0">
+<thead>
+  <tr>
+    <th>{L_name}</th>
+    <th>{L_firstname}</th>
+    <th>{L_date_birth}</th>
+    <th>{L_sex}</th>
+	<th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- LOOP member -->
+  <tr class="ligne{mod}">
+    <td>{name}</td>
+    <td>{firstname}</td>
+    <td>{date_birth}</td>
+    <td>
+	<!-- OPTION sex -->	
+	<img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+	<!-- END OPTION sex -->
+	</td>
+	<td><a href="{link_view}" title="{L_show_view}" class="details">{L_show_view}</a>
+          <!-- OPTION link_edit -->
+          <a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a>
+          <!-- END OPTION link_edit -->
+          <!-- OPTION link_delete -->
+          <a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+          <!-- END OPTION link_delete -->			  	
+<!-- OPTION link_edit -->
+<img src="../tpl_image/valid_{valid}.png" border="0" alt="{L_valid}" title="{L_valid}" />
+<!-- END OPTION link_edit -->	
+	</td>	
+  </tr>
+  <!-- END LOOP member -->
+  </tbody>
+</table>
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="javascript:changer_page('search_member','{first_page}');">{L_first_page}</a> |
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="javascript:changer_page('search_member','{previous_page}');">{L_previous_page}</a> |
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="javascript:changer_page('search_member','{page}');">
+  <!-- END OPTION link_page -->
+    {page}</a> |
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="javascript:changer_page('search_member','{next_page}');">{L_next_page}</a>
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="javascript:changer_page('search_member','{last_page}');">{L_last_page}</a>
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>
+</div>
+<!-- END OPTION member -->

@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteRule ^([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)\.html$  index.php?&r=$1&v1=$2&v2=$3&v3=$4&v4=$5&v5=$6&v6=$7 [L]
+RewriteRule ^([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)\.html$  index.php?&r=$1&v1=$2&v2=$3&v3=$4&v4=$5&v5=$6 [L]
+RewriteRule ^([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)\.html$  index.php?&r=$1&v1=$2&v2=$3&v3=$4&v4=$5 [L]
+RewriteRule ^([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)\.html$  index.php?&r=$1&v1=$2&v2=$3&v3=$4 [L]
+RewriteRule ^([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)\.html$  index.php?r=$1&v1=$2&v2=$3  [L]
+RewriteRule ^([-_a-zA-Z0-9]*)/([-_a-zA-Z0-9]*)\.html$  index.php?&r=$1&v1=$2  [L]
+RewriteRule ^([-_a-zA-Z0-9]*)\.html$  index.php?&r=$1  [L]

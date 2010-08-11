@@ -1,0 +1,164 @@
+<script type="text/javascript">
+//affiche ou rend invisible un element html
+
+function afficher_season(Num,n,Id)
+{ 	   
+   var nb_season = {nb_season};
+	// on rend invisible toutes les seasons
+	for(var i=0; i < nb_season; i++) {
+	 document.getElementById('season'+i).style.display = 'none';
+	 document.getElementById('tab'+i).className = '';
+	}
+	// on affiche la season
+	document.getElementById(Num).style.display = 'block';	
+	document.getElementById('tab'+n).className = 'on';
+}
+</script>
+<div id="view_club">
+
+<h1>{L_title}</h1>
+
+<div id="action">
+<!-- OPTION aff_club -->
+<a href="{link_match}" title="{L_view_match}">{L_view_match}</a>
+<!-- END OPTION aff_club -->
+
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->
+</div>
+
+<!-- OPTION L_message_club -->
+<p class="message">{L_message_club}</p>
+<!-- END OPTION L_message_club -->
+
+<!-- OPTION show_view -->
+<h2>{L_details}</h2>
+<!-- OPTION logo -->
+<img src="{logo}" id="logo" alt="{name}" />
+<!-- END OPTION logo -->
+<table border="0">
+  <tr>
+    <th>{L_name} :</th>
+    <td>{name}</td>
+  </tr>
+  <!-- OPTION abbreviation -->
+  <tr>
+    <th>{L_abbreviation} :</th>
+    <td>{abbreviation}</td>
+  </tr>
+<!-- END OPTION abbreviation --> 
+<!-- OPTION creation_year -->
+  <tr>
+    <th>{L_creation_year} :</th>
+    <td>{creation_year}</td>
+  </tr>
+<!-- END OPTION creation_year -->  
+<!-- OPTION color -->  
+  <tr>
+    <th>{L_color} :</th>
+    <td>{color}</td>
+  </tr>
+<!-- END OPTION color -->  
+<!-- OPTION color_alternative -->  
+  <tr>
+    <th>{L_color_alternative} :</th>
+    <td>{color_alternative}</td>
+  </tr>
+<!-- END OPTION color_alternative -->  
+<!-- OPTION address --> 
+  <tr>
+    <th>{L_address} : </th>
+    <td>{address}</td>
+  </tr>
+<!-- END OPTION address -->  
+<!-- OPTION telephone -->  
+  <tr>
+    <th>{L_telephone} : </th>
+    <td>{telephone}</td>
+  </tr>
+<!-- END OPTION telephone -->  
+<!-- OPTION fax -->  
+  <tr>
+    <th>{L_fax} : </th>
+    <td>{fax}</td>
+  </tr>
+<!-- END OPTION fax -->  
+<!-- OPTION email -->    
+  <tr>
+    <th>{L_email} : </th>
+    <td>{email}</td>
+  </tr>
+<!-- END OPTION email -->  
+<!-- OPTION url -->  
+  <tr>
+    <th>{L_url} : </th>
+    <td><a href="{url}" target="_blank" title="{name}">{url}</a></td>
+  </tr>
+<!-- END OPTION url -->  
+<!-- OPTION comment -->  
+  <tr>
+    <th>{L_comment} : </th>
+    <td>{comment}</td>
+  </tr>
+<!-- END OPTION comment -->  
+</table>
+
+<!-- OPTION team -->
+<h2>{L_team}</h2>
+<ul>
+<!-- LOOP team -->
+<li><a href="{link_view}">{team_name}</a> 
+<!-- OPTION sex -->
+<img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+<!-- END OPTION sex -->
+</li>
+<!-- END LOOP team -->
+</ul>
+<!-- END OPTION team -->
+
+<!-- OPTION season -->
+<h2>{L_dirigeant}</h2>
+<ul id="tab">
+<li class="entete">{L_choose_season}</li>
+<!-- LOOP season -->
+<li class="{class}" id="tab{i}"><a href="javascript:afficher_season('season{i}','{i}','{id}');">{abbreviation}</a></li>
+<!-- END LOOP season -->
+</ul>
+<!-- END OPTION season -->
+
+<!-- OPTION season -->
+<table width="100%" border="0">
+  <tr>
+    <td valign="top">
+	<!-- LOOP season -->
+        <div id="season{i}" style="display:{display}">	  
+		  <!-- OPTION dirigeant -->
+		  <table border="0" id="dirigeant_season_{i}">	  
+		  <thead>
+		  <tr>
+		  <th>{L_job}</th>
+		  <th>{L_dirigeant}</th>
+		  </tr>
+		  </thead>
+            <tbody>
+              <!-- LOOP dirigeant -->
+              <tr id="dirigeant_{i}" class="ligne{mod}">
+                <td>{job}</td>
+                <td><a href="{link_view}">{dirigeant_text}</a></td>
+              </tr>
+              <!-- END LOOP dirigeant -->
+            </tbody>
+          </table>
+		  <!-- END OPTION dirigeant -->
+        </div>
+      <!-- END LOOP season -->
+	 </td>
+  </tr>
+</table>
+<!-- END OPTION season -->
+</div>
+<!-- END OPTION show_view -->

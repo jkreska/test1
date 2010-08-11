@@ -1,0 +1,46 @@
+INSERT INTO `job` VALUES (1, '{president}');
+INSERT INTO `job` VALUES (2, '{secretaire}');
+INSERT INTO `job` VALUES (3, '{tresorier}');
+INSERT INTO `job` VALUES (4, '{president_adjoint}');
+
+INSERT INTO `weather` VALUES (1, '{temps_sec}');
+INSERT INTO `weather` VALUES (2, '{pluie}');
+INSERT INTO `weather` VALUES (3, '{temps_nuageux}');
+INSERT INTO `weather` VALUES (4, '{neige}');
+
+INSERT INTO `level` VALUES (1, '{departemental}');
+INSERT INTO `level` VALUES (2, '{regional}');
+INSERT INTO `level` VALUES (3, '{national}');
+INSERT INTO `level` VALUES (4, '{international}');
+
+INSERT INTO `team_name` VALUES (1, '{poussin}',1);
+INSERT INTO `team_name` VALUES (2, '{benjamin}',2);
+INSERT INTO `team_name` VALUES (3, '{minime}',3);
+INSERT INTO `team_name` VALUES (5, '{cadet}',4);
+INSERT INTO `team_name` VALUES (6, '{junior}',5);
+INSERT INTO `team_name` VALUES (7, '{senior1}',6);
+INSERT INTO `team_name` VALUES (8, '{senior2}',7);
+INSERT INTO `team_name` VALUES (9, '{senior3}',8);
+
+INSERT INTO `country` VALUES (1, '{france}');
+INSERT INTO `country` VALUES (2, '{germany}');
+INSERT INTO `country` VALUES (3, '{england}');
+INSERT INTO `country` VALUES (4, '{spain}');
+INSERT INTO `country` VALUES (5, '{italy}');
+
+INSERT INTO `sex` VALUES (1, '{masculin}', 'M');
+INSERT INTO `sex` VALUES (2, '{feminin}', 'F');
+
+INSERT INTO `stats` VALUES (1, '{play}', '{play_ab}', '{play_ab}', 'PLAY', '1');
+INSERT INTO `stats` VALUES (2, '{win}', '{win_ab}', '{win_ab}', 'WIN', '2');
+INSERT INTO `stats` VALUES (3, '{percent_win}', '{percent_win_ab}', '{percent_win_ab}', '(WIN/PLAY)*100', '3');
+INSERT INTO `stats` VALUES (4, '{tie}', '{tie_ab}', '{tie_ab}', 'TIE', '4');
+INSERT INTO `stats` VALUES (5, '{percent_tie}', '{percent_tie_ab}', '{percent_tie_ab}', '(TIE/PLAY)*100', '5');
+INSERT INTO `stats` VALUES (6, '{defeat}', '{defeat_ab}', '{defeat_ab}', 'DEFEAT', '6');
+INSERT INTO `stats` VALUES (7, '{percent_defeat}', '{percent_defeat_ab}', '{percent_defeat_ab}', '(DEFEAT/PLAY)*100', '7');
+INSERT INTO `stats` VALUES (8, '{point_for}', '{point_for_ab}', '{point_for_ab}', 'POINT_FOR', '8');
+INSERT INTO `stats` VALUES (9, '{point_against}', '{point_against_ab}', '{point_against_ab}', 'POINT_AGAINST', '9');
+INSERT INTO `stats` VALUES (10, '{goal_average}', '{goal_average_ab}', '{goal_average_ab}', 'GOAL_AVERAGE', '10');
+
+INSERT INTO `stats_player` VALUES (1, '{play}', '{play_ab}', '{play_ab}', 'PLAY', '1');
+INSERT INTO `stats_player` VALUES (2, '{time_play}', '{time_play_ab}', '{time_play_ab}', '', '2');

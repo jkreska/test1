@@ -1,0 +1,366 @@
+<script language="javascript">
+// list of the tabs
+var tablist = new Array("identity","club","job","internet");
+</script>
+
+<h1>{L_title}
+
+<!-- OPTION value_name -->
+: {value_firstname} {value_name}
+<!-- END OPTION value_name -->
+</h1>
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a> 
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+<!-- END OPTION link_delete -->
+</div>
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<p class="field_required">* {L_field_required}</p>
+
+<ul id="tab">
+<li class="on" id="tab_identity"><a href="javascript:show_tab('identity',tablist);">{L_identity}</a></li>
+<li id="tab_club"><a href="javascript:show_tab('club',tablist);">{L_club}</a></li>
+<li id="tab_job"><a href="javascript:show_tab('job',tablist);">{L_job}</a></li>
+<li id="tab_internet"><a href="javascript:show_tab('internet',tablist);">{L_info_internaute}</a></li>
+</ul>
+
+<form name="form_member" action="{form_action}" method="post">
+<div id="identity">
+  <h2>{L_identity}</h2>
+  <table>
+    <tr> 
+      <th class="field_required">{L_name} *</th>
+      <td><input name="name" type="text" value="{value_name}" size="40" /></td>
+    </tr>
+    <tr>
+      <th class="field_required">{L_firstname} * </th>
+      <td><input name="firstname" type="text" value="{value_firstname}" size="40" /></td>
+    </tr>
+    <tr>
+      <th>{L_sex}</th>
+      <td>
+	  <!-- LOOP sex -->
+	  <input name="sex" type="radio" value="{id}" {checked} /> {name}
+	  <!-- END LOOP sex -->
+	  </td>
+    </tr>
+    <tr>
+      <th>{L_country}</th>
+      <td><select name="country" id="country">
+	  <option value="">{L_choose_country}</option>
+	  <!-- LOOP country -->
+	  <option value="{id}" {selected}>{name}</option>
+        <!-- END LOOP country -->
+	  </select>
+		  <a name="add_country" href="javascript:pop('{link_form_country}',500,300);" class="add">{L_add_country}</a>		  
+	  </td>
+    </tr>
+    <tr>
+      <th>{L_email}</th>
+      <td><input name="email" type="text" value="{value_email}" size="40" /></td>
+    </tr>
+    <tr>
+      <th valign="top">{L_date_birth}</th>
+      <td><input name="date_birth" type="text" value="{value_date_birth}" size="10" maxlength="10" />       
+         {L_format_date}</td>
+    </tr>
+    <tr>
+      <th valign="top">{L_place_birth}</th>
+      <td><input name="place_birth" type="text" value="{value_place_birth}" size="40" /></td>
+    </tr>	
+    <tr>
+      <th valign="top">{L_size}</th>
+      <td><input name="size" type="text" value="{value_size}" size="4" maxlength="4" />       
+         {L_size_unit}</td>
+    </tr>	
+    <tr>
+      <th valign="top">{L_weight}</th>
+      <td><input name="weight" type="text" value="{value_weight}" size="4" maxlength="4" />       
+         {L_weight_unite}</td>
+    </tr>
+   <tr> 
+            <th>{L_photo}</th>
+            <td><input name="photo" type="text" value="{value_photo}" size="40" onfocus="show_image('divphoto','img_photo',this.value);" /> <a href="#" onclick="pop('{link_choose_image}','750','600');" class="choose_image">{L_choose_image}</a>
+	  <div id="divphoto" style="display:none">	  
+	  <img src="{value_photo}" id="img_photo" />	  
+	  </div>
+	  </td>
+   </tr>		
+    <tr>
+      <th valign="top">{L_comment}</th>
+      <td><textarea name="comment" cols="35" rows="10">{value_comment}</textarea></td>
+    </tr>
+  </table>
+</div>
+
+<div id="club" style="display:none">
+
+  <h2>{L_club}</h2>
+  <script language="javascript" type="text/javascript">
+<!--
+var club_nb = {club_nb};
+ 
+function add_club()
+{
+ if(document.form_member.club.value=="" || document.form_member.season_club.value=="")
+ {
+  document.getElementById("erreur_club").innerHTML = "{L_erreur_club}";
+  document.getElementById("erreur_club").style.display = "";
+ }
+ else
+ {
+  // on recupere les valeurs du formulaire
+  var club = document.form_member.club.value;
+  var club_text = document.form_member.club.options[document.form_member.club.selectedIndex].text;
+  var season = document.form_member.season_club.value;
+  var season_text = document.form_member.season_club.options[document.form_member.season_club.selectedIndex].text;
+
+
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="club"+club_nb;
+  var td0 = document.createElement("td"); td0.innerHTML=season_text; tr.appendChild(td0);
+  var td1 = document.createElement("td"); td1.innerHTML=club_text; tr.appendChild(td1);
+  var td2 = document.createElement("td"); tr.appendChild(td2);    
+  document.getElementById("tabclub").tBodies[1].appendChild(tr);
+
+  td2.innerHTML='<input type="hidden" name="club['+club_nb+']" value="'+club+'" /><input type="hidden" name="club_text['+club_nb+']" value="'+club_text+'" /><input type="hidden" name="season_club['+club_nb+']" value="'+season+'" /><input type="hidden" name="season_club_text['+club_nb+']" value="'+season_text+'" /><a href="javascript:delete_club(\''+club_nb+'\');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  club_nb += 1; 
+  
+  // on reinitialise les champs du formulaire
+  document.form_member.club.value="";  
+  document.form_member.season_club.options[document.form_member.season_club.selectedIndex] = null;
+  document.form_member.season_club.value="";
+  document.getElementById("erreur_club").innerHTML ="";
+  document.getElementById("erreur_club").style.display = "none";
+ }
+}
+
+function delete_club(id) {
+ var tabid = document.getElementById("tabclub"); 
+ var L_season = document.form_member.season_club;
+ var season = document.form_member.elements['season_club['+id+']'];
+ var season_text = document.form_member.elements['season_club_text['+id+']'];
+ tabid.tBodies[1].removeChild(document.getElementById('club'+id));
+ L_season.options[L_season.length] = new Option(season_text.value,season.value);
+}
+-->
+</script>  
+<div id="erreur_club"></div>
+<table id="tabclub">
+  <thead>
+    <tr>
+	 <th>{L_season}</th>
+      <th>{L_club}</th>      
+      <th>&nbsp;</th>
+    </tr>
+	</thead>
+	<tbody>
+    <tr>
+      <td><select name="season_club">
+        <option value="">{L_choose_season}</option>
+        <!-- LOOP season_club -->
+        <option value="{id}">{name}</option>
+        <!-- END LOOP season_club -->
+    </select></td>     
+      <td><select name="club">
+        <option value="">{L_choose_club}</option>
+        <!-- LOOP club -->
+        <option value="{id}">{name}</option>
+        <!-- END LOOP club -->
+          </select></td>	
+      <td><input name="add" type="button" id="add" value="{L_add}" onclick="javascript:add_club();" /></td>
+    </tr>
+	</tbody>
+  <tbody>
+  <!-- LOOP member_club -->
+  <tr id="club{i}">
+      <td>{season_text}</td>
+      <td>{club_text}</td>
+      <td><input name="club[{i}]" type="hidden" id="club[{i}]" value="{club}" /><input name="club_text[{i}]" type="hidden" id="club_text[{i}]" value="{club_text}" /><input name="season_club[{i}]" type="hidden" id="season_club[{i}]" value="{season}" /><input name="season_club_text[{i}]" type="hidden" id="season_club_text[{i}]" value="{season_text}" />
+      <a href="javascript:delete_club('{i}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+    </tr>
+   <!-- END LOOP member_club -->
+	</tbody>
+  </table>
+</div>
+
+<div id="job" style="display:none">
+<h2>{L_referee}</h2>
+<table>
+  <tr>
+  <th>{L_level}</th>
+  <td>
+   <select name="level">
+	  <option value="">{L_choose_level}</option>
+	  <!-- LOOP level -->
+	  <option value="{id}" {selected}>{name}</option>
+        <!-- END LOOP level -->
+	  </select>
+	  </td>
+	</tr>
+</table>
+
+
+<h2>{L_job}</h2>
+ <script language="javascript" type="text/javascript">
+<!--
+var job_nb = {job_nb};
+ 
+function add_job()
+{
+ if(document.form_member.job.value=="" || document.form_member.season_job.value=="")
+ {
+  document.getElementById("erreur_job").innerHTML = "{L_erreur_job}";
+  document.getElementById("erreur_job").style.display = "";
+ } 
+ else
+ {
+  // on recupere les valeurs du formulaire
+  var job = document.form_member.job.value;
+  var job_text = document.form_member.job.options[document.form_member.job.selectedIndex].text;
+  var season = document.form_member.season_job.value;
+  var season_text = document.form_member.season_job.options[document.form_member.season_job.selectedIndex].text;
+
+
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="job"+job_nb;
+  var td0 = document.createElement("td"); td0.innerHTML=season_text; tr.appendChild(td0);
+  var td1 = document.createElement("td"); td1.innerHTML=job_text; tr.appendChild(td1);  
+  var td2 = document.createElement("td"); tr.appendChild(td2);    
+  document.getElementById("tabjob").tBodies[1].appendChild(tr);
+
+  td2.innerHTML='<input type="hidden" name="job['+job_nb+']" value="'+job+'" /><input type="hidden" name="job_text['+job_nb+']" value="'+job_text+'" /><input type="hidden" name="season_job['+job_nb+']" value="'+season+'" /><input type="hidden" name="season_job_text['+job_nb+']" value="'+season_text+'" /><a href="javascript:delete_job(\''+job_nb+'\');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  job_nb += 1; 
+  
+  // on reinitialise les champs du formulaire
+  document.form_member.job.value="";
+  document.form_member.season_job.options[document.form_member.season_job.selectedIndex] = null;
+  document.form_member.season_job.value="";
+  document.getElementById("erreur_job").innerHTML ="";
+  document.getElementById("erreur_job").style.display = "none";
+ }
+}
+
+function delete_job(id) {
+ var tabid = document.getElementById("tabjob"); 
+ var L_season = document.form_member.season_job;
+ var season = document.form_member.elements['season_job['+id+']'];
+ var season_text = document.form_member.elements['season_job_text['+id+']'];
+ tabid.tBodies[1].removeChild(document.getElementById('job'+id));
+ L_season.options[L_season.length] = new Option(season_text.value,season.value);
+ 
+}
+
+-->
+</script>  
+<div id="erreur_job"></div>
+<table id="tabjob">
+  <thead>
+    <tr>
+      <th>{L_season}</th>
+      <th>{L_job}</th>
+      <th>&nbsp;</th>
+    </tr>
+	</thead>
+	<tbody>
+    <tr>
+      <td><select name="season_job">
+          <option value="">{L_choose_season}</option>
+          <!-- LOOP season_job -->
+          <option value="{id}">{name}</option>
+          <!-- END LOOP season_job -->
+      </select></td>
+      <td><select name="job">
+        <option value="">{L_choose_job}</option>
+        <!-- LOOP job -->
+        <option value="{id}">{name}</option>
+        <!-- END LOOP job -->
+    </select></td>
+      <td><input name="add" type="button" id="add" value="{L_add}" onclick="javascript:add_job();" /></td>
+    </tr>
+	</tbody>
+  <tbody>
+  <!-- LOOP member_job -->
+  <tr id="job{i}">
+    <td>{season_text}</td>
+    <td>{job_text}</td>
+      <td><input name="job[{i}]" type="hidden" id="job[{i}]" value="{job}" /><input name="job_text[{i}]" type="hidden" id="job_text[{i}]" value="{job_text}" /><input name="season_job[{i}]" type="hidden" id="season_job[{i}]" value="{season}" /><input name="season_job_text[{i}]" type="hidden" id="season_job_text[{i}]" value="{season_text}" />
+      <a href="javascript:delete_job('{i}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+    </tr>
+   <!-- END LOOP member_job -->
+	</tbody>
+  </table>
+
+</div>
+
+<div id="internet" style="display:none">
+<h2>{L_info_internaute}</h2>
+
+<table>
+  <tr>
+    <th>{L_valid}</th>
+    <td>
+	<!-- LOOP valid -->
+        <input type="radio" name="valid" value="{id}" {checked} />
+      {name}<br />
+      <!-- END LOOP valid -->
+	</td>
+  </tr>
+  <tr>
+    <th>{L_login}</th>
+    <td><input name="login_member" type="text" id="login_member" value="{value_login}" /></td>
+  </tr>
+   <tr> 
+     <th>{L_avatar}</th>
+     <td><input id="avatar" name="avatar" type="text" value="{value_avatar}" size="40" onfocus="show_image('divavatar','img_avatar',this.value);" /> <a href="#" onclick="pop('{link_choose_avatar}','750','600');" class="choose_image">{L_choose_image}</a>
+	  <div id="divavatar" style="display:none">	  
+	  <img src="{value_avatar}" id="img_avatar" />	  
+	  </div>
+	  </td>
+   </tr>	  
+  <tr>
+    <th>{L_description}</th>
+    <td><textarea name="description" cols="40" rows="5" id="description">{value_description}</textarea></td>
+  </tr>
+  <tr>
+    <th>{L_pass}</th>
+    <td><input name="pass_member" type="password" id="pass_member" /><br />
+    <span class="details">{L_explication_pass}</span></td>
+  </tr>
+  <tr>
+    <th>{L_confirm_pass}</th>
+    <td><input name="confirm_pass" type="password" id="confirm_pass" /></td>
+  </tr>
+  <tr>
+    <th>{L_status}</th>
+    <td>
+      <!-- LOOP group -->
+      <input type="radio" name="status" value="{id}" {checked} /> {name}<br />
+	  <span class="details">{description}</span><br />
+      <!-- END LOOP group -->
+      </td>
+  </tr>
+</table>
+</div>
+
+ <div class="button"><input type="hidden" name="id" value="{value_id}" />
+              <input type="submit" name="submit" value="{L_valider}" />
+			  </div>
+</form>

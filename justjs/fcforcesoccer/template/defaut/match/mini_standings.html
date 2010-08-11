@@ -1,0 +1,147 @@
+<h1>{L_title}</h1>
+
+<script type="text/javascript">
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+function sendData(param, page, div)
+{	
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//définition de l'endroit d'affichage:	
+	if(div!='round_details') {
+	 var content = document.getElementById(div);
+	}
+	
+	if(isset(this.document.form_mini_standings.season)) {
+	 param=param+'&season='+this.document.form_mini_standings.season.value;
+	}
+	param=param+"&div="+div;
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			if(div!='round_details') {
+				content.innerHTML = XhrObj.responseText ;
+			}
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end position SendData
+ 
+function validate_mini() {
+	var param='';
+	
+	if(isset(this.document.form_mini_standings.season)) {
+	 param=param+'&season='+this.document.form_mini_standings.season.value;
+	}
+	
+	if(isset(this.document.form_mini_standings.competition)) {
+	 param=param+'&competition='+this.document.form_mini_standings.competition.value;
+	}
+	
+	if(isset(this.document.form_mini_standings.tour)) {
+		if(!isset(this.document.form_mini_standings.tour.length)) {
+			param=param+'&round='+this.document.form_mini_standings.tour.value;
+		}
+		else {
+		 for(var i=0; i < this.document.form_mini_standings.tour.length; i++) {
+			if(this.document.form_mini_standings.tour[i].checked) {
+				param=param+'&round='+this.document.form_mini_standings.tour[i].value;	
+			}
+		}
+	 }	 
+	}
+	sendData(param, "{form_action}", "mini_standings");
+}
+</script>
+
+<!-- OPTION ms_show_form -->
+<form name="form_mini_standings" method="post" action="{form_action}">
+<table border="0">
+  <tr>
+    <td><select name="season">
+      <option value="">{L_choose_season}</option>
+      <!-- LOOP season -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP season -->
+    </select></td>
+	</tr>
+	<tr>
+    <td><select name="competition" id="competition" onchange="sendData('competition='+this.form.competition.value+'&select=tour&type=all','{link_select_round}','round');">
+      <option value="">{L_choose_competition}</option>
+      <!-- LOOP competition -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP competition -->
+    </select>
+<div id="round" style="display:{display_round}">
+<!-- LOOP round -->
+<input name="tour" type="radio" value="{id}" {checked} />{name} 
+<!-- END LOOP round -->
+	</div>	 
+</td>
+    </tr>
+	<tr><td><input name="valider" type="button" id="valider" onclick="javascript:validate_mini();" value="{L_submit}" /></td></tr>
+</table>
+</form>
+<!-- END OPTION ms_show_form -->
+
+<!-- OPTION L_message_standings -->
+<p class="message">{L_message_standings}</p>
+<!-- END OPTION L_message_standings -->
+
+<!-- OPTION show_standings -->
+<table>
+  <thead>
+	<tr> 
+		<th>{L_place}</th>
+		<th>{L_club}</th>
+		<!-- OPTION show_point -->
+		<th>{L_point}</th>
+		<!-- END OPTION show_point -->
+		<!-- LOOP stats -->
+		<!-- OPTION show -->
+		<th>{abbreviation}</th>
+		<!-- END OPTION show -->
+		<!-- END LOOP stats -->		
+	</tr>
+	</thead>
+	<tbody>
+		<!-- LOOP standings -->
+		<tr class="ligne{mod}">
+			<td>{place}</td>
+			<td>{club} 
+        <!-- OPTION team -->
+      ({team}
+      <!-- OPTION sex -->
+      <img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+      <!-- END OPTION sex -->
+      )
+      <!-- END OPTION team -->
+			</td>
+			<!-- OPTION show_point -->
+			<td>{point}</td>
+			<!-- END OPTION show_point -->
+			<!-- LOOP stats -->
+			<!-- OPTION show -->
+			<td>{value}</td>
+			<!-- END OPTION show -->
+			<!-- END LOOP stats --> 
+		</tr>
+		<!-- END LOOP standings -->
+	</tbody>
+</table>
+
+<div class="view_list"><a href="{link_standings}">{L_show_standings}</a></div>
+<!-- END OPTION show_standings -->

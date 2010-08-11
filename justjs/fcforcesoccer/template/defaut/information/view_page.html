@@ -1,0 +1,31 @@
+<h1>{title}</h1>
+<div id="action">
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->
+</div>
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+
+<!-- OPTION show_view -->      
+<!-- OPTION souspage -->
+<p align="left"> 
+<!-- LOOP souspage -->
+- <a href="{link}"><strong>{title}</strong></a><br />
+<!-- END LOOP souspage -->
+</p>
+<!-- END OPTION souspage -->
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+<tr> 
+  <td>{text}</td>
+</tr>
+</table>
+<p align="left"><br />
+<em><font size="1">{L_date} : {date_edit} </font></em></p>
+        
+<!-- END OPTION show_view -->      

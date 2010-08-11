@@ -1,0 +1,37 @@
+<h1>{L_title}</h1>
+      <!-- OPTION L_message -->
+      <p class="message">{L_message}</p>
+      <!-- END OPTION L_message -->
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION form_connection -->
+<table border="0" cellpadding="5" cellspacing="1" class="form-tab">
+    <form action="{form_connection_action}" method="post" name="form_connection" id="form_connection">
+      <tr>
+        <td colspan="2" class="form-title">{L_form_connection}</td>
+      </tr>
+      <tr>
+        <td class="form-champ-required">{L_login} : </td>
+        <td><strong>
+          <input name="login" type="text" value="" size="15" />
+        </strong></td>
+      </tr>
+      <tr>
+        <td class="form-champ-required">{L_pass} : </td>
+        <td><input name="pass" type="password" class="Style1" value="" size="15" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="form-champ"><input type="submit" name="submit" value="{value_connecter}" /></td>
+      </tr>
+    </form>
+</table>
+<!-- END OPTION form_connection -->

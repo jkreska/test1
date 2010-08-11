@@ -1,0 +1,803 @@
+/*  
+Theme Name: Atahualpa 
+Theme URI: http://wordpress.bytesforall.com/
+Description: v. 2.21 - Many improvements since v. 2.01. Fluid width, 2 or 3 column theme for WP 2.2 - WP 2.6 and WPMU. With rotating header images, customizable logo and options page. Includes 3 widgets for recent comments and popular post.
+Version: 2.21
+Author: BFA Webdesign
+Author URI: http://www.bytesforall.com/
+Tags: fluid width, options page, widget ready, 2 columns, 3 columns, left sidebar, right sidebar, custom header, rotating header images, seo friendly, gravatars, popular posts, related posts, wp-pagenavi, wp-print, wp-email, subscribe to comments, wpmu
+ 
+*/
+
+
+
+ul, ol, dl, p, h1, h2, h3, h4, h5, h6 {
+	margin-top: 10px; 
+	margin-bottom: 0px; 
+	padding-top: 0; 
+	padding-bottom: 0; 
+	}
+		
+ul ul, ul ol, ol ul, ol ol {
+	margin-top: 0; 
+	margin-bottom: 0; 
+	}
+	
+h1 {font-size: 240%; }
+h2 {font-size: 180%; }
+h3 {font-size: 140%; }
+h4 {font-size: 100%; }
+h5 {font-size: 70%; }
+h6 {font-size: 50%; }
+
+code, pre {
+	/* Firefox needs this */
+	font-family: "Courier New", Courier, monospace;		
+	}
+
+table {
+	font-size: 100%; 
+	}
+	
+td, th {
+	vertical-align: top; 
+	}
+	
+	
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- BASE LAYOUT -------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+/*
+Credits:
+Layout and browser compatibility hacks based on Ruthsarian's Skidoo Redux 
+http://webhost.bridgew.edu/etribou/layouts/ - ruthsarian AT gmail DOT com
+*/
+
+body {
+	background-color: #fff; 
+	color: #000; 
+	padding: 0; 
+	margin: 0; 
+	}
+
+#page-container {
+	/* font-size: will be set in style.php */ 
+	background: #fff; 
+	min-width: 800px; 
+	/* margin: will be set in style.php */ 
+	/* font-family: will be set in style.php */ 
+	}
+			
+#outer-column-container {
+	border-left: solid 13em #fff; 
+	border-right: solid 13em #fff; 
+	}
+
+#inner-column-container {
+	width: 100%; 
+	background-color: #fff;
+	border: dashed 1px #ccc;
+	border-width: 0 1px; 
+	margin: 0 -1px;
+	}
+					
+#source-order-container {
+	float: left; 
+	width: 100%; 
+	margin-right: -1px; 
+	}
+	
+#left-column {
+	float: left; 
+	margin-left: -13em; 
+	width: 13em; 
+	margin-right: 1px; 
+	position: relative;
+	}
+	
+#middle-column {
+	float: right; 
+	width: 100%; 
+	margin-left: -1px; 
+	}
+	
+#right-column {
+	float: right; 
+	margin-right: -13em; 
+	width: 13em; 
+	margin-left: 1px; 
+	position: relative;
+	}
+
+.inside {
+	margin: 15px; 
+	}
+	
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- SIDEBAR STYLES ----------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */	
+
+#left-column .inside {
+	margin-left: 2px;		/* less margin for left side of left column, might be overwritten in style.php */
+	}
+	
+h3.widgettitle {
+	/* color: will be set in style.php */
+	width: 100%; 
+	/* font-size: will be set in style.php */ 
+	margin-bottom: 0px; 
+	padding-bottom: 0px; 
+	}
+
+/* uncomment the next style if you are using text widgets without heading 
+and you want more space above the widget */
+/*		
+div.textwidget {
+	margin-top:15px;		
+	}				
+*/
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- SIDEBAR LINKS ------------------------------------------------ 
+---------------------------------------------------------------------------------------------------- */	
+
+#left-column .inside ul, 
+#right-column .inside ul {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0; 
+	width: auto;
+	}
+	
+#left-column .inside ul li, 
+#right-column .inside ul li {
+	margin: 2px 0 2px 0;  
+	}
+	
+#left-column .inside ul li ul li, 
+#right-column .inside ul li ul li {
+	margin: 2px 0 2px 5px;  
+	}
+	
+#left-column .inside ul li a, 
+#right-column .inside ul li a {
+	text-decoration: none; 
+	font-weight: normal; 
+	/* color: will be set in style.php */ 
+	padding: 0 0 0 5px; 
+	/* border-left: will be set in style.php */ 
+	display: inline-block;
+	}
+	
+#left-column .inside ul li a:hover, 
+#right-column .inside ul li a:hover {
+	/* color: will be set in style.php */ 
+	/* border-left: will be set in style.php */ 
+	}
+		
+
+	
+div#search {
+	float: right; 
+	width: 15em; 
+	text-align: right; 
+	padding: 0.6em 0 0.2em 0; 
+	margin: 0 1em; 
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- POST TITLE --------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */	
+
+h2 {
+	margin-top: 0px; 
+	margin-bottom: 0px; 
+	padding-top: 0; 
+	padding-bottom: 0; 
+	/* color: will be set in style.php */ 
+	}
+
+h2 a:link, h2 a:visited, h2 a:active  {
+	/* color: will be set in style.php */ 
+	text-decoration: none
+	}
+
+h2 a:hover  {
+	/* color: will be set in style.php */ 
+	text-decoration: none
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- POST BODY ---------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */	
+
+.post {
+	margin-bottom: 20px; 
+	}
+	
+.post-last {
+	margin-bottom: 20px; 	/*different style for last post on page*/
+	} 
+	
+.post-page {
+	margin-top: 20px; 
+	margin-bottom: 20px; 
+	}
+	
+.entry {
+	margin: 0px;
+	/*overflow-x: hidden; */
+	}
+
+	
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- POST META DATA ----------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */	
+	
+.postmetadata {
+	clear:both; 
+	margin: 15px 0 15px 0; 
+	padding: 5px; 
+	color: #999; 
+	background: #f4f4f4; 
+	}
+
+.postmetadata a:link, .postmetadata a:visited, .postmetadata a:active {
+	color: #777; 
+	font-weight: normal;
+	text-decoration: none;
+	}	
+
+.postmetadata a:hover {
+	color: #777; 
+	font-weight: normal;
+	text-decoration: underline;
+	}
+	
+
+/***************************************************/
+
+
+.line1pix { 
+	width: 100%; 
+	height: 1px; 
+	margin: 0px; 
+	border-top: 1px dashed #ccc; 
+	padding: 0; 
+	margin: 10px 0 10px 0; 
+	display: block; 
+	font-size: 1px; 
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- HEADER ------------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */	
+	
+.headerleft {
+	float: left; 
+	text-align: left; 
+	margin-bottom: 0; 
+	margin-top: 0; 
+	position: relative; 
+	padding-bottom: 0;
+	}
+	
+.searchbox {
+	float:right; 
+	/* width: will be set in style.php */ 
+	padding: 0; 
+	margin: 10px -1px 0 0; 
+	background: #fff; 
+	border: 1px dashed #ccc; 
+	border-width: 1px 1px 0 1px
+	}
+
+.searchbox-form {
+	margin: 5px 10px 5px 10px;
+	}
+	
+h1 { 
+	letter-spacing:-1px; 
+	line-height: 1.0em; 
+	margin: 10px 20px 0 0; 
+	padding:0; 
+	/* font-family: and font-size: will be set in style.php */
+	}
+	
+a.header:link, a.header:hover, a.header:active, a.header:visited {
+	text-decoration: none; 
+	/* color: will be set in style.php */
+	}
+	
+p.header { 
+	float: left; 
+	margin: 0 10px 8px 0px; 
+	font-size:1.2em; 
+	font-weight: bold; 
+	/* color: will be set in style.php */ 
+	}
+
+.rss-icon {
+	width: 20px; 
+	height: 20px; 
+	float: right; 
+	margin: 10px 0 0 0; /* might be overwritten in style.php */
+	}
+	
+.logo-icon {
+	margin: 10px 5px 10px 0; /* might be overwritten in style.php */
+	padding: 0; 
+	border: 0; 
+	float: left;
+	}
+
+.blogtitle-box {
+	float: left;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- HEADER IMAGE ------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */	
+
+#headerimage-top { 
+	font-size: 1px;
+	clear: both; 
+	height: 5px; 
+	padding: 0; 
+	width: 100%; 
+	background: #fff; 
+	border-top: dashed 1px #cccccc; 
+	}
+	
+#headerimage-bottom { 
+	font-size: 1px;
+	clear: both; 
+	height: 5px; 
+	padding: 0; 
+	width: 100%; 
+	background: #fff; 
+	border-bottom: dashed 1px #cccccc 
+	}	
+	 
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- BLOCKQUOTES -------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */		
+	
+blockquote {
+	height: 1%; 
+	color: #555; 
+	padding: 1em 1em; 
+	background: #f4f4f4; 
+	border: solid 1px #e1e1e1;  	/* hack for IE6 and older*/ 
+	}
+	
+blockquote blockquote {
+	height: 1%; 
+	color: #444; 
+	padding: 1em 1em; 
+	background: #e1e1e1; 
+	border: solid 1px #d3d3d3;  	/* hack for IE6 and older*/ 
+	}
+	
+blockquote p {
+	margin-top: 0
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- FOOTER ------------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */	
+	
+#footer {
+	background-color: #fff; 
+	border-top: dashed 1px #ccc; 
+	padding-bottom: 1px;
+	}
+
+#footer .inside, #footer .inside a {
+	color: #999; 
+	font-weight: normal;
+	text-align: center;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- PAGE NAVIGATION NEXT/PREVIOUS -------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+.navigation {
+	display: block; 
+	margin: 0; 
+	padding: 0; 
+	width: 100%; 
+	}
+	 
+.older {
+	float: left; 
+	width: 49%; 
+	text-align: left; 
+	margin:0; 
+	padding:0;
+	}
+	
+.newer {
+	float:right; 
+	width: 49%; 
+	text-align: right; 
+	margin:0; 
+	padding:0; 
+	}	
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- COMMENTS ----------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+ol.commentlist {
+	margin: 15px 0 25px 0;
+	list-style-type: none;
+	padding: 0;
+	border-top: dotted 1px #ccc;
+	}
+	
+ol.commentlist li {
+	border-bottom: dotted 1px #ccc;
+	padding: 15px 10px;
+	height: 1%; /* for IE6 */
+	}
+
+ol.commentlist li.alt {
+	background-color: #f6f6f6;
+	border-bottom: dotted 1px #ccc;
+	height: 1%; /* for IE6 */
+	}
+
+ol.commentlist li.authorcomment {
+	background-color: #ffecec;
+	}
+		
+ol.commentlist li p {
+	margin: 2px 0 5px 0;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- FORMS -------------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+form {
+	margin: 0; 
+	padding: 0; 
+	}
+	
+form p {
+	margin: 5px 0 0 0; 
+	padding: 0; 
+	}
+	
+label {
+	margin-right: 0.5em; 
+	font-family: arial;
+	cursor: pointer; 
+	}
+
+form input {
+	color: #000; 
+	background: #f7f7f7; 
+	padding: 2px; 
+	margin:0; 
+	border: 1px solid #ccc; 
+	}
+		
+.submit input {
+	margin-left: 4.5em; 
+	color: #000; 
+	background: #fff; 
+	border: 2px outset #999; 
+	height: 18px; 
+	padding:0
+	}
+	
+fieldset {
+	border: 1px solid #781351; 
+	width: 45em; 
+	}
+	
+legend { 
+	color: #000; 
+	background: #ffb0b3; 
+	border: 1px solid #781351; 
+	padding: 2px 6px; 
+	margin-bottom: 15px; 
+	}
+	
+.comment-textarea{
+	width: 96%; 
+	padding: 0; 
+	margin: 0; 
+	}
+	
+#s {
+	width: 75%;
+	}
+
+searchfield {
+	/*float:left;*/
+	position: relative;
+	height: 1%; 
+	/* width: will be set in style.php */
+	} 
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- TOP MENU BAR ------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+/* Credits: Dynamic Drive CSS Library 
+   URL: http://www.dynamicdrive.com/style/ 
+*/
+
+#modernbricksmenu {
+	padding: 0; 
+	width: auto; 
+	background: transparent; 
+	border-bottom: dashed 1px #ccc; 
+	border-left: dashed 1px #ccc; 
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	}
+	
+#modernbricksmenu ul{
+	font: bold 0.85em Arial; 
+	margin:0; 
+	margin-left: 0px; 
+	padding: 0; 
+	list-style: none;
+	}
+	
+#modernbricksmenu li {
+	display: inline; 
+	margin: 0; 
+	padding: 0; 
+	text-transform:uppercase; 
+	}
+	
+#modernbricksmenu li:first-child {
+	margin-left: 1px; 
+	}
+	
+#modernbricksmenu a {
+	float: left; 
+	display: block; 
+	color: #666; 
+	margin: 0 0 0 0; 		/*Margin between each menu item*/ 
+	padding: 5px 10px; 
+	text-decoration: none; 
+	letter-spacing: 1px;
+	background-color: #fff; 
+	border: dashed 1px #ccc; 
+	border-width: 0 1px 0 0
+	}
+	
+#modernbricksmenu a:hover {
+	color: #000; 
+	background-color: #eee; 
+	}
+	
+#modernbricksmenu li.current_page_item a {
+	color: #000; 
+	background-color: #eee; 
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- GRAVATARS ---------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+img.avatar {
+	float: left; 
+	margin: 0 8px 3px 0;
+	padding: 3px;
+	border: solid 1px #ddd;
+	background-color: #f3f3f3;
+   	/* optional rounded corners for browsers that support it */
+   	-moz-border-radius: 3px;
+   	-khtml-border-radius: 3px;
+   	-webkit-border-radius: 3px;
+   	border-radius: 3px;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- New WP 2.6 image classes ------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+.entry img {
+	margin: 10px 10px 0 0;
+	padding: 5px;
+	border: solid 1px #ddd;
+	background-color: #f3f3f3;
+   	/* optional rounded corners for browsers that support it */
+   	-moz-border-radius: 3px;
+   	-khtml-border-radius: 3px;
+   	-webkit-border-radius: 3px;
+   	border-radius: 3px;
+	}
+
+.postmetadata img {
+	border: none;
+	margin: 0 0 -3px 0;
+	padding: 0;
+	}
+				
+img.alignleft {
+	float: left; 
+	margin: 10px 10px 5px 0; 
+	}
+	
+img.alignright {
+	float: right; 
+	margin: 10px 0 5px 10px; 
+	}
+
+img.aligncenter {
+	display: block;
+	margin: 10px auto;
+	}
+
+.aligncenter, div.aligncenter {
+   	display: block;
+   	margin-left: auto;
+   	margin-right: auto;
+	}
+
+.alignleft,div.alignleft {
+	float: left;
+	margin: 10px 10px 5px 0;
+	}
+
+.alignright, div.alignright {
+   	float: right;
+   	margin: 10px 0 5px 10px;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- IMAGE CAPTION (new in WP 2.6) -------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+	
+.wp-caption {
+   	border: 1px solid #ddd;
+   	text-align: center;
+   	background-color: #f3f3f3;
+   	padding-top: 4px;
+   	margin: 10px 0 0 0;
+   	/* optional rounded corners for browsers that support it */
+   	-moz-border-radius: 3px;
+   	-khtml-border-radius: 3px;
+   	-webkit-border-radius: 3px;
+   	border-radius: 3px;
+	}
+
+.wp-caption img {
+   	margin: 0;
+   	padding: 0;
+   	border: 0 none;
+	}
+
+.wp-caption p.wp-caption-text {
+   	font-size: 0.8em;
+   	line-height: 13px;
+   	padding: 2px 4px 5px;
+   	margin: 0;
+   	color: #666;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- SMILEYS ------------------------------------------------------ 
+---------------------------------------------------------------------------------------------------- */
+		
+img.wp-smiley {
+    	float: none;  
+    	border: none; 
+	margin: 0 1px -1px 1px; 
+	padding: 0;
+	background: none;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- CALENDAR TABLE ----------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+#calendar_wrap {
+	padding: 0;
+	border: solid 1px #ccc;
+	}
+	
+table#wp-calendar caption {
+	width: auto;
+	background: #eee;
+	border: #999;
+	padding: 3px;
+	margin: 0 auto;
+	color: #666;
+	}
+	
+table#wp-calendar {
+	width: 100%;
+	border-width: 0;
+	border-spacing: 0;
+	border-style: solid;
+	border-color: #ccc;
+	border-collapse: separate;
+	background-color: #fff;
+	margin: 0 auto;
+	}
+	
+table#wp-calendar th {
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #eee;
+	background-color: #fff;
+	text-align: center;
+	}
+	
+table#wp-calendar td {
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #eee;
+	background-color: #fff;
+	text-align: center;
+	}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- CLEARFIX ----------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+.clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix {min-width: 0; display: inline-block; /* \*/	display: block; }
+* html .clearfix {/* \*/  height: 1%;}
+
+/* -------------------------------------------------------------------------------------------------
+------------------------------------- HACKS -------------------------------------------------------- 
+---------------------------------------------------------------------------------------------------- */
+
+.clear-columns { 
+	/* hide from IE/Mac \*/ padding-bottom: 1px; margin-bottom: -1px;	
+	}
+
+.clear-columns {
+	clear: both; 
+	}
+		
+* html #page-container { 
+	/* \*/ height: 0.1%; position: relative; 
+	}
+	
+* html #middle-column, * html #left-column, * html #right-column, * html #source-order-container {
+	/* hide from IE/Mac \*/ overflow: visible; 
+	/* hide from IE/Mac \*/ position: relative; 
+	}
+	
+* html #middle-column {
+	margin-right: -4px; margin-right/* */: 0; 
+	}
+	
+* html #middle-column .inside { 
+	margin-right: 14px; margin-right/* */: 10px;
+	}
+	
+* html #footer { 
+	/* hide from IE/Mac \*/ height: 0.1%; height/**/: auto;	 
+	}
+	
+* html #footer .inside {
+	margin-top: 0; margin-bottom: 0; margin/* */: 10px; 
+	}
+	
+* html .inside {
+	margin: 10px 0.75em; margin/* */: 10px; 
+	}
+
+* html #inner-column-container {
+	display: block; 
+	}
+	
+* html #source-order-container {
+	margin-right: -100%; /* \*/ margin-right: -1px; 
+	}

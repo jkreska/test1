@@ -1,0 +1,45 @@
+﻿/*
+* phpMySport : website for team sport clubs and leagues
+*
+* Copyright (C) 2006-2009 Jerome PLACE. All rights reserved.
+*
+* Email           : djayp [at] users.sourceforge.net
+* Website         : http://phpmysport.sourceforge.net
+* Version         : 1.4
+* Last update     : 4 march 2009
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+*/
+
+
+*********************
+* INSTALLATION [FR] *
+*********************
+1) copier tous les fichiers sur votre site 
+2) lancer le site et suivre les instructions d'installation
+3) voila, le site est installé
+
+
+*********************
+* INSTALLATION [EN] *
+*********************
+1) copy all files on your server 
+2) open you navigator, go to your website address and follow the installation instructions
+3) the website is installed
+
+
+*********************
+* INSTALLAZIONE [IT] *
+*********************
+1) copiate tutti i files sul vostro server 
+2) aprite il browser, e andate sul vostro sito web all'indirizzo e seguite le istruzioni per l'installazione
+3) il sito web e installato

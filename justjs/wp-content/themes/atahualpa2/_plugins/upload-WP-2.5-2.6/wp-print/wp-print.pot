@@ -1,0 +1,324 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Print 2.31\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-15 15:44+0800\n"
+"PO-Revision-Date: 2008-07-15 15:44+0800\n"
+"Last-Translator: Lester Chan <lesterchan@gmail.com>\n"
+"Language-Team: Lester Chan <lesterchan@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: SINGAPORE\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: print-comments.php:23
+msgid "Open"
+msgstr ""
+
+#: print-comments.php:23
+msgid "Close"
+msgstr ""
+
+#: print-comments.php:25
+msgid "To"
+msgstr ""
+
+#: print-comments.php:28
+msgid "Comment"
+msgstr ""
+
+#: print-comments.php:28
+msgid "Trackback"
+msgstr ""
+
+#: print-comments.php:28
+msgid "Pingback"
+msgstr ""
+
+#: print-comments.php:28
+msgid "By"
+msgstr ""
+
+#: print-comments.php:28
+#: print-posts.php:50
+msgid "On"
+msgstr ""
+
+#: print-comments.php:28
+#: print-posts.php:50
+#, php-format
+msgid "%s @ %s"
+msgstr ""
+
+#: print-comments.php:32
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: print-options.php:46
+#: print-options.php:132
+#: print-options.php:195
+msgid "Print Options"
+msgstr ""
+
+#: print-options.php:51
+msgid "Updated"
+msgstr ""
+
+#: print-options.php:56
+msgid "No Print Option Updated"
+msgstr ""
+
+#: print-options.php:62
+#: print-options.php:295
+msgid "UNINSTALL WP-Print"
+msgstr ""
+
+#: print-options.php:70
+#, php-format
+msgid "Setting Key '%s' has been deleted."
+msgstr ""
+
+#: print-options.php:74
+#, php-format
+msgid "Error deleting Setting Key '%s'."
+msgstr ""
+
+#: print-options.php:95
+#: print-options.php:263
+msgid "Uninstall WP-Print"
+msgstr ""
+
+#: print-options.php:96
+#, php-format
+msgid "<a href=\"%s\">Click Here</a> To Finish The Uninstallation And WP-Print Will Be Deactivated Automatically."
+msgstr ""
+
+#: print-options.php:122
+#: wp-print.php:466
+#, php-format
+msgid "Copyright &copy; %s %s. All rights reserved."
+msgstr ""
+
+#: print-options.php:133
+msgid "Print Styles"
+msgstr ""
+
+#: print-options.php:136
+msgid "Print Text Link For Post"
+msgstr ""
+
+#: print-options.php:142
+msgid "Print Text Link For Page"
+msgstr ""
+
+#: print-options.php:148
+msgid "Print Icon"
+msgstr ""
+
+#: print-options.php:176
+msgid "Print Text Link Style"
+msgstr ""
+
+#: print-options.php:179
+msgid "Print Icon With Text Link"
+msgstr ""
+
+#: print-options.php:180
+msgid "Print Icon Only"
+msgstr ""
+
+#: print-options.php:181
+msgid "Print Text Link Only"
+msgstr ""
+
+#: print-options.php:182
+msgid "Custom"
+msgstr ""
+
+#: print-options.php:186
+#: print-options.php:249
+msgid "HTML is allowed."
+msgstr ""
+
+#: print-options.php:187
+msgid "URL to the printable post/page."
+msgstr ""
+
+#: print-options.php:188
+msgid "Print text link of the post/page that you have typed in above."
+msgstr ""
+
+#: print-options.php:189
+msgid "URL to the print icon you have chosen above."
+msgstr ""
+
+#: print-options.php:190
+#: print-options.php:246
+msgid "Restore Default Template"
+msgstr ""
+
+#: print-options.php:198
+msgid "Print Comments?"
+msgstr ""
+
+#: print-options.php:201
+#: print-options.php:210
+#: print-options.php:219
+#: print-options.php:228
+#: print-options.php:294
+msgid "Yes"
+msgstr ""
+
+#: print-options.php:202
+#: print-options.php:211
+#: print-options.php:220
+#: print-options.php:229
+msgid "No"
+msgstr ""
+
+#: print-options.php:207
+msgid "Print Links?"
+msgstr ""
+
+#: print-options.php:216
+msgid "Print Images?"
+msgstr ""
+
+#: print-options.php:225
+msgid "Print Videos?"
+msgstr ""
+
+#: print-options.php:234
+msgid "Text Direction?"
+msgstr ""
+
+#: print-options.php:237
+msgid "Left To Right"
+msgstr ""
+
+#: print-options.php:238
+msgid "Right To Left"
+msgstr ""
+
+#: print-options.php:244
+msgid "Disclaimer/Copyright Text?"
+msgstr ""
+
+#: print-options.php:254
+msgid "Save Changes"
+msgstr ""
+
+#: print-options.php:265
+msgid "Deactivating WP-Print plugin does not remove any data that may have been created, such as the print options. To completely remove this plugin, you can uninstall it here."
+msgstr ""
+
+#: print-options.php:268
+msgid "WARNING:"
+msgstr ""
+
+#: print-options.php:269
+msgid "Once uninstalled, this cannot be undone. You should use a Database Backup plugin of WordPress to back up all the data first."
+msgstr ""
+
+#: print-options.php:272
+msgid "The following WordPress Options will be DELETED:"
+msgstr ""
+
+#: print-options.php:277
+msgid "WordPress Options"
+msgstr ""
+
+#: print-options.php:295
+msgid ""
+"You Are About To Uninstall WP-Print From WordPress.\\n"
+"This Action Is Not Reversible.\\n"
+"\\n"
+" Choose [Cancel] To Stop, [OK] To Uninstall."
+msgstr ""
+
+#: print-posts.php:50
+msgid "Posted By"
+msgstr ""
+
+#: print-posts.php:50
+msgid "In"
+msgstr ""
+
+#: print-posts.php:57
+msgid "Article printed from"
+msgstr ""
+
+#: print-posts.php:58
+msgid "URL to article"
+msgstr ""
+
+#: print-posts.php:62
+msgid "Click"
+msgstr ""
+
+#: print-posts.php:62
+msgid "Click here to print."
+msgstr ""
+
+#: print-posts.php:62
+msgid "here"
+msgstr ""
+
+#: print-posts.php:62
+msgid "to print."
+msgstr ""
+
+#: print-posts.php:64
+msgid "No posts matched your criteria."
+msgstr ""
+
+#: wp-print.php:61
+msgid "Print"
+msgstr ""
+
+#: wp-print.php:202
+msgid "Note: There is a print link embedded within this post, please visit this post to print it."
+msgstr ""
+
+#: wp-print.php:274
+#: wp-print.php:342
+msgid "Image"
+msgstr ""
+
+#: wp-print.php:365
+msgid "No Comments"
+msgstr ""
+
+#: wp-print.php:367
+msgid "1 Comment"
+msgstr ""
+
+#: wp-print.php:369
+#, php-format
+msgid "%s Comments"
+msgstr ""
+
+#: wp-print.php:372
+msgid "Comments Disabled"
+msgstr ""
+
+#: wp-print.php:375
+msgid "Comments Hidden"
+msgstr ""
+
+#: wp-print.php:386
+msgid "URLs in this post:"
+msgstr ""
+
+#: wp-print.php:457
+msgid "Print This Post"
+msgstr ""
+
+#: wp-print.php:458
+msgid "Print This Page"
+msgstr ""
+

@@ -1,0 +1,12 @@
+[13-Aug-2008 06:20:52] PHP Warning:  Invalid argument supplied for foreach() in /home/justjs0/public_html/wp-content/plugins/akismet/akismet.php on line 722
+[13-Aug-2008 06:20:52] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/justjs0/public_html/wp-content/plugins/akismet/akismet.php:722) in /home/justjs0/public_html/wp-includes/pluggable.php on line 770
+[16-Apr-2010 11:08:37] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[19-Apr-2010 12:53:35] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[19-Apr-2010 13:08:54] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[19-Apr-2010 13:09:33] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[05-May-2010 19:32:55] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[05-May-2010 19:34:18] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[05-May-2010 19:36:18] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[11-May-2010 20:51:58] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[11-May-2010 20:56:26] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105
+[27-May-2010 18:26:59] PHP Warning:  Invalid argument supplied for foreach() in /home2/allenfut/public_html/justjs/wp-content/plugins/google-analyticator/google-analytics-stats-widget.php on line 105

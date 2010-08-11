@@ -1,0 +1,76 @@
+<h1>{L_title}</h1>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<h2>{L_add}</h2>
+<form action="{form_action}" method="post">
+  <table border="0" cellpadding="0">
+   <thead>
+    <tr>
+      <th>{L_name}</th>
+      <th>{L_duration} ({L_format_duration}) </th>
+      <th>{L_required}</th>
+      <td>&nbsp;</td>
+    </tr>
+	</thead>
+    <tr>
+      <td><input type="text" name="name" value="{value_name}" /></td>
+      <td><input name="duration" type="text" value="{value_duration}" size="4" /></td>
+      <td><input type="radio" name="required" value="1" {choix_yes} /> {L_yes} <input type="radio" name="required" value="0" {choix_no} /> {L_no}</td>
+      <td><input type="hidden" name="id" value="" />
+        <input type="submit" name="submit" value="{L_valider}" /></td>
+    </tr>
+  </table>
+</form>
+<!-- OPTION period -->
+<h2>{L_liste}</h2>
+<table border="0" cellpadding="0" cellspacing="1">
+  <tr>
+   <thead>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <th>{L_name}</th>
+    <th>{L_duration} ({L_format_duration}) </th>
+    <th>{L_required}</th>
+    <td>&nbsp;</td>
+  </tr>
+  </thead>
+<!-- LOOP period -->
+<form action="{form_action}" method="post">  
+  <tr>
+    <td width="15"> 
+      <!-- OPTION link_up -->
+      <a href="{link_up}"><img src="../tpl_image/arrow_up.png" alt="{L_up}" width="13" height="13" border="0"></a> 
+      <!-- END OPTION link_up -->
+    </td>
+    <td width="15"> 
+      <!-- OPTION link_down -->
+      <a href="{link_down}"><img src="../tpl_image/arrow_down.png" alt="{L_down}" width="13" height="13" border="0"></a> 
+      <!-- END OPTION link_down -->
+    </td> 
+    <td>
+	<input type="text" name="name" value="{name}" /></td>
+    <td><input name="duration" type="text" id="duration" value="{duration}" size="4" /></td>
+    <td><input type="radio" name="required" value="1" {choix_yes} />
+{L_yes}
+  <input type="radio" name="required" value="0" {choix_no} />
+{L_no}</td>
+    <td><input type="hidden" name="id" value="{id}" />
+      <input type="image" name="{L_edit}" src="../tpl_image/button_edit.png" onclick="submit()" alt="{L_edit}" />
+      <a href="javascript:confirmation('{link_suppression}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+  </tr>
+</form>
+<!-- END LOOP period -->
+</table>
+<!-- END OPTION period -->

@@ -1,0 +1,1318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | Enumerable mixin</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../language_section.html">Language</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title mixin">
+  <span class="type">mixin </span>Enumerable
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p><code>Enumerable</code> provides a large set of useful methods for enumerations &mdash;
+objects that act as collections of values. It is a cornerstone of
+Prototype.</p>
+
+<p><code>Enumerable</code> is a <em>mixin</em>: a set of methods intended not for standaone
+use, but for incorporation into other objects.</p>
+
+<p>Prototype mixes <code>Enumerable</code> into several classes. The most visible cases
+are <code><a title="Array (class)" href="../language/array.html">Array</a></code> and <code><a title="Hash (class)" href="../language/hash.html">Hash</a></code>, but you'll find it in less obvious spots as
+well, such as in <code><a title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a></code> and various DOM- or Ajax-related objects.</p>
+
+<h4>The <code>context</code> parameter</h4>
+
+<p>Every method of <code>Enumerable</code> that takes an iterator also takes the "context
+object" as the next (optional) parameter. The context object is what the
+iterator will be <em>bound</em> to &mdash; what the keyword <code>this</code> will refer to inside
+the iterator.</p>
+
+<pre><code class="javascript">var myObject = {};
+
+['foo', 'bar', 'baz'].each(function(name, index) {
+  this[name] = index;
+}, myObject); // we have specified the context
+
+myObject
+//-&gt; { foo: 0, bar: 1, baz: 2}
+</code></pre>
+
+<p>If there is no <code>context</code> argument, the iterator function will execute in
+the scope from which the <code>Enumerable</code> method itself was called.</p>
+
+<h4>Mixing <code>Enumerable</code> into your own objects</h4>
+
+<p>So, let's say you've created your very own collection-like object (say,
+some sort of Set, or perhaps something that dynamically fetches data
+ranges from the server side, lazy-loading style). You want to be able to
+mix <code>Enumerable</code> in (and we commend you for it). How do you go about this?</p>
+
+<p>The Enumerable module basically makes only one requirement on your object:
+it must provide a method named <code>_each</code> (note the leading underscore) that
+will accept a function as its unique argument, and will contain the actual
+"raw iteration" algorithm, invoking its argument with each element in turn.</p>
+
+<p>As detailed in the documentation for <code><a title="Enumerable#each (instance method)" href="../language/enumerable.html#each-instance_method">Enumerable#each</a></code>, <code>Enumerable</code>
+provides all the extra layers (handling iteration short-circuits, passing
+numeric indices, etc.). You just need to implement the actual iteration,
+as fits your internal structure.</p>
+
+<p>If you're still confused, just have a look at the Prototype source code for
+<code><a title="Array (class)" href="../language/array.html">Array</a></code>, <code><a title="Hash (class)" href="../language/hash.html">Hash</a></code>, or <code><a title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a></code>. They all begin with their own
+<code>_each</code> method, which should help you grasp the idea.</p>
+
+<p>Once you're done with this, you just need to mix <code>Enumerable</code> in, which
+you'll usually do before defining your methods, so as to make sure whatever
+overrides you provide for <code>Enumerable</code> methods will indeed prevail. In
+short, your code will probably end up looking like this:</p>
+
+<pre><code class="javascript">var YourObject = Class.create(Enumerable, {
+  initialize: function() { // with whatever constructor arguments you need
+    // Your construction code
+  },
+
+  _each: function(iterator) {
+    // Your iteration code, invoking iterator at every turn
+  },
+
+  // Your other methods here, including Enumerable overrides
+});
+</code></pre>
+
+<p>Then, obviously, your object can be used like this:</p>
+
+<pre><code class="javascript">var obj = new YourObject();
+// Populate the collection somehow
+obj.pluck('somePropName');
+obj.invoke('someMethodName');
+obj.size();
+// etc.
+</code></pre>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+
+
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="Enumerable#all (instance method)" href="../language/enumerable.html#all-instance_method">all</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#any (instance method)" href="../language/enumerable.html#any-instance_method">any</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#collect (instance method)" href="../language/enumerable.html#collect-instance_method">collect</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#detect (instance method)" href="../language/enumerable.html#detect-instance_method">detect</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#each (instance method)" href="../language/enumerable.html#each-instance_method">each</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#eachSlice (instance method)" href="../language/enumerable.html#eachslice-instance_method">eachSlice</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#entries (instance method)" href="../language/enumerable.html#entries-instance_method">entries</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#every (instance method)" href="../language/enumerable.html#every-instance_method">every</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#filter (instance method)" href="../language/enumerable.html#filter-instance_method">filter</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#find (instance method)" href="../language/enumerable.html#find-instance_method">find</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#findAll (instance method)" href="../language/enumerable.html#findall-instance_method">findAll</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#grep (instance method)" href="../language/enumerable.html#grep-instance_method">grep</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#inGroupsOf (instance method)" href="../language/enumerable.html#ingroupsof-instance_method">inGroupsOf</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#include (instance method)" href="../language/enumerable.html#include-instance_method">include</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#inject (instance method)" href="../language/enumerable.html#inject-instance_method">inject</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#inspect (instance method)" href="../language/enumerable.html#inspect-instance_method">inspect</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#invoke (instance method)" href="../language/enumerable.html#invoke-instance_method">invoke</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#map (instance method)" href="../language/enumerable.html#map-instance_method">map</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#max (instance method)" href="../language/enumerable.html#max-instance_method">max</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#member (instance method)" href="../language/enumerable.html#member-instance_method">member</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#min (instance method)" href="../language/enumerable.html#min-instance_method">min</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#partition (instance method)" href="../language/enumerable.html#partition-instance_method">partition</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#pluck (instance method)" href="../language/enumerable.html#pluck-instance_method">pluck</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#reject (instance method)" href="../language/enumerable.html#reject-instance_method">reject</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#select (instance method)" href="../language/enumerable.html#select-instance_method">select</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#size (instance method)" href="../language/enumerable.html#size-instance_method">size</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#some (instance method)" href="../language/enumerable.html#some-instance_method">some</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#sortBy (instance method)" href="../language/enumerable.html#sortby-instance_method">sortBy</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#toArray (instance method)" href="../language/enumerable.html#toarray-instance_method">toArray</a></code></li>
+      
+        <li><code><a class="instance-method" title="Enumerable#zip (instance method)" href="../language/enumerable.html#zip-instance_method">zip</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="all-instance_method">all
+    <span class="method-permalink"><a href="../language/enumerable.html#all-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#all([iterator = Prototype.K[, context]]) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Determines whether all the elements are boolean-equivalent to <code>true</code>,
+either directly or through computation by the provided iterator.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Enumerable#every (instance method)" href="../language/enumerable.html#every-instance_method">Enumerable#every</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="any-instance_method">any
+    <span class="method-permalink"><a href="../language/enumerable.html#any-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#any([iterator = Prototype.K[, context]]) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Determines whether at least one element is boolean-equivalent to <code>true</code>,
+either directly or through computation by the provided iterator.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Enumerable#some (instance method)" href="../language/enumerable.html#some-instance_method">Enumerable#some</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="collect-instance_method">collect
+    <span class="method-permalink"><a href="../language/enumerable.html#collect-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#collect([iterator = Prototype.K[, context]]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the results of applying the iterator to each element.
+Aliased as <code><a title="Enumerable#map (instance method)" href="../language/enumerable.html#map-instance_method">Enumerable#map</a></code>.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Enumerable#map (instance method)" href="../language/enumerable.html#map-instance_method">Enumerable#map</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="detect-instance_method">detect
+    <span class="method-permalink"><a href="../language/enumerable.html#detect-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#detect(iterator[, context]) -&gt; firstElement | undefined</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Finds the first element for which the iterator returns a "truthy" value.
+Aliased by the <code><a title="Enumerable#find (instance method)" href="../language/enumerable.html#find-instance_method">Enumerable#find</a></code> method.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Enumerable#find (instance method)" href="../language/enumerable.html#find-instance_method">Enumerable#find</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="each-instance_method">each
+    <span class="method-permalink"><a href="../language/enumerable.html#each-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#each(iterator[, context]) -&gt; <a title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>iterator</code>
+            
+              (<code><a title="Function (class)" href="../language/function.html">Function</a></code>)
+            
+             &ndash; A <code>Function</code> that expects an item in the collection as the first argument and a numerical index as the second.
+          </li>
+        
+          <li>
+            <code>context</code>
+            
+              (<code><a title="Object (class)" href="../language/object.html">Object</a></code>)
+            
+             &ndash; The scope in which to call <code>iterator</code>. Affects what the keyword <code>this</code> means inside <code>iterator</code>.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Calls <code>iterator</code> for each item in the collection.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="eachslice-instance_method">eachSlice
+    <span class="method-permalink"><a href="../language/enumerable.html#eachslice-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#eachSlice(number[, iterator = Prototype.K[, context]]) -&gt; <a title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Groups items into chunks of the given size.
+The final "slice" may have fewer than <code>number</code> items; it won't "pad" the
+last group with empty values. For that behavior, use
+<code><a title="Enumerable#inGroupsOf (instance method)" href="../language/enumerable.html#ingroupsof-instance_method">Enumerable#inGroupsOf</a></code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="entries-instance_method">entries
+    <span class="method-permalink"><a href="../language/enumerable.html#entries-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#entries() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#toArray (instance method)" href="../language/enumerable.html#toarray-instance_method">Enumerable#toArray</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="every-instance_method">every
+    <span class="method-permalink"><a href="../language/enumerable.html#every-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#every([iterator = Prototype.K[, context]]) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#all (instance method)" href="../language/enumerable.html#all-instance_method">Enumerable#all</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="filter-instance_method">filter
+    <span class="method-permalink"><a href="../language/enumerable.html#filter-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#filter(iterator[, context]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#findAll (instance method)" href="../language/enumerable.html#findall-instance_method">Enumerable#findAll</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="find-instance_method">find
+    <span class="method-permalink"><a href="../language/enumerable.html#find-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#find(iterator[, context]) -&gt; firstElement | undefined</code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#detect (instance method)" href="../language/enumerable.html#detect-instance_method">Enumerable#detect</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="findall-instance_method">findAll
+    <span class="method-permalink"><a href="../language/enumerable.html#findall-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#findAll(iterator[, context]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns all the elements for which the iterator returned "truthy" value.
+Aliased as <code><a title="Enumerable#select (instance method)" href="../language/enumerable.html#select-instance_method">Enumerable#select</a></code>.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Enumerable#select (instance method)" href="../language/enumerable.html#select-instance_method">Enumerable#select</a></code>, <code><a title="Enumerable#filter (instance method)" href="../language/enumerable.html#filter-instance_method">Enumerable#filter</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="grep-instance_method">grep
+    <span class="method-permalink"><a href="../language/enumerable.html#grep-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#grep(regex[, iterator = Prototype.K[, context]]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns all the elements that match the filter. If an iterator is provided,
+it is used to produce the returned value for each selected element.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="ingroupsof-instance_method">inGroupsOf
+    <span class="method-permalink"><a href="../language/enumerable.html#ingroupsof-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#inGroupsOf(size[, filler = null]) -&gt; [group...]</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Groups items in fixed-size chunks, using a specific value to fill up
+the last chunk if necessary.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="include-instance_method">include
+    <span class="method-permalink"><a href="../language/enumerable.html#include-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#include(object) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Determines whether a given object is in the Enumerable or not,
+based on the <code>==</code> comparison operator. Aliased as <code><a title="Enumerable#member (instance method)" href="../language/enumerable.html#member-instance_method">Enumerable#member</a></code>.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Enumerable#member (instance method)" href="../language/enumerable.html#member-instance_method">Enumerable#member</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="inject-instance_method">inject
+    <span class="method-permalink"><a href="../language/enumerable.html#inject-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#inject(accumulator, iterator[, context]) -&gt; accumulatedValue</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Incrementally builds a result value based on the successive results
+of the iterator.
+This can be used for array construction, numerical sums/averages, etc.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="inspect-instance_method">inspect
+    <span class="method-permalink"><a href="../language/enumerable.html#inspect-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#inspect() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the debug-oriented string representation of the object.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="invoke-instance_method">invoke
+    <span class="method-permalink"><a href="../language/enumerable.html#invoke-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#invoke(methodName[, arg...]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Invokes the same method, with the same arguments, for all items in a collection.
+Returns the results of the method calls.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="map-instance_method">map
+    <span class="method-permalink"><a href="../language/enumerable.html#map-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#map([iterator = Prototype.K[, context]]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#collect (instance method)" href="../language/enumerable.html#collect-instance_method">Enumerable#collect</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="max-instance_method">max
+    <span class="method-permalink"><a href="../language/enumerable.html#max-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#max([iterator = Prototype.K[, context]]) -&gt; maxValue</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the maximum element (or element-based computation), or undefined if
+the enumeration is empty.
+Elements are either compared directly, or by first applying the iterator
+and comparing returned values.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="member-instance_method">member
+    <span class="method-permalink"><a href="../language/enumerable.html#member-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#member(object) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#include (instance method)" href="../language/enumerable.html#include-instance_method">Enumerable#include</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="min-instance_method">min
+    <span class="method-permalink"><a href="../language/enumerable.html#min-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#min([iterator = Prototype.K[, context]]) -&gt; minValue</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the minimum element (or element-based computation), or undefined if
+the enumeration is empty.
+Elements are either compared directly, or by first applying the iterator
+and comparing returned values.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="partition-instance_method">partition
+    <span class="method-permalink"><a href="../language/enumerable.html#partition-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#partition([iterator = Prototype.K[, context]]) -&gt; [TrueArray, FalseArray]</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Partitions the elements in two groups: those regarded as true, and those
+considered false.
+By default, regular JavaScript boolean equivalence is used, but an iterator
+can be provided, that computes a boolean representation of the elements.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="pluck-instance_method">pluck
+    <span class="method-permalink"><a href="../language/enumerable.html#pluck-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#pluck(propertyName) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Optimization for a common use-case of collect: fetching the same property
+for all the elements. Returns the property values.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="reject-instance_method">reject
+    <span class="method-permalink"><a href="../language/enumerable.html#reject-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#reject(iterator[, context]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns all the elements for which the iterator returned a "falsy" value.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="select-instance_method">select
+    <span class="method-permalink"><a href="../language/enumerable.html#select-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#select(iterator[, context]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#findAll (instance method)" href="../language/enumerable.html#findall-instance_method">Enumerable#findAll</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="size-instance_method">size
+    <span class="method-permalink"><a href="../language/enumerable.html#size-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#size() -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the size of the enumeration.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="some-instance_method">some
+    <span class="method-permalink"><a href="../language/enumerable.html#some-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#some([iterator = Prototype.K[, context]]) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Enumerable#any (instance method)" href="../language/enumerable.html#any-instance_method">Enumerable#any</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="sortby-instance_method">sortBy
+    <span class="method-permalink"><a href="../language/enumerable.html#sortby-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#sortBy(iterator[, context]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Provides a custom-sorted view of the elements based on the criteria computed,
+for each element, by the iterator.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="toarray-instance_method">toArray
+    <span class="method-permalink"><a href="../language/enumerable.html#toarray-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#toArray() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns an Array representation of the enumeration.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Enumerable#entries (instance method)" href="../language/enumerable.html#entries-instance_method">Enumerable#entries</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="zip-instance_method">zip
+    <span class="method-permalink"><a href="../language/enumerable.html#zip-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Enumerable#zip(sequence...[, iterator = Prototype.K]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Zips together (think of the zip on a pair of trousers) 2+ sequences,
+providing an array of tuples.
+Each tuple contains one value per original sequence.
+Tuples can be converted to something else by applying the optional iterator on them.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

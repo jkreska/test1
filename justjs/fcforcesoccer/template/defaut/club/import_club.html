@@ -1,0 +1,132 @@
+<h1>{L_title}</h1>
+
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a>
+</div>
+
+<!-- OPTION show_form -->
+<!-- OPTION num_step -->
+<h2>{L_step} {num_step}/3 : {L_current_step}</h2>
+<p>{L_current_step_info}</p>
+<!-- END OPTION num_step -->
+<!-- END OPTION show_form -->
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<form name="import_club" action="{form_action}" method="post" enctype="multipart/form-data">
+
+<!-- OPTION show_step_1 -->
+<p class="field_required">* {L_field_required}</p>
+  <table>
+    <tr> 
+      <th class="field_required">{L_csv_file} *</th>
+      <td><input name="file" type="file" /></td>
+    </tr>
+    <tr> 
+      <th class="field_required">{L_separator} *</th>
+      <td><input name="separator" type="text" value="{value_separator}" size="3" /></td>
+    </tr>		
+    <tr> 
+      <th>&nbsp;</th>
+      <td><input type="checkbox" name="first_line" value="1" {first_line_checked} /> {L_first_line}</td>
+    </tr>	
+  </table>
+<!-- END OPTION show_step_1 -->
+
+<!-- OPTION show_step_2 -->
+<p class="field_required">* {L_field_required}</p>
+<div style="overflow:auto">
+<table>
+  	<thead>
+		<tr>
+			<th>{L_file_column}</th>
+			<!-- LOOP column -->
+			<th>{name}</th>
+			<!-- END LOOP column -->
+		</tr>
+		<tr>
+			<th>{L_associated_field}</th>
+			<!-- LOOP column -->
+			<td>
+				<select name="club_field[{i}]">
+				<option value="">{L_choose_field}</option>
+				<!-- LOOP club_field -->
+				<option value="{id}" {selected}>{name}</option>
+				<!-- END LOOP club_field -->
+				</select>
+			</td>
+			<!-- END LOOP column -->			
+		</tr>		
+  	</thead>
+	<tbody>
+		<!-- LOOP line -->
+  		<tr class="ligne{mod}">
+			<td>&nbsp;</td>
+			<!-- LOOP column -->
+			<td><input type="hidden" name="data[{i}][{j}]" value="{value}" />{example}</td>
+			<!-- END LOOP column -->
+		</tr>
+		<!-- END LOOP line -->
+	</tbody>  
+  </table>
+</div>
+<!-- END OPTION show_step_2 -->
+
+<!-- OPTION show_step_3 -->
+<p class="field_required">* {L_field_required}</p>
+<div style="overflow:auto">
+  <table>
+  	<thead>
+  		<tr>
+			<th>#</th>			
+			<!-- LOOP club_field -->
+			<th><input type="hidden" name="club_field[{i}]" value="{value}" />
+			{name}</th>
+			<!-- END LOOP club_field -->
+			<th>{L_action}</th>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- LOOP data -->		
+  		<tr class="ligne{mod}">
+			<td>{cpt}</td>
+		<!-- LOOP column -->			
+			<td><input type="text" name="data[{i}][{j}]" value="{value}" /></td>
+		<!-- END LOOP column -->
+		<td><input type="radio" name="action[{i}]" value="import" {checked_import} /> {L_import}<br />
+		<input type="radio" name="action[{i}]" value="merge" {checked_merge} /> {L_merge}
+		<select name="club[{i}]">
+			<option value="">{L_choose_club}</option>
+			<!-- LOOP club_list -->
+			<option value="{id}" {selected}>{name}</option>
+			<!-- END LOOP club_list -->		
+		</select>
+		<br />
+		<input type="radio" name="action[{i}]" value="dont_import" {checked_dont_import} /> {L_dont_import}</td>
+		</tr>
+	<!-- END LOOP data -->
+	</tbody>  
+  </table>
+</div>
+<!-- END OPTION show_step_3 -->
+
+<div class="button">
+<input type="hidden" name="step" value="{value_step}" />
+<input type="submit" name="submit" value="{L_valider}" />
+</div>  
+</form>
+<!-- END OPTION show_form -->

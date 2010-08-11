@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{meta_lang}" lang="{meta_lang}">
+<head>
+<meta content="text/html; charset={meta_charset}" http-equiv="Content-Type">
+<title>{meta_title}</title>
+<link type="text/css" rel="stylesheet" media="all" href="tpl_image/styles.css" />
+<script type="text/javascript" language="JavaScript1.1">
+// open a popup
+function pop(url,width,height)
+{
+    window.open(url,'_blank','toolbar=no, location=no, directories=no, menuBar=no, status=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', left=100, top=100');
+}
+
+// confirmation before deleting a document
+function confirmation(url)
+{
+    if(confirm("{L_confirmation}"))
+    {
+        document.location.href=url;
+    }
+}
+
+// used by tinymce to open the file manager
+function fileBrowserCallBack(field_name, url, type, win) {
+    var connector = "{link_choose_file}";    
+    var file_type;
+    
+    switch (type) {
+        case "image": file_type = "image"; break;
+        case "flash": file_type = "flash"; break;
+        case "file": file_type = "file"; break;
+    }    
+    if (file_type) {
+        connector += "&file_type=" + file_type;
+    }
+    connector += "&parent_form=tinymce&field_name="+field_name;
+	
+    window.open(connector, "FileManager", "modal,width=750,height=600,toolbar=no,location=no, directories=no, menuBar=no, status=no, scrollbars=yes, resizable=yes, copyhistory=no");
+}   
+</script>
+<script src="tpl_image/javascript.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+<img src="tpl_image/logo_phpmysport.gif" width="220" height="90" alt="logo" class="logo" />
+<!-- OPTION menu_member -->
+<div id="menu_member">
+<ul id="menu_member">
+<li><a href="{link_member_home}">{L_member_home}</a></li>
+<li><a href="{link_profile}">{L_profile}</a></li>
+<!-- OPTION menu_admin -->
+<li onmouseover="document.getElementById('sousmenu_admin').style.display='block';" onmouseout="document.getElementById('sousmenu_admin').style.display='none';"><a href="{link_admin_home}">{L_administration}</a>
+<ul id="sousmenu_admin" onmouseover="document.getElementById('sousmenu_admin').style.display='block';" onmouseout="document.getElementById('sousmenu_admin').style.display='none';">
+<li><a href="{link_admin_home}">{L_admin_home}</a></li>
+<li><a href="{link_admin}">{L_admin}</a></li>
+<li><a href="{link_admin_configuration}">{L_configuration}</a></li>
+</ul>
+</li>
+<!-- END OPTION menu_admin -->
+<li><a href="{link_deconnection}">{L_deconnection}</a></li>
+</ul>
+</div>
+<!-- END OPTION menu_member -->
+
+<!-- OPTION form_connection -->
+<div id="connection">
+<form name="connection" method="post" action="{form_connection_action}">
+<table>
+<tr>
+<thead>
+<th>{L_login}</th><th>{L_pass}</th><td>&nbsp;</td></tr>
+</thead>
+<tbody>
+<tr><td><input name="login" type="text" value="" size="10" class="login" /></td>
+<td><input name="pass" type="password" value="" size="10" class="login" /></td><td><input type="image" src="tpl_image/puce_14.gif" /></td></tr>
+</tbody>
+<tr>
+<td colspan="3" align="center">
+<!-- OPTION link_registration -->
+<a href="{link_registration}" class="register">{L_register}</a>
+<!-- END OPTION link_registration -->
+<!-- OPTION link_forgot_pass -->
+ - <a href="{link_forgot_pass}" class="register">{L_forgot_pass}</a>
+<!-- END OPTION link_forgot_pass --> </td>
+</tr>
+</table>
+</form>
+</div>
+<!-- END OPTION form_connection -->
+</div>
+
+<div id="main_menu">
+<ul id="menu">
+<!-- LOOP menu -->
+<li><a href="{url}" title="{title}" class="{class}" target="{target}">{title}</a>
+	<ul id="sousmenu_{i}">
+    <!-- OPTION submenu -->
+    <!-- LOOP submenu -->
+    <li><a href="{url}" title="{title}" class="{class}" target="{target}">{title}</a></li>
+    <!-- END LOOP submenu -->
+    <!-- END OPTION submenu -->
+    </ul>
+</li>
+<!-- END LOOP menu -->
+</ul>
+</div>
+
+<div id="contenu">{contenu}</div>
+
+<!-- OPTION mini_standings -->
+<div id="mini_standings">{mini_standings}</div>
+<!-- END OPTION mini_standings -->
+
+<div class="spacer">&nbsp;</div>
+
+<div id="footer">{L_realisation} <a href="http://phpmysport.sourceforge.net" title="phpMySport"><img src="tpl_image/by_phpmysport.gif" border="0" alt="{L_realisation}" align="top" /></a></div>
+</div>
+</body>
+</html>

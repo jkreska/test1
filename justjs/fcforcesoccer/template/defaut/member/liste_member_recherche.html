@@ -1,0 +1,43 @@
+<table border="0">
+<thead>
+  <tr>
+    <th>{L_name}</th>
+    <th>{L_firstname}</th>
+    <th>{L_date_birth}</th>
+    <th>{L_sex}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- LOOP member -->
+  <tr>
+    <td><a href="{link_view}">{name}</a></td>
+    <td>{firstname}</td>
+    <td>{date_birth}</td>
+    <td><img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" /></td>
+  </tr>
+  <!-- END LOOP member -->
+  </tbody>
+</table>
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="{link_first_page}">{L_first_page}</a> |
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="{link_previous_page}">{L_previous_page}</a> |
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="{link_page}">
+  <!-- END OPTION link_page -->
+    {page}</a> |
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="{link_next_page}">{L_next_page}</a>
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="{link_last_page}">{L_last_page}</a>
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>

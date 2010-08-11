@@ -1,0 +1,753 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | Form namespace</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../dom_section.html">DOM</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title namespace">
+  <span class="type">namespace </span>Form
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p>Utilities for dealing with forms in the DOM.</p>
+
+<p><code>Form</code> is a namespace for all things form-related, packed with form
+manipulation and serialization goodness. While it holds methods dealing
+with forms as a whole, its submodule <code><a title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a></code> deals with specific
+form controls.</p>
+
+<p>Many of these methods are also available directly on <code>form</code> elements.</p>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+
+
+
+  <div class="section section-utilities">
+    <div class="section-title">
+      <h3>Related utilities</h3>      
+    </div> <!-- .section-title -->
+    
+    <div class="section-content">
+      <p><code><a title="$F (utility)" href="../dom/dollarf.html">$F</a></code></p>      
+    </div> <!-- .section-content -->
+  </div> <!-- .section -->
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="Form#disable (instance method)" href="../dom/form.html#disable-instance_method">disable</a></code></li>
+      
+        <li><code><a class="instance-method" title="Form#enable (instance method)" href="../dom/form.html#enable-instance_method">enable</a></code></li>
+      
+        <li><code><a class="instance-method" title="Form#findFirstElement (instance method)" href="../dom/form.html#findfirstelement-instance_method">findFirstElement</a></code></li>
+      
+        <li><code><a class="instance-method" title="Form#focusFirstElement (instance method)" href="../dom/form.html#focusfirstelement-instance_method">focusFirstElement</a></code></li>
+      
+        <li><code><a class="instance-method" title="Form#getElements (instance method)" href="../dom/form.html#getelements-instance_method">getElements</a></code></li>
+      
+        <li><code><a class="instance-method" title="Form#getInputs (instance method)" href="../dom/form.html#getinputs-instance_method">getInputs</a></code></li>
+      
+        <li><code><a class="instance-method" title="Form#request (instance method)" href="../dom/form.html#request-instance_method">request</a></code></li>
+      
+        <li><code><a class="class-method" title="Form.reset (class method)" href="../dom/form.html#reset-class_method">reset</a></code></li>
+      
+        <li><code><a class="instance-method" title="Form#serialize (instance method)" href="../dom/form.html#serialize-instance_method">serialize</a></code></li>
+      
+        <li><code><a class="class-method" title="Form.serializeElements (class method)" href="../dom/form.html#serializeelements-class_method">serializeElements</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="disable-instance_method">disable
+    <span class="method-permalink"><a href="../dom/form.html#disable-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Form#disable() -&gt; <a title="Element (class)" href="../dom/element.html">Element</a>
+Form.disable(form) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Disables the form as a whole. Form controls will be visible but
+uneditable.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="enable-instance_method">enable
+    <span class="method-permalink"><a href="../dom/form.html#enable-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Form#enable() -&gt; <a title="Element (class)" href="../dom/element.html">Element</a>
+Form.enable(form) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Enables a fully- or partially-disabled form.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="findfirstelement-instance_method">findFirstElement
+    <span class="method-permalink"><a href="../dom/form.html#findfirstelement-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Form#findFirstElement() -&gt; <a title="Element (class)" href="../dom/element.html">Element</a>
+Form.findFirstElement(form) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Finds the first non-hidden, non-disabled control within the form.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="focusfirstelement-instance_method">focusFirstElement
+    <span class="method-permalink"><a href="../dom/form.html#focusfirstelement-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Form#focusFirstElement() -&gt; <a title="Element (class)" href="../dom/element.html">Element</a>
+Form.focusFirstElement(form) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Gives keyboard focus to the first element of the form. Returns the form.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="getelements-instance_method">getElements
+    <span class="method-permalink"><a href="../dom/form.html#getelements-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Form#getElements() -&gt; [Element...]
+Form.getElements(form) -&gt; [Element...]</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a collection of all controls within a form.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="getinputs-instance_method">getInputs
+    <span class="method-permalink"><a href="../dom/form.html#getinputs-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Form#getInputs( [, type [, name]]) -&gt; [Element...]
+Form.getInputs(form [, type [, name]]) -&gt; [Element...]</code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>type</code>
+            
+              (<code><a title="String (class)" href="../language/string.html">String</a></code>)
+            
+             &ndash; A value for the <code>type</code> attribute against which to filter.
+          </li>
+        
+          <li>
+            <code>name</code>
+            
+              (<code><a title="String (class)" href="../language/string.html">String</a></code>)
+            
+             &ndash; A value for the <code>name</code> attribute against which to filter.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Returns a collection of all <code>INPUT</code> elements in a form.</p>
+
+<p>Use optional <code>type</code> and <code>name</code> arguments to restrict the search on
+these attributes.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+<li class="method-description">
+  <h4 id="request-instance_method">request
+    <span class="method-permalink"><a href="../dom/form.html#request-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Form#request([options]) -&gt; <a title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>options</code>
+            
+              (<code><a title="Object (class)" href="../language/object.html">Object</a></code>)
+            
+             &ndash; Options to pass along to the <code>Ajax.Request</code> constructor.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>A convenience method for serializing and submitting the form via an
+<code><a title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a></code> to the URL of the form's <code>action</code> attribute.</p>
+
+<p>The <code>options</code> parameter is passed to the <code>Ajax.Request</code> instance,
+allowing one to override the HTTP method and/or specify additional
+parameters and callbacks.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="serialize-instance_method">serialize
+    <span class="method-permalink"><a href="../dom/form.html#serialize-instance_method">#</a></span></h4>
+
+  
+                    <pre class="syntax"><code class="ebnf">Form#serialize([, options]) -&gt; String | Object
+Form.serialize(form[, options]) -&gt; String | Object</code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>options</code>
+            
+              (<code><a title="Object (class)" href="../language/object.html">Object</a></code>)
+            
+             &ndash; A list of options that affect the return value of the method.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Serialize form data to a string suitable for Ajax requests.</p>
+
+<p>If <code>options.hash</code> is <code>true</code>, returns an object of key/value pairs
+instead (where keys are control names).</p>
+  
+    
+  
+    
+  
+    
+    
+    
+    <p class="note">This method can be called <em>either</em> as an instance method <em>or</em> as a generic method. If calling as a generic, pass the instance in as the first argument.</p>
+  
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+    <div class="section section-klass_methods">
+      
+      <div class="section-title">
+        <h3>Class methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="reset-class_method">reset
+    <span class="method-permalink"><a href="../dom/form.html#reset-class_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Form.reset(form) -&gt; <a title="Element (class)" href="../dom/element.html">Element</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Resets a form to its default values.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="serializeelements-class_method">serializeElements
+    <span class="method-permalink"><a href="../dom/form.html#serializeelements-class_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Form.serializeElements(elements[, options]) -&gt; String | Object</code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>elements</code>
+            
+              (<code><a title="Array (class)" href="../language/array.html">Array</a></code>)
+            
+             &ndash; A collection of elements to include in the serialization.
+          </li>
+        
+          <li>
+            <code>options</code>
+            
+              (<code><a title="Object (class)" href="../language/object.html">Object</a></code>)
+            
+             &ndash; A list of options that affect the return value of the method.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Serialize an array of form elements to a string suitable for Ajax
+requests.</p>
+
+<p>If <code>options.hash</code> is <code>true</code>, returns an object of key/value pairs
+instead (where keys are control names).</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+ALTER TABLE `action` CHANGE `action_nom` `action_name` TEXT NOT NULL ;
+
+
+ALTER TABLE `action_match` CHANGE `joueur_id` `player_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `commentaires_action` `comment_action` TEXT DEFAULT NULL ;
+
+
+
+ALTER TABLE `article` RENAME `news`;
+ALTER TABLE `news` CHANGE `article_id` `news_id` INT( 11 ) NOT NULL AUTO_INCREMENT,
+CHANGE `image_id` `image_id` INT( 11 ) DEFAULT NULL ,
+CHANGE `membre_ajout_id` `member_add_id` INT( 11 ) DEFAULT NULL ,
+CHANGE `membre_modifie_id` `member_edit_id` INT( 11 ) DEFAULT NULL ,
+CHANGE `article_idurl` `news_idurl` TEXT NOT NULL ,
+CHANGE `article_surtitre` `news_subhead` TEXT DEFAULT NULL ,
+CHANGE `article_titre` `news_title` TEXT DEFAULT NULL ,
+CHANGE `article_soustitre` `news_subtitle` TEXT DEFAULT NULL ,
+CHANGE `article_chapeau` `news_summary` TEXT DEFAULT NULL ,
+CHANGE `article_texte` `news_text` TEXT DEFAULT NULL ,
+CHANGE `article_ps` `news_ps` TEXT DEFAULT NULL ,
+CHANGE `article_motcle` `news_keyword` TEXT DEFAULT NULL ,
+CHANGE `article_sortie` `news_release` DATETIME DEFAULT NULL ,
+CHANGE `article_visite` `news_visit` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `article_statut` `news_status` INT( 11 ) DEFAULT NULL ,
+CHANGE `article_date_ajout` `news_date_add` DATETIME DEFAULT NULL ,
+CHANGE `article_date_modification` `news_date_edit` DATETIME DEFAULT NULL;
+
+
+ALTER TABLE `club` CHANGE `club_id` `club_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `lieu_id` `field_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `club_nom` `club_name` TEXT NOT NULL ,
+CHANGE `club_abreviation` `club_abbreviation` TEXT NOT NULL ,
+CHANGE `club_adresse` `club_address` TEXT DEFAULT NULL ,
+CHANGE `club_couleur` `club_color` TEXT DEFAULT NULL ,
+CHANGE `club_couleur_rechange` `club_color_alternative` TEXT DEFAULT NULL ,
+CHANGE `club_telephone` `club_telephone` TEXT DEFAULT NULL ,
+CHANGE `club_telecopie` `club_fax` TEXT DEFAULT NULL ,
+CHANGE `club_email` `club_email` TEXT DEFAULT NULL ,
+CHANGE `club_url` `club_url` TEXT DEFAULT NULL ,
+CHANGE `club_annee_creation` `club_creation_year` YEAR( 4 ) DEFAULT NULL ,
+CHANGE `club_commentaire` `club_comment` TEXT DEFAULT NULL ;
+
+
+ALTER TABLE `competition` CHANGE `saison_id` `season_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `competition_nom` `competition_name` TEXT NOT NULL ;
+
+
+ALTER TABLE `equipe` RENAME `team`;
+
+ALTER TABLE `team` CHANGE `equipe_id` `team_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `nom_equipe_id` `team_name_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `club_id` `club_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `sexe_id` `sex_id` INT( 11 ) DEFAULT '0' NOT NULL ;
+
+
+ALTER TABLE `equipe_entraineur` RENAME `team_coach` ;
+
+ALTER TABLE `team_coach` CHANGE `membre_id` `member_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `equipe_id` `team_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `saison_id` `season_id` INT( 11 ) DEFAULT '0' NOT NULL ;
+
+
+ALTER TABLE `equipe_joueur` RENAME `team_player` ;
+
+ALTER TABLE `team_player` CHANGE `poste_id` `position_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `equipe_id` `team_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `membre_id` `member_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `saison_id` `season_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `joueur_numero` `player_number` SMALLINT( 6 ) DEFAULT NULL ,
+CHANGE `joueur_capitaine` `player_captain` TINYINT( 1 ) DEFAULT NULL ;
+
+ALTER TABLE `etat_terrain` RENAME `field_state` ;
+
+ALTER TABLE `field_state` CHANGE `etat_terrain_id` `field_state_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `etat_terrain_nom` `field_state_name` TEXT NOT NULL ;
+
+ALTER TABLE `fonction` RENAME `job` ;
+
+ALTER TABLE `job` CHANGE `fonction_id` `job_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `fonction_nom` `job_name` TEXT NOT NULL ;
+
+ALTER TABLE `forum` CHANGE `membre_id` `member_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `forum_nom` `forum_name` TEXT NOT NULL ,
+CHANGE `forum_nb_sujet` `forum_nb_topic` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `forum_statut` `forum_status` INT( 11 ) DEFAULT NULL ,
+CHANGE `forum_date_ajout` `forum_date_add` DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL ;
+
+
+ALTER TABLE `information` CHANGE `membre_ajout_id` `member_add_id` INT( 11 ) DEFAULT NULL ,
+CHANGE `membre_modifie_id` `member_edit_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `page_titre` `page_title` TEXT DEFAULT NULL ,
+CHANGE `page_chapeau` `page_summary` TEXT DEFAULT NULL ,
+CHANGE `page_texte` `page_text` TEXT DEFAULT NULL ,
+CHANGE `page_motcle` `page_keyword` TEXT DEFAULT NULL ,
+CHANGE `page_visite` `page_visit` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `page_statut` `page_status` INT( 11 ) DEFAULT NULL ,
+CHANGE `page_ordre` `page_order` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `page_date_ajout` `page_date_add` DATETIME DEFAULT NULL ,
+CHANGE `page_date_modification` `page_date_edit` DATETIME DEFAULT NULL ;
+
+ALTER TABLE `lieu` RENAME `field` ;
+
+ALTER TABLE `field` CHANGE `lieu_id` `field_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `lieu_nom` `field_name` TEXT NOT NULL ,
+CHANGE `lieu_adresse` `field_address` TEXT DEFAULT NULL ,
+CHANGE `lieu_code_postal` `field_post_code` TEXT DEFAULT NULL ,
+CHANGE `lieu_ville` `field_city` TEXT DEFAULT NULL ,
+CHANGE `lieu_nombre_place` `field_number_seat` INT( 11 ) DEFAULT NULL ;
+
+ALTER TABLE `match` CHANGE `club_visiteur_id` `club_visitor_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `club_recevant_id` `club_home_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `equipe_visiteur_id` `team_visitor_id` INT( 11 ) DEFAULT NULL ,
+CHANGE `equipe_recevant_id` `team_home_id` INT( 11 ) DEFAULT NULL ,
+CHANGE `saison_id` `season_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `etat_terrain_id` `field_state_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `lieu_id` `field_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `meteo_id` `weather_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `match_score_recevant` `match_score_home` TINYINT( 6 ) DEFAULT NULL ,
+CHANGE `match_score_visiteur` `match_score_visitor` TINYINT( 4 ) DEFAULT NULL ,
+CHANGE `match_spectateurs` `match_spectators` INT( 11 ) DEFAULT NULL ,
+CHANGE `match_commentaires` `match_comment` TEXT DEFAULT NULL ;
+
+
+ALTER TABLE `match_arbitre` RENAME `match_referee` ;
+
+ALTER TABLE `match_referee` CHANGE `membre_id` `member_id` INT( 11 ) DEFAULT '0' NOT NULL ;
+
+
+ALTER TABLE `match_joueur` RENAME `match_player` ;
+
+ALTER TABLE `match_player` CHANGE `joueur_entrant_id` `player_in_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `joueur_sortant_id` `player_out_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `minute_entree` `minute_in` TINYINT( 4 ) DEFAULT '0' NOT NULL ,
+CHANGE `minute_sortie` `minute_out` TINYINT( 4 ) DEFAULT '0' NOT NULL ;
+
+
+ALTER TABLE `match_periode` RENAME `match_period` ;
+
+ALTER TABLE `match_period` CHANGE `periode_id` `period_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `score_recevant` `score_home` SMALLINT( 6 ) DEFAULT NULL ,
+CHANGE `score_visiteur` `score_visitor` SMALLINT( 6 ) DEFAULT NULL ;
+
+
+ALTER TABLE `membre` RENAME `member` ;
+
+ALTER TABLE `member` CHANGE `membre_id` `member_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `pays_id` `country_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `sexe_id` `sex_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `niveau_id` `level_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `membre_nom` `member_lastname` TEXT NOT NULL ,
+CHANGE `membre_prenom` `member_firstname` TEXT NOT NULL ,
+CHANGE `membre_email` `member_email` VARCHAR( 100 ) DEFAULT NULL ,
+CHANGE `membre_date_naissance` `member_date_birth` DATE DEFAULT NULL ,
+CHANGE `membre_taille` `member_size` SMALLINT( 6 ) DEFAULT NULL ,
+CHANGE `membre_poids` `member_weight` SMALLINT( 6 ) DEFAULT NULL ,
+CHANGE `membre_commentaires` `member_comment` TEXT DEFAULT NULL ,
+CHANGE `membre_login` `member_login` VARCHAR( 100 ) DEFAULT NULL ,
+CHANGE `membre_pass` `member_pass` VARCHAR( 100 ) DEFAULT NULL ,
+CHANGE `membre_description` `member_description` TEXT NOT NULL ,
+CHANGE `membre_valide` `member_valid` TINYINT( 1 ) DEFAULT '0' NOT NULL ,
+CHANGE `membre_cle` `member_key` VARCHAR( 100 ) NOT NULL ,
+CHANGE `membre_statut` `member_status` TINYINT( 1 ) DEFAULT '0' NOT NULL ,
+CHANGE `membre_connexion` `member_connection` SMALLINT( 6 ) DEFAULT '0' NOT NULL ,
+CHANGE `membre_date_connexion` `member_date_connection` DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL ;
+
+
+ALTER TABLE `membre_club` RENAME `member_club` ;
+
+ALTER TABLE `member_club` CHANGE `membre_id` `member_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `saison_id` `season_id` INT( 11 ) DEFAULT '0' NOT NULL ;
+
+
+ALTER TABLE `membre_fonction` RENAME `member_job` ;
+
+ALTER TABLE `member_job` CHANGE `fonction_id` `job_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `membre_id` `member_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `saison_id` `season_id` INT( 11 ) DEFAULT '0' NOT NULL ;
+
+
+ALTER TABLE `message` CHANGE `membre_ajout_id` `member_add_id` INT( 11 ) DEFAULT NULL ,
+CHANGE `membre_modifie_id` `member_edit_id` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `message_titre` `message_title` TEXT NOT NULL ,
+CHANGE `message_texte` `message_text` TEXT NOT NULL ,
+CHANGE `message_statut` `message_status` INT( 11 ) DEFAULT NULL ,
+CHANGE `message_visite` `message_visit` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `message_nb_reponse` `message_nb_reply` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `message_date_ajout` `message_date_add` DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL ,
+CHANGE `message_dernier_enfant` `message_last_child` INT( 11 ) DEFAULT '0' NOT NULL ,
+CHANGE `message_date_modification` `message_date_edit` DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL ,
+CHANGE `membre_ip` `member_ip` TEXT DEFAULT NULL ;
+
+ALTER TABLE `meteo` RENAME `weather` ;
+
+ALTER TABLE `weather` CHANGE `meteo_id` `weather_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `meteo_nom` `weather_name` TEXT NOT NULL ;
+
+
+
+ALTER TABLE `niveau` RENAME `level` ;
+
+ALTER TABLE `level` CHANGE `niveau_id` `level_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `niveau_nom` `level_name` TEXT NOT NULL ;
+
+
+ALTER TABLE `nom_equipe` RENAME `team_name` ;
+
+ALTER TABLE `team_name` CHANGE `nom_equipe_id` `team_name_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `nom_equipe_nom` `team_name_name` TEXT NOT NULL ,
+CHANGE `nom_equipe_ordre` `team_name_order` TINYINT( 4 ) DEFAULT '0' NOT NULL ;
+
+
+ALTER TABLE `pays` RENAME `country` ;
+
+ALTER TABLE `country` CHANGE `pays_id` `country_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `pays_nom` `country_name` TEXT NOT NULL ;
+
+
+
+ALTER TABLE `periode` RENAME `period` ;
+
+ALTER TABLE `period` CHANGE `periode_id` `period_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `periode_nom` `period_name` TEXT NOT NULL ,
+CHANGE `periode_ordre` `period_order` VARCHAR( 10 ) DEFAULT NULL ,
+CHANGE `periode_duree` `period_length` VARCHAR( 10 ) DEFAULT NULL ,
+CHANGE `periode_obligatoire` `period_required` TINYINT( 1 ) DEFAULT NULL ;
+
+
+ALTER TABLE `saison` RENAME `season` ;
+
+ALTER TABLE `season` CHANGE `saison_id` `season_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `saison_nom` `season_name` TEXT NOT NULL ,
+CHANGE `saison_abreviation` `season_abbreviation` VARCHAR( 10 ) DEFAULT NULL ,
+CHANGE `saison_date_debut` `season_date_start` DATE DEFAULT NULL ,
+CHANGE `saison_date_fin` `season_date_end` DATE DEFAULT NULL ;
+
+
+ALTER TABLE `sexe` RENAME `sex` ;
+
+ALTER TABLE `sex` CHANGE `sexe_id` `sex_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `sexe_nom` `sex_name` TEXT NOT NULL ,
+CHANGE `sexe_abreviation` `sex_abbreviation` TEXT NOT NULL ;
+
+
+ALTER TABLE `poste` RENAME `position` ;
+
+ALTER TABLE `position` CHANGE `poste_id` `position_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE `poste_nom` `position_name` TEXT NOT NULL ;
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>phpMySport</title>
+<style type="text/css">
+body { 
+text-align:center; margin:0; padding:0px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+}
+#page { width:760px; position:relative; text-align:left; margin:0 auto; padding:0px;}
+#header { background:url('tpl/image/logo_phpmysport.gif') no-repeat 5px 10px; height:90px; border-bottom:1px #FF3300 solid}
+#footer { text-align:center; border-top:1px #FF3300 solid; color:#FF3300; font-size:11px; margin-top:50px }
+
+h1 { background-color:#FF3300; font-size: 15px; padding:2px; margin-top:1px; margin-bottom:10px; color:#FFFFFF; border-bottom: double 3px #FFFFFF }
+h2 { font-size: 13px; color:#FF3300; border-bottom:#FF3300 dashed 1px   }
+#erreur { background-color: #FFFFCC; border:#000000 solid 1px; margin-top:10; width:660px;  position:relative; left:50px }
+p.erreur-title { font-size: 14px; font-weight: bold; color: #FFFF00; margin:0; height:30px; background:#000000 url('tpl/image/erreur.gif') no-repeat 5px 5px; padding-left:50px; padding-top:10px
+ }
+.erreur { color: #FF0000; padding-left:90px; }
+.title { position:absolute; top:50px; right:0; font-size:18px; color:#666666; font-weight:bold  }
+.details { font-size:10px; color:#666666 }
+
+form { width:660px; position:relative; left:50px }
+th { font-weight:bold; text-align:right; width:150px; vertical-align:top; }
+
+#choix_lang { }
+#choix_lang th { width:400px; text-align:right }
+
+#boutons { margin:10px; width:400px;}
+#boutons input.continue { font-weight:bold; position:absolute; right:0; padding:2px; }
+#boutons input.retour { font-weight:bold; position:absolute; left:0; padding:2px;}
+
+td.ok { color:#009900; font-weight:bold; vertical-align:top; padding:0 10px 0 10px; }
+td.pbm { color:#FF0000; font-weight:bold; vertical-align:top; padding:0 10px 0 10px;  }
+td.info { color:#666666; font-size:10px; }
+</style>
+</head>
+
+<body>
+<div id="page">
+<div id="header"><p class="title">{L_version} {version} - {L_installation}</p></div>
+<div id="contenu">{contenu}</div>
+<div id="footer">{L_realisation}</div>
+</div>
+</body>
+</html>

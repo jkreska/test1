@@ -1,0 +1,28 @@
+<h1>{L_forum_list}</h1>
+<!-- OPTION link_add -->
+<p><a href="{link_add}" class="add">{L_add}</a></p>
+<!-- END OPTION link_add -->
+
+<!-- OPTION L_message_forum -->
+<p class="message">{L_message_forum}</p>
+<!-- END OPTION L_message_forum -->
+
+<!-- LOOP forum -->
+      <p>
+	  <!-- OPTION link_up -->
+	  <a href="{link_up}"><img src="../tpl_image/arrow_up.png" border="0" /></a>
+	  <!-- END OPTION link_up -->
+	  <!-- OPTION link_down -->
+	  <a href="{link_down}"><img src="../tpl_image/arrow_down.png" border="0" /></a>
+	  <!-- END OPTION link_down -->	  
+	  
+	  <a href="{link_forum}" class="title" title="{name}">{name}</a> 
+        <!-- OPTION link_edit -->
+        <a href="{link_edit}"><img src="../tpl_image/button_edit.png" width="12" height="13" border="0" align="absmiddle"></a> 
+        <!-- END OPTION link_edit -->
+        <!-- OPTION link_delete -->
+        <a href="javascript:confirmation('{link_delete}');"><img src="../tpl_image/button_drop.png" width="12" height="13" border="0" align="absmiddle"></a> 
+        <!-- END OPTION link_delete -->
+        <br />
+        <span class="description">{description}</span> </p>
+<!-- END LOOP forum -->

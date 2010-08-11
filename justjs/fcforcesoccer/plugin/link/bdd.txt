@@ -1,0 +1,7 @@
+CREATE TABLE `link` (
+  `link_id` int(11) NOT NULL auto_increment,
+  `link_name` text NOT NULL,
+  `link_url` text NOT NULL,
+  `link_description` text NOT NULL,
+  PRIMARY KEY  (`link_id`)
+);

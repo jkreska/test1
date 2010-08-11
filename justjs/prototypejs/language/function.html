@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | Function class</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../language_section.html">Language</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title class">
+  <span class="type">class </span>Function
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p>Extensions to the built-in <code>Function</code> object.</p>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="Function#argumentNames (instance method)" href="../language/function.html#argumentnames-instance_method">argumentNames</a></code></li>
+      
+        <li><code><a class="instance-method" title="Function#bind (instance method)" href="../language/function.html#bind-instance_method">bind</a></code></li>
+      
+        <li><code><a class="instance-method" title="Function#bindAsEventListener (instance method)" href="../language/function.html#bindaseventlistener-instance_method">bindAsEventListener</a></code></li>
+      
+        <li><code><a class="instance-method" title="Function#curry (instance method)" href="../language/function.html#curry-instance_method">curry</a></code></li>
+      
+        <li><code><a class="instance-method" title="Function#defer (instance method)" href="../language/function.html#defer-instance_method">defer</a></code></li>
+      
+        <li><code><a class="instance-method" title="Function#delay (instance method)" href="../language/function.html#delay-instance_method">delay</a></code></li>
+      
+        <li><code><a class="instance-method" title="Function#methodize (instance method)" href="../language/function.html#methodize-instance_method">methodize</a></code></li>
+      
+        <li><code><a class="instance-method" title="Function#wrap (instance method)" href="../language/function.html#wrap-instance_method">wrap</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="argumentnames-instance_method">argumentNames
+    <span class="method-permalink"><a href="../language/function.html#argumentnames-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#argumentNames() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Reads the argument names as stated in the function definition and returns
+the values as an array of strings (or an empty array if the function is
+defined without parameters).</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="bind-instance_method">bind
+    <span class="method-permalink"><a href="../language/function.html#bind-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#bind(object[, args...]) -&gt; <a title="Function (class)" href="../language/function.html">Function</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>object</code>
+            
+              (<code><a title="Object (class)" href="../language/object.html">Object</a></code>)
+            
+             &ndash; The object to bind to.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Wraps the function in another, locking its execution scope to an object
+specified by <code>object</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="bindaseventlistener-instance_method">bindAsEventListener
+    <span class="method-permalink"><a href="../language/function.html#bindaseventlistener-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#bindAsEventListener(object[, args...]) -&gt; <a title="Function (class)" href="../language/function.html">Function</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>object</code>
+            
+              (<code><a title="Object (class)" href="../language/object.html">Object</a></code>)
+            
+             &ndash; The object to bind to.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>An event-specific variant of <code><a title="Function#bind (instance method)" href="../language/function.html#bind-instance_method">Function#bind</a></code> which ensures the function
+will recieve the current event object as the first argument when
+executing.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="curry-instance_method">curry
+    <span class="method-permalink"><a href="../language/function.html#curry-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#curry(args...) -&gt; <a title="Function (class)" href="../language/function.html">Function</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Partially applies the function, returning a function with one or more
+arguments already "filled in."</p>
+
+<p>Function#curry works just like <code><a title="Function#bind (instance method)" href="../language/function.html#bind-instance_method">Function#bind</a></code> without the initial
+scope argument. Use the latter if you need to partially apply a function
+<em>and</em> modify its execution scope at the same time.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="defer-instance_method">defer
+    <span class="method-permalink"><a href="../language/function.html#defer-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#defer(args...) -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Schedules the function to run as soon as the interpreter is idle.</p>
+
+<p>A "deferred" function will not run immediately; rather, it will run as soon
+as the interpreter's call stack is empty.</p>
+
+<p>Behaves much like <code>window.setTimeout</code> with a delay set to <code>0</code>. Returns an
+ID that can be used to clear the timeout with <code>window.clearTimeout</code> before
+it runs.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="delay-instance_method">delay
+    <span class="method-permalink"><a href="../language/function.html#delay-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#delay(seconds[, args...]) -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>seconds</code>
+            
+              (<code><a title="Number (class)" href="../language/number.html">Number</a></code>)
+            
+             &ndash; How long to wait before calling the function.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Schedules the function to run after the specified amount of time, passing
+any arguments given.</p>
+
+<p>Behaves much like <code>window.setTimeout</code>. Returns an integer ID that can be
+used to clear the timeout with <code>window.clearTimeout</code> before it runs.</p>
+
+<p>To schedule a function to run as soon as the interpreter is idle, use
+<code><a title="Function#defer (instance method)" href="../language/function.html#defer-instance_method">Function#defer</a></code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="methodize-instance_method">methodize
+    <span class="method-permalink"><a href="../language/function.html#methodize-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#methodize() -&gt; <a title="Function (class)" href="../language/function.html">Function</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Wraps the function inside another function that, at call time, pushes
+<code>this</code> to the original function as the first argument.</p>
+
+<p>Used to define both a generic method and an instance method.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="wrap-instance_method">wrap
+    <span class="method-permalink"><a href="../language/function.html#wrap-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Function#wrap(wrapperFunction) -&gt; <a title="Function (class)" href="../language/function.html">Function</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>wrapperFunction</code>
+            
+              (<code><a title="Function (class)" href="../language/function.html">Function</a></code>)
+            
+             &ndash; The function to act as a wrapper.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Returns a function "wrapped" around the original function.</p>
+
+<p><code>Function#wrap</code> distills the essence of aspect-oriented programming into
+a single method, letting you easily build on existing functions by
+specifying before and after behavior, transforming the return value, or
+even preventing the original function from being called.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

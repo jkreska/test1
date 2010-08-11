@@ -1,0 +1,69 @@
+<h1>{L_title}</h1>
+ 
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<p class="field_required">* {L_field_required}</p>
+<form name="form_information" method="post" action="{form_action_info}" id="formulaire">
+<h2>{L_member_information}</h2>
+ <table>
+          <tr> 
+            <th class="field_required">{L_login}*</th>
+            <td><input name="login" type="text" value="{value_login}" /></td>
+          </tr>
+          <tr> 
+            <th class="field_required">{L_email}*</th>
+            <td><input name="email" type="text" value="{value_email}" /></td>
+          </tr>
+          <tr> 
+            <th>{L_avatar}</th>
+            <td><input name="avatar" type="text" value="{value_avatar}" size="40" onfocus="show_image('divavatar','img_avatar',this.value);" /> <a href="#" onclick="pop('{link_choose_avatar}','750','600');" class="choose_image">{L_choose_image}</a>
+	  <div id="divavatar" style="display:none">	  
+	  <img src="{value_avatar}" id="img_avatar" />	  
+	  </div>			
+			</td>
+          </tr>		  
+          <tr> 
+            <th>{L_description}</th>
+            <td> <textarea name="description" cols="30" rows="6" id="description">{value_description}</textarea></td>
+          </tr>
+</table>
+<div class="button">
+<input name="mode" type="hidden" id="mode" value="info" />
+<input type="submit" name="submit" value="{L_valider}" />
+</div> 
+     </form>
+        <form name="form_pass" method="post" action="{form_action_pass}" id="formulaire">
+<h2>{L_form_pass}</h2>
+      <table>
+          <tr> 
+            <th class="field_required">{L_ancien_pass}*</th>
+            <td> <input name="ancien_pass" type="password" id="ancien_pass" value="" /></td>
+          </tr>
+          <tr> 
+            <th class="field_required">{L_nouveau_pass}* </th>
+            <td> <input name="nouveau_pass" type="password" id="nouveau_pass" value="" /></td>
+          </tr>
+          <tr> 
+            <th class="field_required">{L_confirm_pass}*</th>
+            <td> <input name="confirm_pass" type="password" value="" /></td>
+          </tr>
+       
+</table>
+<div class="button">
+<input name="mode" type="hidden" value="pass" />
+<input type="submit" name="submit" value="{L_valider}" />
+</div> 
+</form>

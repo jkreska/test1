@@ -1,0 +1,152 @@
+<h2>{title}</h2>
+<!-- OPTION L_message_add -->
+<p class="message">{L_message_add}</p>
+<!-- END OPTION L_message_add -->
+
+<p>
+<!-- OPTION aff_form -->
+<a href="#repondre" onclick="afficher_elt('message','');">{L_repondre}</a> |
+<!-- END OPTION aff_form -->
+<a href="{link_home}">{L_topic_list}</a>
+</p>
+<table width="100%" cellpadding="2" cellspacing="1">
+<thead>
+  <tr> 
+    <th width="125">{L_member}</th>
+    <th>{L_topic}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- LOOP message -->
+  <tr class="ligne{mod}"> 
+    <td width="125" align="center" valign="top"> 
+      <a href="{link_view}">{login}</a>
+	  <!-- OPTION L_guest -->
+	  {L_guest}
+	  <!-- END OPTION L_guest -->
+	  <!-- OPTION ip -->
+	  <br />{L_ip} : {ip}
+	  <!-- END OPTION ip -->
+	  <!-- OPTION avatar -->
+	  <br /><img src="{avatar}" name="{login}" />
+	  <!-- END OPTION avatar -->	  
+	  </td>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><strong>{title}</strong></td>
+          <td align="right"><em>{date}</em>		  
+            <!-- OPTION link_edit -->
+            <a href="#" onclick="afficher_elt('message{id}','');"><img src="../tpl_image/button_edit.png" width="12" height="13" border="0" alt="{L_edit}"></a> 
+            <!-- END OPTION link_edit -->
+            <!-- OPTION link_delete -->
+            <a href="javascript:confirmation('{link_delete}');"><img src="../tpl_image/button_drop.png" width="11" height="13" border="0"></a> 
+            <!-- END OPTION link_delete -->
+		 </td>
+        </tr>
+     </table>
+      	  <br /><br />
+      {message}
+      	  <br /><br />
+<div id="message{id}" style="display:{form_display}">
+<h2>{L_edit}
+<a href="#" onclick="afficher_elt('message{id}','');" title="{L_reduire}" class="hide">{L_reduire}</a>
+</h2>
+<form name="message{id}" method="post" action="{form_action}">
+<table>
+<tbody>
+<tr><th>{L_title_message}*</th>
+<td><input name="title" type="text" id="title" value="{title}" size="50" /></td>
+</tr>
+<tr class="email">
+<th>Email</th>
+<td><input name="email" type="text" id="email" size="50" /></td>
+</tr>
+<tr><th>{L_message}*</th>
+<td><textarea name="text" cols="60" rows="20" id="text" mce_editable="true">{value_message}</textarea></td>
+</tr>
+</tbody>
+<tfoot>
+<tr><th colspan="2">
+<input type="hidden" name="topic" value="{topic}" /> 
+<input type="hidden" name="id" value="{id}" />
+<input name="submit" type="submit" value="{L_valider}" /> 
+</th>
+</tr>
+</tfoot>
+</table>
+</form>
+</div>	  
+	  
+	  
+	  </td>
+  </tr>
+  <!-- END LOOP message -->
+  </tbody>
+</table>
+<!-- OPTION L_message_message -->
+<p class="message">{L_message_message}</p>
+<!-- END OPTION L_message_message -->
+
+
+<div id="message" style="display:{form_display}">
+<a name="repondre"></a>
+<h2>{L_repondre} <a href="#" onclick="afficher_elt('message','');" title="{L_reduire}" class="hide">{L_reduire}</a></h2>
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<form name="message" method="post" action="{form_action}">
+<table>
+<tbody>
+<tr><th>{L_title_message}*</th>
+<td><input name="title" type="text" id="title" value="{value_title}" size="50" /></td>
+</tr>
+<tr class="email">
+<th>Email</th>
+<td><input name="email" type="text" id="email" size="50" /></td>
+</tr>
+<tr><th>{L_message}*</th>
+<td><textarea name="text" cols="60" rows="20" id="text" mce_editable="true">{value_text}</textarea></td>
+</tr>
+</tbody>
+<tfoot>
+<tr><th colspan="2">
+<input type="hidden" name="topic" value="{value_topic}" /> 
+<input type="hidden" name="id" value="{value_id}" />
+<input name="submit" type="submit" value="{L_valider}" /> 
+</th>
+</tr>
+</tfoot>
+</table>
+</form>
+</div>
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="{link_first_page}">{L_first_page}</a> | 
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="{link_previous_page}">{L_previous_page}</a> | 
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="{link_page}"> 
+  <!-- END OPTION link_page -->
+  {page}</a> | 
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="{link_next_page}">{L_next_page}</a> 
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="{link_last_page}">{L_last_page}</a> 
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>

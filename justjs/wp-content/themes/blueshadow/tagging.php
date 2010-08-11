@@ -1,0 +1,1 @@
+<div class="tagging"><img src="<?php bloginfo('template_url'); ?>/images/tags.png" alt="tags" /><?php if (function_exists('the_tags')) the_tags(__('Tags: ','ml'), ', ', ''); ?></div>

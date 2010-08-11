@@ -1,0 +1,137 @@
+<h1>{L_title}</h1>
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+  <tr valign="top"> 
+    <td width="33%">
+    <h2>{L_member}</h2>
+      <p>
+      <!-- OPTION link_member -->
+      <a href="{link_member}">{L_member_list}</a> <br />
+      <!-- END OPTION link_member -->
+      <!-- OPTION link_sex -->
+        <a href="{link_sex}">{L_sex_list}</a> <br />
+        <!-- END OPTION link_sex -->
+	    <!-- OPTION link_country -->
+        <a href="{link_country}">{L_country_list}</a><br />
+        <!-- END OPTION link_country -->
+	    <!-- OPTION link_level -->
+		<a href="{link_level}">{L_level_list}</a><br />
+        <!-- END OPTION link_level -->
+	    <!-- OPTION link_job -->
+		<a href="{link_job}">{L_job_list}</a><br />
+        <!-- END OPTION link_job -->
+	    <!-- OPTION link_import_member -->
+		<a href="{link_import_member}">{L_import_member}</a><br />
+        <!-- END OPTION link_import_member -->
+	    <!-- OPTION link_registration -->
+		<a href="{link_registration}">{L_registration_list}</a><br />
+        <!-- END OPTION link_registration -->
+	    <!-- OPTION link_group -->
+		<a href="{link_group}">{L_group_list}</a><br />
+        <!-- END OPTION link_group -->
+	    <!-- OPTION link_right_management -->
+		<a href="{link_right_management}">{L_right_management}</a>
+        <!-- END OPTION link_right_management -->  
+        </p>          
+      </td>
+    <td width="34%"><h2>{L_match}</h2>
+      <p>
+      <!-- OPTION link_match -->
+      <a href="{link_match}">{L_match_list}</a><br />
+      <!-- END OPTION link_match -->
+	  <!-- OPTION link_action -->
+	  <a href="{link_action}">{L_action_list}</a><br />
+      <!-- END OPTION link_action -->
+	  <!-- OPTION link_field_state -->
+	  <a href="{link_field_state}">{L_field_state_list}</a><br />
+      <!-- END OPTION link_field_state -->
+	  <!-- OPTION link_weather -->
+	  <a href="{link_weather}">{L_weather_list}</a><br />
+      <!-- END OPTION link_weather -->
+	  <!-- OPTION link_period -->
+	  <a href="{link_period}">{L_period_list}</a><br />
+      <!-- END OPTION link_period -->
+	  <!-- OPTION link_stats -->
+	  <a href="{link_stats}">{L_stats_list}</a><br />
+      <!-- END OPTION link_stats -->
+	  <!-- OPTION link_stats_player -->
+	  <a href="{link_stats_player}">{L_stats_player_list}</a>
+      <!-- END OPTION link_stats_player -->
+	  
+      </p></td>
+    <td width="33%"><h2>{L_team}</h2>      
+      <p>
+      <!-- OPTION link_team -->
+      <a href="{link_team}">{L_team_list}</a> <br />
+      <!-- END OPTION link_team -->
+	  <!-- OPTION link_team_name -->
+       <a href="{link_team_name}">{L_team_name_list}</a> <br />
+       <!-- END OPTION link_team_name -->
+	  <!-- OPTION link_position -->
+        <a href="{link_position}">{L_position_list}</a></p>
+        <!-- END OPTION link_position -->
+	 </td>
+  </tr>
+  <tr valign="top">
+    <td>
+    <!-- OPTION link_news -->
+    <h2>{L_news}</h2>
+	<p><a href="{link_news}">{L_news_list}</a></p>
+    <!-- END OPTION link_news -->
+    </td>
+    <td>
+    <!-- OPTION link_information -->
+    <h2>{L_information}</h2>
+      <p><a href="{link_information}">{L_liste_information}</a></p>
+      <!-- END OPTION link_information -->
+	</td>
+    <td>
+    <!-- OPTION link_forum -->
+    <h2>{L_forum}</h2>
+      <p><a href="{link_forum}">{L_forum_list}</a></p>
+      <!-- END OPTION link_forum -->
+	</td>
+  </tr>
+  <tr valign="top"> 
+    <td>
+    <!-- OPTION link_field -->
+    <h2>{L_field}</h2>
+    <p><a href="{link_field}">{L_field_list}</a></p>
+    <!-- END OPTION link_field --></td>
+    <td>
+    
+    <h2>{L_club}</h2>
+    <p>
+    <!-- OPTION link_club -->
+    <a href="{link_club}">{L_club_list}</a><br />
+    <!-- END OPTION link_club -->
+	<!-- OPTION link_import_club -->
+	<a href="{link_import_club}">{L_import_club}</a>
+    <!-- END OPTION link_import_club -->
+    </p></td>
+    <td><h2>{L_competition}</h2>
+      <p>
+      <!-- OPTION link_competition -->
+      <a href="{link_competition}">{L_competition_list}</a><br />
+      <!-- END OPTION link_competition -->
+	  <!-- OPTION link_season -->
+        <a href="{link_season}">{L_season_list}</a>
+        <!-- END OPTION link_season -->
+        </p></td>
+  </tr>
+  <tr valign="top">
+   <td><h2>{L_plugin}</h2>
+   <!-- LOOP plugin -->
+   <p><img src="../tpl_image/valid_{active}.png" /> <a href="{link}">{name}</a></p>
+   <!-- END LOOP plugin -->
+   </td>
+   <td><h2>{L_file}</h2>
+    <p><a href="javascript:pop('{link_file}','700','500');">{L_file_list}</a></p></td>
+   <td><h2>{L_administration}</h2>
+   <p>
+   	    <!-- OPTION link_menu_management -->
+		<a href="{link_menu_management}">{L_menu_management}</a>
+        <!-- END OPTION link_menu_management -->  
+     </p>
+        </td>
+  </tr>
+</table>

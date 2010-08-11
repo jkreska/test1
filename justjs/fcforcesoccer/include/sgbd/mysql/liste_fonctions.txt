@@ -1,0 +1,8 @@
+Fichier : fonctions_mysql.php
+
+sql_connect() return $id_connection_bd ou false
+sql_close($id_connection_bd, $resultat = false) return $resultat ou false
+sql_query($sql, $resultat = false) retourne $resultat ou false
+sql_num_rows($resultat) retourne $nb_ligne ou false
+sql_fetch_array($resultat) return $tableau ou false
+sql_free_result($resultat) return true ou false

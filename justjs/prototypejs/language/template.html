@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | Template class</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../language_section.html">Language</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title class">
+  <span class="type">class </span>Template
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p>A class for sophisticated string interpolation.</p>
+
+<p>Any time you have a group of similar objects and you need to produce
+formatted output for these objects, maybe inside a loop, you typically
+resort to concatenating string literals with the object's fields:</p>
+
+<pre><code class="javascript">"The TV show " + title + " was created by " + author + ".";
+</code></pre>
+
+<p>There's nothing wrong with this approach, except that it is hard to
+visualize the output immediately just by glancing at the concatenation
+expression. The <code>Template</code> class provides a much nicer and clearer way of
+achieving this formatting.</p>
+
+<h4>Straightforward templates</h4>
+
+<p>The <code>Template</code> class uses a basic formatting syntax, similar to what is
+used in Ruby. The templates are created from strings that have embedded
+symbols in the form (e.g., <code>#{fieldName}</code>) that will be replaced by
+actual values when the template is applied (evaluated) to an object.</p>
+
+<pre><code class="javascript">// the template (our formatting expression)
+var myTemplate = new Template(
+ 'The TV show #{title} was created by #{author}.');
+
+// our data to be formatted by the template
+var show = {
+  title: 'The Simpsons',
+  author: 'Matt Groening',
+  network: 'FOX'
+};
+
+// let's format our data
+myTemplate.evaluate(show);
+// -&gt; "The TV show The Simpsons was created by Matt Groening."
+</code></pre>
+
+<h4>Templates are meant to be reused</h4>
+
+<p>As the example illustrates, <code>Template</code> objects are not tied to specific
+data. The data is bound to the template only during the evaluation of the
+template, without affecting the template itself. The next example shows the
+same template being used with a handful of distinct objects.</p>
+
+<pre><code class="javascript">// creating a few similar objects
+var conversion1 = { from: 'meters', to: 'feet', factor: 3.28 };
+var conversion2 = { from: 'kilojoules', to: 'BTUs', factor: 0.9478 };
+var conversion3 = { from: 'megabytes', to: 'gigabytes', factor: 1024 };
+
+// the template
+var templ = new Template(
+ 'Multiply by #{factor} to convert from #{from} to #{to}.');
+
+// let's format each object
+[conversion1, conversion2, conversion3].each( function(conv){
+    templ.evaluate(conv);
+});
+// -&gt; Multiply by 3.28 to convert from meters to feet.
+// -&gt; Multiply by 0.9478 to convert from kilojoules to BTUs.
+// -&gt; Multiply by 1024 to convert from megabytes to gigabytes.
+</code></pre>
+
+<h4>Escape sequence</h4>
+
+<p>There's always the chance that one day you'll need to have a literal in your
+template that looks like a symbol, but is not supposed to be replaced. For
+these situations there's an escape character: the backslash (<code>\</code>).</p>
+
+<pre><code class="javascript">// NOTE: you're seeing two backslashes here because the backslash
+// is also an escape character in JavaScript strings, so a literal
+// backslash is represented by two backslashes.
+var t = new Template(
+ 'in #{lang} we also use the \#{variable} syntax for templates.');
+var data = { lang:'Ruby', variable: '(not used)' };
+t.evaluate(data);
+// -&gt; in Ruby we also use the #{variable} syntax for templates.
+</code></pre>
+
+<h4>Custom syntaxes</h4>
+
+<p>The default syntax of the template strings will probably be enough for most
+scenarios. In the rare occasion where the default Ruby-like syntax is
+inadequate, there's a provision for customization. <code>Template</code>'s
+constructor accepts an optional second argument that is a regular expression
+object to match the replaceable symbols in the template string. Let's put
+together a template that uses a syntax similar to the ubiquitous <code>&lt;&amp;#38;= %&gt;</code>
+constructs:</p>
+
+<pre><code class="javascript">// matches symbols like '&lt;&amp;#38;= field %&gt;'
+var syntax = /(^|.|\r|\n)(\&lt;%=\s*(\w+)\s*%\&gt;)/;
+
+var t = new Template(
+ '&lt;div&gt;Name: &lt;b&gt;&lt;&amp;#38;= name %&gt;&lt;/b&gt;, Age: &lt;b&gt;&lt;&amp;#38;=age%&gt;&lt;/b&gt;&lt;/div&gt;',
+ syntax);
+t.evaluate( {name: 'John Smith', age: 26} );
+// -&gt; &lt;div&gt;Name: &lt;b&gt;John Smith&lt;/b&gt;, Age: &lt;b&gt;26&lt;/b&gt;&lt;/div&gt;
+</code></pre>
+
+<p>There are important constraints to any custom syntax. Any syntax must
+provide at least three groupings in the regular expression. The first
+grouping is to capture what comes before the symbol, to detect the backslash
+escape character (no, you cannot use a different character). The second
+grouping captures the entire symbol and will be completely replaced upon
+evaluation. Lastly, the third required grouping captures the name of the
+field inside the symbol.</p>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="Template#evaluate (instance method)" href="../language/template.html#evaluate-instance_method">evaluate</a></code></li>
+      
+        <li><code><a class="constructor" title="new Template (constructor)" href="../language/template.html#new-constructor">new</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+<div class="section section-constructor">
+  <div class="section-title">
+    <h3>Constructor</h3>
+  </div> <!-- .section-title -->
+
+  <div class="section-content">
+    <pre id="new-constructor" class="syntax"><code>new Template(template[, pattern = Template.Pattern])</code></pre>
+    
+    
+
+    <p><p>Creates a Template object.</p>
+
+<p>The optional <code>pattern</code> argument expects a <code>RegExp</code> that defines a custom
+syntax for the replaceable symbols in <code>template</code>.</p></p>
+    
+  </div> <!-- .section-content -->
+  
+</div> <!-- .section -->
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="evaluate-instance_method">evaluate
+    <span class="method-permalink"><a href="../language/template.html#evaluate-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Template#evaluate(object) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Applies the template to <code>object</code>'s data, producing a formatted string
+with symbols replaced by <code>object</code>'s corresponding properties.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

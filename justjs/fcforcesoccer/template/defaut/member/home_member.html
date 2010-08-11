@@ -1,0 +1,75 @@
+<h1>{L_title}</h1>
+<p><a href="{link_profile}">{L_profile}</a>
+
+<!-- OPTION link_admin -->
+| <a href="{link_admin}">{L_admin}</a>
+<!-- END OPTION link_admin -->
+</p>
+<!-- OPTION team_player -->
+<h2>{L_member_team}</h2>
+<table border="0">
+  <thead>
+    <tr>
+      <th>{L_season}</th>
+      <th>{L_club}</th>
+      <th>{L_team}</th>
+      <th>{L_position}</th>
+      <th>{L_number}</th>
+      <th>{L_captain}</th>
+    </tr>
+  </thead>
+  <!-- LOOP team_player -->
+  <tr class="ligne{mod}">
+    <td>{season}</td>
+    <td><a href="{link_club}">{club}</a></td>
+    <td><a href="{link_team}">{team_name}</a></td>
+    <td>{position}</td>
+    <td>{number}</td>
+    <td>{captain}</td>
+  </tr>
+  <!-- END LOOP team_player -->
+</table>
+<!-- END OPTION team_player -->
+
+<h2>{L_member_next_matches}</h2>
+<!-- OPTION L_message_next_matches -->
+<div class="message">{L_message_next_matches}</div>
+<!-- END OPTION L_message_next_matches -->
+<!-- OPTION next_matches -->
+<table border="0">
+ <thead>
+  <tr>
+    <th>{L_date}</th>
+    <th>{L_home}</th>
+    <th>{L_visitor}</th>
+	<th>&nbsp;</th>
+    </tr>
+ </thead> 
+ <tbody>
+ <!-- LOOP next_matches --> 
+  <tr class="ligne{mod}">
+    <td>{date}</td>
+    <td align="right"><a href="{link_club_home}" class="title">{club_home}</a>
+	<!-- OPTION team_home -->
+	[ <a href="{link_team_home}">{team_home}</a>
+<!-- OPTION sex_home -->
+ <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+<!-- END OPTION sex_home -->	
+]	
+	<!-- END OPTION team_home -->
+	</td>
+    <td align="left"><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+	<!-- OPTION team_visitor -->
+	[<a href="{link_team_visitor}">{team_visitor}</a>
+<!-- OPTION sex_visitor -->
+ <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+<!-- END OPTION sex_visitor -->	
+]
+	<!-- END OPTION team_visitor -->
+	</td>
+	<td><a href="{link_view}" class="details">{L_details}</a></td>
+    </tr>
+  <!-- END LOOP next_matches -->
+  </tbody>
+</table>
+<!-- END OPTION next_matches -->

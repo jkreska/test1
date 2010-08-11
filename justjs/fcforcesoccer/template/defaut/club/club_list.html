@@ -1,0 +1,77 @@
+<h1>{L_title}</h1>
+<div id="tri"><span class="trier">{L_order} :</span> <a href="{link_tri_name}" title="{L_order} {L_name}">{L_name}</a> | <a href="{link_tri_abbreviation}" title="{L_order} {L_abbreviation}">{L_abbreviation}</a> | <a href="{link_tri_creation_year}" title="{L_order} {L_creation_year}">{L_creation_year}</a>
+</div>
+
+<p>
+<!-- OPTION link_add -->
+<a href="{link_add}" class="add">{L_add}</a>
+<!-- END OPTION link_add -->
+<!-- OPTION link_import_club -->
+<a href="{link_import_club}" class="import">{L_import_club}</a>
+<!-- END OPTION link_import_club -->
+</p>
+
+
+<!-- OPTION L_message_club -->
+<p class="message">{L_message_club}</p>
+<!-- END OPTION L_message_club -->
+
+<!-- OPTION club -->
+<table border="0">
+<thead>
+  <tr>
+    <th>{L_name}</th>
+    <th>{L_abbreviation}</th>
+    <th>{L_creation_year}</th>
+    <th>{L_url}</th>
+	<th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- LOOP club -->
+  <tr class="ligne{mod}">
+    <td><h2>{name}</h2></td>
+    <td>{abbreviation}</td>
+    <td>{creation_year}</td>
+    <td>
+	<!-- OPTION url -->
+	<a href="{url}" target="_blank" title="{name}"><img src="../tpl_image/web.gif" alt="{name}" border="0" /></a>
+	<!-- END OPTION url -->
+	</td>
+	<td><a href="{link_view}" class="details" title="{L_show_view}">{L_show_view}</a>
+    <!-- OPTION link_edit -->
+    <a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a>
+    <!-- END OPTION link_edit -->
+    <!-- OPTION link_delete -->
+    <a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+    <!-- END OPTION link_delete -->	</td>
+  </tr>
+  <!-- END LOOP club -->
+  </tbody>
+</table>
+
+
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="{link_first_page}">{L_first_page}</a> |
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="{link_previous_page}">{L_previous_page}</a> |
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="{link_page}">
+  <!-- END OPTION link_page -->
+    {page}</a> |
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="{link_next_page}">{L_next_page}</a>
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="{link_last_page}">{L_last_page}</a>
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>
+<!-- END OPTION club -->

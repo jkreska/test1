@@ -1,0 +1,58 @@
+<h1>{L_title}</h1>
+
+<!-- OPTION link_add -->
+<p><a href="{link_add}" class="add">{L_add}</a></p>
+<!-- END OPTION link_add -->
+
+<!-- OPTION season -->
+<form name="referee" method="post" action="{form_action}">
+<p><select name="season" onchange="submit();">
+<option value="">{L_choose_season}</option>
+<!-- LOOP season -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP season -->
+</select>
+<!-- OPTION aff_club -->
+<select name="club" onchange="submit();">
+<option value="">{L_choose_club}</option>
+<!-- LOOP club -->
+<option value="{id}" {selected}>{name}</option>
+<!-- END LOOP club -->
+</select>
+<!-- END OPTION aff_club -->
+</p>
+</form>
+<!-- END OPTION season -->
+
+<!-- OPTION L_message_referee -->
+<p class="message">{L_message_referee}</p>
+<!-- END OPTION L_message_referee -->
+
+<!-- OPTION referee -->
+<div id="referee">
+<table border="0">
+<thead>
+	 <tr>	
+	 <th>{L_referee}</th>
+     <th>{L_level}</th>
+     <!-- OPTION aff_club -->
+     <th>{L_club}</th>
+     <!-- END OPTION aff_club -->
+	</tr>
+	</thead>
+  <tbody>
+  <!-- LOOP referee -->
+  <tr class="ligne{mod}">
+	<td><a href="{link_view}">{firstname} {lastname}</a></td>
+    <td>{level}</td>
+    
+    <!-- OPTION aff_club_liste -->
+    <td>{club}</td>
+    <!-- END OPTION aff_club_liste -->
+    
+  </tr>
+  <!-- END LOOP referee -->
+  </tbody>
+</table>
+</div>
+<!-- END OPTION referee -->

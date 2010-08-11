@@ -1,0 +1,191 @@
+<SCRIPT language="javascript">
+
+function valider()
+{
+ if(document.form_file_galerie.elements['galerie'].selectedIndex!="")
+ {  document.form_file_galerie.submit(); }
+}
+
+function change_root(folder)
+{
+ document.form_change_folder.folder.value=folder;
+ document.form_change_folder.submit(); 
+}
+
+function insert_file(url)
+{
+  var field_name='{field_name}';
+  var parent_form='{parent_form}';
+  
+  if(parent_form=="tinymce") {
+   win = window.opener.tinyMCE.getWindowArg("window");
+   image_field = win.document.forms[0].elements[field_name];
+   image_field.value = url;
+   if (win.getImageData) win.getImageData();
+   if (win.showPreviewImage) win.showPreviewImage(url);
+  }
+  else
+  {
+   image_field=window.opener.document.forms[parent_form].elements[field_name];
+   image_field.value=url;
+   image_field.focus();  
+  } 
+  window.close();
+}  
+
+function preview(url,category,width,height)
+{
+ if(category=="image") {
+  var divimage=document.getElementById("view_image"); 
+  var image=document.getElementById("image");
+  var image_name=document.getElementById("image_name");
+  var link_select=document.getElementById("link_select");
+  link_select.href="javascript:insert_file('"+url+"')";
+  image_name.innerHTML=url;
+  image.src=url;
+  if(width!="") { image.width=width; }
+  if(height!="") { image.height=height; }
+  divimage.style.display="block";
+ }
+ else
+ {
+  pop(url,"640","480");
+ } 
+}
+
+</SCRIPT>
+<h1>{L_title}</h1>
+
+<!-- OPTION L_message_file -->
+<p class="message">{L_message_file}</p>
+<!-- END OPTION L_message_file -->
+
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<form action="{form_action_insert}" method="post" name="form_change_folder">
+<input type="hidden" name="folder" />
+</form>
+<h2>{L_file_list}</h2>
+<table id="file_manager">
+<thead>
+<tr>
+ <th>&nbsp;</th>
+ <th id="title">{current_folder}</th>
+</tr>
+</thead>
+<tr>
+<td id="folder_list">
+<div id="folder_list">
+<!-- LOOP folder_list -->
+<a href="#"onclick="javascript:change_root('{path}');" class="{class}">{name}</a><br />
+<!-- END LOOP folder_list -->
+</div>
+</td>
+<td valign="top">
+
+<table id="file_list">
+<!-- OPTION show_root -->
+<tr>
+ <td><img src="../tpl_image/file_extension/folder.gif" /></td>
+ <td colspan="5"><a href="#"onclick="javascript:change_root('{parent_folder}');">../</a></td>
+</tr>
+<!-- END OPTION show_root -->
+
+<!-- LOOP subfolder_list -->
+<tr>
+ <td><img src="../tpl_image/file_extension/folder.gif" /></td>
+ <td colspan="4"><a href="#"onclick="javascript:change_root('{path}');">{name}</a></td>
+ <td>
+ <!-- OPTION link_delete -->
+ <a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a>
+ <!-- END OPTION link_delete -->
+ </td>
+</tr>
+<!-- END LOOP subfolder_list -->
+
+<!-- LOOP file -->
+<tr id="{name}">
+ <td><img src="../tpl_image/file_extension/{type}.gif" /></td>
+ <td>{name}</td>
+ <td>{size}</td>
+ <td><a href="#view" onclick="preview('{url}','{category}','{width}','{height}');">{L_view}</a></td>
+ <td><a href="javascript:insert_file('{url}')">{L_select}</a></td>
+ <td>
+ <!-- OPTION link_delete -->
+ <a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a>
+ <!-- END OPTION link_delete -->
+ </td>
+</tr>
+<!-- END LOOP file -->
+</table>
+
+<div id="upload">
+<!-- OPTION show_upload -->
+<a href="#form_folder" onclick="afficher_elt('form_folder','');">{L_new_folder}</a> |
+<a href="#form_file" onclick="afficher_elt('form_file','');">{L_upload_file}</a> |
+<!-- END OPTION show_upload -->
+<a href="javascript:insert_file('');">{L_insert_none}</a></p>
+
+<div id="form_folder" style="display:{form_folder_display}">
+<a name="form_folder"></a>
+<h2>{L_new_folder}
+<a href="#" onclick="afficher_elt('form_folder','');" title="{L_hide}" class="hide">{L_hide}</a>
+</h2>
+<form name="form_create_folder" method="post" action="{form_action_create_folder}">
+<input type="hidden" name="action" value="create_folder" />
+{L_folder_name} <input type="text" name="new_folder" value="{value_new_folder}" />
+<div class="button">
+<input name="upload_folder" type="hidden" value="{upload_folder}" />
+<input type="submit" name="submit" value="{L_submit}" />
+</div> 
+</form>
+</div>
+
+
+<div id="form_file" style="display:{form_file_display}">
+<a name="form_file"></a>
+<h2>{L_upload_file}
+<a href="#" onclick="afficher_elt('form_file','');" title="{L_hide}" class="hide">{L_hide}</a>
+</h2>
+
+<form name="form_file_insert" method="post" action="{form_action_insert}" enctype="multipart/form-data">
+<table>    
+    <tr> 
+      <th>{L_file} :</th>
+      <td><input type="hidden" name="MAX_FILE_SIZE" value="{max_file_size}" />
+	  <input name="file" type="file" value="{value_file}" />
+	 </td>
+    </tr>
+    <tr> 
+      <th>{L_file_name} :</th>
+      <td><input name="name" type="text" value="{value_name}" /></td>
+    </tr>	
+</table>
+<div class="button">
+<input name="upload_folder" type="hidden" value="{upload_folder}" />
+<input type="hidden" name="action" value="upload_file" />
+<input type="submit" name="submit" value="{L_submit}" />
+</div>
+</form>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+<div id="view_image" style="display:none">
+<h2>{L_view_image} <a href="#" onclick="afficher_elt('view_image','');" title="{L_hide}" class="hide">{L_hide}</a></h2>
+<span id="image_name"></span> - <a id="link_select">{L_select_file}</a>
+<div id="divimage">
+<img id="image" src="" border="0" />
+</div>
+<a name="view"></a>

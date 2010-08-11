@@ -1,0 +1,33 @@
+<table>
+<!-- OPTION show_group -->
+<tr><td>{L_group}</td>
+<td>
+<select name="group">
+<!-- LOOP group -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP group -->
+</select></td>
+</tr>
+<!-- END OPTION show_group -->
+<!-- OPTION show_day -->
+<tr><td>{L_day}</td><td>
+<select name="day">
+<!-- LOOP day -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP day -->
+</select>
+</td>
+</tr>
+<!-- END OPTION show_day -->
+<!-- OPTION show_standings -->
+<tr><td>{L_penality}</td><td>
+<table>
+<thead>
+<tr><td>{L_home}</td><td>{L_visitor}</td></tr>
+</thead>
+<tr><td><input type="text" name="penality_home" size="3" /></td><td><input type="text" name="penality_visitor" size="3" /></td></tr>
+</table>
+</td>
+</tr>
+<!-- END OPTION show_standings -->
+</table>

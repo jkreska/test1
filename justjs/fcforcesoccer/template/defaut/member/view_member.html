@@ -1,0 +1,167 @@
+<div id="view_member">
+<h1>{firstname} {name} </h1>
+<div id="action">
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->
+</div>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+<h2>{L_identity}</h2>
+<!-- OPTION photo -->
+<img src="{photo}" id="photo" alt="{firstname} {name}" />
+<!-- END OPTION photo -->
+<table border="0">
+  <tr>
+    <th>{L_name}</th>
+    <td>{name}</td>
+  </tr>
+  <tr>
+    <th>{L_firstname}</th>
+    <td>{firstname}</td>
+  </tr>
+  <!-- OPTION sex -->
+  <tr>
+    <th>{L_sex}</th>
+    <td><img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" /></td>
+  </tr>
+  <!-- END OPTION sex -->
+  <!-- OPTION country -->
+  <tr>
+    <th>{L_country}</th>
+    <td>{country}</td>
+  </tr>
+  <!-- END OPTION country -->
+  <!-- OPTION email -->
+  <tr>
+    <th>{L_email}</th>
+    <td>{email}</td>
+  </tr>
+  <!-- END OPTION email -->
+  <!-- OPTION age -->
+  <tr>
+    <th>{L_age}</th>
+    <td>{age} {L_age_unit}</td>
+  </tr>
+  <!-- END OPTION age -->
+  <!-- OPTION date_birth -->
+  <tr>
+    <th>{L_date_birth}</th>
+    <td>{date_birth}</td>
+  </tr>
+  <!-- END OPTION date_birth -->
+  <!-- OPTION place_birth -->
+  <tr>
+    <th>{L_place_birth}</th>
+    <td>{place_birth}</td>
+  </tr>
+  <!-- END OPTION place_birth -->  
+  <!-- OPTION size -->
+  <tr>
+    <th>{L_size}</th>
+    <td>{size} {L_size_unit}</td>
+  </tr>
+  <!-- END OPTION size -->
+  <!-- OPTION weight -->
+  <tr>
+    <th>{L_weight}</th>
+    <td>{weight} {L_weight_unit}</td>
+  </tr>
+  <!-- END OPTION weight -->    
+  <!-- OPTION comment -->  
+  <tr>
+    <th>{L_comment}</th>
+    <td>{comment}</td>
+  </tr>
+  <!-- END OPTION comment -->    
+</table>
+<!-- OPTION member_club -->
+<h2>{L_club}</h2>
+<table border="0" id="tabclub">
+  <thead>
+    <tr>
+      <th>{L_season}</th>
+      <th>{L_club}</th>
+    </tr>
+  </thead>	
+  <tbody>
+    <!-- LOOP member_club -->
+    <tr id="club{i}" class="ligne{mod}">
+      <td>{season_text}</td>
+      <td><a href="{link_club}">{club_text}</a></td>
+    </tr>
+    <!-- END LOOP member_club -->
+  </tbody>
+</table>
+<!-- END OPTION member_club -->
+
+<!-- OPTION member_job -->
+<h2>{L_job}</h2>
+<table border="0" id="tabjob">
+  <thead>
+    <tr>
+      <th>{L_season}</th>
+      <th>{L_job}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- LOOP member_job -->
+    <tr id="job{i}" class="ligne{mod}">
+      <td>{season_text}</td>
+      <td>{job_text}</td>
+    </tr>
+    <!-- END LOOP member_job -->
+  </tbody>
+</table>
+<!-- END OPTION member_job -->
+
+<!-- OPTION team_player -->
+<h2>{L_team_player}</h2>
+<table border="0">
+  <thead>
+    <tr>
+      <th>{L_season}</th>
+      <th>{L_club}</th>
+      <th>{L_team}</th>
+      <th>{L_position}</th>
+      <th>{L_number}</th>
+      <th>{L_captain}</th>
+    </tr>
+  </thead>
+  <!-- LOOP team_player -->
+  <tr class="ligne{mod}">
+    <td>{season}</td>
+    <td><a href="{link_club}">{club}</a></td>
+    <td><a href="{link_team}">{team_name}</a></td>
+    <td>{position}</td>
+    <td>{number}</td>
+    <td>{captain}</td>
+  </tr>
+  <!-- END LOOP team_player -->
+</table>
+<!-- END OPTION team_player -->
+
+<!-- OPTION team_coach -->
+<h2>{L_team_coach}</h2>
+<table border="0">
+  <thead>
+    <tr>
+	<th>{L_season}</th>
+      <th>{L_club}</th>
+      <th>{L_team}</th>
+    </tr>
+  </thead>
+  <!-- LOOP team_coach -->
+  <tr class="ligne{mod}">
+  <td>{season}</td>
+    <td><a href="{link_club}">{club}</a></td>
+    <td><a href="{link_team}">{team_name}</a></td>
+  </tr>
+  <!-- END LOOP team_coach -->
+</table>
+<!-- END OPTION team_coach -->
+</div>

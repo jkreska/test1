@@ -1,0 +1,757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | Hash class</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../language_section.html">Language</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title class">
+  <span class="type">class </span>Hash
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p>A set of key/value pairs.</p>
+
+<p><code>Hash</code> can be thought of as an associative array, binding unique keys to
+values (which are not necessarily unique), though it can not guarantee
+consistent order its elements when iterating. Because of the nature of
+JavaScript, every object is in fact a hash; but <code>Hash</code> adds a number of
+methods that let you enumerate keys and values, iterate over key/value
+pairs, merge two hashes together, and much more.</p>
+
+<h4>Creating a hash</h4>
+
+<p>There are two ways to construct a Hash instance: the first is regular
+JavaScript object instantiation with the <code>new</code> keyword, and the second is
+using the <code><a title="$H (utility)" href="../language/dollarh.html">$H</a></code> function. There is one difference between them: if a <code>Hash</code>
+is passed to <code>$H</code>, it will be returned as-is, wherease the same hash passed
+to <code>new Hash</code> will be <em>cloned</em> instead.</p>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+  <div class="section section-utilities">
+    <div class="section-title">
+      <h3>Related utilities</h3>      
+    </div> <!-- .section-title -->
+    
+    <div class="section-content">
+      <p><code><a title="$H (utility)" href="../language/dollarh.html">$H</a></code></p>      
+    </div> <!-- .section-content -->
+  </div> <!-- .section -->
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="Hash#clone (instance method)" href="../language/hash.html#clone-instance_method">clone</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#get (instance method)" href="../language/hash.html#get-instance_method">get</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#index (instance method)" href="../language/hash.html#index-instance_method">index</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#inspect (instance method)" href="../language/hash.html#inspect-instance_method">inspect</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#keys (instance method)" href="../language/hash.html#keys-instance_method">keys</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#merge (instance method)" href="../language/hash.html#merge-instance_method">merge</a></code></li>
+      
+        <li><code><a class="constructor" title="new Hash (constructor)" href="../language/hash.html#new-constructor">new</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#set (instance method)" href="../language/hash.html#set-instance_method">set</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#toJSON (instance method)" href="../language/hash.html#tojson-instance_method">toJSON</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#toObject (instance method)" href="../language/hash.html#toobject-instance_method">toObject</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#toQueryString (instance method)" href="../language/hash.html#toquerystring-instance_method">toQueryString</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#unset (instance method)" href="../language/hash.html#unset-instance_method">unset</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#update (instance method)" href="../language/hash.html#update-instance_method">update</a></code></li>
+      
+        <li><code><a class="instance-method" title="Hash#values (instance method)" href="../language/hash.html#values-instance_method">values</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+<div class="section section-constructor">
+  <div class="section-title">
+    <h3>Constructor</h3>
+  </div> <!-- .section-title -->
+
+  <div class="section-content">
+    <pre id="new-constructor" class="syntax"><code>new Hash([object])</code></pre>
+    
+    
+
+    <p><p>Creates a new <code>Hash</code>. If <code>object</code> is given, the new hash will be populated
+with all the object's properties. See <code><a title="$H (utility)" href="../language/dollarh.html">$H</a></code>.</p></p>
+    
+  </div> <!-- .section-content -->
+  
+</div> <!-- .section -->
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="clone-instance_method">clone
+    <span class="method-permalink"><a href="../language/hash.html#clone-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#clone() -&gt; <a title="Hash (class)" href="../language/hash.html">Hash</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a clone of hash.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="get-instance_method">get
+    <span class="method-permalink"><a href="../language/hash.html#get-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#get(key) -&gt; value</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the value of the hash's <code>key</code> property.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="index-instance_method">index
+    <span class="method-permalink"><a href="../language/hash.html#index-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#index(value) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the first key in the hash whose value matches <code>value</code>.
+Returns <code>false</code> if there is no such key.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="inspect-instance_method">inspect
+    <span class="method-permalink"><a href="../language/hash.html#inspect-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#inspect() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the debug-oriented string representation of the hash.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="keys-instance_method">keys
+    <span class="method-permalink"><a href="../language/hash.html#keys-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#keys() -&gt; [String...]</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Provides an Array of keys (that is, property names) for the hash.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="merge-instance_method">merge
+    <span class="method-permalink"><a href="../language/hash.html#merge-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#merge(object) -&gt; <a title="Hash (class)" href="../language/hash.html">Hash</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a new hash with <code>object</code>'s key/value pairs merged in.
+To modify the original hash in place, use <code><a title="Hash#update (instance method)" href="../language/hash.html#update-instance_method">Hash#update</a></code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="set-instance_method">set
+    <span class="method-permalink"><a href="../language/hash.html#set-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#set(key, value) -&gt; value</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Sets the hash's <code>key</code> property to <code>value</code> and returns <code>value</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="tojson-instance_method">toJSON
+    <span class="method-permalink"><a href="../language/hash.html#tojson-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#toJSON() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a JSON string.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="toobject-instance_method">toObject
+    <span class="method-permalink"><a href="../language/hash.html#toobject-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#toObject() -&gt; <a title="Object (class)" href="../language/object.html">Object</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a cloned, vanilla object.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="toquerystring-instance_method">toQueryString
+    <span class="method-permalink"><a href="../language/hash.html#toquerystring-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#toQueryString() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Turns a hash into its URL-encoded query string representation.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="unset-instance_method">unset
+    <span class="method-permalink"><a href="../language/hash.html#unset-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#unset(key) -&gt; value</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Deletes the hash's <code>key</code> property and returns its value.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="update-instance_method">update
+    <span class="method-permalink"><a href="../language/hash.html#update-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#update(object) -&gt; <a title="Hash (class)" href="../language/hash.html">Hash</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Updates hash with the key/value pairs of <code>object</code>.
+The original hash will be modified. To return a new hash instead, use
+<code><a title="Hash#merge (instance method)" href="../language/hash.html#merge-instance_method">Hash#merge</a></code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="values-instance_method">values
+    <span class="method-permalink"><a href="../language/hash.html#values-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Hash#values() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Collect the values of a hash and returns them in an array.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

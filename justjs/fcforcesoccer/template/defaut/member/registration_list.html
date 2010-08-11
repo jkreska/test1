@@ -1,0 +1,88 @@
+<h1>{L_title}</h1>
+
+<h2>{L_registration_list}</h2>
+
+<p>{nb_member} {L_registration_list_info}</p>
+
+<!-- OPTION L_message_registration -->
+<p class="message">{L_message_registration}</p>
+<!-- END OPTION L_message_registration -->
+
+<!-- OPTION registration -->
+<div id="member">
+<table border="0">
+<thead>
+  <tr>
+    <th>{L_date_registration}</th>
+	<th>{L_name}</th>
+    <th>{L_firstname}</th>
+    <th>{L_email}</th>
+    <th>{L_sex}</th>
+	<th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- LOOP registration -->
+  <tr class="ligne{mod}">
+    <td>{date_registration}</td>
+	<td>{name}</td>
+    <td>{firstname}</td>
+    <td>{email}</td>
+    <td>
+	<!-- OPTION sex -->	
+	<img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+	<!-- END OPTION sex -->
+	</td>
+	<td>
+	<!-- OPTION link_validation -->
+    <a href="{link_validation}" title="{L_check}">{L_check}</a>
+    <!-- END OPTION link_validation -->		  	
+	</td>	
+  </tr>
+  <!-- END LOOP registration -->
+  </tbody>
+</table>
+<!-- END OPTION registration -->
+
+<h2>{L_confirmation_list}</h2>
+
+<!-- OPTION L_message_confirmation -->
+<p class="message">{L_message_confirmation}</p>
+<!-- END OPTION L_message_confirmation -->
+
+<!-- OPTION confirmation -->
+<table border="0">
+<thead>
+  <tr>
+    <th>{L_date_registration}</th>
+	<th>{L_name}</th>
+    <th>{L_firstname}</th>
+    <th>{L_email}</th>
+    <th>{L_sex}</th>
+	<th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- LOOP confirmation -->
+  <tr class="ligne{mod}">
+    <td>{date_registration}</td>
+	<td>{name}</td>
+    <td>{firstname}</td>
+    <td>{email}</td>
+    <td>
+	<!-- OPTION sex -->	
+	<img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+	<!-- END OPTION sex -->
+	</td>
+	<td>
+	<!-- OPTION link_edit -->
+    <a href="{link_edit}" title="{L_edit}">{L_edit}</a>
+    <!-- END OPTION link_edit -->		  	
+	</td>	
+  </tr>
+  <!-- END LOOP confirmation -->
+  </tbody>
+</table>
+
+</div>
+<!-- END OPTION confirmation -->

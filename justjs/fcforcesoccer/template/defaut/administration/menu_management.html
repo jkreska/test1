@@ -1,0 +1,318 @@
+<script src="tpl_image/scriptaculous-js/lib/prototype.js" type="text/javascript"></script>
+<script src="tpl_image/scriptaculous-js/src/scriptaculous.js" type="text/javascript"></script>
+<div id="administration">
+<h1>{L_title}</h1>
+
+<!-- OPTION show_form -->
+<p>{L_menu_management_info}</p>
+<!-- END OPTION show_form -->
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+	  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<form name="menu_management" action="{form_action}" method="post" id="menu_management">
+
+<table width="100%" border="0">
+<thead>
+  <tr>
+    <th width="60%">{L_website_menu}</th>
+    <th width="40%">{L_available_pages}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td valign="top">    
+    <ul id="website_menu">
+    <li id="model_li" style="display:none;">
+    	<input type="hidden" id="level_menu_NB" name="level[]" value="" />
+	    <input type="hidden" id="title_menu_NB" name="title[]" value="" />
+        <input type="hidden" id="url_menu_NB" name="url[]" value="" />
+        <input type="hidden" id="class_menu_NB" name="class[]" value="" />
+        <input type="hidden" id="target_menu_NB" name="target[]" value="" />
+        <span id="NB"></span>        
+        <a href="javascript:void(0);" onclick="delete_page('menu_NB');" class="delete">{L_delete}</a>
+        <br /><a id="url_NB" class="url" target="_blank"></a> <span id="target_NB" class="url"></span>
+    </li>
+    <!-- LOOP menu -->
+	<li id="menu_{i}">
+    	<img src="tpl_image/drag2.gif" class="drag" />
+        <input type="hidden" id="level_menu_{i}" name="level[]" value="{level}" />
+	    <input type="hidden" id="title_menu_{i}" name="title[]" value="{title}" />
+        <input type="hidden" id="url_menu_{i}" name="url[]" value="{url}" />
+        <input type="hidden" id="class_menu_{i}" name="class[]" value="{class}" />
+        <input type="hidden" id="target_menu_{i}" name="target[]" value="{target}" />
+        <span id="{i}"><a href="javascript:void(0);" onclick="edit_title('{i}');" id="title{i}">{title}</a> <span id="class{i}" class="class">{class}</span></span>
+        <!-- OPTION external -->
+        <a href="javascript:void(0);" onclick="delete_page('menu_{i}');" class="delete">{L_delete}</a>
+        <br /><a href="{url}" id="url_{i}" class="url" target="_blank">{url}</a>
+            <!-- OPTION target -->
+            <span id="target_{i}" class="url">({target_name})</span>
+            <!-- END OPTION target -->        
+        <!-- END OPTION external -->
+		<ul>
+		<!-- LOOP submenu -->
+            <li id="menu_{i}">
+            <img src="tpl_image/drag2.gif" class="drag" />
+            <input type="hidden" id="level_menu_{i}" name="level[]" value="{level}" />
+            <input type="hidden" id="title_menu_{i}" name="title[]" value="{title}" />
+            <input type="hidden" id="url_menu_{i}" name="url[]" value="{url}" />
+            <input type="hidden" id="class_menu_{i}" name="class[]" value="{class}" />
+            <input type="hidden" id="target_menu_{i}" name="target[]" value="{target}" />
+            <span id="{i}"><a href="javascript:void(0);" onclick="edit_title('{i}');" id="title{i}">{title}</a> <span id="class{i}" class="class">{class}</span></span>
+            <!-- OPTION external -->
+            <a href="javascript:void(0);" onclick="delete_page('menu_{i}');" class="delete">{L_delete}</a>
+            <br /><a href="{url}" id="url_{i}" class="url" target="_blank">{url}</a>
+                <!-- OPTION target -->
+                <span id="target_{i}" class="url">({target_name})</span>
+                <!-- END OPTION target -->
+            <!-- END OPTION external -->
+            </li>
+		<!-- END LOOP submenu -->
+		<li class="separation">&nbsp;</li>
+		</ul>
+	</li>    
+	<!-- END LOOP menu -->
+</ul> 
+	</td>
+    <td valign="top">
+    <h2>{L_internal_pages}</h2>
+    <ul id="pages">
+        <li>{L_default_pages}
+        	<ul>
+	        	<!-- LOOP default_pages -->
+                <li id="menu_default_{i}" class="page {hide}">
+                <img src="tpl_image/drag2.gif" class="drag" />
+                <input type="hidden" id="level_menu_default_{i}" name="level[]" value="" />
+                <input type="hidden" id="title_menu_default_{i}" name="title[]" value="{title}" />
+                <input type="hidden" id="url_menu_default_{i}" name="url[]" value="{url}" />
+                <input type="hidden" id="class_menu_default_{i}" name="class[]" value="{class}" />
+				<input type="hidden" id="target_menu_default_{i}" name="target[]" value="" />
+                <span id="default_{i}"><a href="javascript:void(0);" onclick="edit_title('default_{i}');" id="titledefault_{i}">{title}</a></span>
+                </li>
+         		<!-- END LOOP default_pages -->
+                <li class="separation">&nbsp;</li>
+            </ul>
+        </li>
+        
+        <li>{L_club}
+            <ul>
+                <!-- LOOP club -->
+                <li id="menu_club_{id}" class="page {hide}">
+                <img src="tpl_image/drag2.gif" class="drag" />
+                <input type="hidden" id="level_menu_club_{id}" name="level[]" value="" />
+                <input type="hidden" id="title_menu_club_{id}" name="title[]" value="{name}" />
+                <input type="hidden" id="url_menu_club_{id}" name="url[]" value="{link_view}" />
+                <input type="hidden" id="class_menu_club_{id}" name="class[]" value="" />
+				<input type="hidden" id="target_menu_club_{id}" name="target[]" value="" />
+                <span id="club_{id}"><a href="javascript:void(0);" onclick="edit_title('club_{id}');" id="titleclub_{id}">{name}</a></span>
+                </li>
+                <!-- END LOOP club -->
+                <li class="separation">&nbsp;</li>
+            </ul>
+        </li>
+		<!-- OPTION team -->
+        <li>{L_team}
+            <ul>
+                <!-- LOOP team -->
+                <li id="menu_team_{id}" class="page {hide}">
+                <img src="tpl_image/drag2.gif" class="drag" />
+                <input type="hidden" id="level_menu_team_{id}" name="level[]" value="" />
+                <input type="hidden" id="title_menu_team_{id}" name="title[]" value="{team_name} {sex_abbreviation}" />
+                <input type="hidden" id="url_menu_team_{id}" name="url[]" value="{link_view}" />
+                <input type="hidden" id="class_menu_team_{id}" name="class[]" value="" />
+				<input type="hidden" id="target_menu_team_{id}" name="target[]" value="" />
+                <span id="team_{id}"><a href="javascript:void(0);" onclick="edit_title('team_{id}');" id="titleteam_{id}">{team_name} {sex_abbreviation}</a></span>
+                </li>
+                <!-- END LOOP team -->
+                <li class="separation">&nbsp;</li>
+            </ul>
+        </li>
+		<!-- END OPTION team -->
+        <li>{L_competition}
+            <ul>
+                <!-- LOOP competition -->
+                <li id="menu_competition_{id}" class="page {hide}">
+                <img src="tpl_image/drag2.gif" class="drag" />
+                <input type="hidden" id="level_menu_competition_{id}" name="level[]" value="" />
+                <input type="hidden" id="title_menu_competition_{id}" name="title[]" value="{name}" />
+                <input type="hidden" id="url_menu_competition_{id}" name="url[]" value="{link_view}" />
+                <input type="hidden" id="class_menu_competition_{id}" name="class[]" value="" />
+				<input type="hidden" id="target_menu_competition_{id}" name="target[]" value="" />
+                <span id="competition_{id}"><a href="javascript:void(0);" onclick="edit_title('competition_{id}');" id="titlecompetition_{id}">{name}</a></span></li>
+                <!-- END LOOP competition -->
+                <li class="separation">&nbsp;</li>
+            </ul>
+        </li>
+        <li>{L_forum}
+            <ul>
+                <!-- LOOP forum -->
+                <li id="menu_forum_{id}" class="page {hide}">
+                <img src="tpl_image/drag2.gif" class="drag" />
+                <input type="hidden" id="level_menu_forum_{id}" name="level[]" value="" />
+                <input type="hidden" id="title_menu_forum_{id}" name="title[]" value="{name}" />
+                <input type="hidden" id="url_menu_forum_{id}" name="url[]" value="{link_forum}" />
+                <input type="hidden" id="class_menu_forum_{id}" name="class[]" value="" />
+				<input type="hidden" id="target_menu_forum_{id}" name="target[]" value="" />
+                <span id="forum_{id}"><a href="javascript:void(0);" onclick="edit_title('forum_{id}');" id="titleforum_{id}">{name}</a></span></li>
+                <!-- END LOOP forum -->
+                <li class="separation">&nbsp;</li>
+            </ul>
+        </li>
+        <li>{L_information}
+            <ul>
+                <!-- LOOP information -->
+                <li id="menu_information_{id}" class="page {hide}">
+                <img src="tpl_image/drag2.gif" class="drag" />
+                <input type="hidden" id="level_menu_information_{id}" name="level[]" value="" />
+                <input type="hidden" id="title_menu_information_{id}" name="title[]" value="{title}" />
+                <input type="hidden" id="url_menu_information_{id}" name="url[]" value="{link}" />
+                <input type="hidden" id="class_menu_information_{id}" name="class[]" value="" />
+				<input type="hidden" id="target_menu_information_{id}" name="target[]" value="" />
+                <span id="information_{id}"><a href="javascript:void(0);" onclick="edit_title('information_{id}');" id="titleinformation_{id}">{title}</a></span></li>
+                <!-- END LOOP information -->
+                <li class="separation">&nbsp;</li>
+            </ul>
+        </li>
+        <li>{L_plugin}
+            <ul>
+                <!-- LOOP plugin -->
+                <li id="menu_plugin_{id}" class="page {hide}">
+                <img src="tpl_image/drag2.gif" class="drag" />
+                <input type="hidden" id="level_menu_plugin_{id}" name="level[]" value="" />
+                <input type="hidden" id="title_menu_plugin_{id}" name="title[]" value="{name}" />
+                <input type="hidden" id="url_menu_plugin_{id}" name="url[]" value="{link}" />
+                <input type="hidden" id="class_menu_plugin_{id}" name="class[]" value="" />
+				<input type="hidden" id="target_menu_plugin_{id}" name="target[]" value="" />
+                <span id="plugin_{id}"><a href="javascript:void(0);" onclick="edit_title('plugin_{id}');" id="titleplugin_{id}">{name}</a></span></li>
+                <!-- END LOOP plugin -->
+                <li class="separation">&nbsp;</li>
+            </ul>
+        </li>
+        <li class="separation">&nbsp;</li>
+	</ul>
+
+	<h2>{L_external_pages}</h2>
+    <div id="external_page">    
+    <p id="error_page" class="message" style="display:none"></p>
+    <p><label for="page_title">{L_page_title}</label> <input name="page_title" id="page_title" type="text" size="20" />
+    <br />
+    <label for="page_url">{L_page_url}</label>  <input name="page_url" id="page_url" type="text" size="30" />
+    <br />
+    <label for="page_target">{L_page_target}</label>
+    <select name="page_target" id="page_target">
+    <option value="">{L_same_window}</option>
+    <option value="_blank">{L_new_window}</option>
+    </select> 
+    <input type="button" name="add" value="{L_add_page}" onclick="add_external_page();" />
+    </p>
+    </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="button">
+<input type="hidden" id="action_menu" name="action_menu" value="" />
+<input type="button" name="save" value="{L_save}" onclick="save_menu();" />
+<input type="button" name="cancel" value="{L_cancel}" onclick="cancel_menu();" /><br /><br />
+<input type="button" name="reset" value="{L_reset_menu}" onclick="reset_menu();" />
+</div>
+</form>
+
+<script language="javascript">
+var nb_page={nb_page};
+function add_external_page() {	
+	if($('page_title').value=='' && $('page_url').value=='') {
+		$('error_page').innerHTML='{L_no_title}';
+		$('error_page').style.display='block';
+	}
+	else {
+		$('error_page').style.display='none';
+		var reg = new RegExp(["NB"],["gi"]);
+		var li = document.createElement("li");
+		li.id='menu_'+nb_page;
+		li.innerHTML = $('model_li').innerHTML.replace(reg,nb_page);		
+		$('website_menu').appendChild(li);
+		$('title_menu_'+nb_page).value=$('page_title').value;
+		$('url_menu_'+nb_page).value=$('page_url').value;
+		$('level_menu_'+nb_page).value='parent';
+		$('target_menu_'+nb_page).value=$('page_target').value;
+		$(''+nb_page+'').innerHTML=$('page_title').value;
+		$('url_'+nb_page+'').innerHTML=$('page_url').value;
+		$('url_'+nb_page+'').href=$('page_url').value;
+		$('target_'+nb_page+'').innerHTML='('+$('page_target').options[$('page_target').selectedIndex].text+')';
+		$('page_title').value='';
+		$('page_url').value='';
+		$('page_target').value='';
+		nb_page++;
+		Sortable.create('website_menu',{tree:true,dropOnEmpty: true,containment:['website_menu','pages'],constraint:false,onChange:updateLevel}); 
+	}
+}
+
+function delete_page(id) {
+	$(id).parentNode.removeChild($(id));
+}
+
+function updateLevel(elt) {
+	if(elt.parentNode.parentNode.tagName=='LI') { $('level_'+elt.id).value='child'; }
+	else { $('level_'+elt.id).value='parent'; }
+}
+
+function resetLevel(elt) {
+	$('level_'+elt.id).value='';
+}
+
+Sortable.create('website_menu',{tree:true,dropOnEmpty: true,containment:['website_menu','pages'],constraint:false,handle:'drag',onChange:updateLevel}); 
+Sortable.create('pages',{tree:true,only:'page',dropOnEmpty: true,containment:['website_menu','pages'],constraint:false,onChange:resetLevel});
+
+var edited = false;
+function edit_title(id) {
+	if (edited) return;
+	edited = true;
+	var title=escapeName($('title'+id).innerHTML);	
+	var class=escapeName($('class'+id).innerHTML);	
+	$(id).innerHTML='<input type="text" onkeypress="if(isKeyEnter(event)) { valid_title(\''+id+'\'); return false; } " name="title'+id+'" id="title'+id+'" value="'+title+'" /> <span class="class">{L_class_css}</span> <input type="text" onkeypress="if(isKeyEnter(event)) { valid_title(\''+id+'\'); return false; } " name="class'+id+'" id="class'+id+'" value="'+class+'" />';
+	$('title'+id).focus();
+	$('title'+id).select();
+}
+
+function valid_title(id) {
+	var title=escapeName($('title'+id).value);
+	var class=escapeName($('class'+id).value);
+	$(id).innerHTML='<a id="title'+id+'" href="javascript:void(0);" onclick="edit_title(\''+id+'\');">'+title+'</a> <a id="class'+id+'" href="" class="class">'+class+'</a>';
+	$('title_menu_'+id).value=title;
+	$('class_menu_'+id).value=class;
+	edited = false;
+}
+
+function save_menu() {
+	$('action_menu').value='save';
+	$('menu_management').submit();	
+}
+
+function reset_menu() {
+	confirmation('');
+	$('action_menu').value='reset';
+	$('menu_management').submit();	
+}
+
+function cancel_menu() {
+	$('action_menu').value='cancel';
+	$('menu_management').submit();	
+}
+</script>
+<!-- END OPTION show_form -->
+</div>

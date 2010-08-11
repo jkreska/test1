@@ -1,0 +1,133 @@
+<h1>{L_title}</h1>
+<script type="text/javascript">
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+function sendData(param, page, div)
+{	
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//déendition de l'endroit d'affichage:
+	var content = document.getElementById(div);
+	
+	if(isset(this.document.form_match.team)) {
+	 param=param+'&team='+this.document.form_match.team.value;
+	}
+	param=param+"&div="+div;
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			content.innerHTML = XhrObj.responseText ;
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end position SendData
+</script>
+
+<form name="form_match" method="post" action="{form_action}">
+<table border="0">
+  <tr>
+    <td><select name="season">
+      <option value="">{L_choose_season}</option>
+      <!-- LOOP season -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP season -->
+    </select></td>
+	<!-- OPTION aff_club -->
+      <td><select name="club" onChange="sendData('id='+this.value+'&select=team','{link_select_team}','team');" onkeyup="sendData('id='+this.value+'&select=team','{link_select_team}','team');">
+	  <option value="">{L_choose_club}</option>
+	  <!-- LOOP club -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP club -->
+	  </select></td>
+	  <!-- END OPTION aff_club -->
+      <td><div id="team">
+	  <!-- OPTION team -->
+	  <select name="team">
+	  <option value="">{L_choose_team}</option>
+	  <!-- LOOP team -->
+	  <option value="{id}" {selected}>{team_name}</option>
+	  <!-- END LOOP team -->
+	  </select>
+	  <!-- END OPTION team -->
+	  </div></td>
+    <td><select name="competition">
+      <option value="">{L_choose_competition}</option>
+      <!-- LOOP competition -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP competition -->
+    </select></td>
+    <td>
+	  <input name="valider" type="button" value="{L_valider}" onclick="javascript:this.form.submit();" /></td>
+  </tr>
+</table>
+</form>	
+<table id="statistics">
+  <tr> 
+    <td>&nbsp;</td>
+    <th>{L_domicile}</th>
+    <th>{L_exterieur}</th>
+    <th>{L_total}</th>
+    <th>{L_pourcentage}</th>
+  </tr>
+  <tr> 
+    <th>{L_victoire}</th>
+    <td>{v_dom}</td>
+    <td>{v_ext}</td>
+    <td>{nb_v}</td>
+    <td>{nb_v_pc}</td>
+  </tr>
+  <tr> 
+    <th>{L_nul}</th>
+    <td>{n_dom}</td>
+    <td>{n_ext}</td>
+    <td>{nb_n}</td>
+    <td>{nb_n_pc}</td>
+  </tr>
+  <tr> 
+    <th>{L_defaite}</th>
+    <td>{d_dom}</td>
+    <td>{d_ext}</td>
+    <td>{nb_d}</td>
+    <td>{nb_d_pc}</td>
+  </tr>
+  <tr> 
+    <th>{L_total}</th>
+    <td>{match_dom}</td>
+    <td>{match_ext}</td>
+    <td>{nb_match}</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <th>{L_point_marque}</th>
+    <td>{point_m_dom}</td>
+    <td>{point_m_ext}</td>
+    <td>{nb_point_m}</td>
+    <td>{nb_point_m_pc}</td>
+  </tr>
+  <tr> 
+    <th>{L_point_encaisse}</th>
+    <td>{point_e_dom}</td>
+    <td>{point_e_ext}</td>
+    <td>{nb_point_e}</td>
+    <td>{nb_point_e_pc}</td>
+  </tr>
+</table>

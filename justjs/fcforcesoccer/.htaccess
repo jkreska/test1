@@ -1,0 +1,8 @@
+# AddHandler application/x-httpd-php5 .php5 .php4 .php .php3 .php2 .phtml
+AddType application/x-httpd-php4 .php4 .php .php3 .php2 .phtml
+
+DirectoryIndex index.php index.html index.htm
+
+# END WordPress
+
+

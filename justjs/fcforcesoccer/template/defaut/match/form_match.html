@@ -1,0 +1,1271 @@
+<script type="text/javascript">
+// active les champs necessaire et envoie le formulaire
+function valider_form_match() {
+ // on selectionne les players match_players
+ var LV = document.forms['form_match'].elements['player_match_player_visitor[]']; 
+ var LR = document.forms['form_match'].elements['player_match_player_home[]']; 
+ for(var i = 0; i < LV.length; i++) {
+ 	LV.options[i].selected=true;
+ }
+ for(var i = 0; i < LR.length; i++) {
+ 	LR.options[i].selected=true;
+ } 
+ 
+ // on reactive les champs desactives
+ document.forms['form_match'].elements['date'].disabled=false;
+ document.forms['form_match'].elements['club_visitor'].disabled=false;
+ document.forms['form_match'].elements['club_home'].disabled=false;
+ document.forms['form_match'].elements['player_match_player_visitor[]'].disabled=false;
+ document.forms['form_match'].elements['player_match_player_home[]'].disabled=false;
+ if(isset(document.forms['form_match'].elements['team_visitor'])) { document.forms['form_match'].elements['team_visitor'].disabled=false; }
+ if(isset(document.forms['form_match'].elements['team_home'])) { document.forms['form_match'].elements['team_home'].disabled=false; }
+}
+
+// verifie si une valeur n'est pas deja presente dans une liste deroulante
+function verifierPresence(valeur,liste) {
+	var b = false;
+	for(i=0; i < liste.length; i++) {
+	 if(liste.options[i].value==valeur) b = true;
+	}
+	return b;
+}
+// list of the tabs
+var tablist = new Array("details","composition_home","composition_visitor","stats");
+
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+function sendData(param, page, div)
+{ 
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//déendition de l'endroit d'affichage:
+	var content = document.getElementById(div);
+
+	if((div == "match_player_list_home") && isset(this.document.form_match.team_home)) {
+	 param=param+'&team='+this.document.form_match.team_home.value;
+	}
+	if(isset(this.document.form_match.team_home) && this.document.form_match.team_home.value!="") { 
+	 //this.document.getElementById("composition_home").style.display="block";
+	 this.document.getElementById("tab_composition_home").style.display="block"; }	
+	else { 
+	 //this.document.getElementById("composition_home").style.display="none";
+	 this.document.getElementById("tab_composition_home").style.display="none";
+	}	
+	
+	if((div == "match_player_list_visitor") && isset(this.document.form_match.team_visitor)) {	 
+	 param=param+'&team='+this.document.form_match.team_visitor.value;	 
+	}
+	
+	if(isset(this.document.form_match.team_visitor) && this.document.form_match.team_visitor.value!="") {
+	 //this.document.getElementById("composition_visitor").style.display="block";
+	 this.document.getElementById("tab_composition_visitor").style.display="block";
+    }
+	else {
+	 //this.document.getElementById("composition_visitor").style.display="none";
+	 this.document.getElementById("tab_composition_visitor").style.display="none";
+	}
+
+	
+	param=param+'&div='+div;
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			content.innerHTML = XhrObj.responseText ;
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end position SendData
+
+
+////////////////////////////
+// REFEREE
+////////////////////////////
+
+var nb_referee = {nb_referee};
+ 
+function add_referee()
+{
+ if(document.form_match.referee_list.value=="")
+ {
+  document.getElementById("erreur_referee").innerHTML = "{L_erreur_referee}";
+ }
+ else
+ {
+  // on recupere les valeurs du formulaire
+  var referee = document.form_match.referee_list.value;
+  var referee_text = document.form_match.referee_list.options[document.form_match.referee_list.selectedIndex].text;  
+
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="referee"+nb_referee;
+  var td1 = document.createElement("td"); td1.innerHTML=referee_text; tr.appendChild(td1);
+  var td2 = document.createElement("td"); tr.appendChild(td2);    
+  document.getElementById("tabreferee").tBodies[1].appendChild(tr);
+  
+  td2.innerHTML='<input type="hidden" name="referee['+nb_referee+']" value="'+referee+'" /><input type="hidden" name="referee_text['+nb_referee+']" value="'+referee_text+'" /><a href="javascript:delete_referee(\'referee'+nb_referee+'\','+nb_referee+');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  nb_referee += 1; 
+  
+  // on desactive les champs date, club et team
+  document.forms['form_match'].elements['date'].disabled=true;
+  document.forms['form_match'].elements['club_visitor'].disabled=true;
+  document.forms['form_match'].elements['club_home'].disabled=true;  
+  
+  document.form_match.referee_list.options[document.form_match.referee_list.selectedIndex]=null;
+  
+  // on reinitialise les champs du formulaire
+  document.form_match.referee_list.value="";
+  document.getElementById("erreur_referee").innerHTML = "";
+ }
+}
+
+function delete_referee(id,i) {
+  // on remet l'option dans la liste
+  document.form_match.referee_list.options[document.form_match.referee_list.length] = new Option(document.form_match.elements['referee_text['+i+']'].value, document.form_match.elements['referee['+i+']'].value);
+  
+  // on supprime
+ var tabid = document.getElementById("tabreferee"); 
+ tabid.tBodies[1].removeChild(document.getElementById(id));
+ 
+ // on reactive les champs date, club et team
+ document.forms['form_match'].elements['date'].disabled=false;
+ document.forms['form_match'].elements['club_visitor'].disabled=false;
+ document.forms['form_match'].elements['club_home'].disabled=false;
+}
+
+////////////////////////////
+// HOME
+////////////////////////////
+function verifNbTitulaireRecevant() {  
+ // on compte le number de player selectionne
+ var nbOption = 0;
+ var player_list = document.forms['form_match'].elements['match_player_list_home'];
+ var match_player_list = document.forms['form_match'].elements['player_match_player_home[]'];
+ for(i=0; i < player_list.length; i++) {
+  if(player_list.options[i].selected) { nbOption++; }
+ }
+ 
+ // on verifie qu il ne depasse pas le number max autorise
+ if((nbOption + match_player_list.length) >  {nb_max_match_player} ) {
+  document.getElementById("erreur_match_player_home").innerHTML = "{L_erreur_nb_match_player}" ;
+ } 
+ else { 
+  // we add the player for the stats
+  for (var i = player_list.length - 1; i >= 0; i--) {
+   if(player_list.options[i].selected) {
+    add_stats_player(player_list.options[i].value,player_list.options[i].text,"home");
+   }
+  }
+     
+  // we transfert the selected player
+  transfererOptions('form_match','match_player_list_home','player_match_player_home[]'); 
+  document.getElementById("erreur_match_player_home").innerHTML = "";
+  
+  // on desactive les champs date, club et team
+  document.forms['form_match'].elements['date'].disabled=true;
+  document.forms['form_match'].elements['club_home'].disabled=true;
+  if(isset(document.forms['form_match'].elements['team_home'])) {
+  document.forms['form_match'].elements['team_home'].disabled=true;
+  }
+ }
+}
+
+function deleteTitulaireRecevant() {
+ // we remove the player from the stats
+ var player = document.forms['form_match'].elements['player_match_player_home[]'];
+ for (var i = player.length - 1; i >= 0; i--) {
+  if(player.options[i].selected) {
+   remove_stats_player(player.options[i].value,"home");
+  }
+ }
+ // we remove the player from the list
+ transfererOptions('form_match','player_match_player_home[]','match_player_list_home');
+ 
+ creerListeRemplacantRecevant();
+ creerListeJoueurRecevant();
+ 
+ if(document.forms['form_match'].elements['player_match_player_visitor[]'].length == 0 && !isset(document.getElementById("delete_substitute_visitor")) && document.forms['form_match'].elements['player_match_player_home[]'].length == 0 && !isset(document.getElementById("delete_substitute_home"))) {
+  // on reactive le champs date
+  document.forms['form_match'].elements['date'].disabled=false;  
+ }
+ if(document.forms['form_match'].elements['player_match_player_home[]'].length == 0 && !isset(document.getElementById("delete_substitute_home"))) { 
+   document.forms['form_match'].elements['club_home'].disabled=false;
+   if(isset(document.forms['form_match'].elements['team_home'])) {
+    document.forms['form_match'].elements['team_home'].disabled=false;
+   }	
+  }
+}
+
+function creerListeRemplacantRecevant() {
+ // on cree les listes pour des substitutes
+ var player_list = document.forms['form_match'].elements['match_player_list_home'];
+ var match_player_list = document.forms['form_match'].elements['player_match_player_home[]']; 
+ var player_out = document.forms['form_match'].elements['player_home_out'];
+ var player_in = document.forms['form_match'].elements['player_home_in'];
+ 
+ // remise a zero des listes
+ for(i = player_out.length - 1; i >= 0; i--) { if(player_out.options[i].value!="") player_out.options[i]=null; }
+ for(i = player_in.length - 1; i >= 0; i--) { if(player_in.options[i].value!="") player_in.options[i]=null; }
+ 
+ // creation des nouvelles listes 
+ for(i=0; i < player_list.length; i++) {
+  player_in.options[player_in.length]=new Option(player_list.options[i].text,player_list.options[i].value);
+ }
+ for(i=0; i < match_player_list.length; i++) {
+  player_out.options[player_out.length]=new Option(match_player_list.options[i].text,match_player_list.options[i].value);
+ }
+}
+
+function creerListeJoueurRecevant() {
+ // on cree la liste pour les actions du match
+ var match_player_list = document.forms['form_match'].elements['player_match_player_home[]']; 
+ var player_list = document.forms['form_match'].elements['player_list_home'];
+ 
+ // remise a zero
+ for(i = player_list.length - 1; i >= 0; i--) { if(player_list.options[i].value!="") player_list.options[i]=null; }
+ 
+ // creation de la nouvelle liste avec les players match_players et ceux qui sont player_in
+ for(i=0; i < match_player_list.length; i++) {
+  player_list.options[player_list.length]=new Option(match_player_list.options[i].text,match_player_list.options[i].value);
+ } 
+ 
+ for(i=0; i < nb_substitute_home; i++) {
+  if(isset(document.forms['form_match'].elements['player_home_in['+i+']'])) {  
+   var value = document.forms['form_match'].elements['player_home_in['+i+']'].value;
+   var text = document.forms['form_match'].elements['player_home_in_text['+i+']'].value;
+   // on verifie qu'elle n'est pas deja presente dans la liste
+   if(!verifierPresence(value,player_list)) {
+    player_list.options[player_list.length]=new Option(text,value);
+   }
+  } 
+ } 
+ 
+}
+
+var nb_substitute_home = {nb_substitute_home};
+ 
+function add_substitute_home()
+{
+ if(document.form_match.player_home_in.value=="" || document.form_match.player_home_out.value=="" || document.form_match.substitute_home_minute.value=="")
+ {
+  document.getElementById("erreur_substitute_home").innerHTML = "{L_erreur_substitute}";
+ }
+ else
+ {
+  // on recupere les valeurs du formulaire
+  var substitute_home_minute = document.form_match.substitute_home_minute.value;
+  var player_home_out = document.form_match.player_home_out.value;
+  var player_home_out_text = document.form_match.player_home_out.options[document.form_match.player_home_out.selectedIndex].text;
+  var player_home_in = document.form_match.player_home_in.value;
+  var player_home_in_text = document.form_match.player_home_in.options[document.form_match.player_home_in.selectedIndex].text;  
+
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="substitute_home"+nb_substitute_home;
+  var td0 = document.createElement("td"); td0.innerHTML=substitute_home_minute; tr.appendChild(td0);
+  var td1 = document.createElement("td"); td1.innerHTML=player_home_out_text; tr.appendChild(td1);
+  var td2 = document.createElement("td"); td2.innerHTML=player_home_in_text; tr.appendChild(td2);
+  var td3 = document.createElement("td"); tr.appendChild(td3);    
+  document.getElementById("tabsubstitute_home").tBodies[1].appendChild(tr);
+  
+  td3.innerHTML='<input type="hidden" name="substitute_home_minute['+nb_substitute_home+']" value="'+substitute_home_minute+'" /><input type="hidden" name="player_home_out['+nb_substitute_home+']" value="'+player_home_out+'" /><input type="hidden" name="player_home_out_text['+nb_substitute_home+']" value="'+player_home_out_text+'" /><input type="hidden"  id="player_home_in['+nb_substitute_home+']" name="player_home_in['+nb_substitute_home+']" value="'+player_home_in+'" /><input type="hidden" name="player_home_in_text['+nb_substitute_home+']" value="'+player_home_in_text+'" /> <a id="delete_substitute_home" href="javascript:delete_substitute_home(\''+nb_substitute_home+'\');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  nb_substitute_home += 1;
+  
+  // on ajoute le joueur entrant au stats, seulement s'il n'est pas deja present dans la liste des joueurs  
+  if(!verifierPresence(player_home_in,document.forms['form_match'].elements['player_list_home'])) {
+   add_stats_player(player_home_in,player_home_in_text,"home");
+  }
+   
+  // on editie les listes des players player_ins et outs
+  transfererOption('form_match','player_home_out','player_home_in');
+  transfererOption('form_match','player_home_in','player_home_out');
+
+  // on desactive les champs
+  document.forms['form_match'].elements['date'].disabled=true;
+  document.forms['form_match'].elements['club_home'].disabled=true;
+  if(isset(document.forms['form_match'].elements['team_home'])) { document.forms['form_match'].elements['team_home'].disabled=true; }
+  document.forms['form_match'].elements['player_match_player_home[]'].disabled=true;    
+    
+  // on reinitialise les champs du formulaire
+  document.form_match.substitute_home_minute.value="";
+  document.form_match.player_home_out.value="";
+  document.form_match.player_home_in.value="";
+  document.getElementById("erreur_substitute_home").innerHTML = "";  
+  
+ }
+}
+
+function delete_substitute_home(id) {
+ var tabid = document.getElementById("tabsubstitute_home"); 
+ var player_id = document.getElementById("player_home_in["+id+"]");
+ 
+ tabid.tBodies[1].removeChild(document.getElementById("substitute_home"+id));
+ creerListeJoueurRecevant();
+ 
+ // on supprimer le joueur des stats, s'il n'est plus joueur du tout
+ if(!verifierPresence(player_id.value,document.forms['form_match'].elements['player_list_home'])) {
+   remove_stats_player(player_id.value,"home");
+ }   
+
+ if(!isset(document.getElementById("delete_substitute_home"))) {  
+  document.forms['form_match'].elements['player_match_player_home[]'].disabled=false;
+ }
+ 
+ if(document.forms['form_match'].elements['player_match_player_home[]'].length == 0 && !isset(document.getElementById("delete_substitute_home"))) {
+  // on reactive le champs date
+  document.forms['form_match'].elements['date'].disabled=false;
+  document.forms['form_match'].elements['club_home'].disabled=false;
+  if(isset(document.forms['form_match'].elements['team_home'])) {
+   document.forms['form_match'].elements['team_home'].disabled=false;  
+  }
+ }
+}
+
+var nb_action_home = {nb_action_home};
+ 
+function add_action_home()
+{
+ 
+ if(document.form_match.action_home.value=="" || document.form_match.player_list_home.value=="")
+ {
+  document.getElementById("erreur_action_home").innerHTML = "{L_erreur_action}";
+ }
+ else
+ {
+  // on recupere les valeurs du formulaire
+  var minute = document.form_match.minute_action_home.value;
+  var action = document.form_match.action_home.value;
+  var action_text = document.form_match.action_home.options[document.form_match.action_home.selectedIndex].text;
+  var player = document.form_match.player_list_home.value;
+  var player_text = document.form_match.player_list_home.options[document.form_match.player_list_home.selectedIndex].text;  
+  var comment_action = document.form_match.comment_action_home.value;
+
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="action_home"+nb_action_home;
+  var td0 = document.createElement("td"); td0.innerHTML=minute; tr.appendChild(td0);
+  var td1 = document.createElement("td"); td1.innerHTML=action_text; tr.appendChild(td1);
+  var td2 = document.createElement("td"); td2.innerHTML=player_text; tr.appendChild(td2);
+  var td3 = document.createElement("td"); td3.innerHTML=comment_action; tr.appendChild(td3);
+  var td4 = document.createElement("td"); tr.appendChild(td4);    
+  
+  document.getElementById("tabaction_home").tBodies[1].appendChild(tr);
+  
+  
+  td4.innerHTML='<input type="hidden" name="minute_action_home['+nb_action_home+']" value="'+minute+'" /><input type="hidden" name="action_home['+nb_action_home+']" value="'+action+'" /><input type="hidden" name="action_home_text['+nb_action_home+']" value="'+action_text+'" /><input type="hidden" name="player_home['+nb_action_home+']" value="'+player+'" /><input type="hidden" name="player_home_text['+nb_action_home+']" value="'+player_text+'" /><input type="hidden" name="comment_action_home['+nb_action_home+']" value="'+comment_action+'" /><a href="javascript:delete_action_home(\'action_home'+nb_action_home+'\');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  nb_action_home += 1; 
+  
+  // on reinitialise les champs du formulaire
+  document.form_match.minute_action_home.value="";
+  document.form_match.action_home.value="";
+  document.form_match.player_list_home.value="";
+  document.form_match.comment_action_home.value="";
+  document.getElementById("erreur_action_home").innerHTML = "";
+ }
+}
+
+function delete_action_home(id) {
+ var tabid = document.getElementById("tabaction_home"); 
+ tabid.tBodies[1].removeChild(document.getElementById(id));
+}
+
+////////////////////////////
+// VISITOR 
+////////////////////////////
+function verifNbTitulaireVisiteur() {  
+ // on compte le number de player selectionne
+ var nbOption = 0;
+ var player_list = document.forms['form_match'].elements['match_player_list_visitor'];
+ var match_player_list = document.forms['form_match'].elements['player_match_player_visitor[]'];
+ for(i=0; i < player_list.length; i++) {
+  if(player_list.options[i].selected) { nbOption++; }
+ }
+ 
+ // on verifie qu il ne depasse pas le number max autorise
+ if((nbOption + match_player_list.length) >  {nb_max_match_player} ) {
+  document.getElementById("erreur_match_player_visitor").innerHTML = "{L_erreur_nb_match_player}" ;
+ }
+ else { 
+  // we add the player for the stats
+  for (var i = player_list.length - 1; i >= 0; i--) {
+   if(player_list.options[i].selected) {
+    add_stats_player(player_list.options[i].value,player_list.options[i].text,"visitor");
+   }
+  }
+  
+  transfererOptions('form_match','match_player_list_visitor','player_match_player_visitor[]'); 
+  document.getElementById("erreur_match_player_visitor").innerHTML = "";
+  // on desactive les champs date, club et team
+  document.forms['form_match'].elements['date'].disabled=true;
+  document.forms['form_match'].elements['club_visitor'].disabled=true;
+  document.forms['form_match'].elements['team_visitor'].disabled=true;
+ }
+}
+
+function deleteTitulaireVisiteur() {
+ // we remove the player from the stats
+ var player = document.forms['form_match'].elements['player_match_player_visitor[]'];
+ for (var i = player.length - 1; i >= 0; i--) {
+  if(player.options[i].selected) {
+   remove_stats_player(player.options[i].value,"visitor");
+  }
+ }
+
+ transfererOptions('form_match','player_match_player_visitor[]','match_player_list_visitor');
+ creerListeRemplacantVisiteur();
+ creerListeJoueurVisiteur();
+ 
+ if(document.forms['form_match'].elements['player_match_player_visitor[]'].length == 0 && !isset(document.getElementById("delete_substitute_visitor")) && document.forms['form_match'].elements['player_match_player_home[]'].length == 0 && !isset(document.getElementById("delete_substitute_home"))) {
+  // on reactive le champs date
+  document.forms['form_match'].elements['date'].disabled=false;  
+ }
+ 
+  if(document.forms['form_match'].elements['player_match_player_visitor[]'].length == 0 && !isset(document.getElementById("delete_substitute_visitor"))) {
+  // on reactive le champs date
+  document.forms['form_match'].elements['club_visitor'].disabled=false;
+  if(isset(document.forms['form_match'].elements['team_visitor'])) {  
+   document.forms['form_match'].elements['team_visitor'].disabled=false;  
+   }
+ }
+}
+
+function creerListeRemplacantVisiteur() {
+ // on cree les listes pour des substitutes
+ var player_list = document.forms['form_match'].elements['match_player_list_visitor'];
+ var match_player_list = document.forms['form_match'].elements['player_match_player_visitor[]']; 
+ var player_out = document.forms['form_match'].elements['player_visitor_out'];
+ var player_in = document.forms['form_match'].elements['player_visitor_in'];
+ 
+ // remise a zero des listes
+ for(i = player_out.length - 1; i >= 0; i--) { if(player_out.options[i].value!="") player_out.options[i]=null; }
+ for(i = player_in.length - 1; i >= 0; i--) { if(player_in.options[i].value!="") player_in.options[i]=null; }
+ 
+ // creation des nouvelles listes
+ for(i=0; i < player_list.length; i++) {
+  player_in.options[player_in.length]=new Option(player_list.options[i].text,player_list.options[i].value);
+ }
+  for(i=0; i < match_player_list.length; i++) {
+  player_out.options[player_out.length]=new Option(match_player_list.options[i].text,match_player_list.options[i].value);
+ }
+}
+
+function creerListeJoueurVisiteur() {
+ // on cree la listes pour les actions du match
+ var match_player_list = document.forms['form_match'].elements['player_match_player_visitor[]']; 
+ var player_list = document.forms['form_match'].elements['player_list_visitor'];
+ 
+ // remise a zero
+ for(i = player_list.length - 1; i >= 0; i--) { if(player_list.options[i].value!="") player_list.options[i]=null; }
+ 
+ // creation de la nouvelle liste avec les players match_players et ceux qui sont player_in
+ for(i=0; i < match_player_list.length; i++) {
+  player_list.options[player_list.length]=new Option(match_player_list.options[i].text,match_player_list.options[i].value);
+ } 
+ 
+ for(i=0; i < nb_substitute_visitor; i++) {
+  if(isset(document.forms['form_match'].elements['player_visitor_in['+i+']'])) {  
+   var value = document.forms['form_match'].elements['player_visitor_in['+i+']'].value;
+   var text = document.forms['form_match'].elements['player_visitor_in_text['+i+']'].value;
+   // on verifie qu'elle n'est pas deja presente dans la liste
+   if(!verifierPresence(value,player_list)) {
+    player_list.options[player_list.length]=new Option(text,value);
+   }
+  } 
+ } 
+ 
+}
+
+
+var nb_substitute_visitor = {nb_substitute_visitor};
+ 
+function add_substitute_visitor()
+{
+ if(document.form_match.player_visitor_in.value=="" || document.form_match.player_visitor_out.value=="" || document.form_match.substitute_visitor_minute.value=="")
+ {
+  document.getElementById("erreur_substitute_visitor").innerHTML = "{L_erreur_substitute}";
+ }
+ else
+ {
+  // on recupere les valeurs du formulaire
+  var substitute_visitor_minute = document.form_match.substitute_visitor_minute.value;
+  var player_visitor_out = document.form_match.player_visitor_out.value;
+  var player_visitor_out_text = document.form_match.player_visitor_out.options[document.form_match.player_visitor_out.selectedIndex].text;
+  var player_visitor_in = document.form_match.player_visitor_in.value;
+  var player_visitor_in_text = document.form_match.player_visitor_in.options[document.form_match.player_visitor_in.selectedIndex].text;  
+
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="substitute_visitor"+nb_substitute_visitor;
+  var td0 = document.createElement("td"); td0.innerHTML=substitute_visitor_minute; tr.appendChild(td0);
+  var td1 = document.createElement("td"); td1.innerHTML=player_visitor_out_text; tr.appendChild(td1);
+  var td2 = document.createElement("td"); td2.innerHTML=player_visitor_in_text; tr.appendChild(td2);
+  var td3 = document.createElement("td"); tr.appendChild(td3);    
+  document.getElementById("tabsubstitute_visitor").tBodies[1].appendChild(tr);
+  
+  td3.innerHTML='<input type="hidden" name="substitute_visitor_minute['+nb_substitute_visitor+']" value="'+substitute_visitor_minute+'" /><input type="hidden" name="player_visitor_out['+nb_substitute_visitor+']" value="'+player_visitor_out+'" /><input type="hidden" name="player_visitor_out_text['+nb_substitute_visitor+']" value="'+player_visitor_out_text+'" /><input type="hidden" id="player_visitor_in['+nb_substitute_visitor+']" name="player_visitor_in['+nb_substitute_visitor+']" value="'+player_visitor_in+'" /><input type="hidden" name="player_visitor_in_text['+nb_substitute_visitor+']" value="'+player_visitor_in_text+'" /> <a id="delete_substitute_visitor" href="javascript:delete_substitute_visitor(\''+nb_substitute_visitor+'\');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  nb_substitute_visitor += 1; 
+
+  // on ajoute le joueur entrant au stats, seulement s'il n'est pas deja present dans la liste des joueurs  
+  if(!verifierPresence(player_visitor_in,document.forms['form_match'].elements['player_list_visitor'])) {
+   add_stats_player(player_visitor_in,player_visitor_in_text,"visitor");
+  }
+    
+  // on editie les listes des players player_ins et outs
+  transfererOption('form_match','player_visitor_out','player_visitor_in');
+  transfererOption('form_match','player_visitor_in','player_visitor_out');
+  
+  // on desactive le champs date
+  document.forms['form_match'].elements['date'].disabled=true;
+  document.forms['form_match'].elements['club_visitor'].disabled=true;  
+  if(isset(document.forms['form_match'].elements['team_visitor'])) { document.forms['form_match'].elements['team_visitor'].disabled=true; }
+  document.forms['form_match'].elements['player_match_player_visitor[]'].disabled=true;  
+    
+  // on reinitialise les champs du formulaire
+  document.form_match.substitute_visitor_minute.value="";
+  document.form_match.player_visitor_out.value="";
+  document.form_match.player_visitor_in.value="";
+  document.getElementById("erreur_substitute_visitor").innerHTML = "";  
+  
+ }
+}
+
+function delete_substitute_visitor(id) {
+ var tabid = document.getElementById("tabsubstitute_visitor"); 
+ var player_id = document.getElementById("player_visitor_in["+id+"]");
+ 
+ tabid.tBodies[1].removeChild(document.getElementById("substitute_visitor"+id));
+ creerListeJoueurVisiteur();
+ 
+ // on supprimer le joueur des stats, s'il n'est plus joueur du tout
+ if(!verifierPresence(player_id.value,document.forms['form_match'].elements['player_list_visitor'])) {
+   remove_stats_player(player_id.value,"visitor");
+ } 
+
+ if(document.forms['form_match'].elements['player_match_player_visitor[]'].length == 0 && !isset(document.getElementById("delete_substitute_visitor"))) {
+  // on reactive le champs date
+  document.forms['form_match'].elements['date'].disabled=false;
+  document.forms['form_match'].elements['club_visitor'].disabled=false;
+  if(isset(document.forms['form_match'].elements['team_visitor'])) {
+   document.forms['form_match'].elements['team_visitor'].disabled=false;  
+  }
+ }
+ if(!isset(document.getElementById("delete_substitute_visitor"))) {
+  document.forms['form_match'].elements['player_match_player_visitor[]'].disabled=false;
+ }   
+}
+
+
+var nb_action_visitor = {nb_action_visitor};
+ 
+function add_action_visitor()
+{
+ 
+ if(document.form_match.action_visitor.value=="" || document.form_match.player_list_visitor.value=="")
+ {
+  document.getElementById("erreur_action_visitor").innerHTML = "{L_erreur_action}";
+ }
+ else
+ {
+  // on recupere les valeurs du formulaire
+  var minute = document.form_match.minute_action_visitor.value;
+  var action = document.form_match.action_visitor.value;
+  var action_text = document.form_match.action_visitor.options[document.form_match.action_visitor.selectedIndex].text;
+  var player = document.form_match.player_list_visitor.value;
+  var player_text = document.form_match.player_list_visitor.options[document.form_match.player_list_visitor.selectedIndex].text;  
+  var comment_action = document.form_match.comment_action_visitor.value;
+
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="action_visitor"+nb_action_visitor;
+  var td0 = document.createElement("td"); td0.innerHTML=minute; tr.appendChild(td0);
+  var td1 = document.createElement("td"); td1.innerHTML=action_text; tr.appendChild(td1);
+  var td2 = document.createElement("td"); td2.innerHTML=player_text; tr.appendChild(td2);
+  var td3 = document.createElement("td"); td3.innerHTML=comment_action; tr.appendChild(td3);
+  var td4 = document.createElement("td"); tr.appendChild(td4);    
+  
+  document.getElementById("tabaction_visitor").tBodies[1].appendChild(tr);
+  
+  
+  td4.innerHTML='<input type="hidden" name="minute_action_visitor['+nb_action_visitor+']" value="'+minute+'" /><input type="hidden" name="action_visitor['+nb_action_visitor+']" value="'+action+'" /><input type="hidden" name="action_visitor_text['+nb_action_visitor+']" value="'+action_text+'" /><input type="hidden" name="player_visitor['+nb_action_visitor+']" value="'+player+'" /><input type="hidden" name="player_visitor_text['+nb_action_visitor+']" value="'+player_text+'" /><input type="hidden" name="comment_action_visitor['+nb_action_visitor+']" value="'+comment_action+'" /><a href="javascript:delete_action_visitor(\'action_visitor'+nb_action_visitor+'\');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  nb_action_visitor += 1; 
+  
+  // on reinitialise les champs du formulaire
+  document.form_match.minute_action_visitor.value="";
+  document.form_match.action_visitor.value="";
+  document.form_match.player_list_visitor.value="";
+  document.form_match.comment_action_visitor.value="";
+  document.getElementById("erreur_action_visitor").innerHTML = "";
+ }
+}
+
+function delete_action_visitor(id) {
+ var tabid = document.getElementById("tabaction_visitor"); 
+ tabid.tBodies[1].removeChild(document.getElementById(id));
+}
+
+
+//////////////////////////
+// STATS PLAYER
+//////////////////////////
+
+// add a row to the player stats table
+function add_stats_player(id,name,type) {
+ div_stats_player = document.getElementById("stat_player_"+type+"_list"); 
+ var tr_stats = document.createElement("tr");
+ var model = document.getElementById("stats_player_model");
+ var modelcells = model.cells;
+ tr_stats.id="stats_player_"+id;
+ // we add the player name
+ var th = document.createElement("th"); 
+ var inputid =document.createElement("input");
+ var inputname =document.createElement("input");
+ inputid.type="hidden"; inputid.name="player_id[]"; inputid.value=id;
+ inputname.type="hidden"; inputname.name="player_name[]"; inputname.value=name;
+ th.innerHTML = name;
+ th.appendChild(inputid);
+ th.appendChild(inputname);
+ tr_stats.appendChild(th);
+
+ var reg = new RegExp(["playerid"],["gi"]);
+ 
+ // we add cells and their content
+ for(i=0;i<modelcells.length;i++) {
+  var td = document.createElement("td");
+  td.innerHTML= modelcells[i].innerHTML.replace(reg,id);
+  tr_stats.appendChild(td);
+ }
+ div_stats_player.appendChild(tr_stats);
+ document.getElementById("stats_player_"+type).style.display="block";
+}
+
+// remove the row corresponding to the player_id id from the stats table
+function remove_stats_player(id,type) {
+ var div_stats_player = document.getElementById("stat_player_"+type+"_list");  
+ div_stats_player.removeChild(document.getElementById("stats_player_"+id));
+ 
+ if(div_stats_player.rows.length==0) {
+   document.getElementById("stats_player_"+type).style.display="none";
+ }
+}
+
+-->
+</script>
+
+<h1>{L_title}</h1>
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a> 
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+<!-- END OPTION link_delete -->
+</div>
+
+<!-- OPTION L_message_match -->
+<p class="message">{L_message_match}</p>
+<!-- END OPTION L_message_match -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<p class="field_required">* {L_field_required}</p>
+
+<ul id="tab">
+<li class="on" id="tab_details"><a href="javascript:show_tab('details',tablist);">{L_details}</a></li>
+<li class="" id="tab_composition_home" style="display:{composition_home_display}"><a href="javascript:show_tab('composition_home',tablist);" >{L_home}</a></li>
+<li id="tab_composition_visitor" style="display:{composition_visitor_display}"><a href="javascript:show_tab('composition_visitor',tablist);">{L_visitor}</a></li>
+<li id="tab_stats"><a href="javascript:show_tab('stats',tablist);">{L_stats}</a></li>
+</ul>
+
+<form name="form_match" action="{form_action}" method="post" onsubmit="javascript:valider_form_match();">
+<div id="details">
+<h2>{L_details}</h2>
+<table>
+  <thead>
+    <tr>
+      <th class="field_required">{L_home} *</th>
+      <th>{L_score}</th>
+      <th class="field_required">{L_visitor} *</th>
+    </tr>
+  </thead>
+  <tbody>	
+    <tr>
+      <td valign="top"><select name="club_home" {club_home_disabled} OnChange="sendData('id='+this.value+'&select=team_home','{link_select_team_club}','team_home'); sendData('club='+this.form.club_home.value+'&club2='+this.form.club_home.value+'&date_start='+this.form.date.value+'&referee=1&select=referee_list','{link_select_referee}','referee'); sendData('club='+this.form.club_home.value+'&date_start='+this.form.date.value+'&select=match_player_list_home&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_home'); " onkeyup="sendData('id='+this.value+'&select=team_home','{link_select_team_club}','team_home'); sendData('date_start='+this.form.date.value+'&referee=1&select=referee_list','{link_select_referee}','referee'); sendData('club='+this.form.club_home.value+'&date_start='+this.form.date.value+'&select=match_player_list_home&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_home')">
+	  <option value="">{L_choose_club_home}</option>
+	  <!-- LOOP club_home -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP club_home -->
+	  </select>	  
+	  
+	  <div id="team_home">
+	  <!-- OPTION value_team_home -->
+	  <select name="team_home" {team_home_disabled} OnChange="
+sendData('club='+this.form.club_home.value+'&date_start='+this.form.date.value+'&select=match_player_list_home&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_home');" onkeyup="
+sendData('club='+this.form.club_home.value+'&date_start='+this.form.date.value+'&select=match_player_list_home&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_home');">
+	  <option value="">{L_choose_team_home}</option>
+	  <!-- LOOP team_home -->
+	  <option value="{id}" {selected}>{team_name}</option>
+	  <!-- END LOOP team_home -->
+	  </select>
+	  <!-- END OPTION value_team_home -->
+	  </div></td>
+      <td align="center" valign="top"><input name="score_home" type="text" id="score_home" value="{value_score_home}" size="3" maxlength="3" />        
+         - 
+         <input name="score_visitor" type="text" id="score_visitor" value="{value_score_visitor}" size="3" maxlength="3" />
+<p><a href="javascript:afficher_elt('period','');"><img src="../tpl_image/plus.gif" name="ImgDownperiod" border="0" id="ImgDownperiod" alt="+" /></a><a href="javascript:afficher_elt('period','');"><img src="../tpl_image/moins.gif" name="ImgUpperiod" id="ImgUpperiod" style="display:none" border="0"  alt="-" /></a><a href="javascript:afficher_elt('period','');"> {L_details_period}</a></p>		
+		 </td>
+      <td valign="top"><select name="club_visitor" {club_visitor_disabled} OnChange="sendData('id='+this.value+'&select=team_visitor','{link_select_team_club}','team_visitor'); sendData('club='+this.form.club_visitor.value+'&club2='+this.form.club_home.value+'&date_start='+this.form.date.value+'&referee=1&select=referee_list','{link_select_referee}','referee'); sendData('club='+this.form.club_visitor.value+'&date_start='+this.form.date.value+'&select=match_player_list_visitor&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_visitor')" onkeyup="sendData('id='+this.value+'&select=team_visitor','{link_select_team_club}','team_visitor'); sendData('date_start='+this.form.date.value+'&referee=1&select=referee_list','{link_select_referee}','referee'); sendData('club='+this.form.club_visitor.value+'&date_start='+this.form.date.value+'&select=match_player_list_visitor&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_visitor')">
+	  <option value="">{L_choose_club_visitor}</option>
+	  <!-- LOOP club_visitor -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP club_visitor -->
+	  </select>
+	  <div id="team_visitor">
+	  <!-- OPTION value_team_visitor -->
+	  <select name="team_visitor" {team_visitor_disabled} OnChange="
+sendData('club='+this.form.club_visitor.value+'&date_start='+this.form.date.value+'&select=match_player_list_visitor&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_visitor')" onkeyup="
+sendData('club='+this.form.club_visitor.value+'&date_start='+this.form.date.value+'&select=match_player_list_visitor&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_visitor')">
+	  <option value="">{L_choose_team_visitor}</option>
+	  <!-- LOOP team_visitor -->
+	  <option value="{id}" {selected}>{team_name}</option>
+	  <!-- END LOOP team_visitor -->
+	  </select>
+	  <!-- END OPTION value_team_visitor -->	  
+	  </div></td>
+    </tr>
+	<tr>
+	<td colspan="3" align="center">
+<table id="period" style="display:{match_period_display};">
+	<!-- LOOP match_period -->    
+	<tr>
+      <td align="right">{name}</td>
+	  <td align="center">
+	    <input name="period_score_home[]" type="text" size="3" value="{score_home}" /> - 
+  <input name="period_score_visitor[]" type="text" size="3" value="{score_visitor}" />  </td>
+      <td align="left">&nbsp;{name}
+        <input type="hidden" name="period[]" value="{id}" />
+	  <input type="hidden" name="period_name[]" value="{name}" />
+	  <input type="hidden" name="period_length[]" value="{duration}" />
+	  <input type="hidden" name="period_required[]" value="{required}" /></td>
+    </tr>	
+	<!-- END LOOP match_period -->
+	</table>	
+  </td>
+ </tr>
+</table>
+
+<table>
+        <tr>
+          <th class="field_required">{L_date} *</th>
+          <td><input name="date" type="text" id="date" value="{value_date}" size="10" {date_disabled} onchange="sendData('club='+this.form.club_visitor.value+'&club2='+this.form.club_home.value+'&date_start='+this.form.date.value+'&select=player_list','{link_select_player}','player'); sendData('date_start='+this.form.date.value+'&referee=1&select=referee_list','{link_select_referee}','referee'); sendData('club='+this.form.club_visitor.value+'&date_start='+this.form.date.value+'&select=match_player_list_visitor&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_visitor'); sendData('club='+this.form.club_home.value+'&date_start='+this.form.date.value+'&select=match_player_list_home&type=multiple&size={nb_max_match_player_choice}','{link_select_match_player}','match_player_list_home');" />
+            ({L_format_date})</td>
+        </tr>
+        <tr>
+          <th>{L_hour}</th>
+          <td><input name="hour" type="text" value="{value_hour}" size="8" maxlength="8" />
+            ({L_format_hour})</td>
+        </tr>
+        <tr>
+          <th>{L_competition}</th>
+          <td><select name="competition" id="competition" onchange="document.getElementById('round_details').innerHTML=''; sendData('competition='+this.form.competition.value+'&select=round','{link_select_round}','round');">
+              <option value="">{L_choose_competition}</option>
+              <!-- LOOP competition -->
+              <option value="{id}" {selected}>{name}</option>
+              <!-- END LOOP competition -->
+          </select>
+		  <a name="add_competition" href="javascript:pop('{link_form_competition}',600,480);" class="add">{L_add_competition}</a>		  
+		  <div id="round" style="display:{display_round}">
+		 <!-- LOOP round -->
+<input name="round" type="radio" value="{id}" onclick="sendData('competition='+this.form.competition.value+'&round='+this.value,'{link_select_round_details}','round_details');" {checked} />{name} 
+		<!-- END LOOP round -->
+		  </div>
+		<div id="round_details">
+<table>
+<!-- OPTION show_group -->
+<tr><td>{L_group}</td>
+<td>
+<select name="group">
+<!-- LOOP group -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP group -->
+</select></td>
+</tr>
+<!-- END OPTION show_group -->
+<!-- OPTION show_day -->
+<tr><td>{L_day}</td><td>
+<select name="day">
+<!-- LOOP day -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP day -->
+</select>
+</td>
+</tr>
+<!-- END OPTION show_day -->
+<!-- OPTION show_standings -->
+<tr><td>{L_penality}</td><td>
+<table>
+<thead>
+<tr><td>{L_home}</td><td>{L_visitor}</td></tr>
+</thead>
+<tr><td><input type="text" name="penality_home" size="3" value="{value_penality_home}" /></td><td><input type="text" name="penality_visitor" size="3" value="{value_penality_visitor}" /></td></tr>
+</table>
+</td>
+</tr>
+<!-- END OPTION show_standings -->
+</table>
+		</div>		  
+		  </td>
+        </tr>
+        <tr>
+          <th>{L_field}</th>
+          <td><select name="field" id="field">
+              <option value="">{L_choose_field}</option>
+              <!-- LOOP field -->
+              <option value="{id}" {selected}>{name}</option>
+              <!-- END LOOP field -->
+          </select>
+		  <a name="add_field" href="javascript:pop('{link_form_field}',500,400);" class="add">{L_add_field}</a>
+		  </td>
+        </tr>
+        <tr>
+          <th>{L_weather}</th>
+          <td><select name="weather">
+              <option value="">{L_choose_weather}</option>
+              <!-- LOOP weather -->
+              <option value="{id}" {selected}>{name}</option>
+              <!-- END LOOP weather -->
+          </select></td>
+        </tr>
+        <tr>
+          <th>{L_field_state}</th>
+          <td><select name="field_state">
+              <option value="">{L_choose_field_state}</option>
+              <!-- LOOP field_state -->
+              <option value="{id}" {selected}>{name}</option>
+              <!-- END LOOP field_state -->
+          </select></td>
+        </tr>
+        <tr>
+          <th>{L_spectators}</th>
+          <td><input name="spectators" type="text" id="spectators" value="{value_spectators}" size="10" /></td>
+        </tr>
+        <tr>
+          <th>{L_comment}</th>
+          <td><textarea name="comment" cols="40" rows="5" id="comment">{value_comment}</textarea></td>
+        </tr>
+  </table>
+  
+<h2>{L_match_referee}</h2>
+<div id="erreur_referee"></div>
+<table border="0" cellspacing="0" cellpadding="0" id="tabreferee">
+ <tbody>
+  <tr>
+    <td>{L_referee}</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div id="referee">
+	<select name="referee_list">
+        <option value="">{L_choose_referee}</option>
+        <!-- LOOP referee -->
+        <option value="{id}">{firstname} {name}</option>
+        <!-- END LOOP referee -->
+    </select>
+	</div></td>
+    <td><input name="add" type="button" id="add" value="{L_add_action}" onclick="javascript:add_referee();" /></td>
+  </tr>
+  </tbody>
+  <tbody>
+  <!-- LOOP match_referee -->
+  <tr id="referee{i}">
+    <td>{referee_text}</td>
+    <td>
+	<input type="hidden" name="referee[{i}]" value="{referee_id}" />	
+	<input type="hidden" name="referee_text[{i}]" value="{referee_text}" />	
+	<a href="javascript:delete_referee('referee{i}','{i}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+   </tr>
+   <!-- END LOOP match_referee -->
+   </tbody>
+</table>
+</div>
+<br />
+<div id="composition_home" style="display:none">
+	<h2>{L_composition_team} > {L_home}</h2>
+      <table border="0">
+	  <thead>
+        <tr>
+          <th>{L_match_player}</th>
+		  <th>{L_substitute}</th>
+	    </tr>
+		</thead>
+			<tr><td valign="top">
+            <div id="erreur_match_player_home"></div>
+            <table border="0" cellpadding="0">
+              <tr>
+                <td>{L_player_available}<br />
+                    <div id="match_player_list_home">
+                      <select name="match_player_list_home" size="{nb_max_match_player_choice}" multiple="multiple" id="match_player_list_home" ondblclick="javascript:verifNbTitulaireRecevant(); creerListeRemplacantRecevant(); creerListeJoueurRecevant();" >
+                        <!-- LOOP match_player_home -->
+                        <option value="{id}">{firstname} {name}</option>
+                        <!-- END LOOP match_player_home -->
+                      </select>
+                  </div></td>
+                <td><input name="add" type="button" id="add" value="&gt;&gt;" onclick="javascript:verifNbTitulaireRecevant(); creerListeRemplacantRecevant(); creerListeJoueurRecevant();" />
+                    <br />
+                    <input name="delete" type="button" id="delete" value="&lt;&lt;" onclick="javascript:deleteTitulaireRecevant();" /></td>
+                <td>{L_match_player}<br />
+                    <select name="player_match_player_home[]" size="{nb_max_match_player}" multiple="multiple" id="player_match_player_home[]" ondblclick="javascript:deleteTitulaireRecevant();" {player_match_player_home_disabled}>
+                      <!-- LOOP player_home_match_player -->
+                      <option value="{id}">{firstname} {name}</option>
+                      <!-- END LOOP player_home_match_player -->
+                  </select></td>
+              </tr>
+            </table></td>
+          <td valign="top">
+            <div id="erreur_substitute_home"></div>
+            <table border="0" cellspacing="0" cellpadding="0" id="tabsubstitute_home">
+              <tbody>
+                <tr>
+                  <td>{L_minute}</td>
+                  <td>{L_player_out}</td>
+                  <td>{L_player_in}</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><input name="substitute_home_minute" type="text" id="substitute_home_minute" size="3" maxlength="3" /></td>
+                  <td><select name="player_home_out">
+                      <option value="">{L_choose_player}</option>
+                      <!-- LOOP player_home_out -->
+                      <option value="{id}">{firstname} {name}</option>
+                      <!-- END LOOP player_home_out -->
+                  </select></td>
+                  <td><select name="player_home_in">
+                      <option value="">{L_choose_player}</option>
+                      <!-- LOOP player_home_in -->
+                      <option value="{id}">{firstname} {name}</option>
+                      <!-- END LOOP player_home_in -->
+                    </select>
+                  </td>
+                  <td><input name="add6" type="button" id="add6" value="{L_add_substitute}" onclick="javascript: add_substitute_home(); creerListeJoueurRecevant();" /></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <!-- LOOP player_home_substitute -->
+                <tr id="substitute_home{i}">
+                  <td>{minute}</td>
+                  <td>{player_out_text}</td>
+                  <td>{player_in_text}</td>
+                  <td><input type="hidden" name="substitute_home_minute[{i}]" value="{minute}" />
+                      <input type="hidden" name="player_home_out[{i}]" value="{player_out}" />
+                      <input type="hidden" name="player_home_out_text[{i}]" value="{player_out_text}" />
+                      <input type="hidden" id="player_home_in[{i}]" name="player_home_in[{i}]" value="{player_in}" />
+                      <input type="hidden" name="player_home_in_text[{i}]" value="{player_in_text}" />
+                    <a id="delete_substitute_home" href="javascript:delete_substitute_home('{i}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+                </tr>
+                <!-- END LOOP player_home_substitute -->
+              </tbody>
+            </table></td>
+        </tr>
+      </table>
+      <h2>{L_action_match} &gt; {L_home}</h2>
+      <div id="erreur_action_home"></div>
+      <table id="tabaction_home">
+        <tbody>
+          <tr>
+            <th>{L_minute}</th>
+            <th>{L_action}</th>
+            <th>{L_player}</th>
+            <th>{L_comment}</th>
+            <th>&nbsp;</th>
+          </tr>
+          <tr>
+            <td><input name="minute_action_home" type="text" id="minute_action_home" size="3" maxlength="3" /></td>
+            <td><select name="action_home" id="action_home">
+                <option value="">{L_choose_action}</option>
+                <!-- LOOP action -->
+                <option value="{id}">{name}</option>
+                <!-- END LOOP action -->
+            </select></td>
+            <td><div id="player_home">
+              <select name="player_list_home" id="player_list_home">
+                  <option value="">{L_choose_player}</option>
+                  <!-- LOOP player_home -->
+                  <option value="{id}">{text}</option>
+                  <!-- END LOOP player_home -->
+              </select>
+            </div></td>
+            <td><input name="comment_action_home" type="text" id="comment_action_home" /></td>
+            <td><input name="add" type="button" id="add" value="{L_add_action}" onclick="javascript:add_action_home();" /></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <!-- LOOP action_match_home -->
+          <tr id="action_home{i}">
+            <td>{minute_action}</td>
+            <td>{action_text}</td>
+            <td>{player_text}</td>
+            <td>{comment_action}</td>
+            <td><input type="hidden" name="minute_action_home[{i}]" value="{minute_action}" />
+                <input type="hidden" name="action_home[{i}]" value="{action}" />
+                <input type="hidden" name="action_home_text[{i}]" value="{action_text}" />
+                <input type="hidden" name="player_home[{i}]" value="{player}" />
+                <input type="hidden" name="player_home_text[{i}]" value="{player_text}" />
+                <input type="hidden" name="comment_action_home[{i}]" value="{comment_action}" />
+              <a href="javascript:delete_action_home('action_home{i}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+          </tr>
+          <!-- END LOOP action_match_home -->
+        </tbody>
+      </table>
+	  <br />
+  </div>
+
+<div id="composition_visitor" style="display:none">
+<h2>{L_composition_team} > {L_visitor}</h2>
+      <table border="0">
+	  <thead>
+        <tr>
+          <th>{L_match_player}</th>
+		  <th>{L_substitute}</th>
+	    </tr>
+		</thead>
+		  <tr><td valign="top">
+            <div id="erreur_match_player_visitor"></div>
+            <table border="0" cellpadding="0">
+              <tr>
+                <td>{L_player_available}<br />
+                    <div id="match_player_list_visitor">
+                      <select name="match_player_list_visitor" size="{nb_max_match_player_choice}" multiple="multiple" id="match_player_list_visitor" ondblclick="javascript:verifNbTitulaireVisiteur(); creerListeRemplacantVisiteur(); creerListeJoueurVisiteur();" >
+                        <!-- LOOP match_player_visitor -->
+                        <option value="{id}">{firstname} {name}</option>
+                        <!-- END LOOP match_player_visitor -->
+                      </select>
+                  </div></td>
+                <td><input name="add" type="button" id="add" value="&gt;&gt;" onclick="javascript:verifNbTitulaireVisiteur(); creerListeRemplacantVisiteur(); creerListeJoueurVisiteur();" />
+                    <br />
+                    <input name="delete" type="button" id="add" value="&lt;&lt;" onclick="javascript:deleteTitulaireVisiteur();" /></td>
+                <td>{L_match_player}<br />
+                    <select name="player_match_player_visitor[]" size="{nb_max_match_player}" multiple="multiple" id="player_match_player_visitor[]" ondblclick="javascript:deleteTitulaireVisiteur();" {player_match_player_visitor_disabled}>
+                      <!-- LOOP player_visitor_match_player -->
+                      <option value="{id}">{firstname} {name}</option>
+                      <!-- END LOOP player_visitor_match_player -->
+                  </select></td>
+              </tr>
+            </table></td>
+          <td valign="top">
+            <div id="erreur_substitute_visitor"></div>
+            <table border="0" cellspacing="0" cellpadding="0" id="tabsubstitute_visitor">
+              <tbody>
+                <tr>
+                  <td>{L_minute}</td>
+                  <td>{L_player_out}</td>
+                  <td>{L_player_in}</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><input name="substitute_visitor_minute" type="text" id="substitute_visitor_minute" size="3" maxlength="3" /></td>
+                  <td><select name="player_visitor_out">
+                      <option value="">{L_choose_player}</option>
+                      <!-- LOOP player_visitor_out -->
+                      <option value="{id}">{firstname} {name}</option>
+                      <!-- END LOOP player_visitor_out -->
+                  </select></td>
+                  <td><select name="player_visitor_in">
+                      <option value="">{L_choose_player}</option>
+                      <!-- LOOP player_visitor_in -->
+                      <option value="{id}">{firstname} {name}</option>
+                      <!-- END LOOP player_visitor_in -->
+                    </select>                  </td>
+                  <td><input name="add" type="button" id="add" value="{L_add_substitute}" onclick="javascript:add_substitute_visitor(); creerListeJoueurVisiteur();" /></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <!-- LOOP player_visitor_substitute -->
+                <tr id="substitute_visitor{i}">
+                  <td>{minute}</td>
+                  <td>{player_out_text}</td>
+                  <td>{player_in_text}</td>
+                  <td><input type="hidden" name="substitute_visitor_minute[{i}]" value="{minute}" />
+                      <input type="hidden" name="player_visitor_out[{i}]" value="{player_out}" />
+                      <input type="hidden" name="player_visitor_out_text[{i}]" value="{player_out_text}" />
+                      <input type="hidden" name="player_visitor_in[{i}]" value="{player_in}" />
+                      <input type="hidden" name="player_visitor_in_text[{i}]" value="{player_in_text}" />
+                    <a id="delete_substitute_visitor" href="javascript:delete_substitute_visitor('{i}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+                </tr>
+                <!-- END LOOP player_visitor_substitute -->
+              </tbody>
+            </table></td>
+        </tr>
+      </table>
+
+      <h2>{L_action_match} &gt; {L_visitor}</h2>
+<div id="erreur_action_visitor"></div>
+        <table id="tabaction_visitor">
+          <tbody>
+            <tr>
+              <th>{L_minute}</th>
+              <th>{L_action}</th>
+              <th>{L_player}</th>
+              <th>{L_comment}</th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr>
+              <td><input name="minute_action_visitor" type="text" id="minute_action_visitor" size="3" maxlength="3" /></td>
+              <td><select name="action_visitor" id="action_visitor">
+                  <option value="">{L_choose_action}</option>
+                  <!-- LOOP action -->
+                  <option value="{id}">{name}</option>
+                  <!-- END LOOP action -->
+              </select></td>
+              <td><div id="player_visitor">
+                  <select name="player_list_visitor" id="player_list_visitor">
+                    <option value="">{L_choose_player}</option>
+                    <!-- LOOP player_visitor -->
+                    <option value="{id}">{text}</option>
+                    <!-- END LOOP player_visitor -->
+                  </select>
+              </div></td>
+              <td><input name="comment_action_visitor" type="text" id="comment_action_visitor" /></td>
+              <td><input name="add" type="button" id="add" value="{L_add_action}" onclick="javascript:add_action_visitor();" /></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <!-- LOOP action_match_visitor -->
+            <tr id="action_visitor{i}">
+              <td>{minute_action}</td>
+              <td>{action_text}</td>
+              <td>{player_text}</td>
+              <td>{comment_action}</td>
+              <td><input type="hidden" name="minute_action_visitor[{i}]" value="{minute_action}" />
+                  <input type="hidden" name="action_visitor[{i}]" value="{action}" />
+                  <input type="hidden" name="action_visitor_text[{i}]" value="{action_text}" />
+                  <input type="hidden" name="player_visitor[{i}]" value="{player}" />
+                  <input type="hidden" name="player_visitor_text[{i}]" value="{player_text}" />
+                  <input type="hidden" name="comment_action_visitor[{i}]" value="{comment_action}" />
+                <a href="javascript:delete_action_visitor('action_visitor{i}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+            </tr>
+            <!-- END LOOP action_match_visitor -->
+          </tbody>
+        </table>
+  </div>
+  
+<div id="stats" style="display:none">
+<h2>{L_stats}</h2>
+<table>
+<thead>
+<tr>
+<td>&nbsp;</td>
+<th>{L_home}</th>
+<th>{L_visitor}</th>
+</tr>
+</thead>
+<tbody>
+	<!-- LOOP match_stats -->
+    <tr>
+      <th>{name}
+<input type="hidden" name="stats[]" value="{id}" />
+	  <input type="hidden" name="stats_name[]" value="{name}" />
+	  <input type="hidden" name="stats_abbreviation[]" value="{abbreviation}" />
+	  <input type="hidden" name="stats_formula[]" value="{formula}" />
+	  	  </th>
+      <td><input name="stats_value_home[]" type="text" size="3" value="{value_home}" /></td><td>
+  <input name="stats_value_visitor[]" type="text" size="3" value="{value_visitor}" /></td>
+    </tr>	
+	 <!-- END LOOP match_stats -->
+</tbody>	 
+</table>
+
+<table style="display:none">
+<tr id="stats_player_model">
+<!-- LOOP stats_player -->
+<td>
+<input type="hidden" name="stats_player[playerid][{i}]" value="{id}" />
+<input name="stats_player_value[playerid][{i}]" type="text" size="3" />
+</td>
+<!-- END LOOP stats_player -->
+</tr>
+</table>
+
+<div id="stats_player_home" style="display:{stats_player_home_display}">
+<h2>{L_stats_player} &gt; {L_home}</h2>
+
+<table>
+<thead>
+<tr>
+<td>&nbsp;</td>
+<!-- LOOP stats_player -->
+<th>{abbreviation}</th>
+<!-- END LOOP stats_player -->
+</tr>
+</thead>
+<tbody id="stat_player_home_list">
+	<!-- LOOP stats_player_home -->
+    <tr id="stats_player_{id}">
+      <th>{player}<input type="hidden" name="player_id[{i}]" value="{id}" />
+	  <input type="hidden" name="player_name[{i}]" value="{player}" /></th>
+	  <!-- LOOP stats_player -->
+	  <td>	  
+	  <input type="hidden" name="stats_player[{player_id}][{j}]" value="{id}" />
+	  <input name="stats_player_value[{player_id}][{j}]" type="text" size="3" value="{value}" />
+	  </td>
+	  <!-- END LOOP stats_player -->
+    </tr>	
+	 <!-- END LOOP stats_player_home -->
+</tbody>	 
+</table>
+</div>
+
+<div id="stats_player_visitor" style="display:{stats_player_visitor_display}">
+<h2>{L_stats_player} &gt; {L_visitor}</h2>
+
+<table>
+<thead>
+<tr>
+<td>&nbsp;</td>
+<!-- LOOP stats_player -->
+<th>{abbreviation}</th>
+<!-- END LOOP stats_player -->
+</tr>
+</thead>
+<tbody id="stat_player_visitor_list">
+	<!-- LOOP stats_player_visitor -->
+    <tr id="stats_player_{id}">
+      <th>{player}<input type="hidden" name="player_id[{i}]" value="{id}" />
+	  <input type="hidden" name="player_name[{i}]" value="{player}" /></th>
+	  <!-- LOOP stats_player -->
+	  <td>	  
+	  <input type="hidden" name="stats_player[{player_id}][{j}]" value="{id}" />
+	  <input name="stats_player_value[{player_id}][{j}]" type="text" size="3" value="{value}" />
+	  </td>
+	  <!-- END LOOP stats_player -->
+    </tr>	
+	 <!-- END LOOP stats_player_visitor -->
+</tbody>	 
+</table>
+</div> 
+</div>  
+  
+  
+<div class="button"><input type="hidden" name="id" value="{value_id}" />
+<input type="submit" name="submit" value="{L_valider}" />
+</div>
+</form>
+<!-- END OPTION show_form -->

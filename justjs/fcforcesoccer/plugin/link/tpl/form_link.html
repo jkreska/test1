@@ -1,0 +1,51 @@
+<h1>{L_title}
+<!-- OPTION value_name -->
+: {value_name}
+<!-- END OPTION value_name -->
+</h1>
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a> 
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+<!-- END OPTION link_delete -->
+</div>
+
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<p class="field_required">* {L_field_required}</p>
+<form name="form_link" action="{form_action}" method="post" id="formulaire">
+  <table>
+    <tr> 
+      <th class="field_required">{L_name} *</th>
+      <td><input name="name" type="text" value="{value_name}" size="40"> </td>
+    </tr>
+    <tr>
+      <th class="field_required">{L_url} *</th>
+      <td><input name="url" type="text" id="url" value="{value_url}" size="40" /></td>
+    </tr>
+    <tr>
+      <th valign="top">{L_description}</th>
+      <td><textarea name="description" cols="35" rows="4" id="description">{value_description}</textarea></td>
+    </tr>	
+  </table>
+<div id="boutons">
+<input type="hidden" name="id" value="{value_id}">
+<input type="submit" name="submit" value="{L_valider}" />
+</div>  
+</form>
+<!-- END OPTION show_form -->

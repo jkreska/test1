@@ -1,0 +1,36 @@
+<div id="forum">
+<h1>{L_forum}</h1>
+ <h2>{L_forum_list}</h2>
+            <!-- OPTION L_message_forum -->
+            <p class="message">{L_message_forum}</p>
+            <!-- END OPTION L_message_forum -->
+            <!-- LOOP forum -->
+            <p><a href="{link_forum}" class="title">{name}</a><br />
+              <span class="description">{description}</span> </p>
+            <!-- END LOOP forum -->
+			
+			 <h2>{L_dernier_topic} </h2>
+            <table width="100%" border="0" cellpadding="2" cellspacing="1" class="forum">
+              <tr> 
+                <th width="40%" class="forum">{L_topic}</th>
+                <th width="15%" class="forum">{L_member}</th>
+                <th width="15%" class="forum">{L_date}</th>
+                <th width="30%" class="forum">{L_forum}</th>
+              </tr>
+              <!-- LOOP topic -->
+              <tr class="ligne{mod}"> 
+                <td><a href="{link_view}" class="title">{title}</a> 
+                  <!-- OPTION nouveau -->
+                  <img src="../tpl_image/new.gif" width="31" height="12" border="0" align="absmiddle"> 
+                  <!-- END OPTION nouveau -->
+				 </td>
+                <td><a href="{link_view}">{login}</a></td>
+                <td>{date} {hour}</td>
+                <td><a href="{link_forum}">{forum}</a></td>
+              </tr>
+              <!-- END LOOP topic -->
+            </table>
+            <!-- OPTION L_message_topic -->
+            <p class="message">{L_message_topic}</p>
+            <!-- END OPTION L_message_topic -->
+</div>

@@ -1,0 +1,107 @@
+<h1>{L_installation} &gt; {L_step} {nb_step}</h1>
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<form id="step1" name="step1" method="post" action="{form_action}">
+  <p><strong>{L_mode} :</strong> {mode}<strong><br />
+  {L_sport} :</strong> {sport}</p>
+
+<h2>{L_information_site}</h2>
+ <table>
+    <tr>
+      <th>{L_title} : </th>
+      <td><input name="title" type="text" id="title" value="{value_title}" />        
+      <span class="details">{L_example} : {L_example_title}</span></td>
+    </tr>
+    <tr>
+      <th valign="top">{L_url} :<br />
+        ({L_info_url}) </th>
+      <td><input name="url" type="text" id="url" value="{value_url}" size="60" />
+          <br />
+       <span class="details">{L_example}: {L_example_url}</span></td>
+    </tr>
+    <tr>
+      <th valign="top">{L_root} :<br />
+        ({L_info_url}) </th>
+      <td><input name="root" type="text" id="root" value="{value_root}" size="60" />
+          <br />
+        <span class="details">{L_example} : {L_example_root}</span></td>
+    </tr>
+    <tr>
+      <th>{L_email} : </th>
+      <td><input name="email" type="text" id="email" value="{value_email}" />
+        <span class="details">{L_example} : {L_example_email}</span></td>
+    </tr>
+	<!-- OPTION aff_url_rewrite -->
+    <tr>
+      <th valign="top">{L_url_rewrite} :</th>
+      <td><input name="url_rewrite" type="radio" id="url_rewrite" value="1" {checked_url_rewrite_yes} /> {L_yes}
+	      <input name="url_rewrite" type="radio" id="url_rewrite" value="0" {checked_url_rewrite_no} /> {L_no}<br />
+	  <span class="details">{L_info_url_rewrite}</span></td>
+    </tr>
+	<!-- END OPTION aff_url_rewrite -->
+    </tr>
+  </table>
+ <h2><strong>{L_information_base}</strong></h2>
+ <table>
+    <tr>
+      <th>{L_host} :</th>
+      <td><input name="host" type="text" id="host" value="{value_host}" size="20" />
+       <span class="details">{L_example} : {L_example_host}</span></td>
+    </tr>
+    <tr>
+      <th>{L_user} :</th>
+      <td><input name="user_base" type="text" id="user_base" value="{value_user_base}" size="17" />
+        <span class="details">{L_example} : {L_example_user}</span></td>
+    </tr>
+    <tr>
+      <th>{L_mot_de_passe} :</th>
+      <td><input name="pass_base" type="password" id="pass_base" size="17*" />      </td>
+    </tr>
+    <tr>
+      <th>{L_base} :</th>
+      <td><input name="name_base" type="text" id="name_base" value="{value_name_base}" size="17" />
+        <span class="details">{L_example} : {L_example_base}</span></td>
+    </tr>
+    <tr>
+      <th>{L_prefix} :</th>
+      <td><input name="prefix" type="text" id="prefix" value="{value_prefix}" size="4" />
+        <span class="details">{L_example} : {L_example_prefix}</span></td>
+    </tr>	
+  </table>
+<h2><strong>{L_information_admin}</strong></h2>
+<table>
+    <tr>
+      <th>{L_name} :</th>
+      <td><input name="name_admin" type="text" id="name_admin" value="{value_name_admin}" /></td>
+    </tr>
+    <tr>
+      <th>{L_firstname} :</th>
+      <td><input name="firstname_admin" type="text" id="firstname_admin" value="{value_firstname_admin}" /></td>
+    </tr>
+    <tr>
+      <th>{L_login} :</th>
+      <td><input name="user_admin" type="text" id="user_admin" value="{value_user_admin}" size="17" /></td>
+    </tr>
+    <tr>
+      <th>{L_mot_de_passe} :</th>
+      <td><input name="pass_admin" type="password" id="pass_admin" size="11" /></td>
+    </tr>
+    <tr>
+      <th>{L_mot_de_passe} ({L_confirmation}) 
+        :</th>
+      <td><input name="pass_2_admin" type="password" id="pass_admin2" size="11" /></td>
+    </tr>
+  </table>
+<div id="boutons"><input name="retour" type="button" value="{L_retour}" class="retour" onclick="javascript:self.location='{link_retour}'" />
+  <input name="Submit" type="submit" value="{L_continue}" class="continue" />
+</div>
+</form>
+

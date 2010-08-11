@@ -1,0 +1,346 @@
+<script type="text/javascript">
+
+var tablist = new Array("information_site","information_base","information_mail","information_sport","content_settings","mini_standings_conf","registration");
+
+
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+function sendData(param, page, div)
+{	
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//définition de l'endroit d'affichage:	
+	if(div!='round_details') {
+	 var content = document.getElementById(div);
+	}
+	
+	if(isset(this.document.configuration.season)) {
+	 param=param+'&season='+this.document.configuration.season.value;
+	}
+	param=param+"&div="+div;
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			if(div!='round_details') {
+				content.innerHTML = XhrObj.responseText ;
+			}
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end position SendData
+</script>
+
+
+<div id="configuration">
+<h1>{L_title}</h1>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+	  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<ul id="tab">
+<li class="on" id="tab_information_site"><a href="javascript:show_tab('information_site',tablist);">{L_information_site_ab}</a></li>
+<li id="tab_information_base"><a href="javascript:show_tab('information_base',tablist);">{L_information_base_ab}</a></li>
+<li id="tab_information_mail"><a href="javascript:show_tab('information_mail',tablist);">{L_information_mail_ab}</a></li>
+<li id="tab_information_sport"><a href="javascript:show_tab('information_sport',tablist);">{L_information_sport_ab}</a></li>
+<li id="tab_content_settings"><a href="javascript:show_tab('content_settings',tablist);" >{L_content_settings_ab}</a></li>
+<li id="tab_mini_standings_conf"><a href="javascript:show_tab('mini_standings_conf',tablist);">{L_mini_standings_ab}</a></li>
+<li id="tab_registration"><a href="javascript:show_tab('registration',tablist);">{L_registration_ab}</a></li>
+</ul>
+
+<form name="configuration" action="{form_action}" method="post" id="formulaire">
+<div id="information_site">
+<h2>{L_information_site}</h2>
+<table>
+  <tr>
+    <th width="150">{L_website_status} :</th>
+    <td><input name="website_status" type="radio" id="radio" value="1" {checked_site_open} />
+      {L_site_open}<br />
+      <input name="website_status" type="radio" id="radio" value="0" {checked_site_closed} />
+      {L_site_closed}</td>
+  </tr>
+  <tr>
+    <th>{L_title_site} :</th>
+    <td><input name="title" type="text" id="title" value="{value_title}" />
+        <span class="details">{L_example} : {L_example_title}</span></td>
+  </tr>
+  <tr>
+    <th valign="top">{L_url} :<br />
+      ({L_info_url}) </th>
+    <td><input name="url" type="text" id="url" value="{value_url}" size="60" />
+        <br />
+        <span class="details">{L_example}: {L_example_url}</span></td>
+  </tr>
+  <tr>
+    <th valign="top">{L_root} :<br />
+      ({L_info_url}) </th>
+    <td><input name="root" type="text" id="root" value="{value_root}" size="60" />
+        <br />
+        <span class="details">{L_example} : {L_example_root}</span></td>
+  </tr>  
+  <!-- OPTION aff_url_rewrite -->
+  <tr>
+    <th valign="top">{L_url_rewrite} :</th>
+    <td><input name="url_rewrite" type="radio" id="url_rewrite1" value="1" {checked_url_rewrite_yes} />
+      {L_yes}
+      <input name="url_rewrite" type="radio" id="url_rewrite0" value="0" {checked_url_rewrite_no} />
+      {L_no}<br />
+      <span class="details">{L_info_url_rewrite}</span></td>
+  </tr>
+  <!-- END OPTION aff_url_rewrite -->
+  <tr>
+    <th>{L_language} :</th>
+    <td><select name="language">
+	<!-- LOOP lang -->
+	<option value="{name}" {selected}>{name}</option>
+	<!-- END LOOP lang -->	
+	</select>
+	</td>
+  </tr>
+   <tr>
+    <th>{L_template} :</th>
+    <td><select name="template">
+	<!-- LOOP template_list -->
+	<option value="{name}" {selected}>{name}</option>
+	<!-- END LOOP template_list -->	
+	</select>
+	</td>
+  </tr>
+  <tr>
+    <th>{L_avatar_folder} :</th>
+    <td><select name="avatar_folder">
+	<!-- LOOP folder_list -->
+	<option value="{name}" {selected}>{name}</option>
+	<!-- END LOOP folder_list -->	
+	</select><br />
+	<span class="details">{L_info_avatar_folder}</span>
+	</td>
+  </tr>   
+</table>
+</div>
+
+<div id="information_base" style="display:none">
+<h2>{L_information_base}</h2>
+<table>
+  <tr>
+    <th>{L_host} :</th>
+    <td><input name="host" type="text" id="host" value="{value_host}" size="20" />
+        <span class="details">{L_example} : {L_example_host}</span></td>
+  </tr>
+  <tr>
+    <th>{L_user} :</th>
+    <td><input name="user_base" type="text" id="user_base" value="{value_user_base}" size="17" />
+        <span class="details">{L_example} : {L_example_user}</span></td>
+  </tr>
+  <tr>
+    <th>{L_mot_de_passe} :</th>
+    <td><input name="pass_base" type="password" id="pass_base" value="{value_pass_base}" size="17" />    </td>
+  </tr>
+  <tr>
+    <th>{L_base} :</th>
+    <td><input name="name_base" type="text" id="name_base" value="{value_name_base}" size="17" />
+        <span class="details">{L_example} : {L_example_base}</span></td>
+  </tr>
+  <tr>
+    <th>{L_prefix} :</th>
+    <td><input name="prefix" type="text" id="prefix" value="{value_prefix}" size="4" /></td>
+  </tr>  
+</table>
+</div>
+
+<div id="information_mail" style="display:none">
+<h2>{L_information_mail}</h2>
+<table>
+  <tr>
+    <th>{L_activate_mail} :</th>
+    <td><input name="mail" type="radio" id="mail" value="1" {checked_mail_yes} /> {L_yes}
+		<input name="mail" type="radio" id="mail" value="0" {checked_mail_no} /> {L_no} <br />
+        <span class="details">{L_activate_mail_info}</span></td>
+  </tr>   
+  <tr>
+    <th>{L_email} :</th>
+    <td><input name="email" type="text" id="email" value="{value_email}" />
+        <span class="details">{L_example} : {L_example_email}</span></td>
+  </tr> 
+  <tr>
+    <th>{L_sender_name} :</th>
+    <td><input name="sender_name" type="text" id="sender_name" value="{value_sender_name}" />
+        <span class="details">{L_example} : {L_example_sender_name}</span></td>
+  </tr>
+</table>
+</div>
+
+
+<div id="information_sport" style="display:none">
+<h2>{L_information_sport}</h2>
+<table>
+  <tr>
+    <th>{L_nb_player} :</th>
+    <td><input name="nb_player" type="text" id="nb_player" value="{value_nb_player}" size="4" /></td>
+  </tr>
+</table>
+</div>
+
+<div id="content_settings" style="display:none">
+<h2>{L_content_settings}</h2>
+<h3>{L_nb_item_page}</h3>
+<table>
+  <tr>
+    <th>{L_news} :</th>
+    <td><input name="nb_news" type="text" id="nb_news" value="{value_nb_news}" size="4" /></td>
+  </tr>
+  <tr>
+    <th>{L_club} :</th>
+    <td><input name="nb_club" type="text" id="nb_club" value="{value_nb_club}" size="4" /></td>
+  </tr>
+  <tr>
+    <th>{L_team} :</th>
+    <td><input name="nb_team" type="text" id="nb_team" value="{value_nb_team}" size="4" /></td>
+  </tr>
+  <tr>
+    <th>{L_member} :</th>
+    <td><input name="nb_member" type="text" id="nb_member" value="{value_nb_member}" size="4" /></td>
+  </tr>
+  <tr>
+    <th>{L_match} :</th>
+    <td><input name="nb_match" type="text" id="nb_match" value="{value_nb_match}" size="4" /></td>
+  </tr> 
+  <tr>
+    <th>{L_competition} :</th>
+    <td><input name="nb_competition" type="text" id="nb_competition" value="{value_nb_competition}" size="4" /></td>
+  </tr>
+  <tr>
+    <th>{L_field} :</th>
+    <td><input name="nb_field" type="text" id="nb_field" value="{value_nb_field}" size="4" /></td>
+  </tr>
+  <tr>
+    <th>{L_forum_topic} :</th>
+    <td><input name="nb_forum_topic" type="text" id="nb_forum_topic" value="{value_nb_forum_topic}" size="4" /></td>
+  </tr> 
+  <tr>
+    <th>{L_forum_message} :</th>
+    <td><input name="nb_forum_message" type="text" id="nb_forum_message" value="{value_nb_forum_message}" size="4" /></td>
+  </tr>
+</table>
+
+<h3>{L_nb_item_home_page}</h3>
+<table> 
+  <tr>
+    <th>{L_news} :</th>
+    <td><input name="home_nb_news" type="text" id="home_nb_news" value="{value_home_nb_news}" size="4" /></td>
+  </tr> 
+  <tr>
+    <th>{L_match} :</th>
+    <td><input name="home_nb_match" type="text" id="home_nb_match" value="{value_home_nb_match}" size="4" /></td>
+  </tr>         
+</table>
+</div>
+
+<div id="mini_standings_conf" style="display:none">
+<h2>{L_mini_standings}</h2>
+
+<table border="0">
+  <tr>
+    <td valign="top" width="50%"><h3>{L_ms_column}</h3>
+<!-- LOOP column -->
+<input type="checkbox" name="ms_column[]" value="{abbreviation}" {checked} /> {name}<br />
+<!-- END LOOP column -->
+</td>
+	<td width="15">&nbsp;</td>
+    <td valign="top" width="50%">
+	<h3>{L_ms_default_competition}</h3>
+<table border="0">
+  <tr>
+  <th>{L_season}</th>
+    <td><select name="ms_season">
+      <option value="">{L_choose_season}</option>
+      <!-- LOOP season -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP season -->
+    </select></td>
+	</tr>
+	<tr>
+	<th>{L_competition}</th>
+    <td><input type="hidden" name="competition" />
+	<select name="ms_competition" id="ms_competition" onchange="sendData('competition='+this.form.ms_competition.value+'&select=ms_round&type=all','{link_select_round}','round');">
+      <option value="">{L_choose_competition}</option>
+      <!-- LOOP competition -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP competition -->
+    </select>
+	<div id="round" style="display:{display_round}">
+	<!-- LOOP round -->
+	<input name="ms_round" type="radio" value="{id}" {checked} />{name} 
+	<!-- END LOOP round -->
+	</div>
+</td>
+</tr>
+</table>
+<input type="checkbox" name="ms_show_form" value="1" {checked_ms_show_form} />{L_ms_show_form}
+
+<h3>{L_ms_nb_club_max}</h3>
+<input type="text" name="ms_nb_club_max" value="{value_ms_nb_club_max}" size="4" />
+
+<h3>{L_ms_show}</h3>
+<!-- LOOP ms_show -->
+<input type="radio" name="ms_show" value="{value}" {checked} /> {name}<br />
+<!-- END LOOP ms_show -->
+
+</td>
+  </tr>
+</table>
+
+
+
+</div>
+
+<div id="registration" style="display:none">
+<h2>{L_registration}</h2>
+<table>
+  <tr>
+    <th>{L_activate_registration} :</th>
+    <td><input name="registration" type="radio" id="registration" value="1" {checked_registration_yes} /> {L_yes}
+		<input name="registration" type="radio" id="registration" value="0" {checked_registration_no} /> {L_no} <br />
+        <span class="details">{L_activate_registration_info}</span></td>
+  </tr>
+  <tr>
+    <th>{L_registration_mail} :</th>
+    <td><input name="registration_mail" type="radio" id="registration_mail" value="1" {checked_registration_mail_yes} /> {L_yes}
+		<input name="registration_mail" type="radio" id="registration_mail" value="0" {checked_registration_mail_no} /> {L_no} <br />
+        <span class="details">{L_registration_mail_info}</span></td>
+  </tr>  
+</table>
+</div>
+
+
+<div class="button">
+<input type="submit" name="submit" value="{L_valider}" />
+</div>
+</form>
+
+<!-- END OPTION show_form -->
+</div>

@@ -1,0 +1,39 @@
+<h1>{L_title}</h1>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<h2>{L_add}</h2>
+<form action="{form_action}" method="post">
+<input type="text" name="name" value="{value_name}" />
+<input type="hidden" name="id" value="" />
+<input type="submit" name="submit" value="{L_valider}" />
+</form>
+
+<!-- OPTION action -->
+<h2>{L_liste}</h2>
+<table border="0" cellpadding="0" cellspacing="1">
+<!-- LOOP action -->
+<form action="{form_action}" method="post">
+  <tr> 
+    <td>
+	<input type="text" name="name" value="{name}" />
+	<input type="hidden" name="id" value="{id}" />
+	<input type="image" name="{L_edit}" src="../tpl_image/button_edit.png" onclick="submit()" alt="{L_edit}" />
+      <a href="javascript:confirmation('{link_suppression}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>
+   </td>
+  </tr>
+</form>
+<!-- END LOOP action -->
+</table>
+<!-- END OPTION action -->

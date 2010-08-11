@@ -1,0 +1,47 @@
+<h1>{L_title}</h1>
+<!-- OPTION link_add -->
+<p><a href="{link_add}" class="add">{L_add}</a></p>
+<!-- END OPTION link_add -->
+<!-- OPTION L_message_news -->
+<p class="message">{L_message_news}</p>
+<!-- END OPTION L_message_news -->
+
+<!-- LOOP news -->
+      <div class="news_list">
+          <!-- OPTION aff_status -->
+          <img src="../tpl_image/status_{status}.png" border="0" align="absmiddle" />
+          <!-- END OPTION aff_status -->
+          <a href="{link_news}" class="title" title="{news}">{news}</a>
+          <!-- OPTION link_edit -->
+          <a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a>
+          <!-- END OPTION link_edit -->
+          <!-- OPTION link_delete -->
+          <a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+          <!-- END OPTION link_delete -->
+          <p class="date">{release} {release_time}</p>
+          <span class="description">{summary}</span><br />
+        <img src="../tpl_image/fleche_noire.gif" alt="{lire}" width="9" height="9" border="0" align="absmiddle" /> <a href="{link_news}" class="details" title="{lire} : {news}">{lire}</a> </div>
+<!-- END LOOP news -->
+
+<div id="number_page">	  
+            <!-- OPTION page -->			
+            <!-- OPTION link_first_page -->
+            <a href="{link_first_page}">{L_first_page}</a> |
+          <!-- END OPTION link_first_page -->
+            <!-- OPTION link_previous_page -->
+            <a href="{link_previous_page}">{L_previous_page}</a> |
+          <!-- END OPTION link_previous_page -->
+            <!-- LOOP page -->
+            <!-- OPTION link_page -->
+            <a href="{link_page}">
+            <!-- END OPTION link_page -->
+              {page}</a> |
+          <!-- END LOOP page -->
+          <!-- OPTION link_next_page -->
+          <a href="{link_next_page}">{L_next_page}</a>
+          <!-- END OPTION link_next_page -->
+          <!-- OPTION link_last_page -->
+          | <a href="{link_last_page}">{L_last_page}</a>
+          <!-- END OPTION link_last_page -->
+          <!-- END OPTION page -->
+</div>

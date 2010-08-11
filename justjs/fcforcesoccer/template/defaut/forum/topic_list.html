@@ -1,0 +1,109 @@
+<p>{forum_description}</p>
+
+<!-- OPTION aff_form -->
+<a href="#" onclick="afficher_elt('message','');" class="add">{L_add}</a> 
+<!-- END OPTION aff_form -->
+
+<!-- OPTION L_message_add -->
+<p class="message">{L_message_add}</p>
+<!-- END OPTION L_message_add -->
+<div id="message" style="display:{form_display}">
+<h2>{L_add} 
+<a href="#" onclick="afficher_elt('message','');" title="{L_reduire}" class="hide">{L_reduire}</a></h2>
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<form name="message" method="post" action="{form_action}">
+<table>
+<tr><th>{L_title_message}*</th>
+<td><input name="title" type="text" id="title" value="{value_title}" size="50" /></td>
+</tr>
+<tr class="email">
+<th>Email</th>
+<td><input name="email" type="text" id="email" size="50" /></td>
+</tr>
+<tr><th>{L_message}*</th>
+<td><textarea name="text" cols="60" rows="20" id="text" mce_editable="true">{value_text}</textarea></td>
+</tr>
+<tr><th colspan="2">
+<input type="hidden" name="topic" value="{value_topic}" /> 
+<input type="hidden" name="id" value="{value_id}" />
+<input name="submit" type="submit" value="{L_valider}" /> 
+</th>
+</tr>
+</table>
+</form>
+</div>
+
+<h2>{L_topic_list}</h2>
+<table width="100%" border="0" cellpadding="2" cellspacing="1" id="forum">
+ <thead>
+  <tr> 
+    <th>{L_topic}</th>
+    <th>{L_member}</th>
+    <th>{L_date}</th>
+    <th>{L_lecture}</th>
+	<th>{L_reponse}</th>
+	<th>{L_dernier_message}</th>
+  </tr>
+ </thead>
+ <tbody>
+  <!-- LOOP topic -->
+  <tr class="ligne{mod}"> 
+    <td class="title">
+	  <a href="{link_topic}" class="title">{title}</a> 
+	 <!-- OPTION nouveau -->
+      <img src="../tpl_image/new.gif" border="0" align="absmiddle" />
+      <!-- END OPTION nouveau -->	  
+	</td>
+    <td class="login"><a href="{link_member}">{login}</a>
+	  <!-- OPTION L_guest -->
+	  {L_guest}
+	  <!-- END OPTION L_guest -->	
+	</td>
+    <td align="center"><span class="date">{date}</span></td>
+    <td align="center">{visit}</td>
+    <td align="center">{reponse}</td>
+    <td class="last_message"><span class="date">{L_il_y_a} {date_dernier_message} {date_dernier_message_unite}</span><br />
+      <span class="login">{login_last}
+	  <!-- OPTION L_last_guest -->
+	  {L_last_guest}
+	  <!-- END OPTION L_last_guest -->
+	  </span>
+	  </td>
+  </tr>
+  <!-- END LOOP topic -->  
+ </tbody>
+</table>
+<!-- OPTION L_message_topic -->
+<p class="message">{L_message_topic}</p>
+<!-- END OPTION L_message_topic -->
+<!-- OPTION page -->
+<div id="number_page">
+<!-- OPTION link_first_page -->
+<a href="{link_first_page}">{L_first_page}</a> | 
+<!-- END OPTION link_first_page -->
+<!-- OPTION link_previous_page -->
+<a href="{link_previous_page}">{L_previous_page}</a> | 
+<!-- END OPTION link_previous_page -->
+<!-- LOOP page -->
+<!-- OPTION link_page -->
+<a href="{link_page}"> 
+<!-- END OPTION link_page -->
+{page}</a> | 
+<!-- END LOOP page -->
+<!-- OPTION link_next_page -->
+<a href="{link_next_page}">{L_next_page}</a> 
+<!-- END OPTION link_next_page -->
+<!-- OPTION link_last_page -->
+| <a href="{link_last_page}">{L_last_page}</a> 
+<!-- END OPTION link_last_page -->
+</div>
+<!-- END OPTION page -->

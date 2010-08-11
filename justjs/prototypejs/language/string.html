@@ -1,0 +1,1283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | String class</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../language_section.html">Language</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title class">
+  <span class="type">class </span>String
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p>Extensions to the built-in <code>String</code> class.</p>
+
+<p>Prototype enhances the <code>String</code> object with a series of useful methods for
+ranging from the trivial to the complex. Tired of stripping trailing
+whitespace? Try <code><a title="String#strip (instance method)" href="../language/string.html#strip-instance_method">String#strip</a></code>. Want to replace <code>replace</code>? Have a look at
+<code><a title="String#sub (instance method)" href="../language/string.html#sub-instance_method">String#sub</a></code> and <code><a title="String#gsub (instance method)" href="../language/string.html#gsub-instance_method">String#gsub</a></code>. Need to parse a query string? We have
+<code><a title="String#toQueryParams (instance method)" href="../language/string.html#toqueryparams-instance_method">String#toQueryParams</a></code>.</p>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="String#blank (instance method)" href="../language/string.html#blank-instance_method">blank</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#camelize (instance method)" href="../language/string.html#camelize-instance_method">camelize</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#capitalize (instance method)" href="../language/string.html#capitalize-instance_method">capitalize</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#dasherize (instance method)" href="../language/string.html#dasherize-instance_method">dasherize</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#empty (instance method)" href="../language/string.html#empty-instance_method">empty</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#endsWith (instance method)" href="../language/string.html#endswith-instance_method">endsWith</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#escapeHTML (instance method)" href="../language/string.html#escapehtml-instance_method">escapeHTML</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#evalJSON (instance method)" href="../language/string.html#evaljson-instance_method">evalJSON</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#evalScripts (instance method)" href="../language/string.html#evalscripts-instance_method">evalScripts</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#extractScripts (instance method)" href="../language/string.html#extractscripts-instance_method">extractScripts</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#gsub (instance method)" href="../language/string.html#gsub-instance_method">gsub</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#include (instance method)" href="../language/string.html#include-instance_method">include</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#inspect (instance method)" href="../language/string.html#inspect-instance_method">inspect</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#interpolate (instance method)" href="../language/string.html#interpolate-instance_method">interpolate</a></code></li>
+      
+        <li><code><a class="class-method" title="String.interpret (class method)" href="../language/string.html#interpret-class_method">interpret</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#isJSON (instance method)" href="../language/string.html#isjson-instance_method">isJSON</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#parseQuery (instance method)" href="../language/string.html#parsequery-instance_method">parseQuery</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#scan (instance method)" href="../language/string.html#scan-instance_method">scan</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#startsWith (instance method)" href="../language/string.html#startswith-instance_method">startsWith</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#strip (instance method)" href="../language/string.html#strip-instance_method">strip</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#stripScripts (instance method)" href="../language/string.html#stripscripts-instance_method">stripScripts</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#stripTags (instance method)" href="../language/string.html#striptags-instance_method">stripTags</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#sub (instance method)" href="../language/string.html#sub-instance_method">sub</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#succ (instance method)" href="../language/string.html#succ-instance_method">succ</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#times (instance method)" href="../language/string.html#times-instance_method">times</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#toArray (instance method)" href="../language/string.html#toarray-instance_method">toArray</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#toJSON (instance method)" href="../language/string.html#tojson-instance_method">toJSON</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#toQueryParams (instance method)" href="../language/string.html#toqueryparams-instance_method">toQueryParams</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#truncate (instance method)" href="../language/string.html#truncate-instance_method">truncate</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#underscore (instance method)" href="../language/string.html#underscore-instance_method">underscore</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#unescapeHTML (instance method)" href="../language/string.html#unescapehtml-instance_method">unescapeHTML</a></code></li>
+      
+        <li><code><a class="instance-method" title="String#unfilterJSON (instance method)" href="../language/string.html#unfilterjson-instance_method">unfilterJSON</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="blank-instance_method">blank
+    <span class="method-permalink"><a href="../language/string.html#blank-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#blank() -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Check if the string is "blank" &mdash; either empty (length of <code>0</code>) or containing
+only whitespace.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="camelize-instance_method">camelize
+    <span class="method-permalink"><a href="../language/string.html#camelize-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#camelize() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Converts a string separated by dashes into a camelCase equivalent.
+For instance, 'foo-bar' would be converted to 'fooBar'.</p>
+
+<h4>Examples</h4>
+
+<pre><code class="javascript">'background-color'.camelize();
+// -&gt; 'backgroundColor'
+
+'-moz-binding'.camelize();
+// -&gt; 'MozBinding'
+</code></pre>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="capitalize-instance_method">capitalize
+    <span class="method-permalink"><a href="../language/string.html#capitalize-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#capitalize() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Capitalizes the first letter of a string and downcases all the others.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="dasherize-instance_method">dasherize
+    <span class="method-permalink"><a href="../language/string.html#dasherize-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#dasherize() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Replaces every instance of the underscore character ("_") by a dash ("-").</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="empty-instance_method">empty
+    <span class="method-permalink"><a href="../language/string.html#empty-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#empty() -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Checks if the string is empty.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="endswith-instance_method">endsWith
+    <span class="method-permalink"><a href="../language/string.html#endswith-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#endsWith(substring) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Checks if the string ends with <code>substring</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="escapehtml-instance_method">escapeHTML
+    <span class="method-permalink"><a href="../language/string.html#escapehtml-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#escapeHTML() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Converts HTML special characters to their entity equivalents.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="evaljson-instance_method">evalJSON
+    <span class="method-permalink"><a href="../language/string.html#evaljson-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#evalJSON([sanitize = false]) -&gt; object</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Evaluates the JSON in the string and returns the resulting object.</p>
+
+<p>If the optional <code>sanitize</code> parameter is set to <code>true</code>, the string is
+checked for possible malicious attempts; if one is detected, <code>eval</code>
+is <em>not called</em>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="evalscripts-instance_method">evalScripts
+    <span class="method-permalink"><a href="../language/string.html#evalscripts-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#evalScripts() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Evaluates the content of any script block present in the string.
+Returns an array containing the value returned by each script.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="extractscripts-instance_method">extractScripts
+    <span class="method-permalink"><a href="../language/string.html#extractscripts-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#extractScripts() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Extracts the content of any script blocks present in the string and
+returns them as an array of strings.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="gsub-instance_method">gsub
+    <span class="method-permalink"><a href="../language/string.html#gsub-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#gsub(pattern, replacement) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the string with every occurence of a given pattern replaced by either
+a regular string, the returned value of a function or a <code><a title="Template (class)" href="../language/template.html">Template</a></code> string.
+The pattern can be a string or a regular expression.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="include-instance_method">include
+    <span class="method-permalink"><a href="../language/string.html#include-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#include(substring) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Checks if the string contains <code>substring</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="inspect-instance_method">inspect
+    <span class="method-permalink"><a href="../language/string.html#inspect-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#inspect([useDoubleQuotes = false]) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a debug-oriented version of the string (i.e. wrapped in single or
+double quotes, with backslashes and quotes escaped).</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="interpolate-instance_method">interpolate
+    <span class="method-permalink"><a href="../language/string.html#interpolate-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#interpolate(object[, pattern]) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Treats the string as a <code><a title="Template (class)" href="../language/template.html">Template</a></code> and fills it with <code>object</code>'s
+properties.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="isjson-instance_method">isJSON
+    <span class="method-permalink"><a href="../language/string.html#isjson-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#isJSON() -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Check if the string is valid JSON by the use of regular expressions.
+This security method is called internally.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="parsequery-instance_method">parseQuery
+    <span class="method-permalink"><a href="../language/string.html#parsequery-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#parseQuery([separator = '&']) -&gt; <a title="Object (class)" href="../language/object.html">Object</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="String#toQueryParams (instance method)" href="../language/string.html#toqueryparams-instance_method">String#toQueryParams</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="scan-instance_method">scan
+    <span class="method-permalink"><a href="../language/string.html#scan-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#scan(pattern, iterator) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Allows iterating over every occurrence of the given pattern (which can be a
+string or a regular expression).
+Returns the original string.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="startswith-instance_method">startsWith
+    <span class="method-permalink"><a href="../language/string.html#startswith-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#startsWith(substring) -&gt; Boolean</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Checks if the string starts with <code>substring</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="strip-instance_method">strip
+    <span class="method-permalink"><a href="../language/string.html#strip-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#strip() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Strips all leading and trailing whitespace from a string.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="stripscripts-instance_method">stripScripts
+    <span class="method-permalink"><a href="../language/string.html#stripscripts-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#stripScripts() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Strips a string of anything that looks like an HTML script block.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="striptags-instance_method">stripTags
+    <span class="method-permalink"><a href="../language/string.html#striptags-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#stripTags() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Strips a string of any HTML tags.</p>
+
+<p>Note that <code>stripTags</code> will only strip HTML 4.01 tags &mdash; like <code>div</code>,
+<code>span</code>, and <code>abbr</code>. It <em>will not</em> strip namespace-prefixed tags such
+as <code>h:table</code> or <code>xsl:template</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="sub-instance_method">sub
+    <span class="method-permalink"><a href="../language/string.html#sub-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#sub(pattern, replacement[, count = 1]) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a string with the first count occurrences of pattern replaced by either
+a regular string, the returned value of a function or a <code><a title="Template (class)" href="../language/template.html">Template</a></code> string.
+The pattern can be a string or a regular expression.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="succ-instance_method">succ
+    <span class="method-permalink"><a href="../language/string.html#succ-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#succ() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Used internally by ObjectRange.
+Converts the last character of the string to the following character in
+the Unicode alphabet.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="times-instance_method">times
+    <span class="method-permalink"><a href="../language/string.html#times-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#times(count) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Concatenates the string <code>count</code> times.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="toarray-instance_method">toArray
+    <span class="method-permalink"><a href="../language/string.html#toarray-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#toArray() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Splits the string character-by-character and returns an array with
+the result.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="tojson-instance_method">toJSON
+    <span class="method-permalink"><a href="../language/string.html#tojson-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#toJSON() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a JSON string.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="toqueryparams-instance_method">toQueryParams
+    <span class="method-permalink"><a href="../language/string.html#toqueryparams-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#toQueryParams([separator = '&']) -&gt; <a title="Object (class)" href="../language/object.html">Object</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Parses a URI-like query string and returns an object composed of
+parameter/value pairs.</p>
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="String#parseQuery (instance method)" href="../language/string.html#parsequery-instance_method">String#parseQuery</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="truncate-instance_method">truncate
+    <span class="method-permalink"><a href="../language/string.html#truncate-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#truncate([length = 30[, suffix = '...']]) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Truncates a string to given <code>length</code> and appends <code>suffix</code> to it (indicating
+that it is only an excerpt).</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="underscore-instance_method">underscore
+    <span class="method-permalink"><a href="../language/string.html#underscore-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#underscore() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Converts a camelized string into a series of words separated by an
+underscore (<code>_</code>).</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="unescapehtml-instance_method">unescapeHTML
+    <span class="method-permalink"><a href="../language/string.html#unescapehtml-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#unescapeHTML() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Strips tags and converts the entity forms of special HTML characters
+to their normal form.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="unfilterjson-instance_method">unfilterJSON
+    <span class="method-permalink"><a href="../language/string.html#unfilterjson-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String#unfilterJSON([filter = Prototype.JSONFilter]) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Strips comment delimiters around Ajax JSON or JavaScript responses.
+This security method is called internally.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+    <div class="section section-klass_methods">
+      
+      <div class="section-title">
+        <h3>Class methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="interpret-class_method">interpret
+    <span class="method-permalink"><a href="../language/string.html#interpret-class_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">String.interpret(value) -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Coerces <code>value</code> into a string. Returns an empty string for <code>null</code>.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

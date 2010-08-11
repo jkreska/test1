@@ -1,0 +1,246 @@
+<h1>{L_title}</h1>
+
+<script type="text/javascript">
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+function sendData(param, page, div)
+{	
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//déendition de l'endroit d'affichage:
+	var content = document.getElementById(div);
+	
+	if(isset(this.document.form_match.team)) {
+	 param=param+'&team='+this.document.form_match.team.value;
+	}
+	if(isset(this.document.form_match.season)) {
+	 param=param+'&season='+this.document.form_match.season.value;
+	}	
+	param=param+"&div="+div;
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			content.innerHTML = XhrObj.responseText ;
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end position SendData
+</script>
+
+<form name="form_match" method="post" action="{form_action}">
+<table border="0">
+  <tr>
+   <th>{L_season}</th>
+    <td><select name="season">
+      <option value="">{L_choose_season}</option>
+      <!-- LOOP season -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP season -->
+    </select></td>
+	</tr>
+	  <tr>
+	  <th>{L_competition}</th>
+    <td><select name="competition" id="competition" onchange="document.getElementById('round_details').innerHTML=''; sendData('competition='+this.form.competition.value+'&select=round&type=all','{link_select_round}','round');">
+      <option value="">{L_choose_competition}</option>
+      <!-- LOOP competition -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP competition -->
+    </select>
+<div id="round" style="display:{display_round}">
+<!-- LOOP round -->
+<input name="round" type="radio" value="{id}" onclick="sendData('competition='+this.form.competition.value+'&round='+this.value,'{link_select_round_details}','round_details');" {checked} />{name} 
+<!-- END LOOP round -->
+	</div>
+		<div id="round_details">
+<table>
+<!-- OPTION show_group -->
+<tr><td>{L_group}</td><td>
+<!-- LOOP group -->
+<input type="checkbox" name="group[]" value="{name}" {checked} /> {name}
+<!-- END LOOP group -->
+</td>
+</tr>
+<!-- END OPTION show_group -->
+
+<!-- OPTION show_day -->
+<tr><td>{L_day}</td><td>
+<select name="day">
+<!-- LOOP day -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP day -->
+</select>
+</td>
+</tr>
+<!-- END OPTION show_day -->
+</table></div>	</td>
+    </tr>
+<tr>
+ <td></td>	
+
+    <td>
+	  <input name="valider" type="button" id="valider" onclick="javascript:this.form.submit();" value="{L_submit}" /></td>
+  </tr>
+</table>
+</form>
+
+<!-- OPTION L_message_standings -->
+<p class="message">{L_message_standings}</p>
+<!-- END OPTION L_message_standings -->
+
+<!-- OPTION show_standings -->
+
+<script language="javascript">
+// list of the tabs
+var tablist = new Array("total","home","visitor");
+</script>
+
+<ul id="tab">
+<li class="on" id="tab_total"><a href="javascript:show_tab('total',tablist);">{L_total}</a></li>
+<li id="tab_home"><a href="javascript:show_tab('home',tablist);">{L_home}</a></li>
+<li id="tab_visitor"><a href="javascript:show_tab('visitor',tablist);">{L_visitor}</a></li>
+</ul>
+
+<div id="total">
+<h2>{L_total}</h2>
+<table>
+  <thead>
+	<tr> 
+		<th>{L_place}</th>
+		<th>{L_club}</th>
+		<!-- OPTION show_point -->
+		<th>{L_point}</th>
+		<!-- END OPTION show_point -->
+		<!-- LOOP stats -->
+		<th>{abbreviation}</th>
+		<!-- END LOOP stats -->		
+	</tr>
+	</thead>
+	<tbody>
+		<!-- LOOP standings -->
+		<tr class="ligne{mod}">
+			<td>{place}</td>
+			<td>{club} 
+        <!-- OPTION team -->
+      ({team}
+      <!-- OPTION sex -->
+      <img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+      <!-- END OPTION sex -->
+      )
+      <!-- END OPTION team -->
+			</td>
+			<!-- OPTION show_point -->
+			<td>{point}</td>
+			<!-- END OPTION show_point -->
+			<!-- LOOP stats -->
+			<td>{value}</td>
+			<!-- END LOOP stats --> 
+		</tr>
+		<!-- END LOOP standings -->
+	</tbody>
+</table>
+</div>
+
+<div id="home" style="display:none">
+<h2>{L_home}</h2>
+<table>
+ <thead>
+	<tr> 
+		<th>{L_place}</th>
+		<th>{L_club}</th>
+		<!-- OPTION show_point -->
+		<th>{L_point}</th>
+		<!-- END OPTION show_point -->
+		<!-- LOOP stats -->
+		<th>{abbreviation}</th>
+		<!-- END LOOP stats -->		
+	</tr>
+	</thead>
+	<tbody>
+		<!-- LOOP standings_home -->
+		<tr class="ligne{mod}">
+			<td>{place}</td>
+			<td>{club}
+        <!-- OPTION team -->
+      ({team}
+      <!-- OPTION sex -->
+      <img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+      <!-- END OPTION sex -->
+      )
+      <!-- END OPTION team -->			
+			</td>
+			<!-- OPTION show_point -->
+			<td>{point}</td>
+			<!-- END OPTION show_point -->
+			<!-- LOOP stats -->
+			<td>{value}</td>
+			<!-- END LOOP stats --> 
+			
+		</tr>
+		<!-- END LOOP standings_home -->
+	</tbody>
+</table>
+</div>
+
+<div id="visitor" style="display:none">
+<h2>{L_visitor}</h2>
+<table>
+ <thead>
+	<tr> 
+		<th>{L_place}</th>
+		<th>{L_club}</th>
+		<!-- OPTION show_point -->
+		<th>{L_point}</th>
+		<!-- END OPTION show_point -->
+		<!-- LOOP stats -->
+		<th>{abbreviation}</th>
+		<!-- END LOOP stats -->		
+	</tr>
+	</thead>
+	<tbody>
+		<!-- LOOP standings_visitor -->
+		<tr class="ligne{mod}">
+			<td>{place}</td>
+			<td>{club}
+        <!-- OPTION team -->
+      ({team}
+      <!-- OPTION sex -->
+      <img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+      <!-- END OPTION sex -->
+      )
+      <!-- END OPTION team -->			
+	  </td>
+			<!-- OPTION show_point -->
+			<td>{point}</td>
+			<!-- END OPTION show_point -->
+			<!-- LOOP stats -->
+			<td>{value}</td>
+			<!-- END LOOP stats --> 
+			
+		</tr>
+		<!-- END LOOP standings_visitor -->
+	</tbody>
+</table>
+</div>
+
+<br />
+<table>
+<!-- LOOP stats -->
+<tr><td class="details">{abbreviation}</td><td class="details">: {name}</td></tr>
+<!-- END LOOP stats -->	
+</table>
+
+
+<!-- END OPTION show_standings -->

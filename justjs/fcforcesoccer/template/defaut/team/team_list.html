@@ -1,0 +1,93 @@
+<h1>{L_title}</h1>
+<div id="tri"><span class="trier">{L_order} :</span> <a href="javascript:trier('form_team','name','{ordre}');" title="{L_order} {L_name}">{L_name}</a>
+ <!-- OPTION aff_club -->
+| <a href="javascript:trier('form_team','club','{ordre}');" title="{L_order} {L_club}">{L_club}</a>
+<!-- END OPTION aff_club -->
+ | <a href="javascript:trier('form_team','sex','{ordre}');" title="{L_order} {L_sex}">{L_sex}</a>
+</div>
+
+<!-- OPTION link_add -->
+<p><a href="{link_add}" class="add">{L_add}</a></p>
+<!-- END OPTION link_add -->
+
+<form name="form_team" method="post" action="{form_action}">
+<!-- OPTION aff_club -->
+<table border="0">
+  <tr>
+      <td><select name="club">
+	  <option value="">{L_choose_club}</option>
+	  <!-- LOOP club -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP club -->
+	  </select>	  </td>
+    <td><input name="valider" type="button" value="{L_valider}" onclick="javascript:this.form.submit();" /></td>
+  </tr>
+</table>
+<!-- END OPTION aff_club -->
+<input name="page" type="hidden" value="" />
+<input name="tri" type="hidden" value="{value_tri}" />
+<input name="ordre" type="hidden" value="{value_ordre}" />
+</form>
+
+
+<!-- OPTION L_message_team -->
+<p class="message">{L_message_team}</p>
+<!-- END OPTION L_message_team -->
+
+<!-- OPTION team -->
+<table border="0">
+<thead>
+<tr>
+<!-- OPTION aff_club -->
+<th>{L_club}</th>
+<!-- END OPTION aff_club -->
+<th>{L_team}</th><th>{L_sex}</th><th>&nbsp;</th></tr>
+</thead>
+<tbody>
+<!-- LOOP team -->
+<tr class="ligne{mod}">
+<!-- OPTION aff_club_liste -->
+<td><a href="{link_club}">{club}</a></td>
+<!-- END OPTION aff_club_liste -->
+<td><a href="{link_view}">{team_name}</a></td>
+<td>
+<!-- OPTION sex -->
+<img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+<!-- END OPTION sex -->
+</td>
+<td>
+<a href="{link_match}" title="{L_view_match}" class="details">{L_view_match}</a>  
+          <!-- OPTION link_edit -->
+          <a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a>
+          <!-- END OPTION link_edit -->
+          <!-- OPTION link_delete -->
+          <a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+          <!-- END OPTION link_delete -->	
+</td></tr>
+<!-- END LOOP team -->
+</tbody>
+</table>
+
+<div id="number_page">
+  <!-- OPTION page -->
+  <!-- OPTION link_first_page -->
+  <a href="javascript:changer_page('form_team','{first_page}');">{L_first_page}</a> |
+  <!-- END OPTION link_first_page -->
+  <!-- OPTION link_previous_page -->
+  <a href="javascript:changer_page('form_team','{previous_page}');">{L_previous_page}</a> |
+  <!-- END OPTION link_previous_page -->
+  <!-- LOOP page -->
+  <!-- OPTION link_page -->
+  <a href="javascript:changer_page('form_team','{page}');">
+  <!-- END OPTION link_page -->
+    {page}</a> |
+  <!-- END LOOP page -->
+  <!-- OPTION link_next_page -->
+  <a href="javascript:changer_page('form_team','{next_page}');">{L_next_page}</a>
+  <!-- END OPTION link_next_page -->
+  <!-- OPTION link_last_page -->
+  | <a href="javascript:changer_page('form_team','{last_page}');">{L_last_page}</a>
+  <!-- END OPTION link_last_page -->
+  <!-- END OPTION page -->
+</div>
+<!-- END OPTION team -->

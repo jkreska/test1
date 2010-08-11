@@ -1,0 +1,113 @@
+<script type="text/javascript">
+//affiche ou rend invisible un element html
+
+function afficher_season(Num,n,Id)
+{ 	   
+   var nb_season = {nb_season};
+	// on rend invisible toutes les seasons
+	for(var i=0; i < nb_season; i++) {
+	 document.getElementById('season'+i).style.display = 'none';
+	 document.getElementById('tab'+i).className = '';
+	}
+	// on affiche la season
+	document.getElementById(Num).style.display = 'block';	
+	document.getElementById('tab'+n).className = 'on';
+}
+</script>
+
+<h1>{L_title}</h1>
+<div id="action">
+<a href="{link_match}" title="{L_view_match}"><img src="../tpl_image/fleche_noire.gif" border="0" alt="{L_view_match}" /> {L_view_match}</a>
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->
+</div>	
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+
+<!-- OPTION show_view -->
+<h2>{L_details}</h2>
+<table border="0">
+  <tr>
+    <th>{L_team_name}</th>
+    <td>{team_name}</td>
+  </tr>
+  <tr>
+    <th>{L_club}</th>
+    <td><a href="{link_club}">{club}</a></td>
+  </tr>
+  <!-- OPTION sex -->
+  <tr>
+    <th>{L_sex}</th>
+    <td><img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" /></td>
+  </tr>
+  <!-- END OPTION sex -->  
+</table>
+
+<!-- OPTION aff_composition -->
+<h2>{L_composition_team}</h2>
+<ul id="tab">
+<li class="entete">{L_choose_season}</li>
+<!-- LOOP season -->
+<li class="{class}" id="tab{i}"><a href="javascript:afficher_season('season{i}','{i}','{id}');">{abbreviation}</a></li>
+<!-- END LOOP season -->
+</ul>
+<!-- END OPTION aff_composition -->
+
+<!-- OPTION season -->
+<table width="100%" border="0">
+  <tr>
+    <td valign="top">
+	<!-- LOOP season -->
+        <div id="season{i}" style="display:{display}">		
+		  <!-- 0PTION photo -->
+		  <img src="{photo}" alt="{photo_description}" />		  
+		  <!-- END 0PTION photo -->
+		  
+		  <!-- 0PTION photo_description -->
+		  <p>{photo_description}</p> 
+		  <!-- END 0PTION photo_description -->
+		  	
+		  <!-- OPTION team_coach -->		  		  
+          <h4>{L_team_coach}</h4>
+          <div id="coach_season_{i}">
+            <!-- LOOP team_coach -->
+            <div id="coach_{i}"><a href="{link_view}">{coach_text}</a></div>
+            <!-- END LOOP team_coach -->
+          </div>
+		  <!-- END OPTION team_coach -->		  
+		  <!-- OPTION team_player -->		  
+          <h4>{L_team_player}</h4>
+          <table border="0" id="player_season_{i}">
+		  <thead>
+		  <tr>
+		  <th>{L_number}</th>
+		  <th>{L_player}</th>
+		  <th>{L_position}</th>
+		  <th>{L_captain}</th>  
+		  </tr>
+		  </thead>
+		  
+            <tbody>
+              <!-- LOOP team_player -->
+              <tr id="player_{i}" class="ligne{mod}">
+                <td>{number_player}</td>
+                <td><a href="{link_view}">{player_text}</a></td>
+                <td>{position_text}</td>
+                <td>{captain_player}</td>
+              </tr>
+              <!-- END LOOP team_player -->
+            </tbody>
+          </table>
+		  <!-- END OPTION team_player -->
+        </div>
+      <!-- END LOOP season -->
+    </td>
+  </tr>
+</table>
+<!-- END OPTION show_view -->

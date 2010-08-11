@@ -1,0 +1,1025 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prototype API documentation | Array class</title>
+	  <meta name="generator" content="PDoc" />
+	  
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/effects.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/controls.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/application.js"></script>
+<script type="text/javascript" charset="utf-8" src="../javascripts/code_highlighter.js"></script>
+
+	  <script type="text/javascript" charset="utf-8" src="../javascripts/item_index.js"></script>
+	  	  
+	  <link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/core.css" />
+<link type="text/css" rel="stylesheet" charset="utf-8" media="screen, projection" href="../stylesheets/api.css" />
+	  
+	  <script type="text/javascript">PDoc.pathPrefix = '../';</script>
+  </head>
+  <body class="">
+    <div id="page">
+      
+      <div id="masthead">
+        <div id="masthead_content">
+          <a href="http://prototypejs.org">
+            <h1 id="logo"><span class="replaced">Prototype JavaScript framework</span></h1>
+          </a>
+        </div> <!-- #masthead_content -->
+      </div> <!-- #masthead -->
+      
+      <div id="menu" class="clearfix">
+        <div class="api-box">
+          <h2><a href="#" id="api_menu_button">Menu &darr;</a></h2>
+          
+    			<ul id="api_menu" class="menu-items" style="display: none">
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="Ajax section (section)" href="../ajax_section.html">Ajax section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax (namespace)" href="../ajax/ajax.html">Ajax</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Ajax.PeriodicalUpdater (class)" href="../ajax/ajax/periodicalupdater.html">Ajax.PeriodicalUpdater</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Request (class)" href="../ajax/ajax/request.html">Ajax.Request</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Ajax.Responders (namespace)" href="../ajax/ajax/responders.html">Ajax.Responders</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Response (class)" href="../ajax/ajax/response.html">Ajax.Response</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Ajax.Updater (class)" href="../ajax/ajax/updater.html">Ajax.Updater</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li>              <div class='menu-item'>
+                <a class="section" title="DOM section (section)" href="../dom_section.html">DOM section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$ (utility)" href="../dom/dollar.html">$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$$ (utility)" href="../dom/dollardollar.html">$$</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$F (utility)" href="../dom/dollarf.html">$F</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Abstract (namespace)" href="../dom/abstract.html">Abstract</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Abstract.EventObserver (class)" href="../dom/abstract/eventobserver.html">Abstract.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Abstract.TimedObserver (class)" href="../dom/abstract/timedobserver.html">Abstract.TimedObserver</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Element (class)" href="../dom/element.html">Element</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Event (namespace)" href="../dom/event.html">Event</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Form (namespace)" href="../dom/form.html">Form</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="Form.Element (namespace)" href="../dom/form/element.html">Form.Element</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Observer (class)" href="../dom/form/observer.html">Form.Observer</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.EventObserver (class)" href="../dom/form/element/eventobserver.html">Form.Element.EventObserver</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Form.Element.Observer (class)" href="../dom/form/element/observer.html">Form.Element.Observer</a>
+              </div>
+</li></ul></li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Selector (class)" href="../dom/selector.html">Selector</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="document (namespace)" href="../dom/document.html">document</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="namespace" title="document.viewport (namespace)" href="../dom/document/viewport.html">document.viewport</a>
+              </div>
+</li></ul></li></ul></li>
+    				
+    					<li class="current-parent">              <div class='menu-item'>
+                <a class="section" title="Language section (section)" href="../language_section.html">Language section</a>
+              </div>
+<ul><li>              <div class='menu-item'>
+                <a class="utility" title="$A (utility)" href="../language/dollara.html">$A</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$H (utility)" href="../language/dollarh.html">$H</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$R (utility)" href="../language/dollarr.html">$R</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="utility" title="$w (utility)" href="../language/dollarw.html">$w</a>
+              </div>
+</li>
+<li class="current">              <div class='menu-item'>
+                <a class="class" title="Array (class)" href="../language/array.html">Array</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Class (namespace)" href="../language/class.html">Class</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Date (class)" href="../language/date.html">Date</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="mixin" title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Function (class)" href="../language/function.html">Function</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Hash (class)" href="../language/hash.html">Hash</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Number (class)" href="../language/number.html">Number</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Object (class)" href="../language/object.html">Object</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="ObjectRange (class)" href="../language/objectrange.html">ObjectRange</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="PeriodicalExecuter (class)" href="../language/periodicalexecuter.html">PeriodicalExecuter</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="RegExp (class)" href="../language/regexp.html">RegExp</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="String (class)" href="../language/string.html">String</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="class" title="Template (class)" href="../language/template.html">Template</a>
+              </div>
+</li>
+<li>              <div class='menu-item'>
+                <a class="namespace" title="Try (namespace)" href="../language/try.html">Try</a>
+              </div>
+</li></ul></li>
+    				
+    			</ul>          
+        </div> <!-- .api-box -->
+
+        <div class="search-box">
+  			  <form>
+    			  <label><span class="hidden">Search </span><input type="text" id="search" size="20" /></label>
+  			  </form>
+  			  <ul id="search_results" class="search-results menu-items" style="display:none"></ul>
+        </div> <!-- .search-box -->
+
+      </div> <!-- #menu -->
+      
+      <div id="main" class="page-content">
+        
+        
+
+
+
+<ul class="breadcrumbs clearfix">
+  <li><a href="../index.html">Home</a> &rarr;</li>
+  
+  <li><a href="../language_section.html">Language</a> &rarr;</li>
+  
+</ul>
+
+<h2 class="page-title class">
+  <span class="type">class </span>Array
+</h2>
+
+
+
+<div class="section section-description">
+  
+  <div class="section-title">
+    <h3>Description</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <p>Prototype extends all native JavaScript arrays with quite a few powerful
+methods.</p>
+
+<p>This is done in two ways:</p>
+
+<ul>
+<li>It mixes in the <code><a title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a></code> module, which brings a ton of methods in
+already.</li>
+<li>It adds quite a few extra methods, which are documented in this section.</li>
+</ul>
+
+<p>With Prototype, arrays become much, much more than the trivial objects we
+used to manipulate, limiting ourselves to using their <code>length</code> property and
+their <code>[]</code> indexing operator. They become very powerful objects that
+greatly simplify the code for 99% of the common use cases involving them.</p>
+
+<h4>Why you should stop using for...in to iterate</h4>
+
+<p>Many JavaScript authors have been misled into using the <code>for...in</code> JavaScript
+construct to loop over array elements. This kind of code just won't work
+with Prototype.</p>
+
+<p>The ECMA 262 standard, which defines ECMAScript 3rd edition, supposedly
+implemented by all major browsers including MSIE, defines ten methods
+on Array (&sect;15.4.4), including nice methods like <code>concat</code>, <code>join</code>, <code>pop</code>, and
+<code>push</code>.</p>
+
+<p>This same standard explicitly defines that the <code>for...in</code> construct (&sect;12.6.4)
+exists to enumerate the properties of the object appearing on the right side
+of the <code>in</code> keyword. Only properties specifically marked as <em>non-enumerable</em>
+are ignored by such a loop. By default, the <code>prototype</code> and <code>length</code>
+properties are so marked, which prevents you from enumerating over array
+methods when using for...in. This comfort led developers to use <code>for...in</code> as a
+shortcut for indexing loops, when it is not its actual purpose.</p>
+
+<p>However, Prototype has no way to mark the methods it adds to
+<code>Array.prototype</code> as non-enumerable. Therefore, using <code>for...in</code> on arrays
+when using Prototype will enumerate all extended methods as well, such as
+those coming from the <code><a title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a></code> module, and those Prototype puts in the
+Array namespace (listed further below).</p>
+
+<h4>What you should use instead</h4>
+
+<p>You can revert to vanilla loops:</p>
+
+<pre><code class="javascript">for (var index = 0; index &lt; myArray.length; ++index) {
+  var item = myArray[index];
+  // Your code working on item here...
+}
+</code></pre>
+
+<p>Or you can use iterators, such as Array#each:</p>
+
+<pre><code class="javascript">myArray.each(function(item) {
+  // Your code working on item here...
+});
+</code></pre>
+
+<p>The inability to use <code>for...in</code> on arrays is not much of a burden: as you'll
+see, most of what you used to loop over arrays for can be concisely done
+using the new methods provided by Array or the mixed-in <code><a title="Enumerable (mixin)" href="../language/enumerable.html">Enumerable</a></code>
+module. So manual loops should be fairly rare.</p>
+
+<h4>A note on performance</h4>
+
+<p>Should you have a very large array, using iterators with lexical closures
+(anonymous functions that you pass to the iterators and that get invoked at
+every loop iteration) in methods like Array#each &mdash; _or_ relying on
+repetitive array construction (such as uniq), may yield unsatisfactory
+performance. In such cases, you're better off writing manual indexing loops,
+but take care then to cache the length property and use the prefix <code>++</code>
+operator:</p>
+
+<pre><code class="javascript">// Custom loop with cached length property: maximum full-loop
+// performance on very large arrays!
+for (var index = 0, len = myArray.length; index &lt; len; ++index) {
+  var item = myArray[index];
+  // Your code working on item here...
+}
+</code></pre>
+  </div> <!-- .section-content -->
+  
+</div> <!--.section -->
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+  <div class="section section-utilities">
+    <div class="section-title">
+      <h3>Related utilities</h3>      
+    </div> <!-- .section-title -->
+    
+    <div class="section-content">
+      <p><code><a title="$A (utility)" href="../language/dollara.html">$A</a></code>, <code><a title="$w (utility)" href="../language/dollarw.html">$w</a></code></p>      
+    </div> <!-- .section-content -->
+  </div> <!-- .section -->
+
+
+
+<div class="section section-method-list">
+  <div class="section-title">
+    <h3>Methods</h3>
+  </div> <!-- .section-title -->
+  
+  <div class="section-content">
+    <ul class="method-list">
+      
+        <li><code><a class="instance-method" title="Array#clear (instance method)" href="../language/array.html#clear-instance_method">clear</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#clone (instance method)" href="../language/array.html#clone-instance_method">clone</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#compact (instance method)" href="../language/array.html#compact-instance_method">compact</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#first (instance method)" href="../language/array.html#first-instance_method">first</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#flatten (instance method)" href="../language/array.html#flatten-instance_method">flatten</a></code></li>
+      
+        <li><code><a class="class-method" title="Array.from (class method)" href="../language/array.html#from-class_method">from</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#indexOf (instance method)" href="../language/array.html#indexof-instance_method">indexOf</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#inspect (instance method)" href="../language/array.html#inspect-instance_method">inspect</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#intersect (instance method)" href="../language/array.html#intersect-instance_method">intersect</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#last (instance method)" href="../language/array.html#last-instance_method">last</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#lastIndexOf (instance method)" href="../language/array.html#lastindexof-instance_method">lastIndexOf</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#reverse (instance method)" href="../language/array.html#reverse-instance_method">reverse</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#size (instance method)" href="../language/array.html#size-instance_method">size</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#toArray (instance method)" href="../language/array.html#toarray-instance_method">toArray</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#toJSON (instance method)" href="../language/array.html#tojson-instance_method">toJSON</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#uniq (instance method)" href="../language/array.html#uniq-instance_method">uniq</a></code></li>
+      
+        <li><code><a class="instance-method" title="Array#without (instance method)" href="../language/array.html#without-instance_method">without</a></code></li>
+      
+    </ul>
+    
+    
+    
+    
+  </div> <!-- .section-content -->
+    
+</div> <!-- .section -->
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <div class="section section-instance_methods">
+      
+      <div class="section-title">
+        <h3>Instance methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="clear-instance_method">clear
+    <span class="method-permalink"><a href="../language/array.html#clear-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#clear() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Empties an array.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="clone-instance_method">clone
+    <span class="method-permalink"><a href="../language/array.html#clone-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#clone() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a duplicate of the array, leaving the original array intact.</p>
+  
+    
+    <p class="alias aliases">Aliased as: <code><a title="Array#toArray (instance method)" href="../language/array.html#toarray-instance_method">Array#toArray</a></code></p>
+  
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="compact-instance_method">compact
+    <span class="method-permalink"><a href="../language/array.html#compact-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#compact() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Trims the array of <code>null</code>, <code>undefined</code>, or other "falsy" values.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="first-instance_method">first
+    <span class="method-permalink"><a href="../language/array.html#first-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#first() -&gt; ?</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the array's first item.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="flatten-instance_method">flatten
+    <span class="method-permalink"><a href="../language/array.html#flatten-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#flatten() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a "flat" (one-dimensional) version of the array.</p>
+
+<p>Nested arrays are recursively injected "inline." This can prove very
+useful when handling the results of a recursive collection algorithm,
+for instance.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="indexof-instance_method">indexOf
+    <span class="method-permalink"><a href="../language/array.html#indexof-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#indexOf(item[, offset = 0]) -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>item</code>
+            
+              (<code>?</code>)
+            
+             &ndash; A value that may or may not be in the array.
+          </li>
+        
+          <li>
+            <code>offset</code>
+            
+              (<code><a title="Number (class)" href="../language/number.html">Number</a></code>)
+            
+             &ndash; The number of initial items to skip before beginning the search.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Returns the position of the first occurrence of <code>item</code> within the array &mdash; or
+<code>-1</code> if <code>item</code> doesn't exist in the array.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="inspect-instance_method">inspect
+    <span class="method-permalink"><a href="../language/array.html#inspect-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#inspect() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the debug-oriented string representation of an array.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="intersect-instance_method">intersect
+    <span class="method-permalink"><a href="../language/array.html#intersect-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#intersect(array) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>array</code>
+            
+              (<code><a title="Array (class)" href="../language/array.html">Array</a></code>)
+            
+             &ndash; A collection of values.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Returns an array containing every item that is shared between the two
+given arrays.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="last-instance_method">last
+    <span class="method-permalink"><a href="../language/array.html#last-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#last() -&gt; ?</code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the array's last item.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="lastindexof-instance_method">lastIndexOf
+    <span class="method-permalink"><a href="../language/array.html#lastindexof-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#lastIndexOf(item[, offset]) -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>item</code>
+            
+              (<code>?</code>)
+            
+             &ndash; A value that may or may not be in the array.
+          </li>
+        
+          <li>
+            <code>offset</code>
+            
+              (<code><a title="Number (class)" href="../language/number.html">Number</a></code>)
+            
+             &ndash; The number of items at the end to skip before beginning the search.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Returns the position of the last occurrence of <code>item</code> within the array &mdash; or
+<code>-1</code> if <code>item</code> doesn't exist in the array.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="reverse-instance_method">reverse
+    <span class="method-permalink"><a href="../language/array.html#reverse-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#reverse([inline = false]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>inline</code>
+            
+              (<code>Boolean</code>)
+            
+             &ndash; Whether to modify the array in place. If <code>false</code>, clones the original array first.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Returns the reversed version of the array.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="size-instance_method">size
+    <span class="method-permalink"><a href="../language/array.html#size-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#size() -&gt; <a title="Number (class)" href="../language/number.html">Number</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns the size of the array.</p>
+
+<p>This is just a local optimization of the mixed-in <code><a title="Enumerable#size (instance method)" href="../language/enumerable.html#size-instance_method">Enumerable#size</a></code>
+which avoids array cloning and uses the array's native length property.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="toarray-instance_method">toArray
+    <span class="method-permalink"><a href="../language/array.html#toarray-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#toArray() -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="Array#clone (instance method)" href="../language/array.html#clone-instance_method">Array#clone</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="tojson-instance_method">toJSON
+    <span class="method-permalink"><a href="../language/array.html#tojson-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#toJSON() -&gt; <a title="String (class)" href="../language/string.html">String</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	<p>Returns a JSON string representation of the array.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="uniq-instance_method">uniq
+    <span class="method-permalink"><a href="../language/array.html#uniq-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#uniq([sorted = false]) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>sorted</code>
+            
+              (<code>Boolean</code>)
+            
+             &ndash; Whether the array has already been sorted. If <code>true</code>, a less-costly algorithm will be used.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Produces a duplicate-free version of an array. If no duplicates are
+found, the original array is returned.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+<li class="method-description">
+  <h4 id="without-instance_method">without
+    <span class="method-permalink"><a href="../language/array.html#without-instance_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array#without(value...) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+      <ul class="argument-list">
+        
+          <li>
+            <code>value</code>
+            
+              (<code>?</code>)
+            
+             &ndash; A value to exclude.
+          </li>
+        
+      </ul> <!-- .argument-list -->
+    
+  
+  
+	<p>Produces a new version of the array that does not contain any of the
+specified values.</p>
+  
+    
+  
+    
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+    <div class="section section-klass_methods">
+      
+      <div class="section-title">
+        <h3>Class methods</h3>        
+      </div> <!-- .section-title -->
+      
+      <div class="section-content">
+        <ul class="method-details-list">
+          <li class="method-description">
+  <h4 id="from-class_method">from
+    <span class="method-permalink"><a href="../language/array.html#from-class_method">#</a></span></h4>
+
+  
+                  <pre class="syntax"><code class="ebnf">Array.from(iterable) -&gt; <a title="Array (class)" href="../language/array.html">Array</a></code></pre>
+
+  
+  
+  
+    
+  
+  
+	
+  
+    
+  
+    
+    <p class="alias alias-of">Alias of: <code><a title="$A (utility)" href="../language/dollara.html">$A</a></code></p>
+  
+  
+    
+    
+    
+  
+</li>
+
+        </ul>    
+        
+      </div> <!-- .section-content -->
+    </div> <!-- .section -->
+  
+
+  
+  
+
+  
+  
+
+
+      </div> <!-- #main -->
+      
+      <div id="footer">
+        
+        <div class="about clearfix">
+          <div class="copyright clearfix">
+            <div class="cc">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+            </div> <!-- .cc -->
+            <div class="copyright-about">
+              This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.
+            </div> <!-- .copyright-about -->
+          </div> <!-- .copyright -->
+          
+          <div class="credits">
+            <p>Generated by <a href="http://pdoc.org">PDoc</a>. Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a>.</p>
+            
+          </div> <!-- .credits -->
+          
+        </div> <!-- .about -->
+        
+        
+      </div> <!-- #footer -->
+            
+    </div> <!-- #page -->
+
+</body>
+</html>

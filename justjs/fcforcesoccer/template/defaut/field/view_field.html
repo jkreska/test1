@@ -1,0 +1,102 @@
+<div id="view_field">
+<h1>{L_title}</h1>
+<div id="action">
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->
+</div>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+
+<!-- OPTION show_view -->
+
+<h2>{L_details}</h2>
+<!-- OPTION photo -->
+<img src="{photo}" id="photo" alt="{name}" />
+<!-- END OPTION photo -->
+<table border="0">
+  <tr class="ligne1">
+    <th>{L_name}</th>
+    <td>{name}</td>
+  </tr>
+<!-- OPTION address -->  
+  <tr class="ligne1">
+    <th>{L_address}</th>
+    <td>{address}</td>
+  </tr>
+<!-- END OPTION address -->   
+<!-- OPTION post_code -->
+  <tr class="ligne1">
+    <th>{L_post_code}</th>
+    <td>{post_code}</td>
+  </tr>
+<!-- END OPTION post_code -->      
+<!-- OPTION city -->
+  <tr class="ligne1">
+    <th>{L_city}</th>
+    <td>{city}</td>
+  </tr>
+<!-- END OPTION city -->   
+<!-- OPTION number_place -->  
+  <tr class="ligne1">
+    <th>{L_number_place}</th>
+    <td>{number_place}</td>
+  </tr>
+<!-- END OPTION number_place -->
+<!-- OPTION size -->  
+  <tr class="ligne1">
+    <th>{L_size}</th>
+    <td>{size}</td>
+  </tr>
+<!-- END OPTION size -->
+</table>
+
+<h2>{L_next_matches}</h2>
+<!-- OPTION L_message_next_matches -->
+<div class="message">{L_message_next_matches}</div>
+<!-- END OPTION L_message_next_matches -->
+<!-- OPTION next_matches -->
+<table border="0">
+ <thead>
+  <tr>
+    <th>{L_date}</th>
+    <th>{L_home}</th>
+    <th>{L_visitor}</th>
+	<th>&nbsp;</th>
+    </tr>
+ </thead> 
+ <tbody>
+ <!-- LOOP next_matches --> 
+  <tr class="ligne{mod}">
+    <td>{date}</td>
+    <td align="right"><a href="{link_club_home}" class="title">{club_home}</a>
+	<!-- OPTION team_home -->
+	[ <a href="{link_team_home}">{team_home}</a>
+<!-- OPTION sex_home -->
+ <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+<!-- END OPTION sex_home -->	
+]	
+	<!-- END OPTION team_home -->
+	</td>
+    <td align="left"><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+	<!-- OPTION team_visitor -->
+	[<a href="{link_team_visitor}">{team_visitor}</a>
+<!-- OPTION sex_visitor -->
+ <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+<!-- END OPTION sex_visitor -->	
+]
+	<!-- END OPTION team_visitor -->
+	</td>
+	<td><a href="{link_view}" class="details">{L_details}</a></td>
+    </tr>
+  <!-- END LOOP next_matches -->
+  </tbody>
+</table>
+<!-- END OPTION next_matches -->
+
+<!-- END OPTION show_form -->
+</div>

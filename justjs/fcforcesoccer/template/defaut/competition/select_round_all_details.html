@@ -1,0 +1,21 @@
+<table>
+<!-- OPTION show_group -->
+<tr><td>{L_group}</td><td>
+<!-- LOOP group -->
+<input type="checkbox" name="group[]" value="{name}" {checked} /> {name}
+<!-- END LOOP group -->
+</td>
+</tr>
+<!-- END OPTION show_group -->
+
+<!-- OPTION show_day -->
+<tr><td>{L_day}</td><td>
+<select name="day">
+<!-- LOOP day -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP day -->
+</select>
+</td>
+</tr>
+<!-- END OPTION show_day -->
+</table>

@@ -1,0 +1,174 @@
+<h1>{L_title}</h1>
+
+<script type="text/javascript">
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+function sendData(param, page, div)
+{	
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	//déendition de l'endroit d'affichage:
+	var content = document.getElementById(div);
+	
+	if(isset(this.document.form_stats_player.team)) {
+	 param=param+'&team='+this.document.form_stats_player.team.value;
+	}
+	if(isset(this.document.form_stats_player.season)) {
+	 param=param+'&season='+this.document.form_stats_player.season.value;
+	}	
+	param=param+"&div="+div;
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			content.innerHTML = XhrObj.responseText ;
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	XhrObj.send(param);
+}//end position SendData
+
+function order_stats(order) {
+ var form = document.form_stats_player;
+ form.elements['order'].value=order;
+ form.submit();
+}
+</script>
+
+<form name="form_stats_player" method="post" action="{form_action}">
+<table border="0">
+  <tr>
+   <th>{L_season}</th>
+    <td><select name="season">
+      <option value="">{L_choose_season}</option>
+      <!-- LOOP season -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP season -->
+    </select></td>
+	</tr>
+	<!-- OPTION aff_club_team -->
+	<tr>	
+	 <th>{L_club}</th>
+      <td>
+	  <!-- OPTION aff_club -->
+	  <select name="club" onChange="sendData('id='+this.value+'&select=team','{link_select_team}','team');" onkeyup="sendData('id='+this.value+'&select=team','{link_select_team}','team');">
+	  <option value="">{L_choose_club}</option>
+	  <!-- LOOP club -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP club -->
+	  </select>
+	  <!-- END OPTION aff_club -->
+	  <div id="team">
+	  <!-- OPTION team -->
+	  <select name="team">
+	  <option value="">{L_choose_team}</option>
+	  <!-- LOOP team -->
+	  <option value="{id}" {selected}>{team_name}</option>
+	  <!-- END LOOP team -->
+	  </select>
+	  <!-- END OPTION team -->
+	  </div>
+	  </td>
+	 </tr>
+	 <!-- END OPTION aff_club_team --> 	
+	 <tr>
+	  <th>{L_competition}</th>
+    <td><select name="competition" id="competition" onchange="document.getElementById('round_details').innerHTML=''; sendData('competition='+this.form.competition.value+'&select=round&type=all','{link_select_round}','round');">
+      <option value="">{L_choose_competition}</option>
+      <!-- LOOP competition -->
+      <option value="{id}" {selected}>{name}</option>
+      <!-- END LOOP competition -->
+    </select>
+<div id="round" style="display:{display_round}">
+<!-- LOOP round -->
+<input name="round" type="radio" value="{id}" onclick="sendData('competition='+this.form.competition.value+'&round='+this.value,'{link_select_round_details}','round_details');" {checked} />{name} 
+<!-- END LOOP round -->
+	</div>
+		<div id="round_details">
+<table>
+<!-- OPTION show_group -->
+<tr><td>{L_group}</td><td>
+<!-- LOOP group -->
+<input type="checkbox" name="group[]" value="{name}" {checked} /> {name}
+<!-- END LOOP group -->
+</td>
+</tr>
+<!-- END OPTION show_group -->
+
+<!-- OPTION show_day -->
+<tr><td>{L_day}</td><td>
+<select name="day">
+<!-- LOOP day -->
+<option value="{name}" {selected}>{name}</option>
+<!-- END LOOP day -->
+</select>
+</td>
+</tr>
+<!-- END OPTION show_day -->
+</table></div>	</td>
+    </tr>
+<tr>
+ <td></td>	
+
+    <td>
+	  <input type="hidden" name="order" value="{value_order}" />
+	  <input name="valider" type="button" id="valider" onclick="javascript:this.form.submit();" value="{L_submit}" /></td>
+  </tr>
+</table>
+</form>
+
+<!-- OPTION L_message_stats_player -->
+<p class="message">{L_message_stats_player}</p>
+<!-- END OPTION L_message_stats_player -->
+
+<!-- OPTION show_stats_player -->
+
+<div id="total">
+<table>
+	<thead>
+	 <tr> 
+		<th>{L_place}</th>
+		<th>{L_player}</th>
+		<th>{L_club}</th>
+		<!-- LOOP stats -->
+		<th>{abbreviation} <a href="#" onclick="javascript:order_stats('{code}');"><img src="../tpl_image/sort_desc.gif" border="0" /></a></th>
+		<!-- END LOOP stats -->		
+	 </tr>
+	</thead>
+	<tbody>
+		<!-- LOOP stats_player -->
+		<tr class="ligne{mod}">
+			<td>{place}</td>
+			<td>{firstname} {lastname}</td>
+			<td>{club} [{team}
+			  <!-- OPTION sex_home -->
+  <img src="../tpl_image/sex_{sex_abbreviation}.gif" alt="{sex}" />
+  <!-- END OPTION sex_home -->
+  ]</td>
+			<!-- LOOP stats -->
+			<td>{value}</td>
+			<!-- END LOOP stats --> 
+		</tr>
+		<!-- END LOOP stats_player -->
+	</tbody>
+</table>
+</div>
+
+<br />
+<table>
+<!-- LOOP stats -->
+<tr><td class="details">{abbreviation}</td><td class="details">: {name}</td></tr>
+<!-- END LOOP stats -->	
+</table>
+<!-- END OPTION show_stats_player -->

@@ -1,0 +1,979 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<title>
+  macosxhints.com - 10.5: Virtualize machine-specific 10.4 in Fusion 2
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="SHORTCUT ICON" href="http://www.macosxhints.com/favicon.ico">
+<!--
+<meta http-equiv="Pragma" content="no-cache">
+-->
+<link rel="stylesheet" type="text/css" href="tigerVM_files/style.css" title="hints1">
+<!--note: removed feed_url variable-->
+<link rel="alternate" type="application/rss+xml" title="RSS Feed: MacOSXHints.com" href="http://www.macosxhints.com/backend/osxhints.rss">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed: The macosxhints.com New Comments Feed" href="http://www.macosxhints.com/backend/commentfeed.rss">
+<link rel="stylesheet" type="text/css" href="tigerVM_files/rating.css" title="rating">
+
+
+<script type="text/javascript">
+    function delconfirm()
+    {
+        if (confirm("Do you really want to delete this item?"))
+        {
+          return true;
+        } else {
+          return false;
+        }
+    }
+</script>
+</head><body class="sitebody" dir="ltr">
+
+
+<!-- Start Quantcast tag -->
+<script type="text/javascript" src="tigerVM_files/quant.js"></script>
+<script type="text/javascript">
+_qoptions = {
+  tags:"macworld"
+};
+_qacct="p-25K88fxDSEn9Y";quantserve();</script>
+<noscript>
+<a href="http://www.quantcast.com/p-25K88fxDSEn9Y" target="_blank"><img
+src="http://pixel.quantserve.com/pixel/p-25K88fxDSEn9Y.gif?tags=macworld"
+style="display: none" border="0" height="1" width="1"
+alt="Quantcast"/></a></noscript>
+<!-- End Quantcast tag -->
+
+ 
+  
+
+
+
+<!--WEBSIDESTORY CODE HBX1.0 (Universal)-->
+<!--COPYRIGHT 1997-2004 WEBSIDESTORY,INC. ALL RIGHTS RESERVED. U.S.PATENT No.6,393,479B1 & 6,766,370. INFO:http://websidestory.com/privacy-->
+<script language="javascript">
+var _hbEC=0,_hbE=new Array;function _hbEvent(a,b){b=_hbE[_hbEC++]=new Object();b._N=a;b._C=0;return b;}
+var hbx=_hbEvent("pv");hbx.vpc="HBX0103u";hbx.gn="a.macworld.com";
+
+//BEGIN EDITABLE SECTION
+//CONFIGURATION VARIABLES
+hbx.acct="DM541031KDRB68EN3;DM550531ODMS";//ACCOUNT NUMBER(S)
+hbx.pn="PUT+PAGE+NAME+HERE";//PAGE NAME(S)
+hbx.mlc="CONTENT+CATEGORY";//MULTI-LEVEL CONTENT CATEGORY
+hbx.pndef="title";//DEFAULT PAGE NAME
+hbx.ctdef="full";//DEFAULT CONTENT CATEGORY
+
+//OPTIONAL PAGE VARIABLES
+//ACTION SETTINGS
+hbx.fv="";//FORM VALIDATION MINIMUM ELEMENTS OR SUBMIT FUNCTION NAME
+hbx.lt="auto";//LINK TRACKING
+hbx.dlf="n";//DOWNLOAD FILTER
+hbx.dft="n";//DOWNLOAD FILE NAMING
+hbx.elf="n";//EXIT LINK FILTER
+
+//SEGMENTS AND FUNNELS
+hbx.seg="";//VISITOR SEGMENTATION
+hbx.fnl="";//FUNNELS
+
+//CAMPAIGNS
+hbx.cmp="";//CAMPAIGN ID
+hbx.cmpn="";//CAMPAIGN ID IN QUERY
+hbx.dcmp="";//DYNAMIC CAMPAIGN ID
+hbx.dcmpn="";//DYNAMIC CAMPAIGN ID IN QUERY
+hbx.dcmpe="";//DYNAMIC CAMPAIGN EXPIRATION
+hbx.dcmpre="";//DYNAMIC CAMPAIGN RESPONSE EXPIRATION
+hbx.hra="";//RESPONSE ATTRIBUTE
+hbx.hqsr="";//RESPONSE ATTRIBUTE IN REFERRAL QUERY
+hbx.hqsp="";//RESPONSE ATTRIBUTE IN QUERY
+hbx.hlt="";//LEAD TRACKING
+hbx.hla="";//LEAD ATTRIBUTE
+hbx.gp="";//CAMPAIGN GOAL
+hbx.gpn="";//CAMPAIGN GOAL IN QUERY
+hbx.hcn="";//CONVERSION ATTRIBUTE
+hbx.hcv="";//CONVERSION VALUE
+hbx.cp="null";//LEGACY CAMPAIGN
+hbx.cpd="";//CAMPAIGN DOMAIN
+
+//CUSTOM VARIABLES
+hbx.ci="";//CUSTOMER ID
+hbx.hc1="";//CUSTOM 1
+hbx.hc2="";//CUSTOM 2
+hbx.hc3="";//CUSTOM 3
+hbx.hc4="";//CUSTOM 4
+hbx.hrf="";//CUSTOM REFERRER
+hbx.pec="";//ERROR CODES
+
+//INSERT CUSTOM EVENTS
+//END EDITABLE SECTION
+
+//REQUIRED SECTION. CHANGE "YOURSERVER" TO VALID LOCATION ON YOUR WEB SERVER (HTTPS IF FROM SECURE SERVER)
+</script><script language="javascript1.1" defer="defer" src="tigerVM_files/hbx.js"></script>
+<!--END WEBSIDESTORY CODE--><table class="header-envelope" align="center" border="0" cellpadding="0" cellspacing="0" width="99%">
+  <tbody><tr>
+	<td style="background-image: url(http://www.macosxhints.com/layout/hints1/theme-images/hdrBkg5.gif); background-repeat: repeat-x;" colspan="2" height="103" width="100%">
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td colspan="2">
+				<div id="topNav">
+					<ul>
+						<li id="macBack"><a href="http://www.macworld.com/">&nbsp;</a></li>
+						<!--<li><a href="http://www.macworld.com/products/mac.html">Mac</a></li>
+						<li><a href="http://www.macworld.com/products/iphone.html">iPhone</a></li>
+
+						<li><a href="http://www.macworld.com/products/ipod.html">iPod</a></li>
+						<li><a href="http://www.macworld.com/browse.html">News</a></li>
+						<li><a href="http://www.macworld.com/howto.html">Help and Tips</a></li>
+						<li><a href="http://macworld.pricegrabber.com/">Shop and Compare</a></li>
+						<li><a href="http://www.macworld.com/weblogs.html">Blogs</a></li>
+						<li><a href="http://forums.macworld.com/">Community</a></li>-->
+
+					</ul>
+				</div> 
+				<div id="topNavOther">
+					<ul>
+						<li id="otherHdr">More Mac Sites:</li>
+						<li id="otherFirst"><a href="http://www.macworld.com/">Macworld</a></li>
+						<li><a href="http://www.macuser.com/">MacUser</a></li>
+						<li><a href="http://iphone.macworld.com/">iPhone Central</a></li>
+
+					</ul>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td align="left"><a href="http://www.macosxhints.com/"><img id="macLogo" src="tigerVM_files/newLogo6.png" border="none"></a></td>
+				<td align="right">
+					<table class="potw" border="0" cellpadding="0" cellspacing="1">
+						<tbody><tr>
+
+							<td class="potw-text" align="center">            <b style="color: rgb(0, 0, 51);">Pick of the Week - Oct 27
+</b><small>[<a href="http://www.macosxhints.com/picktable.php">Show all picks</a>]</small><br><a href="http://www.macosxhints.com/article.php?story=20081028074446390"><b>Witch 2
+</b></a> - Switch between open windows</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+
+		</tbody></table>
+	</td>
+</tr>
+  <tr>
+    <td class="header-navigation" align="left" valign="middle">
+      <span class="header-special"><a href="http://www.macosxhints.com/submit.php?type=story">Submit Hint</a></span>
+       • 
+      <span class="header-special"><a href="http://www.macosxhints.com/search.php">Search</a></span>
+       •
+      <span class="header-special"><a href="http://forums.macosxhints.com/">The Forums</a></span>
+       •
+      <a href="http://www.macosxhints.com/links/index.php">Links</a>
+       • 
+      <a href="http://www.macosxhints.com/stats.php">Stats</a>
+       • 
+      <a href="http://www.macosxhints.com/polls/index.php">Polls</a>
+       •        
+      <a href="http://www.macosxhints.com/hintsfaq">FAQ</a>
+       •  
+      <a href="http://www.macosxhints.com/headlines.php">Headlines</a>
+       •
+      <a href="http://www.macosxhints.com/staticpages/index.php?page=rssinfo.html">RSS</a>
+    </td>
+    <td class="header-navigation" align="right" valign="middle">
+        <!--Over php echo hintcount(); hints served!-->
+        10,000+ hints and counting!
+    </td>
+  </tr> 
+</tbody></table>
+
+<table class="header-envelope" align="center" border="0" cellpadding="0" cellspacing="0" width="99%">
+  <tbody><tr>
+    <td width="100%">
+      <table style="margin-top: 10px; margin-bottom: 15px;" align="center" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td>
+            <img src="tigerVM_files/adtag.gif" border="0">
+          </td>
+          <td align="center">
+            <center>
+
+<!-- begin ad tag  (tile=2) -->
+<iframe src="tigerVM_files/a.html" marginwidth="0" marginheight="0" hspace="0" vspace="0" bordercolor="#000000" frameborder="0" height="90" scrolling="no" width="728">
+&lt;script language="JavaScript"
+src="http://ad.doubleclick.net/adj/mcw.osx.general/;kw=;sect=;art=;pos=leader;tile=2;sz=728x90;abr=!ie;ord=1225885694?"
+type="text/javascript"&gt;&lt;/script&gt;
+&lt;noscript&gt;&lt;a
+href="http://ad.doubleclick.net/jump/mcw.osx.general/;kw=;sect=;art=;pos=leader;tile=2;sz=728x90;abr=!ie4;abr=!ie5;abr=!ie6;ord=1225885694?"
+target="_blank"&gt;&lt;img
+src="http://ad.doubleclick.net/ad/mcw.osx.general/;kw=;sect=;art=;pos=leader;tile=2;sz=728x90;abr=!ie4;abr=!ie5;abr=!ie6;ord=1225885694?"
+width="728" height="90" border="0"
+alt=""&gt;&lt;/a&gt;&lt;/noscript&gt;
+</iframe>
+
+<!-- End ad tag -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </center>
+          </td>
+          <td>
+            <img src="tigerVM_files/adtag.gif" border="0">
+          </td>
+        </tr>
+      </tbody></table>
+      <table cellpadding="0" cellspacing="0" width="100%">
+        
+        <tbody><tr>
+          <td style="background-image: url(http://www.macosxhints.com/layout/hints1/theme-images/shadow.png); background-repeat: repeat-x;" colspan="2" height="7">
+          </td>
+        </tr>
+      </tbody></table>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <!--left_blocks (put curlies in to activate)-->
+          <td class="story-container" valign="top" width="100%">
+          <!-- START OF CONTENT AREA -->
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <!-- STORY TITLE start -->
+            <tbody><tr>
+            
+              <td class="story-title" style="white-space: nowrap; padding-right: 5px; padding-left: 5px;" width="100%">10.5: Virtualize machine-specific 10.4 in Fusion 2
+                <br><span class="story-information">Mon, Nov  3 2008 at  7:30AM PST • Submitted by  <a class="storybyline" href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=53986">
+                Sven G</a>
+                </span>           
+              </td>
+              
+              <td class="story-title" style="" width="10">
+                  <a href="http://www.macosxhints.com/index.php?topic=apps" rel="category tag"><img src="tigerVM_files/t_apps.png" alt="Apps" title="Apps" align="right" border="0"></a>
+              </td>
+            </tr>
+            <!-- STORY TITLE  end   -->
+            
+            <!-- STORY        start -->
+            <tr>
+              <td class="story-box" colspan="2">
+                <table border="0" cellpadding="3" cellspacing="0" width="100%">
+                 <tbody><tr>
+                    <td>
+                      <div class="story"><img src="tigerVM_files/105only.png" style="margin-right: 10px;" align="left">First
+of all, this hint (which is based on some very good previous hints
+appearing here) is only of academic interest, almost as a proof of
+concept, for now (at least until Apple will change their licensing
+terms). So, let's take it only as an -- I hope interesting -- exercise
+to understand things a little better.
+<br><br>So, why would one hypothetically want to do all this? Well, it
+could be very good for running legacy, up-to-Tiger-only programs (see,
+for example, Photoshop 7, which won't run on Leopard; etc.) and/or for
+testing software in a Tiger/Intel environment, without being forced to
+have a partition dedicated to Tiger. So, Apple, it would really be a
+great thing to permit virtualization of *all* your Intel-compatible
+OSes, both server and client, starting from Tiger and upwards.
+<br><br>Now, assuming you have a machine-specific Mac OS X 10.4.x
+Tiger DVD for Intel, and want to try to run this operating system as a
+virtual machine through VMware Fusion 2.x, on the same computer
+upgraded to Leopard? Well, let's try to do this in an as simple way as
+possibile, from within Mac OS X 10.5.x Leopard...
+<br><br>
+Read on for my how-to...<br><br><ol>
+<li>Create a new Mac OS X 10.5 Server 64-bit (the default setting)
+virtual Machine (VM) in VMware Fusion; don't start it, then quit Fusion.</li>
+<li>Navigate to the VM package's position (by default located in
+~/Documents » Virtual Machines, unless you have changed it).
+Control-click on the package, then choose More » Mount Virtual Disk
+from the pop-up menu, thus mounting the pre-formatted (with HFS+
+Journaled) VM disk on the Desktop.</li>
+<li>Insert your Tiger/Intel DVD and navigate to /System » Installation
+» Packages » OSInstall.mpkg, then double-click it to open the Mac OS X
+installer.</li>
+<li>In the Mac OS X installer, select the mounted VM disk as the
+target, and then install Tiger as usual: now, as you install from
+within your specific machine, the installer won't complain, even if you
+select a virtual disk image as the target disk (and not, for example,
+your internal HD).</li>
+<li>Once the install is complete (no reboot needed), exit the installer.</li>
+<li>Open the Terminal and issue the command:
+
+<div style="border: 1px solid ; padding: 5px; overflow: scroll; margin-left: 20px; margin-top: 10px; margin-bottom: 10px; width: 520px; white-space: nowrap;"><tt>sudo touch "/Volumes/Macintosh HD/System/Library/CoreServices/ServerVersion.plist"</tt></div>
+This makes it possibile to run the client version in a server-based VM;
+if you renamed the VM disk, of course, use the actual name instead of
+the default <tt>Macintosh HD</tt>.</li>
+<li>Also in Terminal, do this:
+
+<div style="border: 1px solid ; padding: 5px; overflow: scroll; margin-left: 20px; margin-top: 10px; margin-bottom: 10px; width: 520px; white-space: nowrap;"><tt>sudo nano "/Volumes/Macintosh HD/Library/LaunchDaemons/com.automate.vmware.plist"</tt></div>
+
+You can use whatever name you want to insted of <tt>automate</tt>, but leave the rest alone. Then paste this text into the new file:
+
+<div style="border: 1px solid ; padding: 5px; overflow: scroll; margin-left: 20px; margin-top: 10px; margin-bottom: 10px; width: 520px; height: 120px; white-space: nowrap;"><pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+&lt;key&gt;Label&lt;/key&gt;
+&lt;string&gt;com.automate.vmware&lt;/string&gt;
+&lt;key&gt;ProgramArguments&lt;/key&gt;
+&lt;array&gt;
+&lt;string&gt;/bin/bash&lt;/string&gt;
+&lt;string&gt;-c&lt;/string&gt;
+&lt;string&gt;/bin/rm -f /System/Library/CoreServices/ServerVersion.plist; trap "/usr/bin/touch /System/Library/CoreServices/ServerVersion.plist; exit" SIGINT SIGTERM SIGHUP; sleep 999999 &amp; wait $!&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;KeepAlive&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;RunAtLoad&lt;/key&gt;
+&lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre></div>
+This will automate the creation and deletion of the ServerVersion.plist
+file, so Fusion thinks that the OS is server before booting it, while
+OS X thinks that it correctly is the client once booted. Then use the
+usual Control-O, Enter, and Control-X to save the file. Finally,
+unmount the VM disk from the Finder.</li>
+
+<li>Open VMware Fusion and then start the Mac OS X VM in the Virtual
+Machine Library: everything should be OK, as in an ordinary VM, and you
+will boot into a virtualized Mac OS X Tiger, where you can do the usual
+things.</li>
+
+<li>This is probably optional, but while booted into Tiger for the first time, open the Terminal and issue this command:
+
+<pre><code>sudo launchctl load /Library/LaunchDaemons/com.automate.vmware.plist</code></pre>
+
+It should say that it's already loaded, if things are working right.</li>
+</ol>
+Voilà: Tiger running in a VMware Fusion VM, where everything works as
+usual -- except, sadly, for the VMware Tools, which don't (yet?) work
+in Tiger (so there's no point in installing them).
+<br><br>If you want a better screen resolution than the default
+1024x768 one, edit the /Library » Preferences » SystemConfiguration »
+com.apple.Boot.plist file with <tt>nano</tt> (see above) or TextEdit from within the Tiger VM, adding this:
+
+<pre><code>&lt;key&gt;Graphics Mode&lt;/key&gt;
+&lt;string&gt;1680x1050x32&lt;/string&gt;</code></pre>
+
+Replace with whatever resolution and color depth you want. Add this immediately after the <tt>&lt;string&gt;Yes&lt;/string&gt;</tt> line. Save the file, and you will reboot with that resolution as the default one the next time you boot.
+<br><br>
+Full screen view works at the specified resolution, while windowed mode
+view is scaled down, due to the lack of Tiger-compatible VMware Tools.
+<br><br>BTW, personally I found that NAT networking worked better than
+the default bridged mode (but that might also depend on your router,
+etc.); Sadly, there is still no sound support in Fusion for Mac OS
+X-based VMs.
+<br><br>
+[<b>robg adds:</b> I haven't tested this one. It's similar to <a href="http://www.macosxhints.com/article.php?story=20080805081909302">this previous hint</a>,
+but specific to virtualizing 10.4 machine-specific DVD discs. Given how
+I make my living, I share the author's opinion that Apple should allow
+virtualization of all the Intel-capable OSes. I know it'd make my life
+much simpler!]</div>
+                    </td>
+                  </tr>
+                </tbody></table>             
+                <table class="block-divider" border="0" cellpadding="3" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td class="story-control" style="padding-left: 10px;" align="left">
+                      &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;
+                      
+                      &nbsp;&nbsp;
+                    </td>
+                    <td align="right">
+                      [1,967  views]&nbsp;&nbsp;&nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="center"><div class="rating">
+  <table style="padding-left: 11px;" cellpadding="0" cellspacing="0" width="99%">
+    <tbody><tr>
+      <td class="story-control" align="left">Rate this hint:  [ <a href="http://www.macosxhints.com/rating/rate.php?score=1&amp;type=story&amp;id=20081031054054546&amp;min=1&amp;max=5">1</a>  &nbsp;·&nbsp;<a href="http://www.macosxhints.com/rating/rate.php?score=2&amp;type=story&amp;id=20081031054054546&amp;min=1&amp;max=5">2</a>  &nbsp;·&nbsp;<a href="http://www.macosxhints.com/rating/rate.php?score=3&amp;type=story&amp;id=20081031054054546&amp;min=1&amp;max=5">3</a>  &nbsp;·&nbsp;<a href="http://www.macosxhints.com/rating/rate.php?score=4&amp;type=story&amp;id=20081031054054546&amp;min=1&amp;max=5">4</a>  &nbsp;·&nbsp;<a href="http://www.macosxhints.com/rating/rate.php?score=5&amp;type=story&amp;id=20081031054054546&amp;min=1&amp;max=5">5</a> ]</td>
+      <td class="story-control" align="right">Average rating: <img src="tigerVM_files/rate_full.gif">
+<img src="tigerVM_files/rate_full.gif">
+<img src="tigerVM_files/rate_half.gif">
+<img src="tigerVM_files/rate_none.gif">
+<img src="tigerVM_files/rate_none.gif">
+</td>
+    </tr>
+  </tbody></table>
+</div></td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+            <!-- STORY        end   -->
+            <!-- STORY END    start -->
+          </tbody></table>
+          <br>
+ 
+        <table border="0" width="100%">
+            <!--<tr><td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="blocktable">
+  <tr>
+    <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr><td height="22" align="left" valign="middle" class="block-title">What's Related</td><td align="right"></td>
+	</tr><tr><td colspan="2" width="100%" class="block-info">
+<ul class="list-whats-related">
+  <li><a href="http://www.macosxhints.com/article.php?story=20080805081909302">this previous hint</a></li>
+  <li><a href="http://www.macosxhints.com/search.php?mode=search&amp;type=stories&amp;author=53986">More by Sven G</a></li>
+  <li><a href="http://www.macosxhints.com/search.php?mode=search&amp;type=stories&amp;topic=apps">More from Apps</a></li>
+
+</ul>
+</td></tr></table></td></tr></table><br>
+</td>-->
+            <tbody><tr><td valign="top"><table class="blocktable" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody><tr><td class="block-title" align="left" height="22" valign="middle">Hint Options</td><td align="right"></td>
+	</tr><tr><td colspan="2" class="block-info" width="100%">
+<ul class="list-story-options">
+  <li><a href="http://www.macosxhints.com/profiles.php?sid=20081031054054546&amp;what=emailstory">Mail Hint to a Friend</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20081031054054546&amp;mode=print">Printable Hint Format</a></li>
+
+</ul>
+</td></tr></tbody></table></td></tr></tbody></table><br>
+</td></tr>
+        </tbody></table>
+        <!--<div class="story" style="border:1px solid #000033; padding:5px">trackback</div>-->
+        <div id="commentarea">
+<table class="block-divider" align="center" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="tigerVM_files/speck.gif" alt="" height="2" width="1"></td></tr></tbody></table>
+<a name="comments"></a>
+<table border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr><td class="commentbar1" align="center"><b>10.5: Virtualize machine-specific 10.4 in Fusion 2</b> | 10 comments |  <a href="http://www.macosxhints.com/users.php?mode=new" class="commentbar1">Create New Account</a></td></tr>
+  <tr>
+    <td class="commentbar2" align="center">
+      <form style="display: inline;" action="http://www.macosxhints.com/article.php" method="post">
+        <input name="story" value="20081031054054546" type="hidden">
+        <select name="order">
+<option value="DESC">Newest First</option>
+<option value="ASC" selected="selected">Oldest First</option>
+
+</select>
+        <select name="mode">
+<option value="flat">Flat</option>
+<option value="nested">Nested</option>
+<option value="nocomment">No Comments</option>
+<option value="threaded" selected="selected">Threaded</option>
+
+</select>
+        <input value="Refresh" type="submit">
+        <input name="type" value="article" type="hidden">
+      </form>
+      <form style="display: inline;" action="http://www.macosxhints.com/comment.php" method="post">
+        <input name="sid" value="20081031054054546" type="hidden">
+        <input name="pid" value="0" type="hidden">
+        <input name="type" value="article" type="hidden">
+        <input name="reply" value="Reply" type="submit">
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td class="commentbar1" style="border-bottom: 1px solid; background-color: rgb(255, 234, 190);" align="center"><a href="http://www.macosxhints.com/article.php?story=20081031054054546"><b>Click here</b></a><b> to return to the '10.5: Virtualize machine-specific 10.4 in Fusion 2' hint</b></td>
+  </tr>
+  <tr><td class="commentbar3" align="center">The following comments are owned by the person who posted them. This site is not responsible for what they say.</td></tr>
+</tbody></table>
+
+<div class="comment" style="margin-left: 0px;">
+  <div class="commenttitle">
+    10.5: Virtualize machine-specific 10.4 in Fusion 2<br>
+    <span class="comment-author">By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=1004230">atverd</a> on Mon, Nov  3 2008 at 12:05PM PST</span>
+  </div>
+  <div class="comment-text">
+Tried generic 10.4.6 and 10.4.6 from my MacBook Pro and they don't boot
+after installation. First doesn't boot at all, second starts and
+crashes. What version of 10.4 you tried in your installation? </div>
+  <div>
+   <span style="display: none;" class="comment-author">
+    <a href="http://www.macosxhints.com/comment.php?sid=20081031054054546&amp;pid=104331&amp;title=10.5%3A+Virtualize+machine-specific+10.4+in+Fusion+2&amp;type=article">Reply to This</a>  • <a href="http://www.macosxhints.com/comment.php?mode=view&amp;cid=104331" rel="self bookmark" title="Permanent link to this comment">#</a>
+   </span>
+  </div>
+</div>
+
+<div class="story" style="padding-left: 25px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104331">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=53986">Sven G</a> on Mon, Nov  3 2008 at  1:01PM PST
+  </li></ul>
+</div>
+<div class="story" style="padding-left: 25px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104331">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=1059680">dirtysauce</a> on Mon, Nov  3 2008 at  6:00PM PST
+  </li></ul>
+</div>
+<div class="story" style="padding-left: 50px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104341">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=53986">Sven G</a> on Mon, Nov  3 2008 at 11:17PM PST
+  </li></ul>
+</div>
+<div class="comment" style="margin-left: 0px;">
+  <div class="commenttitle">
+    10.5: Virtualize machine-specific 10.4 in Fusion 2<br>
+    <span class="comment-author">By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=51215">pediger</a> on Mon, Nov  3 2008 at  1:32PM PST</span>
+  </div>
+  <div class="comment-text">
+Well, I can't get past step 2. Obviously it's a VMWare/VMDKMounter
+issue, but I thought I'd ask in case anyone has experienced this.<br>
+<br>
+When I try to mount the new, as well as any old, image, I just get a
+popup window that says "test.vmdk" and "The specified disk is not
+mounted." This has been reported on the VMware forums but with no clear
+resolution.<br>
+<br>
+I uninstalled the newer MacFuse 1.7.1 and reinstalled VMWare in order
+to get version 1.5.1 (verified), rebooted, and successfully tested
+MacFuse with sshfs. When I do try to mount a suspended image, rather
+than the new one that is shut down, the error message is different and
+indicates I indeed cannot mount a suspended image.<br>
+<br>
+Anyway, I thought I'd ask here first.<br>
+(10.5.5; VMWare 2.0 116369)<br>
+
+  </div>
+  <div>
+   <span style="display: none;" class="comment-author">
+    <a href="http://www.macosxhints.com/comment.php?sid=20081031054054546&amp;pid=104336&amp;title=10.5%3A+Virtualize+machine-specific+10.4+in+Fusion+2&amp;type=article">Reply to This</a>  • <a href="http://www.macosxhints.com/comment.php?mode=view&amp;cid=104336" rel="self bookmark" title="Permanent link to this comment">#</a>
+   </span>
+  </div>
+</div>
+
+<div class="story" style="padding-left: 25px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104336">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=53986">Sven G</a> on Mon, Nov  3 2008 at 11:27PM PST
+  </li></ul>
+</div>
+<div class="story" style="padding-left: 50px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104343">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=51215">pediger</a> on Tue, Nov  4 2008 at 10:15AM PST
+  </li></ul>
+</div>
+<div class="story" style="padding-left: 75px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104360">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=53986">Sven G</a> on Tue, Nov  4 2008 at 11:25AM PST
+  </li></ul>
+</div>
+<div class="story" style="padding-left: 100px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104364">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=51215">pediger</a> on Tue, Nov  4 2008 at  1:29PM PST
+  </li></ul>
+</div>
+<div class="story" style="padding-left: 125px; padding-bottom: 0px; line-height: 1 ! important;">
+  <ul style="margin: 0pt; padding: 0pt;"><li>
+    <a href="http://www.macosxhints.com/comment.php?mode=display&amp;format=threaded&amp;order=ASC&amp;pid=104366">10.5: Virtualize machine-specific 10.4 in Fusion 2</a>
+    - By: <a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=53986">Sven G</a> on Tue, Nov  4 2008 at 10:56PM PST
+  </li></ul>
+</div>
+
+<center></center>
+</div>
+
+            <!-- End Content Area -->
+          </td>
+          <td class="block-outerborder-right">
+	<img src="tigerVM_files/speck.gif" alt="" height="1" width="1">
+</td>
+<td class="block-featured-right" valign="top">
+	<table class="blocksbg-right" width="100%">
+		<tbody><tr>
+			<td valign="top">
+	  			<table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;Search&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><form method="get" action="http://www.macosxhints.com/search.php" style="margin-bottom: 0pt;">					
+						<input class="xpinputfield" maxlength="255" size="17" name="query" type="text">						
+						<input value="Go!" type="submit"> <small><a href="http://www.macosxhints.com/search.php">Advanced</a></small>  						
+						<input value="search" name="mode" type="hidden">						
+						<input value="all" name="type" type="hidden">						
+						<input value="all" name="keyType" type="hidden">
+					</form>
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;From our Sponsor...&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%">
+
+
+
+<!-- begin ad tag  (tile=4) -->
+<iframe src="tigerVM_files/a_002.html" marginwidth="0" marginheight="0" hspace="0" vspace="0" bordercolor="#000000" frameborder="0" height="250" scrolling="no" width="300">
+&lt;script language="JavaScript"
+src="http://ad.doubleclick.net/adj/mcw.osx.general/;kw=;sect=;art=;pos=showcase-sm;tile=4;sz=300x250;abr=!ie;ord=1225885694?"
+type="text/javascript"&gt;&lt;/script&gt;
+&lt;noscript&gt;&lt;a
+href="http://ad.doubleclick.net/jump/mcw.osx.general/;kw=;sect=;art=;pos=showcase-sm;tile=4;sz=300x250;abr=!ie4;abr=!ie5;abr=!ie6;ord=1225885694?"
+target="_blank"&gt;&lt;img
+src="http://ad.doubleclick.net/ad/mcw.osx.general/;kw=;sect=;art=;pos=showcase-sm;tile=4;sz=300x250;abr=!ie4;abr=!ie5;abr=!ie6;ord=1225885694?"
+width="300" height="250" border="0"
+alt=""&gt;&lt;/a&gt;&lt;/noscript&gt;
+</iframe>
+
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" bgcolor="#f1f6fa" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;User Functions&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><form action="http://www.macosxhints.com/users.php" method="post">
+  <b><label for="loginname">Username</label>:</b><br>
+  <input size="10" name="loginname" value="" id="loginname" type="text"><br>
+  
+  <b><label for="passwd">Password</label>:</b><br>
+  <input size="10" name="passwd" id="passwd" type="password"><br>
+  <input value="Login" type="submit">
+</form>
+Don't have an account yet?  Sign up as a <a href="http://www.macosxhints.com/users.php?mode=new" style="text-decoration: underline;">New User</a>&nbsp;•&nbsp;Lost your <a href="http://www.macosxhints.com/users.php?mode=getpassword" style="text-decoration: underline;">password</a>?
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+<br>
+<table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;From our sponsors...&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><center>
+
+<!-- begin ad tag  (tile=12) -->
+<iframe src="tigerVM_files/a_003.html" marginwidth="0" marginheight="0" hspace="0" vspace="0" bordercolor="#000000" frameborder="0" height="60" scrolling="no" width="234">&lt;script
+language="JavaScript"
+src="http://ad.doubleclick.net/adj/mcw.osx.general/;kw=;sect=;art=;pos=half-banner;tile=12;sz=234x60;abr=!ie;ord=1225885694?"
+type="text/javascript"&gt;&lt;/script&gt;
+&lt;noscript&gt;&lt;a
+href="http://ad.doubleclick.net/jump/mcw.osx.general/;kw=;sect=;art=;pos=half-banner;tile=12;sz=234x60;abr=!ie4;abr=!ie5;abr=!ie6;ord=1225885694?"
+target="_blank"&gt;&lt;img
+src="http://ad.doubleclick.net/ad/mcw.osx.general/;kw=;sect=;art=;pos=half-banner;tile=12;sz=234x60;abr=!ie4;abr=!ie5;abr=!ie6;ord=1225885694?"
+width="234" height="60" border="0"
+alt=""&gt;&lt;/a&gt;&lt;/noscript&gt;
+</iframe>
+
+
+
+</center>
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;What's New:&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><b>HINTS</b><br><a href="http://www.macosxhints.com/index.php?display=new">4 new Hints in the last 1 day</a><br><br><b>COMMENTS</b> <small>last 2 days</small><br><ul class="list-new-comments">
+  <li><a href="http://www.macosxhints.com/article.php?story=20040930061422693#comments">View&nbsp;IP&nbsp;address&nbsp;info&nbsp;with&nbsp;GeekTool [+2]</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20070925155109846#comments" title="Scripts to create encrypted backups to online services">Scripts&nbsp;to&nbsp;create&nbsp;encrypted&nbsp;backups&nbsp;t...</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20081031054054546#comments" title="10.5: Virtualize machine-specific 10.4 in Fusion 2">10.5:&nbsp;Virtualize&nbsp;machine-specific&nbsp;10.... [+10]</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=2008030406122044#comments">Make&nbsp;iTunes&nbsp;play&nbsp;louder... [+10]</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20060718140450785#comments" title="10.4: Force a volume to mount on an Intel Mac">10.4:&nbsp;Force&nbsp;a&nbsp;volume&nbsp;to&nbsp;mount&nbsp;on&nbsp;an&nbsp;I...</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20081104060121824#comments">Hints&nbsp;turns&nbsp;eight... [+14]</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20081031230918730#comments" title="Avoid FileVault problems when using Adobe Updater">Avoid&nbsp;FileVault&nbsp;problems&nbsp;when&nbsp;using&nbsp;A... [+5]</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20001104202602532#comments">Welcome&nbsp;to&nbsp;Mac&nbsp;OS&nbsp;X&nbsp;Hints!</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=2008110213334872#comments" title="Remap the function keys on a standard PC keyboard">Remap&nbsp;the&nbsp;function&nbsp;keys&nbsp;on&nbsp;a&nbsp;standard... [+2]</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20081026190130972#comments" title="Use GeekTool/curl/perl to watch sale web pages">Use&nbsp;GeekTool/curl/perl&nbsp;to&nbsp;watch&nbsp;sale&nbsp;...</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=20081009115317439#comments">How&nbsp;to&nbsp;use&nbsp;a&nbsp;new&nbsp;iPod&nbsp;with&nbsp;an&nbsp;old&nbsp;Mac</a></li>
+  <li><a href="http://www.macosxhints.com/article.php?story=2007110800450816#comments" title="10.5: How to reset Leopard back to the Setup Assistant">10.5:&nbsp;How&nbsp;to&nbsp;reset&nbsp;Leopard&nbsp;back&nbsp;to&nbsp;th...</a></li>
+
+</ul>
+<br><b>LINKS</b> <small>last 2 weeks</small><br>No recent new links<br>
+<br>
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;What's New in the Forums?&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><ul class="list-feed">  <li><a href="http://forums.macosxhints.com/showthread.php?t=95585&amp;goto=newpost">Why are smart people so ignorant?</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95584&amp;goto=newpost">itunes shared library fidelity</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95583&amp;goto=newpost">AppleScript Assistance</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95582&amp;goto=newpost">network alias upon startup</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95581&amp;goto=newpost">QTMovie object creation doubt.</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95580&amp;goto=newpost">Incorporating results from Remind into Applescript</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95579&amp;goto=newpost">Dock Crashes Every 15 Seconds</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95578&amp;goto=newpost">Mail works but iChat and Safari bounce forever...</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95577&amp;goto=newpost">VOTE...for Mac OS X</a></li>  <li><a href="http://forums.macosxhints.com/showthread.php?t=95576&amp;goto=newpost">Belkin F5U109 Serial to USB on Leopard Intel</a></li></ul>
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;The Editor's Corner...&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%">Here are some of my (<a href="http://www.macosxhints.com/users.php?mode=profile&amp;uid=2">robg</a>) other projects...<br><br><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="top">•&nbsp;&nbsp;</td><td class="blockbody"><a href="http://www.robservatory.com/">The Robservatory</a><br><small>My blog - Macs, tech, etc.</small></td></tr><tr><td valign="top">•&nbsp;&nbsp;</td><td class="blockbody"><a href="http://www.amazon.com/exec/obidos/ASIN/059600818X/macosxhintsco-20">Mac OS X Power Hound</a><br><small>The best of Hints in print</small></td></tr><tr><td valign="top">•&nbsp;&nbsp;</td><td class="blockbody"><a href="http://www.digitalmediatraining.com/products/iwork/index.html">Inside iWork</a><br><small>An iWork training DVD</small></td></tr><tr><td valign="top">•&nbsp;&nbsp;</td><td class="blockbody"><a href="http://www.macworld.com/search/index.php?as=1&amp;st=1&amp;rf=&amp;rq=0&amp;col=mwmcc&amp;op0=&amp;ty0=w&amp;tx0=griffiths&amp;fl0=&amp;op1=%2B&amp;ty1=w&amp;tx1=&amp;fl1=&amp;op2=-&amp;ty2=w&amp;tx2=&amp;fl2=&amp;oq=&amp;dt=an&amp;inthe=604800&amp;ady=08&amp;amo=5&amp;ayr=2005&amp;bdy=15&amp;bmo=5&amp;byr=2005&amp;nh=25&amp;rf=3">Macworld</a><br><small>Column, features, online...</small></td></tr></tbody></table>
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;Hints by Topic&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><div align="center"><form action="index.php" method="get"><select name="topic" onchange="window.location=('/index.php?topic='+this.options[this.selectedIndex].value)"><option value="">-- All Topics --</option><option value="apps" selected="selected">Apps</option>
+<option value="classic">Classic</option>
+<option value="desktop">Desktop</option>
+<option value="hwdesktop">Desktop Macs</option>
+<option value="install">Install</option>
+<option value="internet">Internet</option>
+<option value="hwiphone">iPhone</option>
+<option value="hwipod">iPod</option>
+<option value="hwlaptop">Laptop Macs</option>
+<option value="network">Network</option>
+<option value="server">OS X Server</option>
+<option value="hwother">Other Hardware</option>
+<option value="hwpda">PDAs etc.</option>
+<option value="hwphone">Phones</option>
+<option value="pick">Pick of the Week</option>
+<option value="pressrel">Press Rel</option>
+<option value="hwprinter">Printers</option>
+<option value="reviews">Reviews</option>
+<option value="hwscanner">Scanners</option>
+<option value="1sitenews">Site News</option>
+<option value="hwstorage">Storage Devices</option>
+<option value="system">System</option>
+<option value="system104">System 10.4</option>
+<option value="system105">System 10.5</option>
+<option value="unix">UNIX</option>
+<option value="browsers">Web Browsers</option>
+</select>&nbsp;<input value="Go!" type="submit"></form></div>          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;News from Macworld&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><ul class="list-feed">  <li><a href="http://www.macworld.com/article/136537/2008/11/aecs4.html?lsrc=rss_main">Review: After Effects CS4</a></li>  <li><a href="http://www.macworld.com/article/136539/2008/11/crossplatformnetwork.html?lsrc=rss_main">How to set up a cross-platform network</a></li>  <li><a href="http://www.macworld.com/article/136566/2008/11/att_bandwidth.html?lsrc=rss_main">AT&amp;T testing DSL bandwidth caps</a></li>  <li><a href="http://www.macworld.com/article/136565/2008/11/cameraraw.html?lsrc=rss_main">Apple releases camera raw compatibility update</a></li>  <li><a href="http://www.macworld.com/article/136560/2008/11/forcerestoreatv.html?lsrc=rss_main">Force-restoring the Apple TV</a></li>  <li><a href="http://www.macworld.com/article/136558/2008/11/wrathofthelichking.html?lsrc=rss_main">Wrath of the Lich King beta over, relaunch in  nine days</a></li>  <li><a href="http://www.macworld.com/article/136557/2008/11/recorder.html?lsrc=rss_main">Review: Recorder for iPhone</a></li>  <li><a href="http://www.macworld.com/article/136556/2008/11/nokia.html?lsrc=rss_main">Nokia to lay off about 600 employees</a></li>  <li><a href="http://www.macworld.com/article/136555/2008/11/netflix.html?lsrc=rss_main">Netflix stops selling DVDs</a></li>  <li><a href="http://www.macworld.com/article/136554/2008/11/photoshop.html?lsrc=rss_main">Adobe offers storage options for Photoshop.com users</a></li>  <li><a href="http://www.macworld.com/article/136552/2008/11/mailrss.html?lsrc=rss_main">Export RSS feed list from Mail in 10.5</a></li>  <li><a href="http://www.macworld.com/article/136550/2008/11/googleanalytics.html?lsrc=rss_main">Google adds analytics for Apps admins</a></li>  <li><a href="http://www.macworld.com/article/136531/2008/11/mac_security_superguide.html?lsrc=rss_main">Introducing the Macworld Mac Security Superguide</a></li>  <li><a href="http://www.macworld.com/article/136549/2008/11/audiorecording.html?lsrc=rss_main">Audio recording dos and don’ts</a></li>  <li><a href="http://www.macworld.com/article/136427/2008/11/productivitytipsoffice.html?lsrc=rss_main">Time-Saving Tips: At the office</a></li></ul>
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table><table class="blocktable-right" border="0" cellpadding="0" cellspacing="0" width="325">
+  <tbody><tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="block-title-right" align="left" height="24" valign="middle">
+            <span style="position: relative; top: -2px;">&nbsp;The macosxhints Poll&nbsp;</span>
+          </td>
+          <td align="right">
+            
+          </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" class="block-info-right" width="100%"><b>What are your feelings on the glossy-only screen in the new MacBook Pro (and MacBook)?</b>
+<form action="http://www.macosxhints.com/polls/index.php" name="Vote" method="post">
+  <input name="qid" value="2008glossy" type="hidden">
+    <input name="aid" value="1" type="radio">Love it, already ordered one!<br>
+  <input name="aid" value="2" type="radio">Looks sharp, planning on buying<br>
+  <input name="aid" value="3" type="radio">Looks good, but no plans to purchase<br>
+  <input name="aid" value="4" type="radio">Need to see it in person before judging<br>
+  <input name="aid" value="5" type="radio">Dislike glossy screen, but will buy anyway<br>
+  <input name="aid" value="6" type="radio">Hate glossy screens, will not buy because of it<br>
+  <input name="aid" value="7" type="radio">Other?<br>
+
+  <input value="Vote" type="submit">
+  <a href="http://www.macosxhints.com/polls/index.php?qid=2008glossy&amp;aid=-1">Results</a>
+</form>
+<span class="block-vote">4,900 votes | <a href="http://www.macosxhints.com/polls/index.php?qid=2008glossy&amp;aid=-1#comments">50 comments</a>
+</span><br>
+
+          </td>
+        </tr>
+        
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+				<img src="tigerVM_files/speck.gif" alt="" height="1" width="180">
+			</td>
+		</tr>
+</tbody></table>
+</td>
+<!--</td></tr></table>-->
+<!--If you want the splash, uncomment the last line. If you want no splash, make sure it is commented out.-->
+
+        </tr>
+      </tbody></table>
+	  
+      <table class="block-divider-right" align="center" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td>
+            <img src="tigerVM_files/speck.gif" alt="" height="1" width="1">
+          </td>
+        </tr>
+      </tbody></table>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr style="background-image: url(http://www.macosxhints.com/layout/hints1/theme-images/botbkgnd1.jpg); background-repeat: repeat-x;" height="44">
+			<td class="footerblock" align="left" valign="middle" width="70%">Copyright © 2008 <a href="http://www.macworld.com/contact.html">Mac Publishing LLC</a>&nbsp;(<a href="http://www.macworld.com/info/privacy/">Privacy Policy</a>)&nbsp;<a href="http://www.macworld.com/contact.html?t=e&amp;e=Rob+Griffiths&amp;ssid=1&amp;sid=134700">Contact Us</a><br>All trademarks and copyrights on this page are owned by their respective owners.</td>
+			<td align="right" valign="middle" width="30%">
+            
+            	<div id="IDG">
+		<script type="text/javascript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+<p>Visit other IDG sites: </p>
+		<form id="form" name="form">
+  	<select onchange="MM_jumpMenu('parent',this,0)" id="jumpMenu" name="jumpMenu">
+  	 <option target="_blank" value="">Select One</option>
+    <option value="http://www.cio.com">CIO</option>
+<option value="http://www.computerworld.com">Computerworld</option>
+<option value="www.idgconnect.com">IDG Connect</option>
+<option value="http://www.csoonline.com">CSO</option>
+<option value="http://www.demo.com/">DEMO</option> 
+<option value="http://www.gamepro.com">GamePro</option>
+<option value="http://www.games.net">Games.net</option>
+<option value="http://www.infoworld.com">InfoWorld</option>
+<option value="http://www.itworld.com">ITworld</option>
+<option value="http://www.javaworld.com">JavaWorld</option>
+<option value="http://www.linuxworld.com">LinuxWorld</option>
+<option value="http://www.macworld.com">Macworld</option>
+<option value="http://www.macuser.com">MacUser</option>
+<option value="http://www.networkworld.com">Network World</option>
+<option value="http://www.pcworld.com/">PC World</option>
+<option value="http://www.thestandard.com">The Industry Standard</option>
+<option value="http://www.idgknowledgehub.com">IDG Knowledge Hub</option>
+<option value="http://www.idgtechnetwork.com">IDG TechNetwork</option>
+  </select>
+</form>
+		
+				
+	
+	</div>
+            
+            </td>
+
+		</tr>
+		<tr>
+			<td id="ntwrk">
+				<a href="http://pcworld.com/"><img src="tigerVM_files/PCWNetwork.gif" border="0" height="15" width="90"></a>
+<ul>
+    <li><a href="http://www.macworld.com/" target="_blank">Macworld</a></li>
+    <li><a href="http://www.macuser.com/" target="_blank">MacUser</a></li>
+    <li><a href="http://www.osxhints.com/" target="_blank">Mac OS X Hints</a></li>
+    <li><a href="http://iphone.macworld.com/" target="_blank">iPhone Central</a></li>
+    <li><a href="http://www.pcworld.com/" target="_blank">PC World</a></li>
+    <li class="last"><a href="http://www.pcworld.com/businesscenter" target="_blank">PCW Business Center</a></li>
+  </ul>
+			</td>
+		</tr>
+        <tr>
+        	<td colspan="2" class="footerblock" align="center" valign="middle" width="100%"><br>Powered By <a href="http://www.geeklog.net/">Geeklog</a>&nbsp;Created this page in 0.18 seconds&nbsp;</td>
+        </tr>
+	</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+</body></html>

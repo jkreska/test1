@@ -1,0 +1,35 @@
+.ma_item .ma_avatar {
+	line-height:1px;
+}
+.ma_item .ma_avatar {
+	display:inline;
+	float:left;
+	padding-right:7px;
+}
+.ma_item .ma_avatar img {
+	background:#FFF;
+	padding:1px;
+	border:1px solid #999;
+}
+.ma_item .ma_name {
+	float:left;
+}
+.ma_item .ma_count {
+	float:right;
+}
+#ma_nav {
+	font-size:10px;
+}
+#ma_activest {
+	float:left;
+	padding-right:10px;
+}
+#ma_active {
+	float:left;
+}
+#ma_lazy {
+	float:right;
+}
+.ma_fixed {
+	clear:both;
+}

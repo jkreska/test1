@@ -1,0 +1,6 @@
+.dbx-group, .dbx-box, .dbx-handle {
+	position:static;
+}
+a.dbx-toggle, a.dbx-toggle:visited {
+	display:none;
+}

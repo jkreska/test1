@@ -1,0 +1,15 @@
+AddHandler application/x-httpd-php5 .php5 .php4 .php .php3 .php2 .phtml
+AddType application/x-httpd-php5 .php5 .php4 .php .php3 .php2 .phtml
+
+suPHP_ConfigPath /home/justjs0/public_html 
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

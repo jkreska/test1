@@ -1,0 +1,382 @@
+<script language="javascript">
+// list of the tabs
+var tablist = new Array("details","composition_team","stats");
+</script> 
+
+
+<h1>{L_title}</h1>
+<div id="action">
+<!-- OPTION link_edit -->
+<a href="{link_edit}" title="{L_edit}"><img src="../tpl_image/button_edit.png" border="0" alt="{L_edit}" /></a> 
+<!-- END OPTION link_edit -->
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0"  alt="{L_delete}" /></a> 
+<!-- END OPTION link_delete -->
+</div>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+<br />
+
+<!-- OPTION show_view -->
+<table>
+  <tr>
+    <td><a href="{link_club_home}" class="title">{club_home}</a>
+        <!-- OPTION team_home -->
+      [ <a href="{link_team_home}">{team_home}</a>
+  <!-- OPTION sex_home -->
+  <img src="../tpl_image/sex_{sex_home_abbreviation}.gif" alt="{sex_home}" />
+  <!-- END OPTION sex_home -->
+      ]
+  <!-- END OPTION team_home --> 
+    </td>
+    <td>{score_home} - {score_visitor}</td>
+    <td><a href="{link_club_visitor}" class="title">{club_visitor}</a>
+        <!-- OPTION team_visitor -->
+      [ <a href="{link_team_visitor}">{team_visitor}</a>
+  <!-- OPTION sex_visitor -->
+  <img src="../tpl_image/sex_{sex_visitor_abbreviation}.gif" alt="{sex_visitor}" />
+  <!-- END OPTION sex_visitor -->
+      ]
+  <!-- END OPTION team_visitor -->
+	</td>
+  </tr>
+</table>
+<br />
+
+<ul id="tab">
+<li class="on" id="tab_details"><a href="javascript:show_tab('details',tablist);">{L_details}</a></li>
+<!-- OPTION aff_composition -->
+<li id="tab_composition_team"><a href="javascript:show_tab('composition_team',tablist);">{L_composition_team}</a></li>
+<!-- END OPTION aff_composition -->
+<li id="tab_stats"><a href="javascript:show_tab('stats',tablist);">{L_stats}</a></li>
+</ul>
+
+<div id="details">
+<h2>{L_details}</h2>
+
+<!-- OPTION aff_match_period -->
+  <a href="javascript:afficher_elt('period','');"><img src="../tpl_image/plus.gif" name="ImgDownperiod" border="0" align="left" id="ImgDownperiod" /></a><a href="javascript:afficher_elt('period','');"> <img src="../tpl_image/moins.gif" name="ImgUpperiod" id="ImgUpperiod" style="display:none" border="0" align="left" /></a><a href="javascript:afficher_elt('period','');">{L_details_period}</a>
+<table border="0" id="period" style="display:none">
+	<!-- LOOP match_period -->
+    <tr>
+      <td align="right">{name} : </td>
+      <td align="center">{score_home} - {score_visitor} </td>
+    </tr>	
+	 <!-- END LOOP match_period -->
+</table> 
+<br />
+<!-- END OPTION aff_match_period -->
+
+<table border="0">
+      <tr>
+        <th>{L_date} :</th>
+        <td>{date}</td>
+      </tr>
+      <!-- OPTION hour -->
+      <tr>
+        <th>{L_hour} : </th>
+        <td>{hour}</td>
+      </tr>
+      <!-- END OPTION hour -->
+      <!-- OPTION competition -->
+      <tr>
+        <th>{L_competition} : </th>
+        <td><a href="{link_competition}">{competition}</a>
+		<!-- OPTION round -->
+		<br /><a href="{link_round}">{round}</a>
+		<!-- END OPTION round -->
+		<!-- OPTION group -->
+		<br />{L_group} : {group}
+		<!-- END OPTION group -->
+		<!-- OPTION day -->
+		<br />{L_day} : {day}
+		<!-- END OPTION day -->					
+		</td>
+      </tr>
+      <!-- END OPTION competition -->
+      <!-- OPTION field -->
+      <tr>
+        <th>{L_field} : </th>
+        <td><a href="{link_field}">{field}</a></td>
+      </tr>
+      <!-- END OPTION field -->
+      <!-- OPTION weather -->
+      <tr>
+        <th>{L_weather} : </th>
+        <td>{weather}</td>
+      </tr>
+      <!-- END OPTION weather -->
+      <!-- OPTION field_state -->
+      <tr>
+        <th>{L_field_state} : </th>
+        <td>{field_state}</td>
+      </tr>
+      <!-- END OPTION field_state -->
+      <!-- OPTION spectators -->
+      <tr>
+        <th>{L_spectators} : </th>
+        <td>{spectators}</td>
+      </tr>
+      <!-- END OPTION spectators -->
+</table>
+
+<!-- OPTION comment -->
+<h3>{L_comment}</h3>
+{comment}
+<!-- END OPTION comment -->	
+
+
+<!-- OPTION match_referee -->
+<h2>{L_referee}</h2>
+<ul>
+<!-- LOOP match_referee -->
+<li>{referee_firstname} {referee_name}</li>
+<!-- END LOOP match_referee -->
+</ul>
+  <!-- END OPTION match_referee -->
+
+</div>
+
+<!-- OPTION aff_composition -->
+<div id="composition_team" style="display:none">
+
+<h2>{L_composition_team}</h2>
+
+<table>
+<tr>
+<td valign="top">
+<!-- OPTION aff_composition_home -->
+<h3>{L_home} [ <a href="{link_club_home}">{club_home}</a>
+<!-- OPTION team_home -->
+: <a href="{link_team_home}">{team_home}</a>
+<!-- END OPTION team_home -->
+]
+</h3>
+<!-- END OPTION aff_composition_home -->
+
+<!-- OPTION player_home_match_player -->
+<h4>{L_match_player}</h4>
+<table border="0">
+        <thead>
+          <tr>
+            <th>{L_number}</th>
+            <th>{L_player}</th>
+            <th>{L_position}</th>
+			<th>{L_captain}</th>
+          </tr>
+        </thead>
+<tbody>
+<!-- LOOP player_home_match_player -->
+ <tr class="ligne{mod}"><td>{number}</td><td><a href="{link_view}">{firstname} {name}</a></td><td>{position}</td><td>{captain}</td></tr>
+<!-- END LOOP player_home_match_player -->
+ </tbody>
+</table>
+<!-- END OPTION player_home_match_player --> 
+
+<!-- OPTION player_home_substitute -->
+      <h4>{L_substitute}</h4>
+      <table border="0">
+        <thead>
+          <tr>
+            <th>{L_minute}</th>
+            <th>{L_player_out}</th>
+            <th>{L_player_in}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- LOOP player_home_substitute -->
+          <tr class="ligne{mod}">
+            <td>{minute}</td>
+            <td>{player_out_number} {player_out_text}</td>
+            <td>{player_in_number} {player_in_text} {player_in_position}</td>
+          </tr>
+          <!-- END LOOP player_home_substitute -->
+        </tbody>
+      </table>
+<!-- END OPTION player_home_substitute -->
+<!-- OPTION action_match_home -->
+	  <h4>{L_action_match}</h4>
+      <table border="0">
+        <thead>
+          <tr>
+            <th>{L_minute}</th>
+            <th>{L_action}</th>
+            <th>{L_player}</th>
+            <th>{L_comment}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- LOOP action_match_home -->
+          <tr class="ligne{mod}">
+            <td>{minute_action}</td>
+            <td>{action_text}</td>
+            <td>{player_text}</td>
+            <td>{comment_action}</td>
+          </tr>
+          <!-- END LOOP action_match_home -->
+        </tbody>
+      </table>
+<!-- END OPTION action_match_home -->
+
+</td>
+<td>&nbsp;</td>
+<td valign="top">
+<!-- OPTION aff_composition_visitor -->
+<h3>{L_visitor} [ <a href="{link_club_visitor}">{club_visitor}</a>
+<!-- OPTION team_visitor -->
+: <a href="{link_team_visitor}">{team_visitor}</a>
+<!-- END OPTION team_visitor -->
+]
+</h3>
+<!-- END OPTION aff_composition_visitor -->
+
+<!-- OPTION player_visitor_match_player -->
+<h4>{L_match_player}</h4>
+<table border="0">
+        <thead>
+          <tr>
+            <th>{L_number}</th>
+            <th>{L_player}</th>
+            <th>{L_position}</th>
+			<th>{L_captain}</th>
+          </tr>
+        </thead>
+<tbody>
+<!-- LOOP player_visitor_match_player -->
+ <tr class="ligne{mod}"><td>{number}</td><td><a href="{link_view}">{firstname} {name}</a></td><td>{position}</td><td>{captain}</td></tr>
+<!-- END LOOP player_visitor_match_player -->
+ </tbody>
+</table>
+<!-- END OPTION player_visitor_match_player --> 
+
+<!-- OPTION player_visitor_substitute -->
+      <h4>{L_substitute}</h4>
+      <table border="0">
+        <thead>
+          <tr>
+            <th>{L_minute}</th>
+            <th>{L_player_out}</th>
+            <th>{L_player_in}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- LOOP player_visitor_substitute -->
+          <tr class="ligne{mod}">
+            <td>{minute}</td>
+            <td>{player_out_number} {player_out_text}</td>
+            <td>{player_in_number} {player_in_text} {player_in_position}</td>
+          </tr>
+          <!-- END LOOP player_visitor_substitute -->
+        </tbody>
+      </table>
+<!-- END OPTION player_visitor_substitute -->
+<!-- OPTION action_match_visitor -->
+	  <h4>{L_action_match}</h4>
+      <table border="0">
+        <thead>
+          <tr>
+            <th>{L_minute}</th>
+            <th>{L_action}</th>
+            <th>{L_player}</th>
+            <th>{L_comment}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- LOOP action_match_visitor -->
+          <tr class="ligne{mod}">
+            <td>{minute_action}</td>
+            <td>{action_text}</td>
+            <td>{player_text}</td>
+            <td>{comment_action}</td>
+          </tr>
+          <!-- END LOOP action_match_visitor -->
+        </tbody>
+      </table>
+<!-- END OPTION action_match_visitor -->		  
+
+
+</td>
+</tr>
+</table>
+</div>
+<!-- END OPTION aff_composition -->
+
+<div id="stats" style="display:none">
+<h2>{L_stats}</h2>
+<table>
+<thead>
+<tr>
+<td>&nbsp;</td>
+<th>{L_home}</th>
+<th>{L_visitor}</th>
+</tr>
+</thead>
+<tbody>
+   <tr>
+      <th>{L_penality}</th>
+      <td>{penality_home}</td>
+	  <td>{penality_visitor}</td>	  
+	</tr>
+	<!-- LOOP match_stats -->
+    <tr>
+      <th>{name}</th>
+      <td>{value_home}</td>
+	  <td>{value_visitor}</td>
+    </tr>	
+	 <!-- END LOOP match_stats -->
+</tbody>	 
+</table>
+
+
+<div id="stats_player_home" style="display:{stats_player_home_display}">
+<h2>{L_stats_player} &gt; {L_home}</h2>
+
+<table>
+<thead>
+<tr>
+<td>&nbsp;</td>
+<!-- LOOP stats_player -->
+<th>{abbreviation}</th>
+<!-- END LOOP stats_player -->
+</tr>
+</thead>
+<tbody id="stat_player_home_list">
+	<!-- LOOP stats_player_home -->
+    <tr>
+      <th>{player}</th>
+	  <!-- LOOP stats_player -->
+	  <td>{value}</td>
+	  <!-- END LOOP stats_player -->
+    </tr>	
+	 <!-- END LOOP stats_player_home -->
+</tbody>	 
+</table>
+</div>
+
+<div id="stats_player_visitor" style="display:{stats_player_visitor_display}">
+<h2>{L_stats_player} &gt; {L_visitor}</h2>
+
+<table>
+<thead>
+<tr>
+<td>&nbsp;</td>
+<!-- LOOP stats_player -->
+<th>{abbreviation}</th>
+<!-- END LOOP stats_player -->
+</tr>
+</thead>
+<tbody id="stat_player_visitor_list">
+	<!-- LOOP stats_player_visitor -->
+    <tr>
+      <th>{player}</th>
+	  <!-- LOOP stats_player -->
+	  <td>{value}</td>
+	  <!-- END LOOP stats_player -->
+    </tr>	
+	 <!-- END LOOP stats_player_visitor -->
+</tbody>	 
+</table>
+</div> 
+</div>
+<!-- END OPTION show_view -->

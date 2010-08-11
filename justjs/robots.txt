@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /kreska/
+Disallow: /forum/
+
+# BEGIN XML-SITEMAP-PLUGIN
+Sitemap: http://justjs.org/sitemap.xml.gz
+# END XML-SITEMAP-PLUGIN

@@ -1,0 +1,66 @@
+<h1>{L_title}</h1>
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+<h2>{L_add}</h2>
+<form action="{form_action}" method="post" id="formulaire">
+  <table>
+   <thead>
+    <tr>
+      <th>{L_name}</th>
+	  <th>{L_abbreviation}</th>
+      <th>{L_date_start} ({L_format_date})</th>
+      <th>{L_date_end}</th>
+      <td>&nbsp;</td>
+    </tr>
+	</thead>
+	<tbody>
+    <tr>
+      <td><input type="text" name="name" value="{value_name}" /></td>
+	  <td><input type="text" name="abbreviation" value="{value_abbreviation}" /></td>
+      <td><input type="text" name="date_start" value="{value_date_start}" size="10" /></td>
+      <td><input type="text" name="date_end" value="{value_date_end}" size="10" /></td>
+      <td><input type="hidden" name="id" value="" />
+        <input type="submit" name="submit" value="{L_valider}" /></td>
+    </tr>
+	</tbody>
+  </table>
+</form>
+<!-- OPTION season -->
+<h2>{L_liste}</h2>
+<table>
+ <thead>
+  <tr>
+    <th>{L_name}</th>
+	<th>{L_abbreviation}</th>
+    <th>{L_date_start} ({L_format_date}) </th>
+    <th>{L_date_end}</th>
+    <td>&nbsp;</td>
+  </tr>
+  </thead>
+<!-- LOOP season -->
+<form action="{form_action}" method="post">  
+  <tr>
+    <td><input type="text" name="name" value="{name}" /></td>
+	<td><input type="text" name="abbreviation" value="{abbreviation}" /></td>
+    <td><input name="date_start" type="text" id="date_start" value="{date_start}" size="10" /></td>
+    <td><input name="date_end" type="text" id="date_end" value="{date_end}" size="10" /></td>
+    <td><input type="hidden" name="id" value="{id}" />
+      <input type="image" name="{L_edit}" src="../tpl_image/button_edit.png" onclick="submit()" alt="{L_edit}" />
+      <a href="javascript:confirmation('{link_suppression}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+  </tr>
+</form>
+<!-- END LOOP season -->
+</table>
+<!-- END OPTION season -->

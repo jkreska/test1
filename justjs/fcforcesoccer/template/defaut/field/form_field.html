@@ -1,0 +1,85 @@
+<!-- OPTION pop -->
+<script language="javascript">
+var select_parent = window.opener.document.getElementById("field");
+var option = window.opener.document.createElement("option");
+var value = window.opener.document.createAttribute("value");
+value.nodeValue="{nouveau_id}";
+option.setAttributeNode(value);
+option.innerHTML="{nouveau_text}";
+select_parent.appendChild(option);
+//select_parent.options[select_parent.length] = new Option('{nouveau_text}','{nouveau_id}');
+select_parent.options[select_parent.length-1].selected = true;
+</script>
+<!-- END OPTION pop -->
+
+<h1>{L_title}
+<!-- OPTION value_name -->
+: {value_name}
+<!-- END OPTION value_name -->
+</h1>
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a> 
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+<!-- END OPTION link_delete -->
+</div>
+
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<p class="field_required">* {L_field_required}</p>
+<form name="form_field" action="{form_action}" method="post">
+  <table>
+    <tr> 
+      <th class="field_required">{L_name} *</th>
+      <td><input name="name" type="text" value="{value_name}" size="40" /></td>
+    </tr>
+    <tr>
+      <th valign="top">{L_address}</th>
+      <td><textarea name="address" cols="35" rows="5">{value_address}</textarea></td>
+    </tr>
+    <tr>
+      <th>{L_post_code}</th>
+      <td><input name="post_code" type="text" id="post_code" value="{value_post_code}" size="12" /></td>
+    </tr>
+    <tr>
+      <th>{L_city}</th>
+      <td><input name="city" type="text" id="city" value="{value_city}" /></td>
+    </tr>
+    <tr>
+      <th>{L_number_place}</th>
+      <td><input name="number_place" type="text" id="number_place" value="{value_number_place}" size="8" /></td>
+    </tr>
+    <tr>
+      <th>{L_size}</th>
+      <td><input name="size" type="text" id="size" value="{value_size}" /></td>
+    </tr>	
+    <tr>
+      <th>{L_photo}</th>
+      <td><input name="photo" type="text" value="{value_photo}" size="40" onfocus="show_image('divphoto','img_photo',this.value);" /> <a href="#" onclick="pop('{link_choose_image}','750','600');" class="choose_image">{L_choose_image}</a>
+	  <div id="divphoto" style="display:none">	  
+	  <img src="{value_photo}" id="img_photo" />	  
+	  </div>	  
+	  </td>
+    </tr>	
+  </table>
+<div class="button">
+<input type="hidden" name="id" value="{value_id}" />
+<input type="submit" name="submit" value="{L_valider}" />
+</div>  
+</form>
+<!-- END OPTION show_form -->

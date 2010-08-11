@@ -1,0 +1,25 @@
+<h1>{L_title}</h1>
+
+<!-- OPTION L_message -->
+<p class="message">{L_message}</p>
+<!-- END OPTION L_message -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<p>{L_install_plugin}</p>
+<form name="install_plugin" action="{form_action}" method="post">
+<input type="radio" name="install" value="1" /> {L_yes}
+<input type="radio" name="install" value="0" /> {L_no} 
+<input type="submit" name="submit" value="{L_submit}" />
+</form>
+<!-- END OPTION show_form -->

@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CF Wikipedia French\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-18 23:19+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Frederic Sune <contact@fredericsune.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: CANADA\n"
+
+#: ../cf_wikipedia.php:94
+#, fuzzy
+msgid "Options saved."
+msgstr "Options sauvegardé."
+
+#: ../cf_wikipedia.php:99
+msgid "Wikipedia Autolink Plugin Options"
+msgstr "Options du Plugin Autolink Wikipedia"
+
+#: ../cf_wikipedia.php:105
+msgid "Localization code:"
+msgstr "Code de localisation :"
+
+#: ../cf_wikipedia.php:107
+msgid "Autolink Icon:"
+msgstr "Icône Autolink :"
+
+#: ../cf_wikipedia.php:109
+#: ../cf_wikipedia.php:114
+#: ../cf_wikipedia.php:119
+msgid "No"
+msgstr "Oui"
+
+#: ../cf_wikipedia.php:110
+#: ../cf_wikipedia.php:115
+#: ../cf_wikipedia.php:120
+msgid "Yes"
+msgstr "Non"
+
+#: ../cf_wikipedia.php:112
+msgid "Enable default CSS style:"
+msgstr "Activer la feuille de style CSS par défaut :"
+
+#: ../cf_wikipedia.php:117
+msgid "Enable NOFOLLOW in hyperlink:"
+msgstr "Activer NOFOLLOW dans le lien interactif :"
+
+#: ../cf_wikipedia.php:124
+msgid "Update Options"
+msgstr "Mettre à jour les options"
+
+#: ../cf_wikipedia.php:170
+msgid "From Wikipedia the definition of:"
+msgstr "Wikipedia, Definition de"
+

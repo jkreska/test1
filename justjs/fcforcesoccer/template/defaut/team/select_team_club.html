@@ -1,0 +1,8 @@
+<!-- OPTION aff -->
+<select name="{select_name}" onChange="sendData('club='+this.form.{club}.value+'&date_start='+this.form.date.value+'&select={div}&type=multiple&size={nb_max_match_player}','{link_select_player}','{div}')" onkeyup="sendData('club='+this.form.{club}.value+'&date_start='+this.form.date.value+'&select={div}&type=multiple&size={nb_max_match_player}','{link_select_player}','{div}')">
+<option value="">{L_choose_team}</option>
+<!-- LOOP team -->
+<option value="{id}">{name} [{sex}]</option>
+<!-- END LOOP team -->
+</select>
+<!-- END OPTION aff -->

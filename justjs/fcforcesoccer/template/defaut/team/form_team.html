@@ -1,0 +1,414 @@
+<script type="text/javascript">
+// active les champs necessaire et envoie le formulaire
+function valider_form_team() {
+ // on reactive les champs desactives
+ document.forms['form_team'].elements['club'].disabled=false;
+ document.forms['form_team'].elements['sex'].disabled=false;
+}
+
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+
+
+//affiche ou rend invisible un element html
+
+function afficher_season(Num,n,Id)
+{ 	   
+   var nb_season = {nb_season};
+	// on rend invisible toutes les seasons
+	for(var i=0; i < nb_season; i++) {
+	 document.getElementById('season'+i).style.display = 'none';
+	 document.getElementById('tab'+i).className = '';
+	}
+	// on affiche la season
+	document.getElementById(Num).style.display = 'block';
+	document.form_team.season.value = n;
+	document.form_team.season_id.value = Id;
+	
+	document.getElementById('tab'+n).className = 'on';
+	
+  	sendData('&season='+document.form_team.season_id.value+'&select=coach_list','{link_select_member}','coach');
+	sendData('&season='+document.form_team.season_id.value+'&select=player_list','{link_select_member}','player');	
+}
+
+/**
+ * Permet d'envoyer des données en GET ou POST en utilisant les XmlHttpRequest
+ */
+function sendData(param, page, div)
+{	
+	var form = document.forms['form_team'];
+	
+	if(document.all)
+	{
+		//Internet Explorer
+		var XhrObj = new ActiveXObject("Microsoft.XMLHTTP") ;
+	}//end if
+	else
+	{
+	    //Mozilla
+		var XhrObj = new XMLHttpRequest();
+	}//end else
+	
+	//définition de l'endroit d'affichage:
+	var content = document.getElementById(div);
+	
+	// club
+	if(isset(form.elements['club']) && form.elements['club']!="") {
+	 param=param+'&club='+form.elements['club'].value;
+	}
+	
+	if(div=="player")
+	{
+		// sex
+		var sex = form.elements['sex'];	
+		for(i=0;i<sex.length;i++) {
+			if(sex[i].checked==true) {
+				param=param+'&sex='+sex[i].value;
+			}
+		}
+		param=param+'&type=multiple&size=5';
+	 
+		// player
+		var player=new Array();
+		var j=0;
+		for(i=0; i < nb_player; i++) {
+			if(isset(document.getElementById('season_player['+i+']')) && document.getElementById('season_player['+i+']').value==document.form_team.season_id.value) {
+				player[j]=document.getElementById('player['+i+']').value;
+				j++;
+			}
+		}
+		if(player.length!=0) {
+			param=param+'&member='+player.join(",");
+		}	 
+	}
+	
+	if(div=="coach")
+	{
+		var coach=new Array();
+		var j=0;
+		for(i=0; i < nb_coach; i++) {
+			if(isset(document.getElementById('season_coach['+i+']')) && document.getElementById('season_coach['+i+']').value==document.form_team.season_id.value) {
+				coach[j]=document.getElementById('coach['+i+']').value;
+				j++;
+			}
+		}
+		if(coach.length!=0) {
+			param=param+'&member='+coach.join(",");
+		}	
+	}
+	
+	XhrObj.open("POST", page);
+	//Ok pour la page cible
+	XhrObj.onreadystatechange = function()
+	{
+		if (XhrObj.readyState == 4 && XhrObj.status == 200)
+			content.innerHTML = XhrObj.responseText ;
+	}
+	XhrObj.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	
+	XhrObj.send(param);
+}//end position SendData
+</script>
+<h1>{L_title}</h1>
+
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a> 
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+<!-- END OPTION link_delete -->
+</div>
+
+<!-- OPTION L_message_team -->
+<p class="message">{L_message_team}</p>
+<!-- END OPTION L_message_team -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<p class="field_required">* {L_field_required}</p>
+<form name="form_team" action="{form_action}" method="post" onsubmit="javascript:valider_form_team();">
+  <table>
+    <tr> 
+      <th class="field_required">{L_team_name} *</th>
+      <td><select name="team_name" id="team_name">
+	  <option value="">{L_choose_team_name}</option>
+	  <!-- LOOP team_name -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP team_name -->
+      </select>
+	  <a name="add_team_name" href="javascript:pop('{link_team_name_list}',500,400);" class="add">{L_add_team_name}</a>
+	  </td>
+    </tr>
+	<!-- OPTION aff_club -->
+    <tr>
+      <th class="field_required">{L_club} *</th>
+      <td>	  
+	  <select name="club" id="club" OnChange="sendData('&season='+this.form.season_id.value+'&select=coach_list','{link_select_member}','coach');  sendData('&season='+this.form.season_id.value+'&select=player_list','{link_select_member}','player');"  onkeyup="sendData('&season='+this.form.season_id.value+'&select=coach_list','{link_select_member}','coach');  sendData('&season='+this.form.season_id.value+'&select=player_list','{link_select_member}','player');">
+	  <option value="">{L_choose_club}</option>
+	  <!-- LOOP club -->
+	  <option value="{id}" {selected}>{name}</option>
+	  <!-- END LOOP club -->
+      </select>
+	  <a name="add_club" href="javascript:pop('{link_form_club}',600,650);" class="add">{L_add_club}</a>
+	  </td>
+    </tr>	
+	<!-- END OPTION aff_club -->
+    <tr>
+      <th>{L_sex}</th>
+      <td>
+	  <!-- LOOP sex -->
+	  <input name="sex" type="radio" value="{id}" {checked} onclick="sendData('&season='+this.form.season_id.value+'&select=coach_list','{link_select_member}','coach');  sendData('&season='+this.form.season_id.value+'&select=player_list','{link_select_member}','player');" /> {name}
+	  <!-- END LOOP sex -->
+	  <input name="sex" type="radio" value="" {checked_mixte} onclick="sendData('&season='+this.form.season_id.value+'&select=coach_list','{link_select_member}','coach');  sendData('&season='+this.form.season_id.value+'&select=player_list','{link_select_member}','player');" /> {L_mixte}
+	  </td>
+    </tr>
+  </table>
+
+<!-- OPTION aff_season -->
+<h2>{L_composition_team}</h2>
+<ul id="tab">
+<li class="entete">{L_choose_season}</li>
+<!-- LOOP season -->
+<li class="{class}" id="tab{i}"><a href="javascript:afficher_season('season{i}','{i}','{id}');">{abbreviation}</a></li>
+<!-- END LOOP season -->
+</ul>
+
+<script language="javascript" type="text/javascript">
+<!--
+/*********/
+/* COACH */
+/*********/
+var nb_coach = {nb_coach};
+ 
+function addcoach()
+{
+ if(document.form_team.coach_list.value=="")
+ {
+  document.getElementById("erreur_coach").innerHTML = "{L_erreur_coach}";
+  document.getElementById("erreur_coach").style.display = "";
+ }
+ else
+ {   
+  // on recupere les valeurs du formulaire
+  var coach = document.form_team.elements['coach_list'].value;
+  var coach_text = document.form_team.coach_list.options[document.form_team.coach_list.selectedIndex].text;
+  var season_coach = document.form_team.season.value;
+  var season_id_coach = document.form_team.season_id.value;
+
+  // on cree la ligne a add au tableau
+  var div = document.createElement("div"); div.id="coach_"+nb_coach;    
+  document.getElementById("coach_season_"+season_coach).appendChild(div);
+
+  div.innerHTML=coach_text+' <input type="hidden" name="coach['+nb_coach+']" id="coach['+nb_coach+']" value="'+coach+'" /><input type="hidden" name="coach_text['+nb_coach+']" value="'+coach_text+'" /><input type="hidden" name="season_coach['+nb_coach+']" id="season_coach['+nb_coach+']" value="'+season_id_coach+'" /><a href="javascript:delete_coach(\''+nb_coach+'\','+season_coach+');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  nb_coach += 1; 
+  
+  // on supprime le coach de la liste deroulante
+  document.form_team.elements['coach_list'].options[document.form_team.elements['coach_list'].selectedIndex]=null;
+  
+  // on reinitialise les champs du formulaire
+  document.form_team.elements['coach_list'].value="";
+  document.getElementById("erreur_coach").innerHTML ="";
+  document.getElementById("erreur_coach").style.display = "none";
+ }
+}
+
+function delete_coach(i,season) {
+ // on remet l'option dans la liste
+ document.form_team.elements['coach_list'].options[document.form_team.elements['coach_list'].length] = new Option(document.form_team.elements['coach_text['+i+']'].value, document.form_team.elements['coach['+i+']'].value);
+
+ // on supprime
+ var tabid = document.getElementById("coach_season_"+season); 
+ tabid.removeChild(document.getElementById('coach_'+i));
+}
+
+
+/**********/
+/* PLAYER */
+/**********/
+var nb_player = {nb_player};
+ 
+function addplayer()
+{
+ if(document.form_team.player_list.value=="" || document.form_team.position.value=="")
+ {
+  document.getElementById("erreur_player").innerHTML = "{L_erreur_player}";
+  document.getElementById("erreur_player").style.display = "";
+ } 
+ else
+ {   
+  // on recupere les valeurs du formulaire
+  var player = document.form_team.player_list.value;
+  var player_text = document.form_team.player_list.options[document.form_team.player_list.selectedIndex].text;
+  var number_player = document.form_team.number_player.value;
+  var position = document.form_team.position.value;
+  var position_text = document.form_team.position.options[document.form_team.position.selectedIndex].text; 
+  var captain_player = document.form_team.captain_player.value;
+  if(document.form_team.captain_player.checked) { var captain_player="1"; var captain_player_text="{L_yes}"; }
+  else { var captain_player=""; var captain_player_text=""; }
+  var season_player = document.form_team.season.value;
+  var season_id_player = document.form_team.season_id.value;
+  
+  // on cree la ligne a add au tableau
+  var tr = document.createElement("tr"); tr.id="player_"+nb_player;
+  var td0 = document.createElement("td"); td0.innerHTML=number_player; tr.appendChild(td0);
+  var td1 = document.createElement("td"); td1.innerHTML=player_text; tr.appendChild(td1);
+  var td2 = document.createElement("td"); td2.innerHTML=position_text; tr.appendChild(td2);
+  var td3 = document.createElement("td"); td3.innerHTML=captain_player_text; tr.appendChild(td3);
+  var td4 = document.createElement("td"); tr.appendChild(td4);    
+  document.getElementById("player_season_"+season_player).tBodies[0].appendChild(tr);
+
+  td4.innerHTML='<input type="hidden" name="player['+nb_player+']" id="player['+nb_player+']" value="'+player+'" /><input type="hidden" name="player_text['+nb_player+']" value="'+player_text+'" /><input type="hidden" name="number_player['+nb_player+']" value="'+number_player+'" /><input type="hidden" name="position['+nb_player+']" value="'+position+'" /><input type="hidden" name="position_text['+nb_player+']" value="'+position_text+'" /><input type="hidden" name="captain_player['+nb_player+']" value="'+captain_player+'" /><input type="hidden" name="captain_player_text['+nb_player+']" value="'+captain_player_text+'" /><input type="hidden" name="season_player['+nb_player+']" id="season_player['+nb_player+']" value="'+season_id_player+'" /><a href="javascript:delete_player(\''+nb_player+'\','+season_player+');"><img id=\"delete_player\" src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>';	  
+
+  nb_player += 1; 
+  
+  // on supprime le player de la liste deroulante
+  document.form_team.elements['player_list'].options[document.form_team.elements['player_list'].selectedIndex]=null;
+  
+  // on reinitialise les champs du formulaire
+  document.form_team.player_list.value="";
+  document.form_team.number_player.value="";
+  document.form_team.position.value="";
+  document.form_team.position.value="";
+  document.form_team.captain_player.checked="";
+  document.getElementById("erreur_player").innerHTML ="";
+  document.getElementById("erreur_player").style.display = "none";
+  
+  // on desactive les champs club et sex
+  document.forms['form_team'].elements['club'].disabled=true;
+  document.forms['form_team'].elements['sex'].disabled=true;
+  
+ }
+}
+
+function delete_player(i,season) {
+ // on remet l'option dans la liste
+ document.form_team.elements['player_list'].options[document.form_team.elements['player_list'].length] = new Option(document.form_team.elements['player_text['+i+']'].value, document.form_team.elements['player['+i+']'].value);
+
+
+  var tabid = document.getElementById("player_season_"+season); 
+ tabid.tBodies[0].removeChild(document.getElementById('player_'+i));
+ 
+ if(!isset(document.getElementById("delete_player")))
+ {
+  document.forms['form_team'].elements['club'].disabled=false;
+  document.forms['form_team'].elements['sex'].disabled=false; 
+ }
+}
+-->
+</script>
+
+<table width="100%">
+  <tr>
+    <td width="250" valign="top">	
+	<h3>{L_coach}</h3>
+    <div id="erreur_coach"></div>
+	<div id="coach">
+	  <select name="coach_list">
+        <option value="">{L_choose_coach}</option>
+        <!-- LOOP coach -->
+        <option value="{id}">{firstname} {name}</option>
+        <!-- END LOOP coach -->
+        </select>
+		</div>
+          <input name="season" type="hidden" id="season" value="{season_defaut}" />
+		  <input name="season_id" type="hidden" id="season_id" value="{season_id_defaut}" />
+        <input name="add_coach" type="button" id="add_coach" value="{L_add_coach}" onclick="javascript:addcoach();" />
+    </p>
+      <h3>{L_player}</h3>
+      <div id="erreur_player"></div>
+      <table width="100%" border="0" cellpadding="0">
+        <tr>
+          <td>{L_number}</td>
+          <td><input name="number_player" type="text" id="number_player" size="3" maxlength="3" /></td>
+          </tr>
+        <tr>
+          <td valign="top">{L_player}</td>
+          <td>
+		  <div id="player">
+		  <select name="player_list" size="5">
+              <!-- LOOP player -->
+              <option value="{id}">{firstname} {name}</option>
+              <!-- END LOOP player -->
+          </select>
+		  </div></td>
+        </tr>
+        <tr>
+          <td>{L_position}</td>
+          <td><select name="position">
+            <option value="">{L_choose_position}</option>
+            <!-- LOOP position -->
+            <option value="{id}">{name}</option>
+            <!-- END LOOP position -->
+          </select></td>
+          </tr>
+        <tr>
+          <td>{L_captain}</td>
+          <td><input name="captain_player" type="checkbox" value="1" /></td>
+          </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input name="add_player" type="button" id="add_player" value="{L_add_player}" onclick="javascript:addplayer();" /></td>
+          </tr>
+      </table>	  
+      </td>
+    <td valign="top">
+	<!-- LOOP season -->
+	<div id="season{i}" style="display:{display}">
+      <h4>{L_team_coach}</h4>
+      <div id="coach_season_{i}">
+  <!-- LOOP team_coach -->
+  <div id="coach_{i}">
+      {coach_text}
+      <input name="coach[{i}]" type="hidden" id="coach[{i}]" value="{coach}" /><input name="coach_text[{i}]" type="hidden" id="coach_text[{i}]" value="{coach_text}" /><input name="season_coach[{i}]" type="hidden" id="season_coach[{i}]" value="{season_coach}" />
+      <a href="javascript:delete_coach('{i}','{season}');"><img src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a>
+	  </div>
+   <!-- END LOOP team_coach -->
+</div>   
+    <h4>{L_team_player}</h4>
+<table border="0" id="player_season_{i}">
+ <tbody>
+  <!-- LOOP team_player -->
+  <tr id="player_{i}">
+ 	 <td>{number_player}</td>
+      <td>{player_text}</td>	  
+	  <td>{position_text}</td>	 
+	  <td>{captain_player_text}</td> 
+      <td><input name="player[{i}]" type="hidden" id="player[{i}]" value="{player}" /><input name="player_text[{i}]" type="hidden" id="player_text[{i}]" value="{player_text}" /><input name="number_player[{i}]" type="hidden" id="number_player[{i}]" value="{number_player}" /><input name="position[{i}]" type="hidden" id="position[{i}]" value="{position}" /><input name="position_text[{i}]" type="hidden" id="position_text[{i}]" value="{position_text}" /><input name="captain_player[{i}]" type="hidden" id="captain_player[{i}]" value="{captain_player}" /><input name="captain_player_text[{i}]" type="hidden" id="captain_player_text[{i}]" value="{captain_player_text}" /><input name="season_player[{i}]" type="hidden" id="season_player[{i}]" value="{season_player}" />
+        <a href="javascript:delete_player('{i}','{season}');"><img id="delete_player" src="tpl_image/button_drop.png" alt="{L_delete}" width="11" height="13" border="0" /></a></td>
+    </tr>
+   <!-- END LOOP team_player -->
+   </tbody>
+  </table>
+  
+  <h4>{L_photo}</h4>	
+	<input name="photo[{i}]" type="text" value="{photo}" size="40" onfocus="show_image('divphoto{i}','img_photo{i}',this.value);"> <a href="#" onclick="pop('{link_choose_image}','750','600');" class="choose_image">{L_choose_image}</a>
+	  <div id="divphoto{i}" style="display:{display_photo}">	  
+	  <img src="{photo}" id="img_photo{i}" />	  
+	  </div>
+	<br />{L_photo_description}<br />
+	<textarea name="photo_description[{i}]" cols="40" rows="6">{photo_description}</textarea>
+  	<input name="season[{i}]" type="hidden" value="{id}"  />
+	</div>
+	  <!-- END LOOP season -->
+	  </td>
+  </tr>
+</table>
+<!-- END OPTION aff_season -->
+
+<div class="button">
+<input type="hidden" name="id" value="{value_id}">
+<input type="submit" name="submit" value="{L_valider}" />
+</div>  
+</form>
+<!-- END OPTION show_form -->

@@ -1,0 +1,262 @@
+<!-- OPTION pop -->
+<script language="javascript">
+var select_parent = window.opener.document.getElementById("competition");
+var option = window.opener.document.createElement("option");
+var value = window.opener.document.createAttribute("value");
+value.nodeValue="{nouveau_id}";
+option.setAttributeNode(value);
+option.innerHTML="{nouveau_text}";
+select_parent.appendChild(option);
+//select_parent.options[select_parent.length] = new Option('{nouveau_text}','{nouveau_id}');
+select_parent.options[select_parent.length-1].selected = true;
+</script>
+<!-- END OPTION pop -->
+
+<h1>{L_title}
+<!-- OPTION value_name -->
+: {value_name}
+<!-- END OPTION value_name -->
+</h1>
+<div id="action">
+<a href="{link_list}" title="{L_back_list}">{L_back_list}</a> 
+<!-- OPTION link_delete -->
+<a href="javascript:confirmation('{link_delete}');" title="{L_delete}"><img src="../tpl_image/button_drop.png" border="0" alt="{L_delete}" /></a>
+<!-- END OPTION link_delete -->
+</div>
+
+<!-- OPTION L_message_competition -->
+<p class="message">{L_message_competition}</p>
+<!-- END OPTION L_message_competition -->
+				  
+<!-- OPTION erreur -->
+<div id="erreur">
+<p class="erreur-title">{L_erreur}</p>
+<ol class="erreur">  
+<!-- LOOP erreur -->
+<li>{message}</li>
+<!-- END LOOP erreur -->
+</ol>
+</div>
+<!-- END OPTION erreur -->
+
+<!-- OPTION show_form -->
+<p class="field_required">* {L_field_required}</p>
+<form name="form_competition" action="{form_action}" method="post">
+  <table>
+    <tr> 
+      <th class="field_required">{L_name}*</th>
+      <td><input name="name" type="text" value="{value_name}" size="40" /></td>
+    </tr>	
+  </table>
+  
+<script language="javascript">
+var tablist = new Array();
+<!-- LOOP round -->
+tablist[{i}]="round{i}";
+<!-- END LOOP round -->
+
+// nbround will never decrease
+var nbround={nb_round};
+
+function add_round() {
+ // add a new tab
+ var nb_tab=tablist.length;
+ var tab = document.getElementById("tab");
+ var new_tab = document.createElement("li");
+ tablist[nb_tab]="round"+nbround;
+ new_tab.id="tab_round"+nbround;
+ new_tab.className="on";
+ new_tab.innerHTML='<a href="javascript:show_tab(\'round'+nbround+'\',tablist);">['+(nbround+1)+']</a>';
+ tab.appendChild(new_tab); 
+ 
+ // add a new round
+ var div_round_list = document.getElementById("round_list");
+ var div_round = document.createElement("div");
+ var round_model = document.getElementById("round_model");
+ div_round.id="round"+nbround;
+ 
+ var reg = new RegExp(["nbround"],["gi"]);
+ div_round.innerHTML= round_model.innerHTML.replace(reg,nbround);
+ 
+ div_round_list.appendChild(div_round);
+ show_tab('round'+nbround,tablist);
+ nbround++;
+}
+
+// use ajax to count if a round has matches
+function delete_round(id) {
+ var nb_match_round = document.getElementById('nb_match'+id).value;
+ 
+ // we check that the round can be deleted
+ if(nb_match_round > 0) {
+	alert('{L_cant_delete_round}');
+ }
+ else {
+	var div_round_list = document.getElementById("round_list");
+	div_round_list.removeChild(document.getElementById('round'+id));
+	var tab = document.getElementById("tab"); 
+	tab.removeChild(document.getElementById("tab_round"+id)); 
+	 
+	for(var i=0; i < tablist.length; i++) {
+	 if(tablist[i]==('round'+id)) { var index = i; }
+	}
+	tablist.splice(index,"1");
+	
+	if(tablist.length > 0) { show_tab(tablist[0],tablist); }
+	}
+}
+</script>
+
+<p><a href="#" onclick="add_round();" class="add">{L_add_round}</a></p>
+<ul id="tab">
+<!-- LOOP round -->
+<li class="{class}" id="tab_round{i}"><a href="javascript:show_tab('round{i}',tablist);">[{order}] {name}</a></li>
+<!-- END LOOP round -->
+</ul>
+
+ <div id="round_model" style="display:none">
+ <p><a href="javascript:delete_round('nbround');" class="delete">{L_delete}</a></p>
+  <table>
+   <tr>
+    <th>{L_round_name}</th>
+    <td><input type="hidden" name="id_round[nbround]" value="" />
+	<input type="hidden" name="nb_match[nbround]" value="" />
+	<input type="text" name="name_round[nbround]" /></td>
+   </tr>
+   <tr>
+    <th>{L_standings}</th>
+    <td><input type="radio" name="standings[nbround]" value="1" onclick="document.getElementById('point_system[nbround]').style.display='block';" /> {L_yes}
+     <input type="radio" name="standings[nbround]" value="0" onclick="document.getElementById('point_system[nbround]').style.display='none';" checked="checked" /> {L_no} 
+	 <br /><br />
+	
+	<div id="point_system[nbround]" style="display:none">
+    <table>
+	<thead>
+      <tr>
+        <td>{L_point_system}</td>
+        <th>{L_at_home}</th>
+        <th>{L_away}</th>
+      </tr>
+	 </thead>
+      <tr>
+        <th>{L_win}</th>
+        <td><input name="point_win_at_home[nbround]" type="text" size="3" maxlength="3" /></td>
+        <td><input name="point_win_away[nbround]" type="text" size="3" maxlength="3" /></td>
+      </tr>
+      <tr>
+        <th>{L_tie}</th>
+        <td><input name="point_tie_at_home[nbround]" type="text" size="3" maxlength="3" /></td>
+        <td><input name="point_tie_away[nbround]" type="text" size="3" maxlength="3" /></td>
+      </tr>
+      <tr>
+        <th>{L_defeat}</th>
+        <td><input name="point_defeat_at_home[nbround]" type="text" size="3" maxlength="3" /></td>
+        <td><input name="point_defeat_away[nbround]" type="text" size="3" maxlength="3" /></td>
+      </tr>
+    </table>
+    <br />
+	{L_order_team} <select name="order_team[nbround]">
+	<option value=""></option>
+	<!-- LOOP order_team -->
+	<option value="{value}">{name}</option>
+	<!-- END LOOP order_team -->
+	</select>
+	<br />
+	{L_order_team_egality} <select name="order_team_egality[nbround]">
+	<option value=""></option>
+	<!-- LOOP order_team -->
+	<option value="{value}">{name}</option>
+	<!-- END LOOP order_team -->
+	</select>
+	</div>
+	</td>
+  </tr>
+  <tr>
+   <th>{L_nb_group}</th>
+   <td><input name="group[nbround]" type="text" id="group" size="3" maxlength="3" /></td>
+  </tr>
+  <tr>
+   <th>{L_nb_day}</th>
+   <td><input name="day[nbround]" type="text" id="day" size="3" maxlength="3" /></td>
+  </tr>
+  </table>
+  </div>
+ 
+ <div id="round_list">
+ <!-- LOOP round -->
+ <div id="round{i}" style="display:{display_round}">
+  <p><a href="javascript:delete_round('{i}');" class="delete">{L_delete}</a></p>
+
+  <table>
+   <tr>
+    <th class="field_required">{L_round_name}*</th>
+    <td><input type="hidden" name="id_round[{i}]" value="{id}" />
+	<input type="hidden" id="nb_match{i}" name="nb_match[{i}]" value="{nb_match}" />
+	<input name="name_round[{i}]" type="text" value="{name}" /></td>
+   </tr>
+   <tr>
+    <th>{L_standings}</th>
+    <td><input type="radio" name="standings[{i}]" value="1" onclick="document.getElementById('point_system{i}').style.display='block';" {standings_checked_yes} /> {L_yes}
+     <input type="radio" name="standings[{i}]" value="0" onclick="document.getElementById('point_system{i}').style.display='none';" {standings_checked_no} /> {L_no} 
+	 <br /><br />
+	
+	<div id="point_system{i}" style="display:{display_point_system}">
+    <table>
+	<thead>
+      <tr>
+        <td>{L_point_system}</td>
+        <th>{L_at_home}</th>
+        <th>{L_away}</th>
+      </tr>
+	 </thead>
+      <tr>
+        <th>{L_win}</th>
+        <td><input name="point_win_at_home[{i}]" type="text" value="{point_win_at_home}" size="3" maxlength="3" /></td>
+        <td><input name="point_win_away[{i}]" type="text" value="{point_win_away}" size="3" maxlength="3" /></td>
+      </tr>
+      <tr>
+        <th>{L_tie}</th>
+        <td><input name="point_tie_at_home[{i}]" type="text" value="{point_tie_at_home}" size="3" maxlength="3" /></td>
+        <td><input name="point_tie_away[{i}]" type="text" value="{point_tie_away}" size="3" maxlength="3" /></td>
+      </tr>
+      <tr>
+        <th>{L_defeat}</th>
+        <td><input name="point_defeat_at_home[{i}]" type="text" value="{point_defeat_at_home}" size="3" maxlength="3" /></td>
+        <td><input name="point_defeat_away[{i}]" type="text" value="{point_defeat_away}" size="3" maxlength="3" /></td>
+      </tr>
+    </table>
+    <br />
+	{L_order_team} <select name="order_team[{i}]">
+	<option value=""></option>
+	<!-- LOOP order_team -->
+	<option value="{value}" {selected}>{name}</option>
+	<!-- END LOOP order_team -->
+	</select>
+	<br />
+	{L_order_team_egality} <select name="order_team_egality[{i}]">
+	<option value=""></option>
+	<!-- LOOP order_team -->
+	<option value="{value}" {selected_egality}>{name}</option>
+	<!-- END LOOP order_team -->
+	</select>
+	</div>
+	</td>
+  </tr>
+  <tr>
+   <th>{L_nb_group}</th>
+   <td><input name="group[{i}]" type="text" id="group" value="{group}" size="3" maxlength="3" /></td>
+  </tr>
+  <tr>
+   <th>{L_nb_day}</th>
+   <td><input name="day[{i}]" type="text" id="day" value="{day}" size="3" maxlength="3" /></td>
+  </tr>
+  </table>
+  </div>
+   <!-- END LOOP round -->
+  </div>  
+  <div class="button">
+<input type="hidden" name="id" value="{value_id}" />
+<input type="submit" name="submit" value="{L_submit}" onclick="document.getElementById('round_model').innerHTML=''" />
+</div>  
+</form>
+<!-- END OPTION show_form -->
